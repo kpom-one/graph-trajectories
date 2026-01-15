@@ -1,0 +1,64 @@
+"""
+Play card mechanic.
+
+Compute when cards can be played, and execute the play action.
+"""
+import networkx as nx
+from lib.core.graph import get_node_attr
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, ZONE_HAND, ZONE_PLAY, ZONE_DISCARD
+
+
+def compute_can_play(G: nx.MultiDiGraph) -> list[ActionEdge]:
+    """Return CAN_PLAY edges for playable cards in current player's hand."""
+    result = []
+
+    # Get game context
+    ctx = get_game_context(G)
+    if not ctx:
+        return result
+
+    # Get ink_available
+    ink_available = int(get_node_attr(G, ctx['player'], 'ink_available', 0))
+
+    # Find cards in hand
+    cards_in_hand = cards_in_zone(G, ctx['player'], ZONE_HAND)
+
+    # Check each card for playability
+    for card_node in cards_in_hand:
+        card_data = get_card_data(G, card_node)
+        cost = card_data.get('cost', 0)
+
+        if ink_available >= cost:
+            result.append(ActionEdge(
+                src=card_node,
+                dst=ctx['player'],
+                action_type="CAN_PLAY",
+                description=f"play:{card_node}"
+            ))
+
+    return result
+
+
+def execute_play(state, from_node: str, to_node: str) -> None:
+    """Execute play action: move card to play/discard, spend ink, track entered_play turn."""
+    # Get card data and game context
+    card_data = get_card_data(state.graph, from_node)
+    ctx = get_game_context(state.graph)
+
+    # Determine destination zone based on card type
+    zone = ZONE_DISCARD if card_data['type'] == "Action" else ZONE_PLAY
+
+    # Move card from hand to play/discard
+    state.move_card(from_node, zone)
+
+    # Spend ink
+    cost = card_data['cost']
+    ink_available = int(get_node_attr(state.graph, ctx['player'], 'ink_available', 0))
+    state.graph.nodes[ctx['player']]['ink_available'] = str(ink_available - cost)
+
+    # If card entered play zone (not discard), track the turn
+    if zone == ZONE_PLAY:
+        state.graph.nodes[from_node]['entered_play'] = str(ctx['current_turn'])
+        state.graph.nodes[from_node]['exerted'] = '0'
+
+
