@@ -24,15 +24,12 @@ def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
     for card_node in cards_in_play:
         card_data = get_card_data(G, card_node)
 
-        # Only characters can quest
+        # Only characters can quest (4.3.5.1)
         if card_data['type'] != 'Character':
             continue
 
-        # Must have lore to quest
-        if card_data.get('lore', 0) <= 0:
-            continue
-
-        # Must be ready (not exerted)
+        # Must be ready (not exerted) - questing requires exerting (4.3.5.7)
+        # Note: 0-lore characters CAN quest, they just gain 0 lore
         if get_node_attr(G, card_node, 'exerted', '0') == '1':
             continue
 

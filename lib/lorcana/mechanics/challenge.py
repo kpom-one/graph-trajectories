@@ -28,15 +28,12 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
     for challenger in cards_in_play:
         card_data = get_card_data(G, challenger)
 
-        # Only characters can challenge
+        # Only characters can challenge (4.3.6.1)
         if card_data['type'] != 'Character':
             continue
 
-        # Must have strength > 0 to challenge
-        if card_data['strength'] <= 0:
-            continue
-
-        # Must be ready (not exerted)
+        # Must be ready (4.3.6.6: "ready, and otherwise able to challenge")
+        # Note: 0-strength characters CAN challenge, they just deal 0 damage
         if get_node_attr(G, challenger, 'exerted', '0') == '1':
             continue
 
