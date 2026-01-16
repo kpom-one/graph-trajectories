@@ -1,0 +1,5 @@
+0: challenge:p2.chien_po_imperial_soldier.b->p1.the_white_rose_jewel_of_the_garden.b
+1: challenge:p2.simba_protective_cub.b->p1.the_white_rose_jewel_of_the_garden.b
+2: end
+3: quest:p2.chien_po_imperial_soldier.b
+4: quest:p2.simba_protective_cub.b

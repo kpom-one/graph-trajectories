@@ -1,0 +1,18 @@
+# turn: 15
+# current_player: p2
+# lore: p1=9, p2=5
+# action: end
+
+add node p2.jafar_royal_vizier.b card_id=400 damage=0 exerted=0 label=jafar_royal_vizier type=Card zone=hand
+set node game turn=15
+set node p2 ink_available=7 ink_drops=1
+add edge game -> p2 CURRENT_TURN
+add edge game -> step.p2.main CURRENT_STEP
+add edge p2 -> game CAN_PASS action_id=2 action_type=CAN_PASS description=end
+add edge p2.chien_po_imperial_soldier.b -> p1.lena_sabrewing_rebellious_teenager.b CAN_CHALLENGE action_id=0 action_type=CAN_CHALLENGE description=challenge:p2.chien_po_imperial_soldier.b->p1.lena_sabrewing_rebellious_teenager.b
+add edge p2.chien_po_imperial_soldier.b -> p2 CAN_QUEST action_id=4 action_type=CAN_QUEST description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.jafar_royal_vizier.b -> p2 CAN_INK action_id=1 action_type=CAN_INK description=ink:p2.jafar_royal_vizier.b
+add edge p2.jafar_royal_vizier.b -> p2 CAN_PLAY action_id=3 action_type=CAN_PLAY description=play:p2.jafar_royal_vizier.b
+remove edge game -> p1 CURRENT_TURN
+remove edge game -> step.p1.main CURRENT_STEP
+remove edge p1 -> game CAN_PASS

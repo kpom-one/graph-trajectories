@@ -1,0 +1,10 @@
+# turn: 9
+# current_player: p2
+# lore: p1=7, p2=2
+# action: play:p2.jafar_royal_vizier.c
+
+set node p2 ink_available=3
+set node p2.jafar_royal_vizier.c entered_play=9 zone=play
+remove edge p2.chien_po_imperial_soldier.a -> p2 CAN_PLAY
+remove edge p2.jafar_royal_vizier.c -> p2 CAN_PLAY
+set edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_QUEST action_id=2

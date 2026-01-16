@@ -1,0 +1,19 @@
+# turn: 26
+# current_player: p1
+# lore: p1=11, p2=15
+# action: end
+
+add node p1.luisa_madrigal_magically_strong_one.a card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+set node game turn=26
+set node p1 ink_available=10
+add edge game -> p1 CURRENT_TURN
+add edge game -> step.p1.main CURRENT_STEP
+add edge p1 -> game CAN_PASS action_id=3 action_type=CAN_PASS description=end
+add edge p1.luisa_madrigal_magically_strong_one.a -> p1 CAN_PLAY action_id=4 action_type=CAN_PLAY description=play:p1.luisa_madrigal_magically_strong_one.a
+add edge p1.luisa_madrigal_magically_strong_one.d -> p1 CAN_QUEST action_id=5 action_type=CAN_QUEST description=quest:p1.luisa_madrigal_magically_strong_one.d
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.chien_po_imperial_soldier.b CAN_CHALLENGE action_id=0 action_type=CAN_CHALLENGE description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.chien_po_imperial_soldier.b
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.dumptruck_karnage's_second_mate.a CAN_CHALLENGE action_id=1 action_type=CAN_CHALLENGE description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.dumptruck_karnage's_second_mate.a
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.mr._arrow_legacy's_first_mate.d CAN_CHALLENGE action_id=2 action_type=CAN_CHALLENGE description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.mr._arrow_legacy's_first_mate.d
+remove edge game -> p2 CURRENT_TURN
+remove edge game -> step.p2.main CURRENT_STEP
+remove edge p2 -> game CAN_PASS

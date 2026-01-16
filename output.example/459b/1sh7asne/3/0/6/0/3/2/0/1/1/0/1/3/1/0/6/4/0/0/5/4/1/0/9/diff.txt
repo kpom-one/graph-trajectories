@@ -1,0 +1,17 @@
+# turn: 7
+# current_player: p2
+# lore: p1=6, p2=0
+# action: play:p2.jafar_royal_vizier.a
+
+set node p2 ink_available=1
+set node p2.jafar_royal_vizier.a entered_play=7 zone=play
+remove edge p2.genie_satisfied_dragon.c -> p2 CAN_PLAY
+remove edge p2.jafar_royal_vizier.a -> p2 CAN_INK
+remove edge p2.jafar_royal_vizier.a -> p2 CAN_PLAY
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_PLAY
+remove edge p2.prince_naveen_penniless_royal.b -> p2 CAN_PLAY
+set edge p2 -> game CAN_PASS action_id=6
+set edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_INK action_id=3
+set edge p2.prince_eric_dashing_and_brave.d -> p2 CAN_QUEST action_id=7
+set edge p2.prince_naveen_penniless_royal.b -> p2 CAN_INK action_id=4
+set edge p2.stitch_carefree_surfer.c -> p2 CAN_INK action_id=5

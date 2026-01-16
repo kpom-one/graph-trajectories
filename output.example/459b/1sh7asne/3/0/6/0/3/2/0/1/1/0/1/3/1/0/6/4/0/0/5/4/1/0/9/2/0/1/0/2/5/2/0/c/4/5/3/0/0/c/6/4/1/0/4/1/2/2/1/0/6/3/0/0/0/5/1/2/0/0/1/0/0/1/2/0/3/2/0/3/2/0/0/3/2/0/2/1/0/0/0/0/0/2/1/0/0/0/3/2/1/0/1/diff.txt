@@ -1,0 +1,8 @@
+# turn: 24
+# current_player: p1
+# lore: p1=11, p2=11
+# action: play:p1.luisa_madrigal_magically_strong_one.d
+
+set node p1 ink_available=6
+set node p1.luisa_madrigal_magically_strong_one.d entered_play=24 zone=play
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 CAN_PLAY

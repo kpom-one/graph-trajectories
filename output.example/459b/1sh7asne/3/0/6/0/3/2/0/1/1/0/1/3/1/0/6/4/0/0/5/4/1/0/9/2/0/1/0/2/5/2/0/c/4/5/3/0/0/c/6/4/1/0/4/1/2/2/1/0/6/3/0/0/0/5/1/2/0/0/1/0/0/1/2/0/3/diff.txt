@@ -1,0 +1,11 @@
+# turn: 16
+# current_player: p1
+# lore: p1=9, p2=6
+# action: play:p1.the_white_rose_jewel_of_the_garden.b
+
+set node p1 ink_available=5
+set node p1.the_white_rose_jewel_of_the_garden.b entered_play=16 zone=play
+remove edge p1.the_white_rose_jewel_of_the_garden.b -> p1 CAN_INK
+remove edge p1.the_white_rose_jewel_of_the_garden.b -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.b -> p1 CAN_QUEST action_id=2

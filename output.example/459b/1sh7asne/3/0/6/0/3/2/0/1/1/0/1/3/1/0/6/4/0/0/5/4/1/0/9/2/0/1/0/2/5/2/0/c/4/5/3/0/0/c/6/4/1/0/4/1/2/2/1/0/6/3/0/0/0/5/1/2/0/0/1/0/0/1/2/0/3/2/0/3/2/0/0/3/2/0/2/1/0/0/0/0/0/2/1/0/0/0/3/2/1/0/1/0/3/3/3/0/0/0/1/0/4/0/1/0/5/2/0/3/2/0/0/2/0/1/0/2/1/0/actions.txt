@@ -1,0 +1,4 @@
+0: ink:p1.heathcliff_stoic_butler.c
+1: end
+2: play:p1.heathcliff_stoic_butler.c
+3: quest:p1.cogsworth_illuminary_watchman.a

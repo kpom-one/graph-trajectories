@@ -1,0 +1,26 @@
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+add node p1.lena_sabrewing_rebellious_teenager.d card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+add node p1.maleficent_sorceress.a card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+add node p1.pinocchio_star_attraction.a card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+add node p1.tinker_bell_fast_flier.d card_id=1242 damage=0 exerted=0 label=tinker_bell_fast_flier type=Card zone=hand
+add node p1.tor_florist.c card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+add node p1.winnie_the_pooh_hunny_wizard.d card_id=275 damage=0 exerted=0 label=winnie_the_pooh_hunny_wizard type=Card zone=hand
+add node p2.aladdin_cornered_swordsman.b card_id=171 damage=0 exerted=0 label=aladdin_cornered_swordsman type=Card zone=hand
+add node p2.arges_the_cyclops.b card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.chien_po_imperial_soldier.a card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.prince_eric_dashing_and_brave.a card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+add node p2.prince_naveen_penniless_royal.b card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+add node p2.prince_naveen_penniless_royal.d card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+add node p2.stitch_carefree_surfer.c card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+add edge p1.cauldron_born_mindless_horde.d -> p1 CAN_INK action_id=0 action_type=CAN_INK description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.lena_sabrewing_rebellious_teenager.d -> p1 CAN_INK action_id=1 action_type=CAN_INK description=ink:p1.lena_sabrewing_rebellious_teenager.d
+add edge p1.maleficent_sorceress.a -> p1 CAN_INK action_id=2 action_type=CAN_INK description=ink:p1.maleficent_sorceress.a
+add edge p1.tinker_bell_fast_flier.d -> p1 CAN_INK action_id=3 action_type=CAN_INK description=ink:p1.tinker_bell_fast_flier.d
+add edge p1.tor_florist.c -> p1 CAN_INK action_id=4 action_type=CAN_INK description=ink:p1.tor_florist.c
+add edge p1.winnie_the_pooh_hunny_wizard.d -> p1 CAN_INK action_id=5 action_type=CAN_INK description=ink:p1.winnie_the_pooh_hunny_wizard.d
+set edge p1 -> game CAN_PASS action_id=6

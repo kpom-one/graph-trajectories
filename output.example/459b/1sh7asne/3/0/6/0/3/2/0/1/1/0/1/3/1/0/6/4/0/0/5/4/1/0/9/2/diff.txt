@@ -1,0 +1,15 @@
+# turn: 7
+# current_player: p2
+# lore: p1=6, p2=0
+# action: ink:p2.genie_satisfied_dragon.c
+
+set node p2 ink_available=2 ink_drops=0 ink_total=4
+set node p2.genie_satisfied_dragon.c zone=ink
+add edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_PLAY action_id=2 action_type=CAN_PLAY description=play:p2.prince_eric_dashing_and_brave.a
+remove edge p2.chien_po_imperial_soldier.a -> p2 CAN_INK
+remove edge p2.genie_satisfied_dragon.c -> p2 CAN_INK
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_INK
+remove edge p2.prince_naveen_penniless_royal.b -> p2 CAN_INK
+remove edge p2.stitch_carefree_surfer.c -> p2 CAN_INK
+set edge p2 -> game CAN_PASS action_id=1
+set edge p2.prince_eric_dashing_and_brave.d -> p2 CAN_QUEST action_id=3

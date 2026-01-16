@@ -1,0 +1,10 @@
+# turn: 8
+# current_player: p1
+# lore: p1=7, p2=0
+# action: play:p1.luisa_madrigal_magically_strong_one.b
+
+set node p1 ink_available=1
+set node p1.luisa_madrigal_magically_strong_one.b entered_play=8 zone=play
+remove edge p1.cauldron_born_mindless_horde.c -> p1 CAN_PLAY
+remove edge p1.luisa_madrigal_magically_strong_one.b -> p1 CAN_PLAY
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 CAN_PLAY

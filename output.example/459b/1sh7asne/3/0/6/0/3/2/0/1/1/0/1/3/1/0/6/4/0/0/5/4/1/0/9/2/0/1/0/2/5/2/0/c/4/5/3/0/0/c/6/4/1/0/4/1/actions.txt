@@ -1,0 +1,7 @@
+0: ink:p2.chien_po_imperial_soldier.a
+1: ink:p2.mulan_free_spirit.d
+2: ink:p2.stitch_carefree_surfer.c
+3: end
+4: play:p2.chien_po_imperial_soldier.a
+5: play:p2.mulan_free_spirit.d
+6: quest:p2.jafar_royal_vizier.a

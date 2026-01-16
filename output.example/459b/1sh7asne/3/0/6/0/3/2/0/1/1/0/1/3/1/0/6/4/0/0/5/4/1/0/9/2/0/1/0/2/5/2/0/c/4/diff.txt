@@ -1,0 +1,17 @@
+# turn: 9
+# current_player: p2
+# lore: p1=7, p2=1
+# action: ink:p2.prince_naveen_penniless_royal.b
+
+set node p2 ink_available=5 ink_drops=0 ink_total=5
+set node p2.prince_naveen_penniless_royal.b zone=ink
+add edge p2.chien_po_imperial_soldier.a -> p2 CAN_PLAY action_id=3 action_type=CAN_PLAY description=play:p2.chien_po_imperial_soldier.a
+remove edge p2.chien_po_imperial_soldier.a -> p2 CAN_INK
+remove edge p2.jafar_royal_vizier.c -> p2 CAN_INK
+remove edge p2.prince_naveen_penniless_royal.b -> p2 CAN_INK
+remove edge p2.prince_naveen_penniless_royal.b -> p2 CAN_PLAY
+remove edge p2.stitch_carefree_surfer.c -> p2 CAN_INK
+set edge p2 -> game CAN_PASS action_id=2
+set edge p2.jafar_royal_vizier.a -> p2 CAN_QUEST action_id=5
+set edge p2.jafar_royal_vizier.c -> p2 CAN_PLAY action_id=4
+set edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_QUEST action_id=6

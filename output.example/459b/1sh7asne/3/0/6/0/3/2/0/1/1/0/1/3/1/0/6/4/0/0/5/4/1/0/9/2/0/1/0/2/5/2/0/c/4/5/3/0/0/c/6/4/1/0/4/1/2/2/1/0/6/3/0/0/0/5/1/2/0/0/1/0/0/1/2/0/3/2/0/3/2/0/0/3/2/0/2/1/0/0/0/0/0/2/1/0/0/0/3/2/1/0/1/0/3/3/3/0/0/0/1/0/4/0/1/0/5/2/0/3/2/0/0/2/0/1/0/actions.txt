@@ -1,0 +1,6 @@
+0: challenge:p2.genie_satisfied_dragon.a->p1.cogsworth_illuminary_watchman.a
+1: challenge:p2.genie_satisfied_dragon.a->p1.luisa_madrigal_magically_strong_one.a
+2: ink:p2.stitch_carefree_surfer.d
+3: end
+4: play:p2.stitch_carefree_surfer.d
+5: quest:p2.genie_satisfied_dragon.a

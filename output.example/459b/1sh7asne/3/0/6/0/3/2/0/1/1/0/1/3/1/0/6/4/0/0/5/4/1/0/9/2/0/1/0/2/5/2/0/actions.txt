@@ -1,0 +1,13 @@
+0: challenge:p2.jafar_royal_vizier.a->p1.lena_sabrewing_rebellious_teenager.d
+1: challenge:p2.prince_eric_dashing_and_brave.a->p1.lena_sabrewing_rebellious_teenager.d
+2: challenge:p2.prince_eric_dashing_and_brave.d->p1.lena_sabrewing_rebellious_teenager.d
+3: ink:p2.chien_po_imperial_soldier.a
+4: ink:p2.jafar_royal_vizier.c
+5: ink:p2.prince_naveen_penniless_royal.b
+6: ink:p2.stitch_carefree_surfer.c
+7: end
+8: play:p2.jafar_royal_vizier.c
+9: play:p2.prince_naveen_penniless_royal.b
+a: quest:p2.jafar_royal_vizier.a
+b: quest:p2.prince_eric_dashing_and_brave.a
+c: quest:p2.prince_eric_dashing_and_brave.d

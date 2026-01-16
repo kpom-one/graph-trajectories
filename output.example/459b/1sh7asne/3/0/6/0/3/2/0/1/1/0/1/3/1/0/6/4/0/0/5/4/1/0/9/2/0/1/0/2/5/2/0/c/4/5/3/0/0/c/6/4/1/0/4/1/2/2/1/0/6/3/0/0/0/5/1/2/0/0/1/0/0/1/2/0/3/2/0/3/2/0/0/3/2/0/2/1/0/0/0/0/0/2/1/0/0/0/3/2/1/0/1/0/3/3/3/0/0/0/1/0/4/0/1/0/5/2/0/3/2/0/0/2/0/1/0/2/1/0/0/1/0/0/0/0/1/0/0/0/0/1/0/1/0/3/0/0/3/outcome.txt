@@ -1,0 +1,3 @@
+winner: p2
+p1_lore: 17
+p2_lore: 20

@@ -1,0 +1,11 @@
+# turn: 4
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.pinocchio_star_attraction.c
+
+set node p1 ink_available=1
+set node p1.pinocchio_star_attraction.c entered_play=4 zone=play
+remove edge p1.lena_sabrewing_rebellious_teenager.d -> p1 CAN_PLAY
+remove edge p1.maleficent_sorceress.a -> p1 CAN_PLAY
+remove edge p1.pinocchio_star_attraction.c -> p1 CAN_PLAY
+set edge p1.pinocchio_star_attraction.a -> p1 CAN_QUEST action_id=1

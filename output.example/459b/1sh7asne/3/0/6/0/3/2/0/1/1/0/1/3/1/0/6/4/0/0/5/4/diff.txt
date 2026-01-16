@@ -1,0 +1,8 @@
+# turn: 6
+# current_player: p1
+# lore: p1=6, p2=0
+# action: quest:p1.pinocchio_star_attraction.c
+
+set node p1 lore=6
+set node p1.pinocchio_star_attraction.c exerted=1
+remove edge p1.pinocchio_star_attraction.c -> p1 CAN_QUEST

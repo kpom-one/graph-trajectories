@@ -1,0 +1,10 @@
+# turn: 9
+# current_player: p2
+# lore: p1=7, p2=2
+# action: challenge:p2.prince_eric_dashing_and_brave.a->p1.lena_sabrewing_rebellious_teenager.d
+
+set node p1.lena_sabrewing_rebellious_teenager.d damage=1
+set node p2.prince_eric_dashing_and_brave.a damage=1 exerted=1
+remove edge p2.prince_eric_dashing_and_brave.a -> p1.lena_sabrewing_rebellious_teenager.d CAN_CHALLENGE
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_QUEST
+set edge p2 -> game CAN_PASS action_id=0

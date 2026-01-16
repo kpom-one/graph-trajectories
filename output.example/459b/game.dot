@@ -1,0 +1,18 @@
+digraph "lorcana" {
+game [type="Game", turn="0"];
+p1 [type="Player", lore="0", ink_drops="1", ink_total="0", ink_available="0"];
+p2 [type="Player", lore="0", ink_drops="1", ink_total="0", ink_available="0"];
+"step.p1.ready" [type="Step", player="p1", step="ready"];
+"step.p1.set" [type="Step", player="p1", step="set"];
+"step.p1.draw" [type="Step", player="p1", step="draw"];
+"step.p1.main" [type="Step", player="p1", step="main"];
+"step.p1.end" [type="Step", player="p1", step="end"];
+"step.p2.ready" [type="Step", player="p2", step="ready"];
+"step.p2.set" [type="Step", player="p2", step="set"];
+"step.p2.draw" [type="Step", player="p2", step="draw"];
+"step.p2.main" [type="Step", player="p2", step="main"];
+"step.p2.end" [type="Step", player="p2", step="end"];
+game -> p1 [key=0, label="CURRENT_TURN"];
+game -> "step.p1.main" [key=0, label="CURRENT_STEP"];
+p1 -> game [key=0, action_type="CAN_PASS", action_id=0, description=end];
+}

@@ -1,0 +1,16 @@
+# turn: 13
+# current_player: p2
+# lore: p1=9, p2=3
+# action: challenge:p2.jafar_royal_vizier.a->p1.winnie_the_pooh_hunny_wizard.d
+
+set node p1.winnie_the_pooh_hunny_wizard.d damage=3
+set node p2.jafar_royal_vizier.a damage=5 exerted=1 zone=discard
+remove edge p2.jafar_royal_vizier.a -> p1.winnie_the_pooh_hunny_wizard.d CAN_CHALLENGE
+remove edge p2.jafar_royal_vizier.a -> p2 CAN_QUEST
+set edge p2 -> game CAN_PASS action_id=3
+set edge p2.chien_po_imperial_soldier.a -> p2 CAN_INK action_id=1
+set edge p2.chien_po_imperial_soldier.a -> p2 CAN_PLAY action_id=4
+set edge p2.chien_po_imperial_soldier.b -> p2 CAN_INK action_id=2
+set edge p2.chien_po_imperial_soldier.b -> p2 CAN_PLAY action_id=5
+set edge p2.mulan_free_spirit.d -> p1.winnie_the_pooh_hunny_wizard.d CAN_CHALLENGE action_id=0
+set edge p2.mulan_free_spirit.d -> p2 CAN_QUEST action_id=6

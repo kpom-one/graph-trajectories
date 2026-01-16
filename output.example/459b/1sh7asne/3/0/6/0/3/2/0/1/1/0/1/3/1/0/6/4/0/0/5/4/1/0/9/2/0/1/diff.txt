@@ -1,0 +1,8 @@
+# turn: 7
+# current_player: p2
+# lore: p1=6, p2=0
+# action: play:p2.prince_eric_dashing_and_brave.a
+
+set node p2 ink_available=0
+set node p2.prince_eric_dashing_and_brave.a entered_play=7 zone=play
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_PLAY

@@ -1,0 +1,7 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.b->p2.mulan_free_spirit.d
+1: challenge:p1.winnie_the_pooh_hunny_wizard.d->p2.mulan_free_spirit.d
+2: ink:p1.winnie_the_pooh_hunny_wizard.c
+3: end
+4: play:p1.winnie_the_pooh_hunny_wizard.c
+5: quest:p1.lena_sabrewing_rebellious_teenager.b
+6: quest:p1.winnie_the_pooh_hunny_wizard.d

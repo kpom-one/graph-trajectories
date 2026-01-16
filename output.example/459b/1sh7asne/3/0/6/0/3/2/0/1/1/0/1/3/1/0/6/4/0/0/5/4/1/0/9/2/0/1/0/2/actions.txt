@@ -1,0 +1,6 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.prince_eric_dashing_and_brave.d
+1: end
+2: play:p1.cauldron_born_mindless_horde.c
+3: play:p1.luisa_madrigal_magically_strong_one.b
+4: play:p1.winnie_the_pooh_hunny_wizard.d
+5: quest:p1.lena_sabrewing_rebellious_teenager.d

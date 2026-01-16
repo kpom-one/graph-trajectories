@@ -1,0 +1,10 @@
+0: challenge:p2.jafar_royal_vizier.a->p1.luisa_madrigal_magically_strong_one.b
+1: challenge:p2.jafar_royal_vizier.c->p1.luisa_madrigal_magically_strong_one.b
+2: ink:p2.chien_po_imperial_soldier.a
+3: ink:p2.mulan_free_spirit.d
+4: ink:p2.stitch_carefree_surfer.c
+5: end
+6: play:p2.chien_po_imperial_soldier.a
+7: play:p2.mulan_free_spirit.d
+8: quest:p2.jafar_royal_vizier.a
+9: quest:p2.jafar_royal_vizier.c

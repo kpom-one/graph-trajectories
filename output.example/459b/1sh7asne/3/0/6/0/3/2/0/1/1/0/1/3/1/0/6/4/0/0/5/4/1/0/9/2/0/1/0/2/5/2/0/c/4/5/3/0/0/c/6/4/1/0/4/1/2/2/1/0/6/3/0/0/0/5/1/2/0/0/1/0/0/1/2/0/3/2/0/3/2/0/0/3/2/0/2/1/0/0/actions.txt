@@ -1,0 +1,5 @@
+0: challenge:p1.fred_mascot_by_day.b->p2.chien_po_imperial_soldier.b
+1: ink:p1.chip_the_teacup_gentle_soul.b
+2: end
+3: play:p1.chip_the_teacup_gentle_soul.b
+4: quest:p1.fred_mascot_by_day.b

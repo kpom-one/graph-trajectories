@@ -1,0 +1,5 @@
+0: challenge:p2.chien_po_imperial_soldier.b->p1.lena_sabrewing_rebellious_teenager.b
+1: ink:p2.simba_protective_cub.b
+2: end
+3: play:p2.simba_protective_cub.b
+4: quest:p2.chien_po_imperial_soldier.b

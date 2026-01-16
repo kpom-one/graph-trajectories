@@ -1,0 +1,5 @@
+0: ink:p2.prince_eric_dashing_and_brave.c
+1: end
+2: play:p2.prince_eric_dashing_and_brave.c
+3: quest:p2.dumptruck_karnage's_second_mate.a
+4: quest:p2.mr._arrow_legacy's_first_mate.d

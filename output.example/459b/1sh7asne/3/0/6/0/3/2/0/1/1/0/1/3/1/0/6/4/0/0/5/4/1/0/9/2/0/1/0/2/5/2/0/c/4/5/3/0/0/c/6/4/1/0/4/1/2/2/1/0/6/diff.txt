@@ -1,0 +1,14 @@
+# turn: 12
+# current_player: p1
+# lore: p1=9, p2=3
+# action: quest:p1.winnie_the_pooh_hunny_wizard.d
+
+set node p1 lore=9
+set node p1.winnie_the_pooh_hunny_wizard.d exerted=1
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 CAN_QUEST
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p2.jafar_royal_vizier.a CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.b -> p1 CAN_INK action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.b -> p1 CAN_PLAY action_id=3
+set edge p1.maleficent_sorceress.b -> p1 CAN_INK action_id=1
+set edge p1.maleficent_sorceress.b -> p1 CAN_PLAY action_id=4

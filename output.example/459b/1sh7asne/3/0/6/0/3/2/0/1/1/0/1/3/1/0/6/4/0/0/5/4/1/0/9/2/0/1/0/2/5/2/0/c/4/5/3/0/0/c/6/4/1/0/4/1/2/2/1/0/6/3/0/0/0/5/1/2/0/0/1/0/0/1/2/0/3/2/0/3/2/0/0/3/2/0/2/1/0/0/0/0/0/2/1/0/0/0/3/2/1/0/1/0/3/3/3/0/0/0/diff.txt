@@ -1,0 +1,13 @@
+# turn: 26
+# current_player: p1
+# lore: p1=11, p2=15
+# action: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.chien_po_imperial_soldier.b
+
+set node p1.luisa_madrigal_magically_strong_one.d damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.b damage=9 zone=discard
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 CAN_QUEST
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p2.chien_po_imperial_soldier.b CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p2.dumptruck_karnage's_second_mate.a CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p2.mr._arrow_legacy's_first_mate.d CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 CAN_PLAY action_id=1

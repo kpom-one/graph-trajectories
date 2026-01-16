@@ -1,0 +1,5 @@
+0: challenge:p1.cogsworth_illuminary_watchman.a->p2.dumptruck_karnage's_second_mate.a
+1: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.dumptruck_karnage's_second_mate.a
+2: end
+3: quest:p1.cogsworth_illuminary_watchman.a
+4: quest:p1.luisa_madrigal_magically_strong_one.a

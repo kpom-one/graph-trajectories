@@ -1,0 +1,4 @@
+0: ink:p1.lena_sabrewing_rebellious_teenager.a
+1: end
+2: play:p1.lena_sabrewing_rebellious_teenager.a
+3: quest:p1.cogsworth_illuminary_watchman.a

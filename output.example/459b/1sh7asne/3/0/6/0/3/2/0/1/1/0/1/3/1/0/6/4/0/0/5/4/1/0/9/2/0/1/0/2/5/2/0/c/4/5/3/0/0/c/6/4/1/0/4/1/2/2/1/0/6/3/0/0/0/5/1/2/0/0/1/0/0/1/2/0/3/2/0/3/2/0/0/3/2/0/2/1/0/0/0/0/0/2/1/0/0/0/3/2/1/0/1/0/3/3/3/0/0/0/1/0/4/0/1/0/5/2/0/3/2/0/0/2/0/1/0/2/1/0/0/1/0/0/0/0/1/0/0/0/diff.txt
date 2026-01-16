@@ -1,0 +1,18 @@
+# turn: 36
+# current_player: p1
+# lore: p1=15, p2=19
+# action: end
+
+add node p1.kuzco_wanted_llama.d card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=36
+set node p1 ink_drops=1
+set node p1.cogsworth_illuminary_watchman.a exerted=0
+add edge game -> p1 CURRENT_TURN
+add edge game -> step.p1.main CURRENT_STEP
+add edge p1 -> game CAN_PASS action_id=1 action_type=CAN_PASS description=end
+add edge p1.cogsworth_illuminary_watchman.a -> p1 CAN_QUEST action_id=3 action_type=CAN_QUEST description=quest:p1.cogsworth_illuminary_watchman.a
+add edge p1.kuzco_wanted_llama.d -> p1 CAN_INK action_id=0 action_type=CAN_INK description=ink:p1.kuzco_wanted_llama.d
+add edge p1.kuzco_wanted_llama.d -> p1 CAN_PLAY action_id=2 action_type=CAN_PLAY description=play:p1.kuzco_wanted_llama.d
+remove edge game -> p2 CURRENT_TURN
+remove edge game -> step.p2.main CURRENT_STEP
+remove edge p2 -> game CAN_PASS

@@ -1,0 +1,10 @@
+# turn: 20
+# current_player: p1
+# lore: p1=11, p2=7
+# action: ink:p1.chip_the_teacup_gentle_soul.b
+
+set node p1 ink_available=9 ink_drops=0 ink_total=9
+set node p1.chip_the_teacup_gentle_soul.b zone=ink
+remove edge p1.chip_the_teacup_gentle_soul.b -> p1 CAN_INK
+remove edge p1.chip_the_teacup_gentle_soul.b -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=0

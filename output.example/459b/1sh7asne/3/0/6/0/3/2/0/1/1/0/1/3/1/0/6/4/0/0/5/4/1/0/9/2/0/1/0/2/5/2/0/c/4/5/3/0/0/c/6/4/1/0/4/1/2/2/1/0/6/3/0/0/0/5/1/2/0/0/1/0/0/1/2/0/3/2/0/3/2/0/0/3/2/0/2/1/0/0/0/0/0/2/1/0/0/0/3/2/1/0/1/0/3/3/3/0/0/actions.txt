@@ -1,0 +1,6 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.chien_po_imperial_soldier.b
+1: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.dumptruck_karnage's_second_mate.a
+2: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.mr._arrow_legacy's_first_mate.d
+3: end
+4: play:p1.luisa_madrigal_magically_strong_one.a
+5: quest:p1.luisa_madrigal_magically_strong_one.d

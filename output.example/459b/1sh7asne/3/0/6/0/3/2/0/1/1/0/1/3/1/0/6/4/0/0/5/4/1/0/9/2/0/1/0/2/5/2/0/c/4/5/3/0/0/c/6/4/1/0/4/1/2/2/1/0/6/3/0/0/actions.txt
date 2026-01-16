@@ -1,0 +1,9 @@
+0: challenge:p2.jafar_royal_vizier.a->p1.winnie_the_pooh_hunny_wizard.d
+1: challenge:p2.mulan_free_spirit.d->p1.winnie_the_pooh_hunny_wizard.d
+2: ink:p2.chien_po_imperial_soldier.a
+3: ink:p2.chien_po_imperial_soldier.b
+4: end
+5: play:p2.chien_po_imperial_soldier.a
+6: play:p2.chien_po_imperial_soldier.b
+7: quest:p2.jafar_royal_vizier.a
+8: quest:p2.mulan_free_spirit.d

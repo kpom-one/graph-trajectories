@@ -1,0 +1,8 @@
+0: ink:p1.cauldron_born_mindless_horde.c
+1: ink:p1.lena_sabrewing_rebellious_teenager.d
+2: ink:p1.maleficent_sorceress.a
+3: ink:p1.winnie_the_pooh_hunny_wizard.d
+4: end
+5: play:p1.lena_sabrewing_rebellious_teenager.d
+6: play:p1.maleficent_sorceress.a
+7: quest:p1.pinocchio_star_attraction.c

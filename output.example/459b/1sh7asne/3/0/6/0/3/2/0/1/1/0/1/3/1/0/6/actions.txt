@@ -1,0 +1,7 @@
+0: challenge:p2.aladdin_cornered_swordsman.b->p1.pinocchio_star_attraction.a
+1: end
+2: play:p2.genie_satisfied_dragon.c
+3: play:p2.prince_eric_dashing_and_brave.a
+4: play:p2.prince_eric_dashing_and_brave.d
+5: play:p2.prince_naveen_penniless_royal.b
+6: quest:p2.aladdin_cornered_swordsman.b

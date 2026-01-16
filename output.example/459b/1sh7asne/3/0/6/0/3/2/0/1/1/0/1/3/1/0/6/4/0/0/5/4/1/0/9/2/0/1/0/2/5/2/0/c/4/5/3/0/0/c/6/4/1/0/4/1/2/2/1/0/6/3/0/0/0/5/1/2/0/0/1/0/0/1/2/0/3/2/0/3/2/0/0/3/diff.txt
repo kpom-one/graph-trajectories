@@ -1,0 +1,11 @@
+# turn: 18
+# current_player: p1
+# lore: p1=10, p2=7
+# action: play:p1.fred_mascot_by_day.b
+
+set node p1 ink_available=7
+set node p1.fred_mascot_by_day.b entered_play=18 zone=play
+remove edge p1.fred_mascot_by_day.b -> p1 CAN_INK
+remove edge p1.fred_mascot_by_day.b -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=1
+set edge p1.the_white_rose_jewel_of_the_garden.b -> p1 CAN_QUEST action_id=2

@@ -1,0 +1,7 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.b->p2.chien_po_imperial_soldier.b
+1: challenge:p1.the_white_rose_jewel_of_the_garden.b->p2.chien_po_imperial_soldier.b
+2: ink:p1.fred_mascot_by_day.b
+3: end
+4: play:p1.fred_mascot_by_day.b
+5: quest:p1.lena_sabrewing_rebellious_teenager.b
+6: quest:p1.the_white_rose_jewel_of_the_garden.b

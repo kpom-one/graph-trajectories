@@ -1,0 +1,10 @@
+# turn: 14
+# current_player: p1
+# lore: p1=9, p2=5
+# action: challenge:p1.winnie_the_pooh_hunny_wizard.d->p2.mulan_free_spirit.d
+
+set node p1.winnie_the_pooh_hunny_wizard.d damage=5 exerted=1 zone=discard
+set node p2.mulan_free_spirit.d damage=6 zone=discard
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 CAN_QUEST
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p2.mulan_free_spirit.d CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=0

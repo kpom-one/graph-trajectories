@@ -1,0 +1,15 @@
+# turn: 10
+# current_player: p1
+# lore: p1=7, p2=2
+# action: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.prince_eric_dashing_and_brave.a
+
+set node p1.luisa_madrigal_magically_strong_one.b damage=1 exerted=1
+set node p2.prince_eric_dashing_and_brave.a damage=5 zone=discard
+remove edge p1.lena_sabrewing_rebellious_teenager.d -> p2.prince_eric_dashing_and_brave.a CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.b -> p1 CAN_QUEST
+remove edge p1.luisa_madrigal_magically_strong_one.b -> p2.jafar_royal_vizier.a CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.b -> p2.prince_eric_dashing_and_brave.a CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.b -> p2.prince_eric_dashing_and_brave.d CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p1 CAN_QUEST action_id=3
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p2.prince_eric_dashing_and_brave.d CAN_CHALLENGE action_id=1

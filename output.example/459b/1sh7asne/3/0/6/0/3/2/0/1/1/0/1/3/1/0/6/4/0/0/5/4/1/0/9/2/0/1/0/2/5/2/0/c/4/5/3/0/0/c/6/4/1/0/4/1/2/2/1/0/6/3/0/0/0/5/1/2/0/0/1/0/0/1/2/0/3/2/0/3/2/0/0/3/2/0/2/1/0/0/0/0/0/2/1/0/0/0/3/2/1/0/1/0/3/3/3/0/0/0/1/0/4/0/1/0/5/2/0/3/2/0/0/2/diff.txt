@@ -1,0 +1,12 @@
+# turn: 30
+# current_player: p1
+# lore: p1=12, p2=19
+# action: ink:p1.maleficent_sorceress.c
+
+set node p1 ink_available=11 ink_drops=0 ink_total=11
+set node p1.maleficent_sorceress.c zone=ink
+remove edge p1.maleficent_sorceress.c -> p1 CAN_INK
+remove edge p1.maleficent_sorceress.c -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=2
+set edge p1.cogsworth_illuminary_watchman.a -> p1 CAN_QUEST action_id=3
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 CAN_QUEST action_id=4

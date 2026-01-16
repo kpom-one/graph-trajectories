@@ -1,0 +1,3 @@
+0: challenge:p2.mr._arrow_legacy's_first_mate.d->p1.luisa_madrigal_magically_strong_one.a
+1: end
+2: quest:p2.mr._arrow_legacy's_first_mate.d

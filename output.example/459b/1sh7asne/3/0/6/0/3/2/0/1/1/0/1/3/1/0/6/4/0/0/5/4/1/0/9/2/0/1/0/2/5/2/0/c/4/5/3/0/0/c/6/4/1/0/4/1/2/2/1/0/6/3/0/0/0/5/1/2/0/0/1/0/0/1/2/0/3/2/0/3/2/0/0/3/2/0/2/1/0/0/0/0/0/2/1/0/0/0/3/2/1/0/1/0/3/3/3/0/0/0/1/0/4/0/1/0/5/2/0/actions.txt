@@ -1,0 +1,6 @@
+0: challenge:p2.mr._arrow_legacy's_first_mate.d->p1.luisa_madrigal_magically_strong_one.a
+1: ink:p2.genie_satisfied_dragon.a
+2: end
+3: play:p2.genie_satisfied_dragon.a
+4: quest:p2.dumptruck_karnage's_second_mate.a
+5: quest:p2.mr._arrow_legacy's_first_mate.d

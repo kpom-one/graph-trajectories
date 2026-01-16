@@ -1,0 +1,32 @@
+digraph "lorcana" {
+game [type="Game", turn="0"];
+p1 [type="Player", lore="0", ink_drops=0, ink_total=1, ink_available=1];
+p2 [type="Player", lore="0", ink_drops="1", ink_total="0", ink_available="0"];
+"step.p1.ready" [type="Step", player="p1", step="ready"];
+"step.p1.set" [type="Step", player="p1", step="set"];
+"step.p1.draw" [type="Step", player="p1", step="draw"];
+"step.p1.main" [type="Step", player="p1", step="main"];
+"step.p1.end" [type="Step", player="p1", step="end"];
+"step.p2.ready" [type="Step", player="p2", step="ready"];
+"step.p2.set" [type="Step", player="p2", step="set"];
+"step.p2.draw" [type="Step", player="p2", step="draw"];
+"step.p2.main" [type="Step", player="p2", step="main"];
+"step.p2.end" [type="Step", player="p2", step="end"];
+"p1.pinocchio_star_attraction.a" [type=Card, card_id=272, exerted=0, damage=0, label="pinocchio_star_attraction", zone=hand];
+"p1.tinker_bell_fast_flier.d" [type=Card, card_id=1242, exerted=0, damage=0, label="tinker_bell_fast_flier", zone=ink];
+"p1.tor_florist.c" [type=Card, card_id=782, exerted=0, damage=0, label="tor_florist", zone=hand];
+"p1.cauldron_born_mindless_horde.d" [type=Card, card_id=2228, exerted=0, damage=0, label="cauldron_born_mindless_horde", zone=hand];
+"p1.maleficent_sorceress.a" [type=Card, card_id=49, exerted=0, damage=0, label="maleficent_sorceress", zone=hand];
+"p1.lena_sabrewing_rebellious_teenager.d" [type=Card, card_id=479, exerted=0, damage=0, label="lena_sabrewing_rebellious_teenager", zone=hand];
+"p1.winnie_the_pooh_hunny_wizard.d" [type=Card, card_id=275, exerted=0, damage=0, label="winnie_the_pooh_hunny_wizard", zone=hand];
+"p2.prince_naveen_penniless_royal.d" [type=Card, card_id=407, exerted=0, damage=0, label="prince_naveen_penniless_royal", zone=hand];
+"p2.prince_naveen_penniless_royal.b" [type=Card, card_id=407, exerted=0, damage=0, label="prince_naveen_penniless_royal", zone=hand];
+"p2.aladdin_cornered_swordsman.b" [type=Card, card_id=171, exerted=0, damage=0, label="aladdin_cornered_swordsman", zone=hand];
+"p2.prince_eric_dashing_and_brave.a" [type=Card, card_id=187, exerted=0, damage=0, label="prince_eric_dashing_and_brave", zone=hand];
+"p2.stitch_carefree_surfer.c" [type=Card, card_id=21, exerted=0, damage=0, label="stitch_carefree_surfer", zone=hand];
+"p2.chien_po_imperial_soldier.a" [type=Card, card_id=869, exerted=0, damage=0, label="chien_po_imperial_soldier", zone=hand];
+"p2.arges_the_cyclops.b" [type=Card, card_id=864, exerted=0, damage=0, label="arges_the_cyclops", zone=hand];
+game -> p1 [key=0, label="CURRENT_TURN"];
+game -> "step.p1.main" [key=0, label="CURRENT_STEP"];
+p1 -> game [key=0, action_type="CAN_PASS", action_id=0, description=end];
+}

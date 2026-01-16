@@ -1,0 +1,11 @@
+# turn: 27
+# current_player: p2
+# lore: p1=11, p2=17
+# action: ink:p2.prince_eric_dashing_and_brave.c
+
+set node p2 ink_available=11 ink_drops=0 ink_total=11
+set node p2.prince_eric_dashing_and_brave.c zone=ink
+remove edge p2.prince_eric_dashing_and_brave.c -> p2 CAN_INK
+remove edge p2.prince_eric_dashing_and_brave.c -> p2 CAN_PLAY
+set edge p2 -> game CAN_PASS action_id=0
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 CAN_QUEST action_id=1

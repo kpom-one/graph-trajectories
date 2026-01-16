@@ -1,0 +1,13 @@
+# turn: 28
+# current_player: p1
+# lore: p1=12, p2=18
+# action: quest:p1.luisa_madrigal_magically_strong_one.a
+
+set node p1 lore=12
+set node p1.luisa_madrigal_magically_strong_one.a exerted=1
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 CAN_QUEST
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.dumptruck_karnage's_second_mate.a CAN_CHALLENGE
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.mr._arrow_legacy's_first_mate.d CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=1
+set edge p1.cogsworth_illuminary_watchman.a -> p1 CAN_INK action_id=0
+set edge p1.cogsworth_illuminary_watchman.a -> p1 CAN_PLAY action_id=2

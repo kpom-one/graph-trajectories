@@ -1,0 +1,11 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.jafar_royal_vizier.a
+1: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.prince_eric_dashing_and_brave.a
+2: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.prince_eric_dashing_and_brave.d
+3: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.jafar_royal_vizier.a
+4: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.prince_eric_dashing_and_brave.a
+5: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.prince_eric_dashing_and_brave.d
+6: ink:p1.cauldron_born_mindless_horde.c
+7: ink:p1.maleficent_sorceress.b
+8: end
+9: quest:p1.lena_sabrewing_rebellious_teenager.d
+a: quest:p1.luisa_madrigal_magically_strong_one.b

@@ -1,0 +1,5 @@
+0: challenge:p1.winnie_the_pooh_hunny_wizard.d->p2.mulan_free_spirit.d
+1: ink:p1.winnie_the_pooh_hunny_wizard.c
+2: end
+3: play:p1.winnie_the_pooh_hunny_wizard.c
+4: quest:p1.winnie_the_pooh_hunny_wizard.d

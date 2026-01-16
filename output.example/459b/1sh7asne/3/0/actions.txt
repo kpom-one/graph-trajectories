@@ -1,0 +1,9 @@
+0: ink:p2.aladdin_cornered_swordsman.b
+1: ink:p2.arges_the_cyclops.b
+2: ink:p2.chien_po_imperial_soldier.a
+3: ink:p2.genie_satisfied_dragon.c
+4: ink:p2.prince_eric_dashing_and_brave.a
+5: ink:p2.prince_naveen_penniless_royal.b
+6: ink:p2.prince_naveen_penniless_royal.d
+7: ink:p2.stitch_carefree_surfer.c
+8: end

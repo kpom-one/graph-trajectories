@@ -1,0 +1,26 @@
+# turn: 5
+# current_player: p2
+# lore: p1=3, p2=0
+# action: end
+
+add node p2.prince_eric_dashing_and_brave.d card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+set node game turn=5
+set node p2 ink_available=2 ink_drops=1
+add edge game -> p2 CURRENT_TURN
+add edge game -> step.p2.main CURRENT_STEP
+add edge p2 -> game CAN_PASS action_id=8 action_type=CAN_PASS description=end
+add edge p2.aladdin_cornered_swordsman.b -> p1.pinocchio_star_attraction.a CAN_CHALLENGE action_id=0 action_type=CAN_CHALLENGE description=challenge:p2.aladdin_cornered_swordsman.b->p1.pinocchio_star_attraction.a
+add edge p2.aladdin_cornered_swordsman.b -> p2 CAN_QUEST action_id=c action_type=CAN_QUEST description=quest:p2.aladdin_cornered_swordsman.b
+add edge p2.chien_po_imperial_soldier.a -> p2 CAN_INK action_id=1 action_type=CAN_INK description=ink:p2.chien_po_imperial_soldier.a
+add edge p2.genie_satisfied_dragon.c -> p2 CAN_INK action_id=2 action_type=CAN_INK description=ink:p2.genie_satisfied_dragon.c
+add edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_INK action_id=3 action_type=CAN_INK description=ink:p2.prince_eric_dashing_and_brave.a
+add edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_PLAY action_id=9 action_type=CAN_PLAY description=play:p2.prince_eric_dashing_and_brave.a
+add edge p2.prince_eric_dashing_and_brave.d -> p2 CAN_INK action_id=4 action_type=CAN_INK description=ink:p2.prince_eric_dashing_and_brave.d
+add edge p2.prince_eric_dashing_and_brave.d -> p2 CAN_PLAY action_id=a action_type=CAN_PLAY description=play:p2.prince_eric_dashing_and_brave.d
+add edge p2.prince_naveen_penniless_royal.b -> p2 CAN_INK action_id=5 action_type=CAN_INK description=ink:p2.prince_naveen_penniless_royal.b
+add edge p2.simba_protective_cub.c -> p2 CAN_INK action_id=6 action_type=CAN_INK description=ink:p2.simba_protective_cub.c
+add edge p2.simba_protective_cub.c -> p2 CAN_PLAY action_id=b action_type=CAN_PLAY description=play:p2.simba_protective_cub.c
+add edge p2.stitch_carefree_surfer.c -> p2 CAN_INK action_id=7 action_type=CAN_INK description=ink:p2.stitch_carefree_surfer.c
+remove edge game -> p1 CURRENT_TURN
+remove edge game -> step.p1.main CURRENT_STEP
+remove edge p1 -> game CAN_PASS

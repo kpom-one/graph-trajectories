@@ -1,0 +1,10 @@
+# turn: 22
+# current_player: p1
+# lore: p1=11, p2=8
+# action: ink:p1.fred_mascot_by_day.c
+
+set node p1 ink_available=10 ink_drops=0 ink_total=10
+set node p1.fred_mascot_by_day.c zone=ink
+remove edge p1.fred_mascot_by_day.c -> p1 CAN_INK
+remove edge p1.fred_mascot_by_day.c -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=0

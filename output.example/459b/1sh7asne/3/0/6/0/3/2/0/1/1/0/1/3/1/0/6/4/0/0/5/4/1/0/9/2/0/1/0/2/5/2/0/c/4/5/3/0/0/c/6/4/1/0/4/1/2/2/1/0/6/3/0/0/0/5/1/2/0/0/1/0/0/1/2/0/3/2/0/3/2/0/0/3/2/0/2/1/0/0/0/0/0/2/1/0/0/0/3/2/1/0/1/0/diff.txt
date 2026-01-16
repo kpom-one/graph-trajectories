@@ -1,0 +1,21 @@
+# turn: 25
+# current_player: p2
+# lore: p1=11, p2=11
+# action: end
+
+add node p2.aladdin_cornered_swordsman.d card_id=171 damage=0 exerted=0 label=aladdin_cornered_swordsman type=Card zone=hand
+set node game turn=25
+set node p2 ink_available=9
+set node p2.chien_po_imperial_soldier.b exerted=0
+set node p2.mr._arrow_legacy's_first_mate.d exerted=0
+add edge game -> p2 CURRENT_TURN
+add edge game -> step.p2.main CURRENT_STEP
+add edge p2 -> game CAN_PASS action_id=1 action_type=CAN_PASS description=end
+add edge p2.aladdin_cornered_swordsman.d -> p2 CAN_INK action_id=0 action_type=CAN_INK description=ink:p2.aladdin_cornered_swordsman.d
+add edge p2.aladdin_cornered_swordsman.d -> p2 CAN_PLAY action_id=2 action_type=CAN_PLAY description=play:p2.aladdin_cornered_swordsman.d
+add edge p2.chien_po_imperial_soldier.b -> p2 CAN_QUEST action_id=3 action_type=CAN_QUEST description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 CAN_QUEST action_id=4 action_type=CAN_QUEST description=quest:p2.dumptruck_karnage's_second_mate.a
+add edge p2.mr._arrow_legacy's_first_mate.d -> p2 CAN_QUEST action_id=5 action_type=CAN_QUEST description=quest:p2.mr._arrow_legacy's_first_mate.d
+remove edge game -> p1 CURRENT_TURN
+remove edge game -> step.p1.main CURRENT_STEP
+remove edge p1 -> game CAN_PASS

@@ -1,0 +1,7 @@
+0: challenge:p1.winnie_the_pooh_hunny_wizard.d->p2.jafar_royal_vizier.a
+1: ink:p1.lena_sabrewing_rebellious_teenager.b
+2: ink:p1.maleficent_sorceress.b
+3: end
+4: play:p1.lena_sabrewing_rebellious_teenager.b
+5: play:p1.maleficent_sorceress.b
+6: quest:p1.winnie_the_pooh_hunny_wizard.d

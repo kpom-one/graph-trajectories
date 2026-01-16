@@ -1,0 +1,6 @@
+0: ink:p2.aladdin_cornered_swordsman.d
+1: end
+2: play:p2.aladdin_cornered_swordsman.d
+3: quest:p2.chien_po_imperial_soldier.b
+4: quest:p2.dumptruck_karnage's_second_mate.a
+5: quest:p2.mr._arrow_legacy's_first_mate.d

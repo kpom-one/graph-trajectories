@@ -1,0 +1,5 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.b->p2.chien_po_imperial_soldier.b
+1: ink:p1.the_white_rose_jewel_of_the_garden.b
+2: end
+3: play:p1.the_white_rose_jewel_of_the_garden.b
+4: quest:p1.lena_sabrewing_rebellious_teenager.b

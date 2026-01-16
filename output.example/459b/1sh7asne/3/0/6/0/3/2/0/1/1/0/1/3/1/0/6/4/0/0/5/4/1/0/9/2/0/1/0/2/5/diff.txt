@@ -1,0 +1,13 @@
+# turn: 8
+# current_player: p1
+# lore: p1=7, p2=0
+# action: quest:p1.lena_sabrewing_rebellious_teenager.d
+
+set node p1 lore=7
+set node p1.lena_sabrewing_rebellious_teenager.d exerted=1
+remove edge p1.lena_sabrewing_rebellious_teenager.d -> p1 CAN_QUEST
+remove edge p1.lena_sabrewing_rebellious_teenager.d -> p2.prince_eric_dashing_and_brave.d CAN_CHALLENGE
+set edge p1 -> game CAN_PASS action_id=0
+set edge p1.cauldron_born_mindless_horde.c -> p1 CAN_PLAY action_id=1
+set edge p1.luisa_madrigal_magically_strong_one.b -> p1 CAN_PLAY action_id=2
+set edge p1.winnie_the_pooh_hunny_wizard.d -> p1 CAN_PLAY action_id=3

@@ -1,0 +1,10 @@
+# turn: 13
+# current_player: p2
+# lore: p1=9, p2=5
+# action: quest:p2.mulan_free_spirit.d
+
+set node p2 lore=5
+set node p2.mulan_free_spirit.d exerted=1
+remove edge p2.mulan_free_spirit.d -> p1.winnie_the_pooh_hunny_wizard.d CAN_CHALLENGE
+remove edge p2.mulan_free_spirit.d -> p2 CAN_QUEST
+set edge p2 -> game CAN_PASS action_id=0

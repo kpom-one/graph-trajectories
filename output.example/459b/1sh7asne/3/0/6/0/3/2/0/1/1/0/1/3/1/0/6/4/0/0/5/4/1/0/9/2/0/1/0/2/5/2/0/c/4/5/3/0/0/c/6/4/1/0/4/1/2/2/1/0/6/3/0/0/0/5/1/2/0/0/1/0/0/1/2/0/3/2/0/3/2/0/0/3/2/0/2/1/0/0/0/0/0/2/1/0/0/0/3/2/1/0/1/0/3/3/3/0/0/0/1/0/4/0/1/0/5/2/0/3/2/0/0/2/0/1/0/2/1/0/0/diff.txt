@@ -1,0 +1,11 @@
+# turn: 32
+# current_player: p1
+# lore: p1=13, p2=19
+# action: ink:p1.heathcliff_stoic_butler.c
+
+set node p1 ink_available=12 ink_drops=0 ink_total=12
+set node p1.heathcliff_stoic_butler.c zone=ink
+remove edge p1.heathcliff_stoic_butler.c -> p1 CAN_INK
+remove edge p1.heathcliff_stoic_butler.c -> p1 CAN_PLAY
+set edge p1 -> game CAN_PASS action_id=0
+set edge p1.cogsworth_illuminary_watchman.a -> p1 CAN_QUEST action_id=1

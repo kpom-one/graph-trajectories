@@ -1,0 +1,4 @@
+0: challenge:p2.prince_eric_dashing_and_brave.d->p1.pinocchio_star_attraction.c
+1: end
+2: play:p2.prince_eric_dashing_and_brave.a
+3: quest:p2.prince_eric_dashing_and_brave.d

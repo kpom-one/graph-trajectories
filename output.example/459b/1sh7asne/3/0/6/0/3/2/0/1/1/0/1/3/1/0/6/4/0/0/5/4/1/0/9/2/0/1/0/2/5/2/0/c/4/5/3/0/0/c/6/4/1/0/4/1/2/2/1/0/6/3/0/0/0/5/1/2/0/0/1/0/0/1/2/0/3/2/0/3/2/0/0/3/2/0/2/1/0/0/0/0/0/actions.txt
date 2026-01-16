@@ -1,0 +1,4 @@
+0: ink:p2.mr._arrow_legacy's_first_mate.d
+1: end
+2: play:p2.mr._arrow_legacy's_first_mate.d
+3: quest:p2.chien_po_imperial_soldier.b

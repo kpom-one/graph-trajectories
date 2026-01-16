@@ -1,0 +1,19 @@
+# turn: 3
+# current_player: p2
+# lore: p1=0, p2=0
+# action: ink:p2.arges_the_cyclops.b
+
+set node p2 ink_available=2 ink_drops=0 ink_total=2
+set node p2.arges_the_cyclops.b zone=ink
+add edge p2.aladdin_cornered_swordsman.b -> p2 CAN_PLAY action_id=1 action_type=CAN_PLAY description=play:p2.aladdin_cornered_swordsman.b
+add edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_PLAY action_id=2 action_type=CAN_PLAY description=play:p2.prince_eric_dashing_and_brave.a
+add edge p2.simba_protective_cub.c -> p2 CAN_PLAY action_id=3 action_type=CAN_PLAY description=play:p2.simba_protective_cub.c
+remove edge p2.aladdin_cornered_swordsman.b -> p2 CAN_INK
+remove edge p2.arges_the_cyclops.b -> p2 CAN_INK
+remove edge p2.chien_po_imperial_soldier.a -> p2 CAN_INK
+remove edge p2.genie_satisfied_dragon.c -> p2 CAN_INK
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 CAN_INK
+remove edge p2.prince_naveen_penniless_royal.b -> p2 CAN_INK
+remove edge p2.simba_protective_cub.c -> p2 CAN_INK
+remove edge p2.stitch_carefree_surfer.c -> p2 CAN_INK
+set edge p2 -> game CAN_PASS action_id=0

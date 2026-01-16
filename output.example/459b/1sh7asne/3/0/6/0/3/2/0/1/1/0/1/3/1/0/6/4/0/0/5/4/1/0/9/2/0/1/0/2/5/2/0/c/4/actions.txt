@@ -1,0 +1,7 @@
+0: challenge:p2.jafar_royal_vizier.a->p1.lena_sabrewing_rebellious_teenager.d
+1: challenge:p2.prince_eric_dashing_and_brave.a->p1.lena_sabrewing_rebellious_teenager.d
+2: end
+3: play:p2.chien_po_imperial_soldier.a
+4: play:p2.jafar_royal_vizier.c
+5: quest:p2.jafar_royal_vizier.a
+6: quest:p2.prince_eric_dashing_and_brave.a

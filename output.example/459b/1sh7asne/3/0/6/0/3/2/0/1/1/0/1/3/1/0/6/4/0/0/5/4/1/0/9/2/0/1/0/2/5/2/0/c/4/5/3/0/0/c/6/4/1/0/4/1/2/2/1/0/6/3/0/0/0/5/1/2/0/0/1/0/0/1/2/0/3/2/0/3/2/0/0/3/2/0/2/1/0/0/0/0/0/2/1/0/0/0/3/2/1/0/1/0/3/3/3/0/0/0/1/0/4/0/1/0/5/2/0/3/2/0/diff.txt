@@ -1,0 +1,10 @@
+# turn: 29
+# current_player: p2
+# lore: p1=12, p2=19
+# action: challenge:p2.mr._arrow_legacy's_first_mate.d->p1.luisa_madrigal_magically_strong_one.a
+
+set node p1.luisa_madrigal_magically_strong_one.a damage=1
+set node p2.mr._arrow_legacy's_first_mate.d damage=4 exerted=1 zone=discard
+remove edge p2.mr._arrow_legacy's_first_mate.d -> p1.luisa_madrigal_magically_strong_one.a CAN_CHALLENGE
+remove edge p2.mr._arrow_legacy's_first_mate.d -> p2 CAN_QUEST
+set edge p2 -> game CAN_PASS action_id=0

@@ -1,0 +1,4 @@
+0: ink:p2.simba_protective_cub.a
+1: end
+2: play:p2.simba_protective_cub.a
+3: quest:p2.dumptruck_karnage's_second_mate.b

@@ -1,0 +1,8 @@
+# turn: 23
+# current_player: p2
+# lore: p1=11, p2=10
+# action: quest:p2.mr._arrow_legacy's_first_mate.d
+
+set node p2 lore=10
+set node p2.mr._arrow_legacy's_first_mate.d exerted=1
+remove edge p2.mr._arrow_legacy's_first_mate.d -> p2 CAN_QUEST

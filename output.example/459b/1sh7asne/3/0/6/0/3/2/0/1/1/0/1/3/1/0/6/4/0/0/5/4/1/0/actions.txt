@@ -1,0 +1,13 @@
+0: challenge:p2.prince_eric_dashing_and_brave.d->p1.pinocchio_star_attraction.c
+1: ink:p2.chien_po_imperial_soldier.a
+2: ink:p2.genie_satisfied_dragon.c
+3: ink:p2.jafar_royal_vizier.a
+4: ink:p2.prince_eric_dashing_and_brave.a
+5: ink:p2.prince_naveen_penniless_royal.b
+6: ink:p2.stitch_carefree_surfer.c
+7: end
+8: play:p2.genie_satisfied_dragon.c
+9: play:p2.jafar_royal_vizier.a
+a: play:p2.prince_eric_dashing_and_brave.a
+b: play:p2.prince_naveen_penniless_royal.b
+c: quest:p2.prince_eric_dashing_and_brave.d

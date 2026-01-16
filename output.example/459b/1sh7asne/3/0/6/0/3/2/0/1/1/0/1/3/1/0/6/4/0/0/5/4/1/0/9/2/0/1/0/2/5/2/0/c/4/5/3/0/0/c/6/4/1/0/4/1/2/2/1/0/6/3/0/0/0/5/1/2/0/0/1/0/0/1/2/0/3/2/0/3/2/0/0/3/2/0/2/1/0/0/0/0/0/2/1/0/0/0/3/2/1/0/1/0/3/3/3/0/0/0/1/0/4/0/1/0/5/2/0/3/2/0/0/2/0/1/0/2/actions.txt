@@ -1,0 +1,4 @@
+0: challenge:p2.genie_satisfied_dragon.a->p1.cogsworth_illuminary_watchman.a
+1: challenge:p2.genie_satisfied_dragon.a->p1.luisa_madrigal_magically_strong_one.a
+2: end
+3: quest:p2.genie_satisfied_dragon.a

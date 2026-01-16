@@ -1,0 +1,8 @@
+# turn: 37
+# current_player: p2
+# lore: p1=16, p2=19
+# action: play:p2.dumptruck_karnage's_second_mate.b
+
+set node p2 ink_available=13
+set node p2.dumptruck_karnage's_second_mate.b entered_play=37 zone=play
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 CAN_PLAY
