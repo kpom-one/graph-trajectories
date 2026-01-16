@@ -31,7 +31,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from tests.lorcana.conftest import make_game, add_character, make_state, give_ink, ZONE_HAND, ZONE_PLAY, ZONE_DISCARD
+from tests.lorcana.conftest import make_game, add_character, make_state, give_ink
+from lib.lorcana.constants import Zone, NodeType
 from lib.lorcana.mechanics.play import compute_can_play, execute_play
 
 
@@ -62,7 +63,7 @@ class TestBasicPlaying:
         G = make_game()
         give_ink(G, 'p1', 6)
         # Stitch - Rock Star costs 6
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
 
         actions = compute_can_play(G)
 
@@ -85,7 +86,7 @@ class TestBasicPlaying:
         """
         G = make_game()
         give_ink(G, 'p1', 3)  # Not enough for 6-cost Stitch
-        add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
 
         actions = compute_can_play(G)
 
@@ -105,7 +106,7 @@ class TestBasicPlaying:
         G = make_game()
         give_ink(G, 'p1', 1)
         # HeiHei - Boat Snack costs 1
-        heihei = add_character(G, 'p1', 'heihei_boat_snack', zone=ZONE_HAND)
+        heihei = add_character(G, 'p1', 'heihei_boat_snack', zone=Zone.HAND)
 
         actions = compute_can_play(G)
 
@@ -140,12 +141,12 @@ class TestCharactersEnterPlay:
         """
         G = make_game()
         give_ink(G, 'p1', 6)
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
         state = make_state(G)
 
         execute_play(state, stitch, 'p1')
 
-        assert G.nodes[stitch]['zone'] == ZONE_PLAY, "Character should enter play"
+        assert G.nodes[stitch]['zone'] == Zone.PLAY, "Character should enter play"
         assert G.nodes[stitch]['exerted'] == '0', "Character should enter ready"
         assert G.nodes['p1']['ink_available'] == '0', "Ink should be spent (6 - 6 = 0)"
 
@@ -169,7 +170,7 @@ class TestCharactersEnterPlay:
         G = make_game()
         G.nodes['game']['turn'] = '3'
         give_ink(G, 'p1', 5)
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
         state = make_state(G)
 
         execute_play(state, stitch, 'p1')
@@ -210,9 +211,9 @@ class TestActionsGoToDiscard:
         # Manually create an action card node (since add_character is for characters)
         action_card = 'p1.dragon_fire.a'
         G.add_node(action_card,
-            type='Card',
+            type=NodeType.CARD,
             label='dragon_fire',
-            zone=ZONE_HAND,
+            zone=Zone.HAND,
             exerted='0',
             damage='0'
         )
@@ -220,7 +221,7 @@ class TestActionsGoToDiscard:
 
         execute_play(state, action_card, 'p1')
 
-        assert G.nodes[action_card]['zone'] == ZONE_DISCARD, "Action should go to discard"
+        assert G.nodes[action_card]['zone'] == Zone.DISCARD, "Action should go to discard"
 
 
 # =============================================================================
@@ -249,7 +250,7 @@ class TestInkSpending:
         G.nodes['p1']['ink_total'] = '8'
         G.nodes['p1']['ink_available'] = '8'
 
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
         state = make_state(G)
 
         execute_play(state, stitch, 'p1')
@@ -272,8 +273,8 @@ class TestInkSpending:
         G = make_game()
         give_ink(G, 'p1', 10)
 
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
-        moana = add_character(G, 'p1', 'stitch_carefree_surfer', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
+        moana = add_character(G, 'p1', 'stitch_carefree_surfer', zone=Zone.HAND)
 
         actions = compute_can_play(G)
 

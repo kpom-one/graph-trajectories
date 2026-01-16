@@ -5,11 +5,13 @@ Compute when cards can be played, and execute the play action.
 """
 import networkx as nx
 from lib.core.graph import get_node_attr
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, ZONE_HAND, ZONE_PLAY, ZONE_DISCARD
+from lib.lorcana.constants import Zone, Action, CardType
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone
+from lib.lorcana.abilities import create_printed_abilities
 
 
 def compute_can_play(G: nx.MultiDiGraph) -> list[ActionEdge]:
-    """Return CAN_PLAY edges for playable cards in current player's hand."""
+    """Return Action.PLAY edges for playable cards in current player's hand."""
     result = []
 
     # Get game context
@@ -21,7 +23,7 @@ def compute_can_play(G: nx.MultiDiGraph) -> list[ActionEdge]:
     ink_available = int(get_node_attr(G, ctx['player'], 'ink_available', 0))
 
     # Find cards in hand
-    cards_in_hand = cards_in_zone(G, ctx['player'], ZONE_HAND)
+    cards_in_hand = cards_in_zone(G, ctx['player'], Zone.HAND)
 
     # Check each card for playability
     for card_node in cards_in_hand:
@@ -32,7 +34,7 @@ def compute_can_play(G: nx.MultiDiGraph) -> list[ActionEdge]:
             result.append(ActionEdge(
                 src=card_node,
                 dst=ctx['player'],
-                action_type="CAN_PLAY",
+                action_type=Action.PLAY,
                 description=f"play:{card_node}"
             ))
 
@@ -46,7 +48,7 @@ def execute_play(state, from_node: str, to_node: str) -> None:
     ctx = get_game_context(state.graph)
 
     # Determine destination zone based on card type
-    zone = ZONE_DISCARD if card_data['type'] == "Action" else ZONE_PLAY
+    zone = Zone.DISCARD if card_data['type'] == CardType.ACTION else Zone.PLAY
 
     # Move card from hand to play/discard
     state.move_card(from_node, zone)
@@ -56,9 +58,12 @@ def execute_play(state, from_node: str, to_node: str) -> None:
     ink_available = int(get_node_attr(state.graph, ctx['player'], 'ink_available', 0))
     state.graph.nodes[ctx['player']]['ink_available'] = str(ink_available - cost)
 
-    # If card entered play zone (not discard), track the turn
-    if zone == ZONE_PLAY:
+    # If card entered play zone (not discard), track the turn and create abilities
+    if zone == Zone.PLAY:
         state.graph.nodes[from_node]['entered_play'] = str(ctx['current_turn'])
         state.graph.nodes[from_node]['exerted'] = '0'
+
+        # Create ability nodes for printed keywords
+        create_printed_abilities(state.graph, from_node, card_data, ctx['current_turn'])
 
 

@@ -6,15 +6,16 @@ Steps: ready -> set -> draw -> main -> end
 """
 import networkx as nx
 from lib.core.graph import edges_by_label, get_node_attr
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_player_step, cards_in_zone, ZONE_PLAY
+from lib.lorcana.constants import Zone, Edge, Action, Step
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_player_step, cards_in_zone
 
 
 def compute_can_pass(G: nx.MultiDiGraph) -> list[ActionEdge]:
-    """Return CAN_PASS edge for current player during main step."""
+    """Return Action.PASS edge for current player during main step."""
     ctx = get_game_context(G)
 
-    # Find current step via CURRENT_STEP edge
-    current_step_edges = edges_by_label(G, "CURRENT_STEP")
+    # Find current step via Edge.CURRENT_STEP edge
+    current_step_edges = edges_by_label(G, Edge.CURRENT_STEP)
     if not current_step_edges or not ctx:
         return []
 
@@ -22,11 +23,11 @@ def compute_can_pass(G: nx.MultiDiGraph) -> list[ActionEdge]:
 
     # Can only pass during main step
     step_type = get_node_attr(G, current_step_node, 'step', '')
-    if step_type == 'main':
+    if step_type == Step.MAIN:
         return [ActionEdge(
             src=ctx['player'],
             dst='game',
-            action_type="CAN_PASS",
+            action_type=Action.PASS,
             description="end"
         )]
     return []
@@ -37,10 +38,10 @@ def advance_turn(state, from_node: str, to_node: str) -> None:
     Advance turn through steps: main -> end -> (switch) -> ready -> set -> draw -> main.
 
     Called when player passes during main step.
-    Moves CURRENT_STEP edge through step sequence.
+    Moves Edge.CURRENT_STEP edge through step sequence.
     """
     # Get current player
-    turn_edges = edges_by_label(state.graph, "CURRENT_TURN")
+    turn_edges = edges_by_label(state.graph, Edge.CURRENT_TURN)
     if not turn_edges:
         return
 
@@ -50,38 +51,38 @@ def advance_turn(state, from_node: str, to_node: str) -> None:
     # Sequence: p1.main -> p1.end -> [switch] -> p2.ready -> p2.set -> p2.draw -> p2.main
 
     # Move to end step
-    _move_to_step(state, get_player_step(current_player, 'end'))
+    _move_to_step(state, get_player_step(current_player, Step.END))
     _end_step(state, current_player)
 
     # Switch players
     state.graph.remove_edge(game, current_player, turn_key)
-    state.graph.add_edge(game, other_player, label="CURRENT_TURN")
+    state.graph.add_edge(game, other_player, label=Edge.CURRENT_TURN)
     turn = int(get_node_attr(state.graph, 'game', 'turn', 0))
     state.graph.nodes['game']['turn'] = str(turn + 1)
 
     # Move through new player's steps: ready -> set -> draw -> main
-    _move_to_step(state, get_player_step(other_player, 'ready'))
+    _move_to_step(state, get_player_step(other_player, Step.READY))
     _ready_step(state, other_player)
 
-    _move_to_step(state, get_player_step(other_player, 'set'))
+    _move_to_step(state, get_player_step(other_player, Step.SET))
     _set_step(state, other_player)
 
-    _move_to_step(state, get_player_step(other_player, 'draw'))
+    _move_to_step(state, get_player_step(other_player, Step.DRAW))
     _draw_step(state, other_player)
 
-    _move_to_step(state, get_player_step(other_player, 'main'))
+    _move_to_step(state, get_player_step(other_player, Step.MAIN))
 
 
 def _move_to_step(state, step_node: str) -> None:
-    """Move CURRENT_STEP edge to a new step node."""
-    # Remove old CURRENT_STEP edge
-    step_edges = edges_by_label(state.graph, "CURRENT_STEP")
+    """Move Edge.CURRENT_STEP edge to a new step node."""
+    # Remove old Edge.CURRENT_STEP edge
+    step_edges = edges_by_label(state.graph, Edge.CURRENT_STEP)
     if step_edges:
         game, old_step, key = step_edges[0]
         state.graph.remove_edge(game, old_step, key)
 
-    # Add new CURRENT_STEP edge
-    state.graph.add_edge('game', step_node, label="CURRENT_STEP")
+    # Add new Edge.CURRENT_STEP edge
+    state.graph.add_edge('game', step_node, label=Edge.CURRENT_STEP)
 
 
 def _end_step(state, player: str) -> None:
@@ -91,7 +92,7 @@ def _end_step(state, player: str) -> None:
 
 def _ready_step(state, player: str) -> None:
     """Ready step: Ready all cards in play for the new active player."""
-    for card_node in cards_in_zone(state.graph, player, ZONE_PLAY):
+    for card_node in cards_in_zone(state.graph, player, Zone.PLAY):
         state.graph.nodes[card_node]['exerted'] = '0'
 
 

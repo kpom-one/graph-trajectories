@@ -35,7 +35,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from tests.lorcana.conftest import make_game, add_character, make_state, give_ink, set_turn, ZONE_PLAY, ZONE_HAND
+from tests.lorcana.conftest import make_game, add_character, make_state, give_ink, set_turn
+from lib.lorcana.constants import Zone
 from lib.lorcana.mechanics.quest import compute_can_quest, execute_quest
 
 
@@ -68,7 +69,7 @@ class TestBasicQuesting:
         """
         G = make_game()
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0  # Turn 0 = before the game, so definitely dry
         )
@@ -96,7 +97,7 @@ class TestBasicQuesting:
         """
         G = make_game()
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
@@ -138,7 +139,7 @@ class TestDryingRestriction:
         set_turn(G, 3)
 
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=3  # Entered THIS turn
         )
@@ -166,7 +167,7 @@ class TestDryingRestriction:
         set_turn(G, 3)
 
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=2  # Entered LAST turn
         )
@@ -204,7 +205,7 @@ class TestExertedRestriction:
         """
         G = make_game()
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,  # Already exerted
             entered_play=0
         )
@@ -241,7 +242,7 @@ class TestZeroLore:
         G = make_game()
         # Gaston - Arrogant Hunter has 0 lore (he's Reckless, meant for combat)
         gaston = add_character(G, 'p1', 'gaston_arrogant_hunter',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
@@ -268,7 +269,7 @@ class TestZeroLore:
         G = make_game()
         G.nodes['p1']['lore'] = '5'
         gaston = add_character(G, 'p1', 'gaston_arrogant_hunter',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
@@ -300,7 +301,7 @@ class TestZoneRestrictions:
         """
         G = make_game()
         add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_HAND  # In hand, not in play
+            zone=Zone.HAND  # In hand, not in play
         )
 
         actions = compute_can_quest(G)
@@ -337,7 +338,7 @@ class TestWinCondition:
         G.nodes['p1']['lore'] = '17'
 
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
@@ -365,7 +366,7 @@ class TestWinCondition:
         G.nodes['p1']['lore'] = '18'
 
         stitch = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )

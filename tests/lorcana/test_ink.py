@@ -29,7 +29,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from tests.lorcana.conftest import make_game, add_character, make_state, ZONE_HAND, ZONE_INK
+from tests.lorcana.conftest import make_game, add_character, make_state
+from lib.lorcana.constants import Zone
 from lib.lorcana.mechanics.ink import compute_can_ink, execute_ink
 
 
@@ -60,7 +61,7 @@ class TestBasicInking:
         """
         G = make_game()
         # Stitch - Rock Star has inkwell=True
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
 
         actions = compute_can_ink(G)
 
@@ -84,12 +85,12 @@ class TestBasicInking:
         RULE: 4.3.3.2 - "The player places the revealed card in their inkwell"
         """
         G = make_game()
-        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
+        stitch = add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
         state = make_state(G)
 
         execute_ink(state, stitch)
 
-        assert G.nodes[stitch]['zone'] == ZONE_INK, "Card should be in inkwell"
+        assert G.nodes[stitch]['zone'] == Zone.INK, "Card should be in inkwell"
         assert G.nodes['p1']['ink_total'] == '1', "Ink total should increase"
         assert G.nodes['p1']['ink_available'] == '1', "Ink available should increase"
         assert G.nodes['p1']['ink_drops'] == '0', "Ink drops should decrease (can't ink again)"
@@ -121,8 +122,8 @@ class TestOncePerTurn:
         G = make_game()
         G.nodes['p1']['ink_drops'] = '0'  # Already used ink drop
 
-        add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
-        add_character(G, 'p1', 'simba_protective_cub', zone=ZONE_HAND)
+        add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
+        add_character(G, 'p1', 'simba_protective_cub', zone=Zone.HAND)
 
         actions = compute_can_ink(G)
 
@@ -141,9 +142,9 @@ class TestOncePerTurn:
         """
         G = make_game()
 
-        add_character(G, 'p1', 'stitch_rock_star', zone=ZONE_HAND)
-        add_character(G, 'p1', 'simba_protective_cub', zone=ZONE_HAND)
-        add_character(G, 'p1', 'moana_of_motunui', zone=ZONE_HAND)
+        add_character(G, 'p1', 'stitch_rock_star', zone=Zone.HAND)
+        add_character(G, 'p1', 'simba_protective_cub', zone=Zone.HAND)
+        add_character(G, 'p1', 'moana_of_motunui', zone=Zone.HAND)
 
         actions = compute_can_ink(G)
 
@@ -177,7 +178,7 @@ class TestNonInkableCards:
         """
         G = make_game()
         # Hades - King of Olympus does NOT have inkwell (it's a powerful 8-cost card)
-        hades = add_character(G, 'p1', 'hades_king_of_olympus', zone=ZONE_HAND)
+        hades = add_character(G, 'p1', 'hades_king_of_olympus', zone=Zone.HAND)
 
         actions = compute_can_ink(G)
 

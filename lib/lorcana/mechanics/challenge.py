@@ -6,11 +6,12 @@ Compute when characters can challenge, and execute the challenge action.
 import networkx as nx
 from lib.core.graph import get_node_attr
 from lib.lorcana.cards import get_strength
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, ZONE_PLAY
+from lib.lorcana.constants import Zone, Action, Keyword, CardType
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, has_keyword
 
 
 def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
-    """Return CAN_CHALLENGE edges for valid challenges."""
+    """Return Action.CHALLENGE edges for valid challenges."""
     result = []
 
     # Get game context
@@ -19,17 +20,17 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
         return result
 
     # Find characters in current player's play zone (potential challengers)
-    cards_in_play = cards_in_zone(G, ctx['player'], ZONE_PLAY)
+    cards_in_play = cards_in_zone(G, ctx['player'], Zone.PLAY)
 
     # Find exerted characters in opponent's play zone (potential targets)
-    opponent_cards = cards_in_zone(G, ctx['opponent'], ZONE_PLAY)
+    opponent_cards = cards_in_zone(G, ctx['opponent'], Zone.PLAY)
 
     # Check each potential challenger
     for challenger in cards_in_play:
         card_data = get_card_data(G, challenger)
 
         # Only characters can challenge (4.3.6.1)
-        if card_data['type'] != 'Character':
+        if card_data['type'] != CardType.CHARACTER:
             continue
 
         # Must be ready (4.3.6.6: "ready, and otherwise able to challenge")
@@ -37,9 +38,10 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
         if get_node_attr(G, challenger, 'exerted', '0') == '1':
             continue
 
-        # Must be dry (entered play before this turn)
+        # Must be dry (entered play before this turn) OR have Rush
         entered_play = int(get_node_attr(G, challenger, 'entered_play', '-1'))
-        if entered_play == ctx['current_turn']:
+        is_drying = entered_play == ctx['current_turn']
+        if is_drying and not has_keyword(G, challenger, Keyword.RUSH):
             continue
 
         # Find valid targets (exerted opposing characters)
@@ -47,7 +49,7 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
             defender_data = get_card_data(G, defender)
 
             # Only characters can be challenged
-            if defender_data['type'] != 'Character':
+            if defender_data['type'] != CardType.CHARACTER:
                 continue
 
             # Must be exerted to be challenged
@@ -58,7 +60,7 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
             result.append(ActionEdge(
                 src=challenger,
                 dst=defender,
-                action_type="CAN_CHALLENGE",
+                action_type=Action.CHALLENGE,
                 description=f"challenge:{challenger}->{defender}"
             ))
 

@@ -37,7 +37,8 @@ FEATURE FUNCTION SIGNATURE:
         - current_player: "p1" or "p2"
 """
 from lib.core.graph import edges_by_label, get_node_attr
-from lib.lorcana.helpers import cards_in_zone, ZONE_HAND, ZONE_PLAY
+from lib.lorcana.helpers import cards_in_zone
+from lib.lorcana.constants import Zone, Edge
 
 
 # =============================================================================
@@ -170,7 +171,7 @@ def owner_hand_size(graph, card_node: str, ctx: dict) -> int:
 
     Useful for: Understanding owner's options/resources.
     """
-    return len(cards_in_zone(graph, ctx['owner'], ZONE_HAND))
+    return len(cards_in_zone(graph, ctx['owner'], Zone.HAND))
 
 
 def owner_board_size(graph, card_node: str, ctx: dict) -> int:
@@ -181,7 +182,7 @@ def owner_board_size(graph, card_node: str, ctx: dict) -> int:
 
     Useful for: Understanding owner's board presence.
     """
-    return len(cards_in_zone(graph, ctx['owner'], ZONE_PLAY))
+    return len(cards_in_zone(graph, ctx['owner'], Zone.PLAY))
 
 
 # =============================================================================
@@ -229,7 +230,7 @@ def opp_hand_size(graph, card_node: str, ctx: dict) -> int:
 
     Useful for: Understanding opponent's options.
     """
-    return len(cards_in_zone(graph, ctx['opponent'], ZONE_HAND))
+    return len(cards_in_zone(graph, ctx['opponent'], Zone.HAND))
 
 
 def opp_board_size(graph, card_node: str, ctx: dict) -> int:
@@ -240,7 +241,7 @@ def opp_board_size(graph, card_node: str, ctx: dict) -> int:
 
     Useful for: Understanding opponent's threats.
     """
-    return len(cards_in_zone(graph, ctx['opponent'], ZONE_PLAY))
+    return len(cards_in_zone(graph, ctx['opponent'], Zone.PLAY))
 
 
 # =============================================================================
@@ -340,7 +341,7 @@ def get_feature_names() -> list[str]:
 def build_context(graph) -> dict:
     """Build context dict with precomputed values."""
     # Get current player
-    turn_edges = edges_by_label(graph, "CURRENT_TURN")
+    turn_edges = edges_by_label(graph, Edge.CURRENT_TURN)
     current = turn_edges[0][1] if turn_edges else "p1"
 
     return {

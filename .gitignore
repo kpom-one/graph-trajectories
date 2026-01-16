@@ -7,3 +7,5 @@ __pycache__/
 
 # Generated output
 output/
+
+.claude

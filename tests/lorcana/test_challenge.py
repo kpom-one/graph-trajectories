@@ -37,7 +37,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from tests.lorcana.conftest import make_game, add_character, make_state, set_turn, ZONE_PLAY, ZONE_DISCARD
+from tests.lorcana.conftest import make_game, add_character, make_state, set_turn
+from lib.lorcana.constants import Zone
 from lib.lorcana.mechanics.challenge import compute_can_challenge, execute_challenge
 from lib.lorcana.state_based_effects import check_state_based_effects
 
@@ -77,12 +78,12 @@ class TestBasicChallenging:
         G = make_game()
 
         simba = add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0  # Dry
         )
         stitch = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True  # Valid target
         )
 
@@ -111,12 +112,12 @@ class TestBasicChallenging:
         G = make_game()
 
         simba = add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         stitch = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
         state = make_state(G)
@@ -157,12 +158,12 @@ class TestTargetMustBeExerted:
         G = make_game()
 
         add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False  # Ready = can't be challenged
         )
 
@@ -196,12 +197,12 @@ class TestAttackerRestrictions:
         G = make_game()
 
         add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,  # Can't attack when exerted
             entered_play=0
         )
         add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
 
@@ -229,12 +230,12 @@ class TestAttackerRestrictions:
         set_turn(G, 3)
 
         add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=3  # Just played this turn
         )
         add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
 
@@ -261,12 +262,12 @@ class TestAttackerRestrictions:
 
         # Dr. Facilier - Charlatan has 0 strength (he's a schemer, not a fighter)
         facilier = add_character(G, 'p1', 'dr._facilier_charlatan',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         stitch = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
 
@@ -293,12 +294,12 @@ class TestAttackerRestrictions:
         G = make_game()
 
         facilier = add_character(G, 'p1', 'dr._facilier_charlatan',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         stitch = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
         state = make_state(G)
@@ -342,13 +343,13 @@ class TestBanishing:
 
         # Stitch - Carefree Surfer has 4 strength
         attacker = add_character(G, 'p1', 'stitch_carefree_surfer',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         # Stitch - Rock Star has 5 willpower
         defender = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,
             damage=1  # Already has 1 damage
         )
@@ -358,7 +359,7 @@ class TestBanishing:
         check_state_based_effects(state)
 
         # Rock Star has 5 willpower, took 4 more damage (total 5), should be banished
-        assert G.nodes[defender]['zone'] == ZONE_DISCARD, "Character with lethal damage should be banished"
+        assert G.nodes[defender]['zone'] == Zone.DISCARD, "Character with lethal damage should be banished"
 
     def test_both_characters_can_be_banished(self):
         """
@@ -378,14 +379,14 @@ class TestBanishing:
 
         # Simba - Protective Cub: 2 strength, 3 willpower
         attacker = add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0,
             damage=1  # Already has 1 damage
         )
         # Stitch - New Dog: 2 strength, 2 willpower
         defender = add_character(G, 'p2', 'stitch_new_dog',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
         state = make_state(G)
@@ -394,9 +395,9 @@ class TestBanishing:
         check_state_based_effects(state)
 
         # Simba: 3 willpower, had 1 + takes 2 = 3 damage -> banished
-        assert G.nodes[attacker]['zone'] == ZONE_DISCARD, "Attacker should be banished"
+        assert G.nodes[attacker]['zone'] == Zone.DISCARD, "Attacker should be banished"
         # Stitch: 2 willpower, takes 2 damage -> banished
-        assert G.nodes[defender]['zone'] == ZONE_DISCARD, "Defender should be banished"
+        assert G.nodes[defender]['zone'] == Zone.DISCARD, "Defender should be banished"
 
 
 # =============================================================================
@@ -425,12 +426,12 @@ class TestCannotChallengeOwnCharacters:
         G = make_game()
 
         add_character(G, 'p1', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         add_character(G, 'p1', 'stitch_rock_star',  # Same player!
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True
         )
 

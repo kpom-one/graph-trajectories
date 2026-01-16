@@ -5,11 +5,12 @@ Compute when characters can quest, and execute the quest action.
 """
 import networkx as nx
 from lib.core.graph import get_node_attr
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, ZONE_PLAY
+from lib.lorcana.constants import Zone, Action, CardType
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone
 
 
 def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
-    """Return CAN_QUEST edges for characters that can quest."""
+    """Return Action.QUEST edges for characters that can quest."""
     result = []
 
     # Get game context
@@ -18,14 +19,14 @@ def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
         return result
 
     # Find cards in play
-    cards_in_play = cards_in_zone(G, ctx['player'], ZONE_PLAY)
+    cards_in_play = cards_in_zone(G, ctx['player'], Zone.PLAY)
 
     # Check each card for quest eligibility
     for card_node in cards_in_play:
         card_data = get_card_data(G, card_node)
 
         # Only characters can quest (4.3.5.1)
-        if card_data['type'] != 'Character':
+        if card_data['type'] != CardType.CHARACTER:
             continue
 
         # Must be ready (not exerted) - questing requires exerting (4.3.5.7)
@@ -41,7 +42,7 @@ def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
         result.append(ActionEdge(
             src=card_node,
             dst=ctx['player'],
-            action_type="CAN_QUEST",
+            action_type=Action.QUEST,
             description=f"quest:{card_node}"
         ))
 

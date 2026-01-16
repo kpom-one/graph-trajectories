@@ -5,7 +5,8 @@ Checks and resolves state-based effects after each action.
 """
 from lib.core.graph import get_node_attr
 from lib.lorcana.cards import get_willpower
-from lib.lorcana.helpers import get_card_data, cards_in_zone, ZONE_PLAY, ZONE_DISCARD
+from lib.lorcana.constants import Zone, CardType
+from lib.lorcana.helpers import get_card_data, cards_in_zone
 
 
 def check_state_based_effects(state) -> None:
@@ -24,11 +25,11 @@ def check_and_banish_damaged_characters(state) -> None:
 
     # Check both players' play zones
     for player in ['p1', 'p2']:
-        for card_node in cards_in_zone(state.graph, player, ZONE_PLAY):
+        for card_node in cards_in_zone(state.graph, player, Zone.PLAY):
             card_data = get_card_data(state.graph, card_node)
 
             # Only check characters
-            if card_data['type'] != 'Character':
+            if card_data['type'] != CardType.CHARACTER:
                 continue
 
             # Only check if card has damage
@@ -44,4 +45,4 @@ def check_and_banish_damaged_characters(state) -> None:
 
     # Banish all marked cards
     for card_node in cards_to_banish:
-        state.move_card(card_node, ZONE_DISCARD)
+        state.move_card(card_node, Zone.DISCARD)

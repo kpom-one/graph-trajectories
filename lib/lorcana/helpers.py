@@ -6,14 +6,7 @@ Common patterns used across mechanics.
 from typing import NamedTuple
 from lib.core.graph import edges_by_label, get_node_attr
 from lib.lorcana.cards import get_card_db
-
-
-# Zone constants
-ZONE_HAND = "hand"
-ZONE_PLAY = "play"
-ZONE_INK = "ink"
-ZONE_DISCARD = "discard"
-ZONE_DECK = "deck"
+from lib.lorcana.constants import Zone, Keyword, Edge, Action, NodeType
 
 
 class ActionEdge(NamedTuple):
@@ -34,7 +27,7 @@ def get_player_step(player: str, step: str) -> str:
 
     Args:
         player: Player ID ("p1" or "p2")
-        step: Step type ("ready", "set", "draw", "main", "end")
+        step: Step constant (Step.READY, Step.SET, Step.DRAW, Step.MAIN, Step.END)
 
     Returns:
         Step node ID (e.g., "step.p1.main")
@@ -55,7 +48,7 @@ def get_game_context(G):
             - opponent: Opponent player ID
             - current_turn: Turn number (int)
     """
-    edges = edges_by_label(G, "CURRENT_TURN")
+    edges = edges_by_label(G, Edge.CURRENT_TURN)
     if not edges:
         return None
 
@@ -96,7 +89,7 @@ def cards_in_zone(G, player: str, zone: str) -> list[str]:
     Args:
         G: Game graph
         player: Player ID ("p1" or "p2")
-        zone: Zone kind (ZONE_HAND, ZONE_PLAY, etc.)
+        zone: Zone kind (Zone.HAND, Zone.PLAY, etc.)
 
     Returns:
         List of card node IDs in that zone
@@ -104,3 +97,25 @@ def cards_in_zone(G, player: str, zone: str) -> list[str]:
     return [n for n in G.nodes()
             if n.startswith(f'{player}.')
             and get_node_attr(G, n, 'zone') == zone]
+
+
+def has_keyword(G, card_node: str, keyword: str) -> bool:
+    """
+    Check if a card has a keyword edge pointing to it.
+
+    Keywords are represented as edges: source --KEYWORD--> card
+    For printed keywords, source = card (self-loop).
+    For granted keywords, source = granting card/effect.
+
+    Args:
+        G: Game graph
+        card_node: Card node ID
+        keyword: Keyword edge label (e.g., Keyword.RUSH)
+
+    Returns:
+        True if any edge with that label points to the card
+    """
+    for u, v, data in G.in_edges(card_node, data=True):
+        if data.get('label') == keyword:
+            return True
+    return False

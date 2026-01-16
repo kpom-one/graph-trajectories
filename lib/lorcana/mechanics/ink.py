@@ -5,11 +5,12 @@ Compute when cards can be inked, and execute the ink action.
 """
 import networkx as nx
 from lib.core.graph import get_node_attr
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, ZONE_HAND, ZONE_INK
+from lib.lorcana.constants import Zone, Action
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone
 
 
 def compute_can_ink(G: nx.MultiDiGraph) -> list[ActionEdge]:
-    """Return CAN_INK edges for inkable cards in current player's hand."""
+    """Return Action.INK edges for inkable cards in current player's hand."""
     result = []
 
     # Get game context
@@ -23,7 +24,7 @@ def compute_can_ink(G: nx.MultiDiGraph) -> list[ActionEdge]:
         return result
 
     # Find cards in hand
-    cards_in_hand = cards_in_zone(G, ctx['player'], ZONE_HAND)
+    cards_in_hand = cards_in_zone(G, ctx['player'], Zone.HAND)
 
     # Check each card for inkwell property
     for card_node in cards_in_hand:
@@ -32,7 +33,7 @@ def compute_can_ink(G: nx.MultiDiGraph) -> list[ActionEdge]:
             result.append(ActionEdge(
                 src=card_node,
                 dst=ctx['player'],
-                action_type="CAN_INK",
+                action_type=Action.INK,
                 description=f"ink:{card_node}"
             ))
 
@@ -42,7 +43,7 @@ def compute_can_ink(G: nx.MultiDiGraph) -> list[ActionEdge]:
 def execute_ink(state, from_node: str) -> None:
     """Execute ink action: move card to inkwell, update ink tracking."""
     # Move card from hand to inkwell
-    state.move_card(from_node, ZONE_INK)
+    state.move_card(from_node, Zone.INK)
 
     # Get game context
     ctx = get_game_context(state.graph)

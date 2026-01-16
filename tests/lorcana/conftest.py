@@ -10,7 +10,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 import networkx as nx
 from lib.lorcana.state import LorcanaState
-from lib.lorcana.helpers import ZONE_HAND, ZONE_PLAY, ZONE_INK, ZONE_DISCARD
+from lib.lorcana.cards import get_card_db
+from lib.lorcana.constants import Zone, Keyword, NodeType, Edge, Step
+from lib.lorcana.abilities import create_printed_abilities
 
 
 def make_game() -> nx.MultiDiGraph:
@@ -25,22 +27,22 @@ def make_game() -> nx.MultiDiGraph:
     G = nx.MultiDiGraph()
 
     # Game state
-    G.add_node('game', type='Game', turn='1', game_over='0', winner='')
+    G.add_node('game', type=NodeType.GAME, turn='1', game_over='0', winner='')
 
     # Players
-    G.add_node('p1', type='Player', lore='0', ink_drops='1', ink_total='0', ink_available='0')
-    G.add_node('p2', type='Player', lore='0', ink_drops='1', ink_total='0', ink_available='0')
+    G.add_node('p1', type=NodeType.PLAYER, lore='0', ink_drops='1', ink_total='0', ink_available='0')
+    G.add_node('p2', type=NodeType.PLAYER, lore='0', ink_drops='1', ink_total='0', ink_available='0')
 
     # It's p1's turn, main phase
-    G.add_edge('game', 'p1', label='CURRENT_TURN')
-    G.add_node('step.p1.main', type='Step', player='p1', step='main')
-    G.add_edge('game', 'step.p1.main', label='CURRENT_STEP')
+    G.add_edge('game', 'p1', label=Edge.CURRENT_TURN)
+    G.add_node('step.p1.main', type=NodeType.STEP, player='p1', step=Step.MAIN)
+    G.add_edge('game', 'step.p1.main', label=Edge.CURRENT_STEP)
 
     return G
 
 
 def add_character(G: nx.MultiDiGraph, player: str, name: str, *,
-                  zone: str = ZONE_PLAY,
+                  zone: str = Zone.PLAY,
                   exerted: bool = False,
                   damage: int = 0,
                   entered_play: int = 0) -> str:
@@ -62,13 +64,19 @@ def add_character(G: nx.MultiDiGraph, player: str, name: str, *,
     node_id = f"{player}.{name}.a"
 
     G.add_node(node_id,
-        type='Card',
+        type=NodeType.CARD,
         label=name,
         zone=zone,
         exerted='1' if exerted else '0',
         damage=str(damage),
         entered_play=str(entered_play)
     )
+
+    # Create ability nodes for printed keywords when card is in play
+    if zone == Zone.PLAY:
+        card_db = get_card_db()
+        card_data = card_db.get(name, {})
+        create_printed_abilities(G, node_id, card_data, entered_play)
 
     return node_id
 

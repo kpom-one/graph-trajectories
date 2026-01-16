@@ -34,6 +34,9 @@ def get_card_db() -> dict:
             normalized = normalize_card_name(card["fullName"])
             # First match wins (different printings don't matter)
             if normalized not in _CARD_DB:
+                # Normalize type to lowercase for consistency with constants
+                card = card.copy()
+                card['type'] = card['type'].lower()
                 _CARD_DB[normalized] = card
 
     return _CARD_DB

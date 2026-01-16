@@ -33,7 +33,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from tests.lorcana.conftest import make_game, add_character, make_state, give_ink, set_turn, ZONE_PLAY, ZONE_HAND
+from tests.lorcana.conftest import make_game, add_character, make_state, give_ink, set_turn
+from lib.lorcana.constants import Zone, NodeType, Edge, Action, Step
 from lib.lorcana.mechanics.turn import compute_can_pass, advance_turn, _ready_step, _set_step, _draw_step
 from lib.core.graph import edges_by_label
 
@@ -66,7 +67,7 @@ class TestCanPass:
         actions = compute_can_pass(G)
 
         assert len(actions) == 1
-        assert actions[0].action_type == "CAN_PASS"
+        assert actions[0].action_type == Action.PASS
 
     def test_cannot_pass_during_other_phases(self):
         """
@@ -82,12 +83,12 @@ class TestCanPass:
         """
         G = make_game()
         # Change step to ready
-        step_edges = edges_by_label(G, "CURRENT_STEP")
+        step_edges = edges_by_label(G, Edge.CURRENT_STEP)
         if step_edges:
             game, old_step, key = step_edges[0]
             G.remove_edge(game, old_step, key)
-        G.add_edge('game', 'step.p1.ready', label='CURRENT_STEP')
-        G.add_node('step.p1.ready', type='Step', player='p1', step='ready')
+        G.add_edge('game', 'step.p1.ready', label=Edge.CURRENT_STEP)
+        G.add_node('step.p1.ready', type=NodeType.STEP, player='p1', step=Step.READY)
 
         actions = compute_can_pass(G)
 
@@ -122,12 +123,12 @@ class TestReadyStep:
 
         # P2 has exerted characters
         char1 = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,
             entered_play=0
         )
         char2 = add_character(G, 'p2', 'simba_protective_cub',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,
             entered_play=0
         )
@@ -156,7 +157,7 @@ class TestReadyStep:
 
         # P1 has exerted character
         char1 = add_character(G, 'p1', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,
             entered_play=0
         )
@@ -387,7 +388,7 @@ class TestAdvanceTurn:
         advance_turn(state, 'p1', 'game')
 
         # Check CURRENT_TURN edge
-        turn_edges = edges_by_label(G, "CURRENT_TURN")
+        turn_edges = edges_by_label(G, Edge.CURRENT_TURN)
         assert len(turn_edges) == 1
         _, current_player, _ = turn_edges[0]
         assert current_player == 'p2', "Should be P2's turn"
@@ -424,7 +425,7 @@ class TestAdvanceTurn:
 
         advance_turn(state, 'p1', 'game')
 
-        step_edges = edges_by_label(G, "CURRENT_STEP")
+        step_edges = edges_by_label(G, Edge.CURRENT_STEP)
         assert len(step_edges) == 1
         _, current_step, _ = step_edges[0]
         assert current_step == 'step.p2.main', "Should be P2's main phase"
@@ -445,7 +446,7 @@ class TestAdvanceTurn:
         state.deck2_ids = ['moana_of_motunui.a']
 
         char = add_character(G, 'p2', 'stitch_rock_star',
-            zone=ZONE_PLAY,
+            zone=Zone.PLAY,
             exerted=True,
             entered_play=0
         )

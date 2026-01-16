@@ -7,7 +7,7 @@ Persistence handled separately in lib/core/persistence.py
 import networkx as nx
 from lib.core.graph import get_node_attr
 from lib.lorcana.cards import get_card_db
-from lib.lorcana.helpers import ZONE_HAND
+from lib.lorcana.constants import Zone, NodeType, Edge
 
 
 class LorcanaState:
@@ -46,7 +46,7 @@ class LorcanaState:
 
         # Draw cards
         for card_id in deck_ids[:count]:
-            self._create_card_node(card_id, player, zone=ZONE_HAND)
+            self._create_card_node(card_id, player, zone=Zone.HAND)
 
         # Update deck state
         remaining = deck_ids[count:]
@@ -84,8 +84,16 @@ class LorcanaState:
 
         Args:
             card_node: Card node ID
-            zone: Zone kind (ZONE_HAND, ZONE_PLAY, etc.)
+            zone: Zone kind (Zone.HAND, Zone.PLAY, etc.)
+
+        When leaving play, removes associated ability nodes.
         """
+        current_zone = self.graph.nodes[card_node].get('zone')
+
+        # Clean up abilities when leaving play
+        if current_zone == Zone.PLAY and zone != Zone.PLAY:
+            self._remove_abilities(card_node)
+
         self.graph.nodes[card_node]['zone'] = zone
 
     def damage_card(self, card_node: str, amount: int):
@@ -95,6 +103,15 @@ class LorcanaState:
 
     # ========== Internal Helpers ==========
 
+    def _remove_abilities(self, card_node: str):
+        """Remove all ability nodes that have SOURCE edge to this card."""
+        to_remove = []
+        for u, v, data in self.graph.in_edges(card_node, data=True):
+            if data.get('label') == Edge.SOURCE:
+                to_remove.append(u)
+        for ability_node in to_remove:
+            self.graph.remove_node(ability_node)
+
     def _create_card_node(self, card_id: str, player: int, zone: str) -> str:
         """
         Create card node in graph.
@@ -102,7 +119,7 @@ class LorcanaState:
         Args:
             card_id: Normalized ID like "tinker_bell_giant_fairy.a"
             player: Player number (1 or 2)
-            zone: Zone kind (ZONE_HAND, ZONE_PLAY, etc.)
+            zone: Zone kind (Zone.HAND, Zone.PLAY, etc.)
 
         Returns:
             Node ID: "p1.tinker_bell_giant_fairy.a"
@@ -122,7 +139,7 @@ class LorcanaState:
 
         self.graph.add_node(
             node_id,
-            type="Card",
+            type=NodeType.CARD,
             card_id=card_data["id"],
             exerted="0",
             damage="0",
