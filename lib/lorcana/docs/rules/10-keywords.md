@@ -12,3 +12,10 @@ ability --[Keyword.RUSH]--> card
 ```
 knows: `has_keyword(G, card, Keyword.RUSH)`
 effect: `compute_can_challenge()` - skip drying check
+
+### Keyword.EVASIVE
+```
+ability --[Keyword.EVASIVE]--> card
+```
+knows: `has_keyword(G, card, Keyword.EVASIVE)`
+effect: `compute_can_challenge()` - defender has Evasive → attacker must too
