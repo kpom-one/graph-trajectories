@@ -45,6 +45,7 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
             continue
 
         # Find valid targets (exerted opposing characters)
+        valid_defenders = []
         for defender in opponent_cards:
             defender_data = get_card_data(G, defender)
 
@@ -61,7 +62,15 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
                 if not has_keyword(G, challenger, Keyword.EVASIVE) and not has_keyword(G, challenger, Keyword.ALERT):
                     continue
 
-            # Valid challenge!
+            valid_defenders.append(defender)
+
+        # Bodyguard check: if any valid defender has Bodyguard, must target Bodyguard
+        bodyguards = [d for d in valid_defenders if has_keyword(G, d, Keyword.BODYGUARD)]
+        if bodyguards:
+            valid_defenders = bodyguards
+
+        # Create challenge actions for valid targets
+        for defender in valid_defenders:
             result.append(ActionEdge(
                 src=challenger,
                 dst=defender,

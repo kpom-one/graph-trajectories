@@ -26,3 +26,10 @@ ability --[Keyword.ALERT]--> card
 ```
 knows: `has_keyword(G, card, Keyword.ALERT)`
 effect: `compute_can_challenge()` - can challenge Evasive defenders
+
+### Keyword.BODYGUARD
+```
+ability --[Keyword.BODYGUARD]--> card
+```
+knows: `has_keyword(G, card, Keyword.BODYGUARD)`
+effect: `compute_can_challenge()` - if any valid defender has Bodyguard, must target Bodyguard
