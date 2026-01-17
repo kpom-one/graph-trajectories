@@ -18,4 +18,11 @@ effect: `compute_can_challenge()` - skip drying check
 ability --[Keyword.EVASIVE]--> card
 ```
 knows: `has_keyword(G, card, Keyword.EVASIVE)`
-effect: `compute_can_challenge()` - defender has Evasive → attacker must too
+effect: `compute_can_challenge()` - defender has Evasive → attacker must have Evasive or Alert
+
+### Keyword.ALERT
+```
+ability --[Keyword.ALERT]--> card
+```
+knows: `has_keyword(G, card, Keyword.ALERT)`
+effect: `compute_can_challenge()` - can challenge Evasive defenders

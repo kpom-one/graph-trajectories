@@ -57,7 +57,7 @@ execute: `execute_quest()` - exert, add lore to player
 ```
 attacker --[action_type=Action.CHALLENGE]--> defender
 ```
-available: `compute_can_challenge()` - attacker ready+(dry or Keyword.RUSH), defender exerted+opponent
+available: `compute_can_challenge()` - attacker ready+(dry or Keyword.RUSH), defender exerted+opponent, Evasive check (attacker needs Evasive or Alert)
 execute: `execute_challenge()` - exert attacker, deal damage both ways
 
 ---
