@@ -35,3 +35,11 @@ knows: `has_keyword(G, card, Keyword.BODYGUARD)` or `card_data_has_keyword(card_
 effect:
 - `compute_can_play()` - adds second play option with `exerted=True` metadata
 - `compute_can_challenge()` - if any valid defender has Bodyguard, must target Bodyguard
+
+### Keyword.RECKLESS
+```
+ability --[Keyword.RECKLESS]--> card
+ability --[Edge.CANT_QUEST]--> card
+```
+knows: `has_keyword(G, card, Keyword.RECKLESS)` or `has_edge(G, card, Edge.CANT_QUEST)`
+effect: `compute_can_quest()` - blocked by CANT_QUEST edge

@@ -116,8 +116,23 @@ def has_keyword(G, card_node: str, keyword: str) -> bool:
     Returns:
         True if any edge with that label points to the card
     """
+    return has_edge(G, card_node, keyword)
+
+
+def has_edge(G, card_node: str, label: str) -> bool:
+    """
+    Check if a card has an incoming edge with the given label.
+
+    Args:
+        G: Game graph
+        card_node: Card node ID
+        label: Edge label to check for (e.g., Edge.CANT_QUEST, Keyword.RUSH)
+
+    Returns:
+        True if any edge with that label points to the card
+    """
     for u, v, data in G.in_edges(card_node, data=True):
-        if data.get('label') == keyword:
+        if data.get('label') == label:
             return True
     return False
 

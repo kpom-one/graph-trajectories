@@ -5,8 +5,8 @@ Compute when characters can quest, and execute the quest action.
 """
 import networkx as nx
 from lib.core.graph import get_node_attr
-from lib.lorcana.constants import Zone, Action, CardType
-from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone
+from lib.lorcana.constants import Zone, Action, CardType, Edge
+from lib.lorcana.helpers import ActionEdge, get_game_context, get_card_data, cards_in_zone, has_edge
 
 
 def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
@@ -37,6 +37,10 @@ def compute_can_quest(G: nx.MultiDiGraph) -> list[ActionEdge]:
         # Must be dry (entered play before this turn)
         entered_play = int(get_node_attr(G, card_node, 'entered_play', '-1'))
         if entered_play == ctx['current_turn']:
+            continue
+
+        # Check for CANT_QUEST edge (e.g., from Reckless keyword)
+        if has_edge(G, card_node, Edge.CANT_QUEST):
             continue
 
         result.append(ActionEdge(

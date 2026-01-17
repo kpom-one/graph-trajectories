@@ -18,6 +18,9 @@ def create_printed_abilities(G, card_node: str, card_data: dict, turn: int) -> N
             create_ability(G, card_node, Keyword.ALERT, turn)
         elif keyword == 'Bodyguard':
             create_ability(G, card_node, Keyword.BODYGUARD, turn)
+        elif keyword == 'Reckless':
+            ability_id = create_ability(G, card_node, Keyword.RECKLESS, turn)
+            G.add_edge(ability_id, card_node, label=Edge.CANT_QUEST)
 
 
 def create_ability(G, card_node: str, keyword: str, turn: int) -> str:
