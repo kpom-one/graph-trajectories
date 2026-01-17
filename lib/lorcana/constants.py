@@ -20,6 +20,7 @@ class Zone:
 class Keyword:
     """Keyword edge labels (boolean keywords - presence = has keyword)."""
     RUSH = "rush"
+    EVASIVE = "evasive"
 
 
 class Edge:

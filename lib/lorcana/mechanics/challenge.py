@@ -56,6 +56,11 @@ def compute_can_challenge(G: nx.MultiDiGraph) -> list[ActionEdge]:
             if get_node_attr(G, defender, 'exerted', '0') != '1':
                 continue
 
+            # Evasive check: if defender has Evasive, attacker must too
+            if has_keyword(G, defender, Keyword.EVASIVE):
+                if not has_keyword(G, challenger, Keyword.EVASIVE):
+                    continue
+
             # Valid challenge!
             result.append(ActionEdge(
                 src=challenger,
