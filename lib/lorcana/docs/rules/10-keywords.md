@@ -31,5 +31,7 @@ effect: `compute_can_challenge()` - can challenge Evasive defenders
 ```
 ability --[Keyword.BODYGUARD]--> card
 ```
-knows: `has_keyword(G, card, Keyword.BODYGUARD)`
-effect: `compute_can_challenge()` - if any valid defender has Bodyguard, must target Bodyguard
+knows: `has_keyword(G, card, Keyword.BODYGUARD)` or `card_data_has_keyword(card_data, 'Bodyguard')` (in hand)
+effect:
+- `compute_can_play()` - adds second play option with `exerted=True` metadata
+- `compute_can_challenge()` - if any valid defender has Bodyguard, must target Bodyguard

@@ -35,9 +35,12 @@ def _clear_can_edges(G: nx.MultiDiGraph) -> None:
         G.remove_edge(*edge)
 
 
-def _add_can_edge(G: nx.MultiDiGraph, src: str, dst: str, action_type: str, action_id: str, description: str) -> str:
-    """Add an action edge with sequential action_id and description."""
-    key = G.add_edge(src, dst, action_type=action_type, action_id=action_id, description=description)
+def _add_can_edge(G: nx.MultiDiGraph, src: str, dst: str, action_type: str, action_id: str, description: str, metadata: dict | None = None) -> str:
+    """Add an action edge with sequential action_id, description, and optional metadata."""
+    edge_attrs = {'action_type': action_type, 'action_id': action_id, 'description': description}
+    if metadata:
+        edge_attrs.update(metadata)
+    key = G.add_edge(src, dst, **edge_attrs)
     return key
 
 
@@ -65,4 +68,4 @@ def compute_all(G: nx.MultiDiGraph) -> None:
 
     # Add edges with sequential action_ids (base-36 for compactness)
     for idx, edge in enumerate(sorted_edges):
-        _add_can_edge(G, edge.src, edge.dst, edge.action_type, action_id=_to_base36(idx), description=edge.description)
+        _add_can_edge(G, edge.src, edge.dst, edge.action_type, action_id=_to_base36(idx), description=edge.description, metadata=edge.metadata)

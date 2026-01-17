@@ -21,14 +21,15 @@ from lib.lorcana.state_based_effects import check_state_based_effects
 from lib.lorcana.constants import Action
 
 
-def execute_action(state: LorcanaState, action_type: str, from_node: str, to_node: str) -> None:
+def execute_action(state: LorcanaState, action_type: str, from_node: str, to_node: str, metadata: dict | None = None) -> None:
     """Execute an action, mutating the state."""
+    metadata = metadata or {}
     if action_type == Action.PASS:
         advance_turn(state, from_node, to_node)
     elif action_type == Action.INK:
         execute_ink(state, from_node)
     elif action_type == Action.PLAY:
-        execute_play(state, from_node, to_node)
+        execute_play(state, from_node, to_node, metadata)
     elif action_type == Action.QUEST:
         execute_quest(state, from_node, to_node)
     elif action_type == Action.CHALLENGE:
@@ -74,8 +75,11 @@ def apply_action_at_path(path: Path) -> None:
         if edge_action_id == action_id:
             # Get description before applying (edge will be removed)
             action_desc = get_edge_attr(parent.graph, u, v, key, "description", f"{action_type}:{u}")
+            # Collect metadata from edge (non-standard attributes)
+            edge_data = parent.graph.edges[u, v, key]
+            metadata = {k: v for k, v in edge_data.items() if k not in ('action_type', 'action_id', 'description')}
             # Apply the action (mutates parent.graph)
-            execute_action(parent, action_type, u, v)
+            execute_action(parent, action_type, u, v, metadata)
             action_found = True
             break
 
