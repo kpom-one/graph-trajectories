@@ -22,6 +22,7 @@ class Keyword:
     RUSH = "rush"
     EVASIVE = "evasive"
     ALERT = "alert"
+    BODYGUARD = "bodyguard"
 
 
 class Edge:
