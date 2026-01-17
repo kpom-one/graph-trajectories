@@ -1,0 +1,864 @@
+# Lorcana Activated Abilities
+# Total: 193
+# Sorted by cost type
+#
+# Cost array elements:
+#   exert                    - exert this card (⟳)
+#   banish                   - banish this card
+#   N                        - pay N ink (integer)
+#   discard                  - discard a card from hand
+#   {discard: type}          - discard a card of specific type
+#   {exert_other: type}      - exert one of your other cards of type
+#   {banish_other: type}     - banish one of your other cards of type
+#   {banish_other: type, count: N} - banish N of your other cards
+#   {damage: N}              - deal N damage to this card
+#
+# 4 abilities with non-standard costs are left as strings (need tickets)
+
+# ============================================
+# [exert] only - 68 abilities
+# ============================================
+
+10000_medical_procedures:
+  cost: [exert]
+  effect: "Choose one: • Remove up to 1 damage from chosen character. • If you have a Robot character in play, remove up to 3 damage from chosen character."
+
+a_silly_song:
+  cost: [exert]
+  effect: "If you played a song this turn, gain 1 lore."
+
+a_wonderful_dream:
+  cost: [exert]
+  effect: "Remove up to 3 damage from chosen Princess character."
+
+amber_light:
+  cost: [exert]
+  effect: "Remove up to 1 damage from each of your characters."
+
+amethyst_light:
+  cost: [exert]
+  effect: "Each player may draw a card."
+
+and_mean:
+  cost: [exert]
+  effect: "Move 1 damage counter from this character to chosen opposing character."
+
+awaken:
+  cost: [exert]
+  effect: "Put a character card from your discard into your inkwell facedown and exerted."
+
+bark:
+  cost: [exert]
+  effect: "Chosen character gets -2 ¤ until the start of your next turn."
+
+battle_plans:
+  cost: [exert]
+  effect: "Draw a card, then choose and discard a card."
+
+beautiful_lovely_taxes:
+  cost: [exert]
+  effect: "Play an item from your hand or discard with cost 5 or less for free, exerted."
+
+birthday_lights:
+  cost: [exert]
+  effect: "You pay 1 ⬡ less for the next character you play this turn."
+
+blizzard:
+  cost: [exert]
+  effect: "Exert chosen character."
+
+bolt_stare:
+  cost: [exert]
+  effect: "Banish chosen Illusion character."
+
+business_expertise:
+  cost: [exert]
+  effect: "You pay 1 ⬡ less for the next item you play this turn."
+
+call_the_titans:
+  cost: [exert]
+  effect: "Ready your Titan characters."
+
+captive_audience:
+  cost: [exert]
+  effect: "If you have 3 or more other characters in play, draw a card."
+
+chilly_labor:
+  cost: [exert]
+  effect: "Chosen character gets -1 ¤ this turn."
+
+command:
+  cost: [exert]
+  effect: "Chosen character gains Support this turn. (Whenever they quest, you may add their ¤ to another chosen character's ¤ this turn.)"
+
+consult_the_spellbook:
+  cost: [exert]
+  effect: "Look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. If that item costs 3 or less, you may play it for free instead and it enters play exerted. Put the rest on the bottom of your deck in any order."
+
+curiouser_and_curiouser:
+  cost: [exert]
+  effect: "Exert chosen opposing character and all other opposing characters with the same name."
+
+cyclone:
+  cost: [exert]
+  effect: "Gain lore equal to the number of Titan characters you have in play."
+
+disassemble:
+  cost: [exert]
+  effect: "Banish chosen item."
+
+dubious_recruitment:
+  cost: [exert]
+  effect: "You pay 2 ⬡ less for the next character you play this turn."
+
+efficient_energy:
+  cost: [exert]
+  effect: "You pay 2 ⬡ less for the next action you play this turn."
+
+feel_the_power:
+  cost: [exert]
+  effect: "If you have fewer than 3 cards in your hand, draw until you have 3 cards in your hand."
+
+find_the_way:
+  cost: [exert]
+  effect: "Move a character of yours to a location for free."
+
+forests_gift:
+  cost: [exert]
+  effect: "Deal 1 damage to chosen damaged character or location."
+
+freeze:
+  cost: [exert]
+  effect: "Exert chosen opposing character."
+
+go_ahead_and_sign:
+  cost: [exert]
+  effect: "Put any card from your hand into your inkwell facedown."
+
+good_as_new:
+  cost: [exert]
+  effect: "Reveal the top 3 cards of your deck. You may put each character card with cost 2 or less into your hand. Put the rest on the bottom of your deck in any order."
+
+good_dog:
+  cost: [exert]
+  effect: "You pay 1 ⬡ less for the next character you play this turn."
+
+gruesome_and_grim:
+  cost: [exert]
+  effect: "Play a character with cost 4 or less for free. They gain Rush. At the end of the turn, banish them. (They can challenge the turn they're played.)"
+
+head_of_the_household:
+  cost: [exert]
+  effect: "Ready chosen character named Mulan. She can't quest for the rest of this turn."
+
+i_got_to_be_going:
+  cost: [exert]
+  effect: "If you've played 2 or more actions this turn, draw a card."
+
+i_summon_thee:
+  cost: [exert]
+  effect: "Draw a card."
+
+its_my_power_now:
+  cost: [exert]
+  effect: "Gain 1 lore."
+
+its_own_reward:
+  cost: [exert]
+  effect: "If you've played 2 or more cards this turn, gain 1 lore."
+
+key_to_the_portal:
+  cost: [exert]
+  effect: "You pay 1 ⬡ less for the next location you play this turn."
+
+key_to_the_puzzle:
+  cost: [exert]
+  effect: "Look at the top 2 cards of your deck. Put one into your inkwell facedown and exerted and the other on the top of your deck."
+
+lets_get_this_show_on_the_road:
+  cost: [exert]
+  effect: "Chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+life_giver:
+  cost: [exert]
+  effect: "You pay 2 ⬡ less for the next character you play this turn."
+
+look_for_a_new_angle:
+  cost: [exert]
+  effect: "Ready chosen Floodborn character."
+
+magic_hair:
+  cost: [exert]
+  effect: "Remove up to 2 damage from chosen character."
+
+no_ordinary_apple:
+  cost: [exert]
+  effect: "Choose 3 cards from chosen opponent's discard and put them on the bottom of their deck to gain 3 lore. If any Princess cards were moved this way, gain 4 lore instead."
+
+now_try_to_keep_up:
+  cost: [exert]
+  effect: "Put an item card from your discard on the top of your deck."
+
+on_the_trail:
+  cost: [exert]
+  effect: "If you have a Detective character in play, return an item card from your discard to your hand. Otherwise, put it on the top of your deck."
+
+payoff:
+  cost: [exert]
+  effect: "Chosen character gets -1 ¤ until the start of your next turn."
+
+peer_into_the_depths:
+  cost: [exert]
+  effect: "Look at the top 2 cards of your deck. Put one on the top of your deck and the other on the bottom."
+
+perks_of_power:
+  cost: [exert]
+  effect: "Draw a card."
+
+pleasing_the_queen:
+  cost: [exert]
+  effect: "Chosen exerted character can't ready at the start of their next turn."
+
+protection:
+  cost: [exert]
+  effect: "Chosen character gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+re_pete:
+  cost: [exert]
+  effect: "Reveal the top card of your deck. If it's a character card named Pete, you may play it for free."
+
+rebuild:
+  cost: [exert]
+  effect: "Remove up to 2 damage from chosen location."
+
+renewing_essence:
+  cost: [exert]
+  effect: "Remove up to 2 damage from chosen character."
+
+rising_sand:
+  cost: [exert]
+  effect: "Jafar deals 1 damage to each opposing character."
+
+ruby_light:
+  cost: [exert]
+  effect: "Chosen character gets +1 ¤ this turn."
+
+see_the_future:
+  cost: [exert]
+  effect: "Chosen character gets +1 ◊ this turn."
+
+skirmish:
+  cost: [exert]
+  effect: "Deal 1 damage to chosen character."
+
+slash:
+  cost: [exert]
+  effect: "Chosen character gets +1 ¤ this turn. If a character named Aladdin is chosen, he gets +2 ¤ instead."
+
+spycraft:
+  cost: [exert]
+  effect: "Draw a card, then choose and discard a card."
+
+steel_light:
+  cost: [exert]
+  effect: "Deal 1 damage to chosen character."
+
+stick_to_the_plan:
+  cost: [exert]
+  effect: "Another chosen character gains Resist +2 this turn. (Damage dealt to them is reduced by 2.)"
+
+stone_skin:
+  cost: [exert]
+  effect: "Chosen character gains Resist +2 this turn."
+
+straighten_hair:
+  cost: [exert]
+  effect: "Remove up to 1 damage from chosen character."
+
+supernatural_vengeance:
+  cost: [exert]
+  effect: "Deal 1 damage to chosen character."
+
+telekinesis:
+  cost: [exert]
+  effect: "Return chosen item with cost equal to or less than this character's ¤ to its player's hand."
+
+tempest:
+  cost: [exert]
+  effect: "Chosen character gains Challenger +2 and Rush this turn. (They get +2 ¤ while challenging. They can challenge the turn they're played.)"
+
+the_best_ive_ever_tasted:
+  cost: [exert]
+  effect: "Remove 1 damage each from up to 2 chosen characters."
+
+the_cards_will_tell:
+  cost: [exert]
+  effect: "You pay 1 ⬡ less for the next action you play this turn."
+
+the_price_of_power:
+  cost: [exert]
+  effect: "If one of your characters was damaged this turn, gain 1 lore."
+
+thats_quite_enough:
+  cost: [exert]
+  effect: "Return chosen damaged character to their player's hand. Then, each opponent discards a card at random."
+
+well_crafted:
+  cost: [exert]
+  effect: "Chosen character gains Resist +2 until the start of your next turn. (Damage dealt to them is reduced by 2.)"
+
+what_a_juicy_apple:
+  cost: [exert]
+  effect: "Remove up to 2 damage from chosen character."
+
+wicked_smile:
+  cost: [exert]
+  effect: "Banish chosen damaged character."
+
+you_can_do_it:
+  cost: [exert]
+  effect: "Chosen character gets +3 ¤ this turn."
+
+you_got_a_problem:
+  cost: [exert]
+  effect: "Chosen character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+you_just_have_to_see_it:
+  cost: [exert]
+  effect: "Name a card, then reveal the top card of your deck. If it's the named card, put that card into your hand and gain 3 lore. Otherwise, put it on the top of your deck."
+
+# ============================================
+# [exert, N] - exert + pay ink - 42 abilities
+# ============================================
+
+an_unexpected_find:
+  cost: [exert, 2]
+  effect: "Draw a card."
+
+backtrack:
+  cost: [exert, 1]
+  effect: "Chosen opposing character gets -1 ◊ until the start of your next turn."
+
+breaking_records:
+  cost: [exert, 1]
+  effect: "Draw a card and gain 1 lore."
+
+bring_back_to_life:
+  cost: [exert, 3]
+  effect: "Return a character card with Support from your discard to your hand."
+
+careful_aim:
+  cost: [exert, 2]
+  effect: "Chosen character gets -2 ¤ this turn."
+
+create_life:
+  cost: [exert, 2]
+  effect: "Put the top card of your deck into your inkwell facedown and exerted."
+
+discipline_and_strength:
+  cost: [exert, 2]
+  effect: "Chosen character gets +2 ¤ this turn. Whenever they challenge another character this turn, you may draw a card."
+
+faith_and_trust:
+  cost: [exert, 2]
+  effect: "Chosen character gains Challenger +2 and Evasive until the start of your next turn. (While challenging, they get +2 ¤. Only characters with Evasive can challenge them.)"
+
+find_whats_hidden:
+  cost: [exert, 2]
+  effect: "Look at the top 3 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+fine_dining:
+  cost: [exert, 1]
+  effect: "If you have 2 or more characters in play, gain 1 lore."
+
+fireproof:
+  cost: [exert, 3]
+  effect: "Ready chosen character. They can't quest for the rest of this turn."
+
+handle_with_care:
+  cost: [exert, 2]
+  effect: "Chosen character gains Bodyguard until the start of your next turn. (An opposing character who challenges one of your characters must choose one with Bodyguard if able.)"
+
+hockety_pockety:
+  cost: [exert, 1]
+  effect: "Return an item card from your discard to your hand."
+
+im_late:
+  cost: [exert, 1]
+  effect: "Chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+incredible_energy:
+  cost: [exert, 1]
+  effect: "Name a card, then reveal the top card of your deck. If it's the named card, put that card into your hand. Otherwise, put it on the top of your deck."
+
+is_it_on_yet:
+  cost: [exert, 1]
+  effect: "Look at the top card of your deck. If it's a Puppy character card, you may reveal it and put it into your hand. Otherwise, put it on the bottom of your deck."
+
+its_stuck:
+  cost: [exert, 1]
+  effect: "Exert chosen opposing item. It can't ready at the start of its next turn."
+
+knowledge:
+  cost: [exert, 1]
+  effect: "Gain 1 lore."
+
+make_a_rescue:
+  cost: [exert, 3]
+  effect: "Return a Pirate character card from your discard to your hand."
+
+mystical_petals:
+  cost: [exert, 2]
+  effect: "Move 1 damage counter from chosen character to chosen opposing character."
+
+no_room_no_room:
+  cost: [exert, 1]
+  effect: "Each opponent puts the top card of their deck into their discard."
+
+number_one:
+  cost: [exert, 2]
+  effect: "Choose a character of yours and gain lore equal to their ◊."
+
+precision_strike:
+  cost: [exert, 1]
+  effect: "Chosen character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+protect_and_serve:
+  cost: [exert, 1]
+  effect: "Chosen character gains Resist +1 and the Detective classification until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+quick_shot:
+  cost: [exert, 2]
+  effect: "Deal 1 damage to chosen character."
+
+ready_to_ride:
+  cost: [exert, 1]
+  effect: "Chosen character gains Alert this turn. (They can challenge as if they had Evasive.)"
+
+rise_and_join_me:
+  cost: [exert, 1]
+  effect: "This turn, you may play characters from under this item."
+
+roll_with_the_punches:
+  cost: [exert, 1]
+  effect: "Chosen character with no damage gains Resist +2 until the start of your next turn. (Damage dealt to them is reduced by 2.)"
+
+royal_search:
+  cost: [exert, 2]
+  effect: "Reveal the top card of your deck. If it's a Prince or King character card, you may put that card into your hand. Otherwise, put it on the top of your deck."
+
+royal_search_queen:
+  cost: [exert, 2]
+  effect: "Reveal the top card of your deck. If it's a Princess or Queen character card, you may put it into your hand. Otherwise, put it on the top of your deck."
+
+search_the_sands:
+  cost: [exert, 2]
+  effect: "Return an Illusion character card from your discard to your hand."
+
+shapeshift:
+  cost: [exert, 2]
+  effect: "Choose one: • Chosen character gains Evasive until the start of your next turn. (Only characters with Evasive can challenge them.) • Chosen character gets +3 ¤ this turn."
+
+shielding_light:
+  cost: [exert, 2]
+  effect: "Chosen character gains Resist +2 and Support until the start of your next turn. (Damage dealt to them is reduced by 2. Whenever they quest, you may add their ¤ to another chosen character's ¤ this turn.)"
+
+show_me:
+  cost: [exert, 3]
+  effect: "If you have no cards in your hand, draw a card."
+
+sound_the_call:
+  cost: [exert, 2]
+  effect: "Play a character for free."
+
+speak:
+  cost: [exert, 4]
+  effect: "Draw a card."
+
+suppressed_anger:
+  cost: [exert, 1]
+  effect: "Put 1 damage counter on chosen character."
+
+sweet_tech:
+  cost: [exert, 2]
+  effect: "Search your deck for an item card or a Robot character card and reveal it to all players. Shuffle your deck and put that card on top of it."
+
+the_cauldron_calls:
+  cost: [exert, 1]
+  effect: "Put a character card from your discard under this item faceup."
+
+within_range:
+  cost: [exert, 1]
+  effect: "Chosen Hero character gains Challenger +2 and Evasive this turn. (They get +2 ¤ while challenging. They can challenge characters with Evasive.)"
+
+you_know_what_happens:
+  cost: [exert, 2]
+  effect: "Draw cards equal to the damage on chosen character of yours, then banish them."
+
+# ============================================
+# [N] - ink only - 12 abilities
+# ============================================
+
+ahead_of_the_pack:
+  cost: [1]
+  effect: "This character gets +1 ¤ this turn."
+
+by_invite_only:
+  cost: [4]
+  effect: "Your other characters gain Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+grounded:
+  cost: [3]
+  effect: "Return this item to your hand."
+
+i_am_so_sorry:
+  cost: [2]
+  effect: "Chosen character gets -1 ¤ until the start of your next turn."
+
+i_got_your_back:
+  cost: [2]
+  effect: "Ready this character. He can't quest for the rest of this turn."
+
+need_a_hand:
+  cost: [1]
+  effect: "This character gets +1 ¤ this turn."
+
+shape_the_future:
+  cost: [2]
+  effect: "Look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+strength_of_mind:
+  cost: [1]
+  effect: "Chosen character here gets +1 ¤ this turn."
+
+strong_like_his_dad:
+  cost: [3]
+  effect: "Deal 1 damage to chosen damaged character."
+
+take_it_for_a_spin:
+  cost: [2]
+  effect: "Chosen character of yours gains Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)"
+
+think_about_whats_best:
+  cost: [2]
+  effect: "Draw a card, then choose and discard a card."
+
+you_said_ow:
+  cost: [2]
+  effect: "Remove up to 1 damage from another chosen character."
+
+# ============================================
+# [banish] only - 15 abilities
+# ============================================
+
+abuelas_gift:
+  cost: [banish]
+  effect: "If you have 3 or more characters in play, gain 2 lore and remove up to 2 damage from chosen location."
+
+ancient_power:
+  cost: [banish]
+  effect: "Remove up to 2 damage from each of your characters."
+
+clang:
+  cost: [banish]
+  effect: "Chosen character can't challenge during their next turn."
+
+cybernetic_armor:
+  cost: [banish]
+  effect: "Chosen character gains Resist +2 until the start of your next turn. (Damage dealt to them is reduced by 2.)"
+
+deflect:
+  cost: [banish]
+  effect: "Chosen character gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+dispel_the_entanglement:
+  cost: [banish]
+  effect: "Chosen character named Beast gets +2 ◊ this turn. If you have a character named Belle in play, move up to 3 damage counters from chosen character to chosen opposing character."
+
+final_enchantment:
+  cost: [banish]
+  effect: "Banish chosen Villain character."
+
+good_or_evil:
+  cost: [banish]
+  effect: "If you have a character named Jafar in play, draw 2 cards. If you have a character named Genie in play, return chosen character with cost 4 or less to their player's hand."
+
+healing_pollen:
+  cost: [banish]
+  effect: "Remove up to 3 damage from chosen character."
+
+here_you_go:
+  cost: [banish]
+  effect: "Remove up to 2 damage from each of your characters. Draw a card."
+
+hurtling_hedgehog:
+  cost: [banish]
+  effect: "Chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+snap_boom_twang:
+  cost: [banish]
+  effect: "Each opponent loses 2 lore."
+
+symbol_of_power:
+  cost: [banish]
+  effect: "Chosen character gets +1 ¤ this turn for each card in your hand."
+
+thats_redwood:
+  cost: [banish]
+  effect: "Remove up to 2 damage from chosen character."
+
+to_wonderland:
+  cost: [banish]
+  effect: "Return chosen character of yours to your hand."
+
+# ============================================
+# [exert, banish] - 4 abilities
+# ============================================
+
+destroy:
+  cost: [exert, banish]
+  effect: "Choose one: • Banish chosen item. • Banish chosen damaged character."
+
+disassembled_serpent:
+  cost: [exert, banish]
+  effect: "Jafar gains 2 lore."
+
+mindless_rage:
+  cost: [exert, banish]
+  effect: "Each opposing damaged character gains Reckless until the start of your next turn. (They can't quest and must challenge if able.)"
+
+stay_back:
+  cost: [exert, banish]
+  effect: "Banish chosen Dragon character."
+
+# ============================================
+# [exert, N, banish] - 5 abilities
+# ============================================
+
+congratulations_soldier:
+  cost: [exert, 2, banish]
+  effect: "Chosen character of yours gets +2 ◊ this turn."
+
+sparkly_access:
+  cost: [exert, 1, banish]
+  effect: "Ready chosen character of yours. They can't quest for the rest of this turn."
+
+surprise_package:
+  cost: [exert, 2, banish]
+  effect: "Draw a card, then choose and discard a card."
+
+the_book_knows_everything:
+  cost: [exert, 1, banish]
+  effect: "Draw 2 cards."
+
+the_perfect_cast:
+  cost: [exert, 1, banish]
+  effect: "Return chosen exerted character of yours to your hand to gain 2 lore."
+
+# ============================================
+# [N, banish] - 13 abilities
+# ============================================
+
+arm_yourself:
+  cost: [1, banish]
+  effect: "Chosen character gains Challenger +3 this turn. (They get +3 ¤ while challenging.)"
+
+extract_of_amethyst:
+  cost: [2, banish]
+  effect: "Return chosen character, item, or location with cost 3 or less to their player's hand."
+
+extract_of_emerald:
+  cost: [2, banish]
+  effect: "Your characters gain Ward until the start of your next turn. (Opponents can't choose them except to challenge.)"
+
+extract_of_ruby:
+  cost: [1, banish]
+  effect: "Chosen character gains Rush and gets +2 ¤ this turn. (They can challenge the turn they're played.)"
+
+extract_of_steel:
+  cost: [1, banish]
+  effect: "Chosen character of yours gains Bodyguard until the start of your next turn. (An opposing character who challenges one of your characters must choose one with Bodyguard if able.)"
+
+hitch_a_ride:
+  cost: [2, banish]
+  effect: "Chosen character gains Rush this turn."
+
+make_it_sing:
+  cost: [1, banish]
+  effect: "Chosen character counts as having +3 cost to sing songs this turn."
+
+resource_allocation:
+  cost: [1, banish]
+  effect: "Return chosen character with 2 ¤ or less to their player's hand."
+
+take_a_bite:
+  cost: [1, banish]
+  effect: "Exert chosen character. If a Princess character is chosen, banish her instead."
+
+trap:
+  cost: [2, banish]
+  effect: "Draw 2 cards, then choose and discard a card."
+
+vile_concoction:
+  cost: [1, banish]
+  effect: "Chosen character gets +3 ¤ this turn. If a Villain character is chosen, they get +4 ¤ instead."
+
+walk:
+  cost: [2, banish]
+  effect: "Choose one: • Banish chosen Hero character. • Ready chosen Villain character. They can't quest for the rest of this turn."
+
+whispered_power:
+  cost: [1, banish]
+  effect: "Put the top card of your deck facedown under one of your characters or locations with Boost."
+
+# ============================================
+# [exert, {banish_other: type}] - 5 abilities
+# ============================================
+
+all_for_me:
+  cost: [exert, {banish_other: item}]
+  effect: "Chosen opponent loses 1 lore and you gain 1 lore."
+
+chapter_three:
+  cost: [exert, {banish_other: item}]
+  effect: "Put the top card of your deck into your inkwell facedown and exerted."
+
+clean_up:
+  cost: [exert, {banish_other: item}]
+  effect: "Draw a card."
+
+consign_to_the_depths:
+  cost: [exert, {banish_other: item}]
+  effect: "Gain 3 lore."
+
+heres_the_trade_off:
+  cost: [exert, {banish_other: character}]
+  effect: "Play a character with the same name as the banished character for free."
+
+# ============================================
+# [exert, banish] - character banishes self
+# ============================================
+
+this_shouldnt_take_long:
+  cost: [exert, banish]
+  effect: "Banish chosen character."
+
+# ============================================
+# [exert, N, {banish_other: ...}] - 3 abilities
+# ============================================
+
+sapphire_light:
+  cost: [exert, 2, {banish_other: item}]
+  effect: "Gain 2 lore."
+
+what_are_you_gonna_do:
+  cost: [exert, 3, {banish_other: character}]
+  effect: "Banish chosen character."
+
+ive_had_it:
+  cost: [exert, 2, {banish_other: item, count: 2}]
+  effect: "Deal 5 damage to chosen character."
+
+# ============================================
+# [{exert_other: type}] - exert other only - 2 abilities
+# ============================================
+
+royal_inventory:
+  cost: [{exert_other: item}]
+  effect: "Look at the top card of your deck and put it on either the top or the bottom of your deck."
+
+i_made_her:
+  cost: [{exert_other: character}]
+  effect: "Chosen character gets -2 ¤ until the start of your next turn."
+
+# ============================================
+# [exert, {exert_other: type}] - 2 abilities
+# ============================================
+
+for_all_eternity:
+  cost: [exert, {exert_other: character}]
+  effect: "Exert chosen character."
+
+worthy_weapon:
+  cost: [exert, {exert_other: character}]
+  effect: "Ready chosen character. They can't quest for the rest of this turn."
+
+# ============================================
+# [exert, {discard: type}] - 2 abilities
+# ============================================
+
+a_perfect_disguise:
+  cost: [exert, {discard: character}]
+  effect: "Gain lore equal to the discarded character's ◊."
+
+i_have_just_the_thing:
+  cost: [exert, {discard: item}]
+  effect: "Draw 2 cards."
+
+# ============================================
+# [exert, N, discard] - 2 abilities
+# ============================================
+
+a_perilous_power:
+  cost: [exert, 2, discard]
+  effect: "Exert chosen character."
+
+ba_boom:
+  cost: [exert, 2, discard]
+  effect: "Deal 2 damage to chosen character or location."
+
+# ============================================
+# [N, discard] - 2 abilities
+# ============================================
+
+ice_over:
+  cost: [1, discard]
+  effect: "Exert chosen opposing character."
+
+oh_bat_gizzards:
+  cost: [2, discard]
+  effect: "Gain 1 lore."
+
+# ============================================
+# [discard] only - 2 abilities
+# ============================================
+
+full_breach:
+  cost: [discard]
+  effect: "Ready this character. He can't quest for the rest of this turn."
+
+nows_my_chance:
+  cost: [discard]
+  effect: "This character gains Challenger +3 this turn. (They get +3 ¤ while challenging.)"
+
+# ============================================
+# [N, {damage: N}] - self-damage - 1 ability
+# ============================================
+
+wild_rage:
+  cost: [1, {damage: 1}]
+  effect: "Ready this character. He can't quest for the rest of this turn."
+
+# ============================================
+# WEIRD: Needs tickets - 4 abilities
+# ============================================
+
+# Banish self + exert other with type constraint (Prince)
+search_the_kingdom:
+  cost: "Banish this item, ⟳ one of your Prince characters"
+  effect: "Search your deck for a Princess character card and reveal it to all players. Put that card into your hand and shuffle your deck."
+
+# Once per turn + targets OTHER character at location + damages them
+on_your_marks:
+  cost: "Once per turn, ⟳ chosen character here, deal them 1 damage"
+  effect: "Move them to another location for free."
+
+# Exert quantity (4) of other cards
+put_it_to_good_use:
+  cost: "Exert 4 items of yours"
+  effect: "Play this character for free."
+
+# Once per turn modifier
+twilight_bark:
+  cost: "Once per turn, 2 ⬡"
+  effect: "Reveal the top card of your deck. If it's a character card, put it into your hand. Otherwise, put it on the bottom of your deck."
