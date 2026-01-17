@@ -1,0 +1,2845 @@
+# Lorcana Triggered Abilities (705 parsed, 70 need review)
+# Format: ability_name -> when (trigger condition) + effect
+
+grasping_trunk:
+  when: "Whenever this character quests"
+  effect: "gain lore equal to the ◊ of chosen opposing character."
+
+crashing_through:
+  when: "Whenever this character quests"
+  effect: "you may banish chosen item."
+
+remember_your_training:
+  when: "When you play this character"
+  effect: "your characters get +2 ¤ this turn."
+
+helping_hand:
+  when: "Whenever this character quests"
+  effect: "you may play an Ally character with cost 3 or less for free."
+
+improvise:
+  when: "When you play this character"
+  effect: "each opponent loses 1 lore."
+
+safe_passage:
+  when: "Whenever one of your Ally characters quests"
+  effect: "you may remove up to 2 damage from this character."
+
+fan_favorite:
+  when: "Whenever you play a song"
+  effect: "gain 1 lore."
+
+making_waves:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character gets -2 ¤ this turn."
+
+washed_away:
+  when: "When you play this character"
+  effect: "you may put chosen item into its player's inkwell facedown and exerted."
+
+accident_prone:
+  when: "Whenever this character quests"
+  effect: "put 1 damage counter on each other character."
+
+this_way_out:
+  when: "When you play this character"
+  effect: "you may ready chosen damaged character of yours. They can't quest for the rest of this turn."
+
+ahoy:
+  when: "Whenever this character quests"
+  effect: "another chosen character of yours gets +1 ◊ and gains Ward until the start of your next turn."
+
+an_eye_for_tech:
+  when: "When you play this character"
+  effect: "if an opponent has an item in play, gain 1 lore."
+
+to_the_table:
+  when: "When you play this character"
+  effect: "you may search your deck for a Madrigal character card and reveal that card to all players. Shuffle your deck and put that card on top of it."
+
+oh_i_hate_this:
+  when: "Whenever this character is challenged"
+  effect: "the challenging player chooses and discards a card."
+
+ill_take_care_of_you:
+  when: "When you play this character"
+  effect: "you may give chosen Puppy character Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+royal_resolution:
+  when: "When you play this character"
+  effect: "you may pay 2 ⬡ to choose one: • Each opponent chooses and discards a card. • Chosen character gets +2 ¤ this turn. • Banish chosen damaged character."
+
+growing_powers:
+  when: "When you play this character"
+  effect: "each opponent chooses and exerts one of their ready characters."
+
+loving_heart:
+  when: "When you play this character"
+  effect: "if you have a character named Elsa in play, choose an opposing character. The chosen character doesn't ready at the start of their next turn."
+
+winter_ambush:
+  when: "When you play this character"
+  effect: "chosen opposing character can't ready at the start of their next turn."
+
+coordinated_plan:
+  when: "Whenever this character quests"
+  effect: "if you have a character named Elsa in play, you may draw a card."
+
+exceptional_power:
+  when: "When you play this character"
+  effect: "exert all opposing characters."
+
+let_me_help_you:
+  when: "Whenever this character quests"
+  effect: "your other Hero characters get +1 ◊ this turn."
+
+we_can_do_this_together:
+  when: "When you play this character"
+  effect: "if you have a character named Elsa in play, you may put the top card of your deck into your inkwell facedown and exerted."
+
+you_want_to_go_where:
+  when: "When you play this character"
+  effect: "if you have a character named Antonio Madrigal in play, gain 1 lore."
+
+more_to_learn:
+  when: "Whenever an opponent chooses this character for an action or ability"
+  effect: "you may draw a card."
+
+you_dont_need_that:
+  when: "When you play this character"
+  effect: "you may banish chosen item."
+
+inspiring_voice:
+  when: "Whenever you play a song"
+  effect: "chosen character of yours gains Evasive until the start of your next turn."
+
+i_want_more:
+  when: "Whenever you play a song"
+  effect: "you may draw a card, then choose and discard a card."
+
+amplified_voice:
+  when: "Whenever you play a song"
+  effect: "you may pay 2 ⬡ to deal 3 damage to chosen character."
+
+musical_debut:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal a song card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+look_at_this_stuff:
+  when: "Whenever you play an item"
+  effect: "you may ready this character."
+
+knighted_by_the_king:
+  when: "When you play this character"
+  effect: "chosen character gains Challenger +2 and Resist +2 and can challenge ready characters this turn. (They get +2 ¤ while challenging. Damage dealt to them is reduced by 2.)"
+
+student:
+  when: "Whenever this character quests"
+  effect: "you may return another chosen character of yours to your hand to gain 2 lore."
+
+spare_parts:
+  when: "Whenever this character quests"
+  effect: "ready one of your items."
+
+happy_to_help:
+  when: "Whenever this character quests"
+  effect: "chosen Inventor character gets +1 ◊ this turn."
+
+seeking_knowledge:
+  when: "Whenever one of your characters quests"
+  effect: "you may look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+disarming_beauty:
+  when: "When you play this character"
+  effect: "chosen character gets -2 ¤ this turn."
+
+royal_welcome:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next Princess or Queen character you play this turn."
+
+sweet_dreams:
+  when: "Whenever you remove 1 or more damage from a character"
+  effect: "ready this character. She can't quest or challenge for the rest of this turn."
+
+roll_with_it:
+  when: "When you play this character"
+  effect: "choose one: • Each player draws a card. • Each player chooses and discards a card."
+
+lets_make_like_a_tree:
+  when: "When this character is banished"
+  effect: "gain 2 lore."
+
+kind_of_bashful:
+  when: "When an opponent plays a character"
+  effect: "return this character to your hand."
+
+say_hello:
+  when: "When you play this character"
+  effect: "gain 1 lore."
+
+here_kitty_kitty_kitty:
+  when: "When you play this character"
+  effect: "you may exert chosen damaged character."
+
+draw_them_out:
+  when: "Whenever this character quests"
+  effect: "opposing damaged characters gain Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+hold_your_ground:
+  when: "Whenever you play another Detective character"
+  effect: "this character gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+incapacitate:
+  when: "When you play this character"
+  effect: "you may return chosen character to their player's hand."
+
+interfere:
+  when: "Whenever this character quests"
+  effect: "chosen opponent discards a card at random."
+
+energy_converter:
+  when: "Whenever you play a Floodborn character"
+  effect: "if you used Shift to play them, you may draw a card."
+
+the_treatment_is_working:
+  when: "When you play this character and whenever he quests"
+  effect: "you may remove up to 2 damage from another chosen character of yours. Gain 1 lore for each 1 damage removed this way."
+
+functionality_improved:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, remove all damage from him."
+
+advanced_scanner:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal a Floodborn character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+hurry_it_up:
+  when: "Whenever this character quests"
+  effect: "chosen character of yours gains Rush and Resist +1 this turn. (They can challenge the turn they're played. Damage dealt to them is reduced by 1.)"
+
+thats_mine:
+  when: "Whenever he challenges another character"
+  effect: "if there's a card under this character, each opponent loses 1 lore and you gain 1 lore."
+
+youre_not_welcome_here:
+  when: "When you play this character"
+  effect: "you may deal 1 damage to chosen character."
+
+break:
+  when: "When you play this character"
+  effect: "you may banish chosen item."
+
+second_wind:
+  when: "Whenever an opposing character is damaged"
+  effect: "you may ready this character."
+
+shield_another:
+  when: "Whenever one of your other characters would be dealt damage"
+  effect: "put that many damage counters on this character instead."
+
+roar:
+  when: "When you play this character"
+  effect: "exert all opposing damaged characters."
+
+enhanced_healing:
+  when: "When you play this character"
+  effect: "move up to 3 damage counters from chosen character to chosen opposing character."
+
+thorny_arrows:
+  when: "Whenever this character is challenged"
+  effect: "the challenging character's player discards all cards in their hand."
+
+tinker:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next item you play this turn."
+
+repurpose:
+  when: "Whenever this character quests"
+  effect: "you may put up to 3 item cards from your discard on the bottom of your deck to gain 1 lore for each item card moved this way."
+
+ushered_into_the_party:
+  when: "When you play this character"
+  effect: "your other characters gain Ward until the start of your next turn."
+
+here_now_dont_do_that:
+  when: "When you play this character"
+  effect: "move up to 1 damage counter from chosen character to chosen opposing character."
+
+vendetta:
+  when: "When this character is challenged and banished"
+  effect: "put 1 damage counter on each opposing character."
+
+we_have_a_choice:
+  when: "When you play this character"
+  effect: "you may banish chosen item."
+
+go_down_there_and_investigate:
+  when: "When you play this character"
+  effect: "if you have an Ally character in play, you may draw a card."
+
+keep_it_hidden:
+  when: "When this character is banished"
+  effect: "you may banish chosen item or location."
+
+battle_anthem:
+  when: "Whenever one of your characters or locations with a card under them is challenged"
+  effect: "gain 1 lore."
+
+mcduck_heirloom:
+  when: "When you play this item"
+  effect: "you may put the top card of your deck facedown under one of your characters or locations with Boost."
+
+ethereal_glow:
+  when: "Whenever you play a Floodborn character"
+  effect: "you may draw a card."
+
+so_cheesy:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+theres_no_turning_back:
+  when: "Whenever this character quests"
+  effect: "if he has no damage, you may draw a card, then choose and discard a card."
+
+mark_of_power:
+  when: "Whenever you ready this character"
+  effect: "gain 1 lore for each other undamaged character you have in play."
+
+rough_and_tumble:
+  when: "Whenever this character challenges a character with 2 ¤ or less"
+  effect: "each opponent loses 1 lore."
+
+parting_gift:
+  when: "When this character is banished"
+  effect: "you may draw a card."
+
+it_was_your_vision:
+  when: "When you play this character"
+  effect: "chosen character gains “When this character is banished in a challenge, you may return this card to your hand” this turn."
+
+bright_future:
+  when: "Whenever this character sings a song"
+  effect: "you may draw a card for each character you have in play."
+
+standing_tall:
+  when: "When you play this character"
+  effect: "chosen opposing character can't ready at the start of their next turn."
+
+dark_prophecy:
+  when: "When you play this character"
+  effect: "each opposing player puts the top 3 cards of their deck into their discard."
+
+pop:
+  when: "When this character is banished in a challenge"
+  effect: "you may draw a card."
+
+squeak:
+  when: "Whenever you play a Floodborn character"
+  effect: "if you used Shift to play them, each opponent chooses and discards a card."
+
+tactical_advantage:
+  when: "When you play this character"
+  effect: "you may choose and discard a card to give chosen opposing character -3 ¤ until the start of your next turn."
+
+back_to_start_positions:
+  when: "Whenever this character challenges another character"
+  effect: "you may return a Racer character card from your discard to your hand."
+
+loot_drop:
+  when: "When this character is banished"
+  effect: "gain 1 lore."
+
+encore_encore:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+imitate:
+  when: "Whenever this character quests"
+  effect: "you may gain lore equal to the ◊ of chosen other character of yours. Return that character to your hand."
+
+winning_isnt_everything:
+  when: "When this character is banished"
+  effect: "you may remove up to 2 damage from chosen character."
+
+double_the_powder:
+  when: "When you play this character"
+  effect: "you may return an action card named Fire the Cannons! from your discard to your hand."
+
+upper_hand:
+  when: "Whenever this character is challenged"
+  effect: "draw a card."
+
+in_cahoots:
+  when: "When you play this character"
+  effect: "if you have a character named Tipo in play, chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+heres_the_best_part:
+  when: "Whenever you play a character"
+  effect: "if you used Shift to play them, they get +4 ¤ this turn."
+
+restless_souls:
+  when: "Whenever this character quests"
+  effect: "you may banish them to draw a card."
+
+midnight_revel:
+  when: "When you play this character"
+  effect: "each opponent chooses and exerts one of their ready characters. They can't ready at the start of their next turn."
+
+summon_the_spirits:
+  when: "When you play this character"
+  effect: "shuffle all character cards from your discard into your deck."
+
+its_loads_of_fun:
+  when: "Whenever you put a card under this character"
+  effect: "you may move up to 2 damage counters from chosen character to chosen opposing character."
+
+lose_something:
+  when: "When this character is challenged and banished"
+  effect: "banish the challenging character."
+
+mad_grin:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to chosen damaged character."
+
+insubordination:
+  when: "Whenever you play a Floodborn character"
+  effect: "deal 1 damage to each opposing character."
+
+dales_partner:
+  when: "When you play this character"
+  effect: "chosen character gets +1 ◊ this turn."
+
+ill_handle_this:
+  when: "When you play this character"
+  effect: "chosen opponent chooses and discards a card."
+
+well_always_be_together:
+  when: "Whenever you ready this character"
+  effect: "if you have 2 or more other characters in play, gain 2 lore."
+
+have_courage:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+beautiful_voice:
+  when: "Whenever this character sings a song"
+  effect: "your other Princess characters get +1 ◊ this turn."
+
+the_singing_sword:
+  when: "Whenever you play a song"
+  effect: "this character may challenge ready characters this turn."
+
+if_the_slipper_fits:
+  when: "When you play this character"
+  effect: "you may put an item card named The Glass Slipper from your discard on the bottom of your deck to gain 3 lore."
+
+butterfingers:
+  when: "When you play this character"
+  effect: "you may pay 2 ⬡ to banish chosen item."
+
+one_step_behind:
+  when: "When you play this character"
+  effect: "if an opponent has more cards in their hand than you, you may draw a card."
+
+consider_the_coconut:
+  when: "Whenever you play a character"
+  effect: "you may remove up to 2 damage from chosen character."
+
+time_to_move_it:
+  when: "When you play this character"
+  effect: "chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+as_you_were:
+  when: "Whenever this character quests"
+  effect: "you may give chosen character -2 ¤ until the start of your next turn."
+
+the_cantrips_have_been_spoken:
+  when: "When you play this character"
+  effect: "if you have 2 or more Gargoyle character cards in your discard, gain 2 lore."
+
+spreading_good_fortune:
+  when: "When you play this character"
+  effect: "your other characters get +3 ¤ this turn."
+
+youll_be_sorry:
+  when: "When this character is challenged and banished"
+  effect: "you may return chosen character to their player's hand."
+
+oh_no_you_dont:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character gets -2 ¤ this turn."
+
+the_bear:
+  when: "Whenever this character moves to a location"
+  effect: "he gets +3 ¤ this turn."
+
+poor_souls:
+  when: "Whenever this character is challenged"
+  effect: "each opponent chooses and discards a card."
+
+big_prize:
+  when: "Whenever this character quests"
+  effect: "each opponent reveals the top card of their deck. If it's a character card, they may put it into their hand. Otherwise, they put it on the bottom of their deck."
+
+infiltration:
+  when: "When you play this character"
+  effect: "each opponent chooses and discards a card."
+
+distant_shores:
+  when: "Whenever one of your Pirate characters quests while at a location"
+  effect: "draw a card."
+
+look_ahead:
+  when: "Whenever one of your other Sapphire characters quests"
+  effect: "you may look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+thwart:
+  when: "Whenever this character quests"
+  effect: "each opponent chooses and discards a card."
+
+nuts_about_pranks:
+  when: "When you play this character"
+  effect: "you may put the top 3 cards of your deck into your discard to give chosen character -3 ¤ until the start of your next turn."
+
+how_sweet:
+  when: "When you play this character"
+  effect: "chosen character gets +2 ◊ this turn."
+
+what_are_you_waiting_for:
+  when: "Whenever this character quests"
+  effect: "chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+minor_inconvenience:
+  when: "When you play this character"
+  effect: "you may choose and discard a card to deal 2 damage to chosen character."
+
+map_the_maze:
+  when: "Whenever a character challenges this location"
+  effect: "each Illumineer chooses and discards a card."
+
+here_to_help:
+  when: "When you play this character"
+  effect: "you may ready chosen character with Boost. If you do, they can't quest or challenge for the rest of this turn."
+
+ad_saxum_commutate:
+  when: "When you play this character"
+  effect: "exert all opposing characters. Then, each player with fewer than 3 cards in their hand draws until they have 3."
+
+looking_for_aurora:
+  when: "Whenever you play a character named Maleficent"
+  effect: "you may look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+scout_ahead:
+  when: "When you play this character"
+  effect: "you may look at each opponent's hand."
+
+fly_my_pet:
+  when: "When this character is banished"
+  effect: "you may draw a card."
+
+drastic_measures:
+  when: "When you play this character"
+  effect: "you may discard your hand to draw 2 cards."
+
+share_and_share_alike:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next character you play this turn."
+
+magical_informant:
+  when: "When you play this character"
+  effect: "if an opponent has an exerted character in play, you may draw a card."
+
+i_hear_you:
+  when: "Whenever one of your characters sings a song"
+  effect: "chosen opponent reveals their hand."
+
+scornful_taunt:
+  when: "Whenever you play an action that isn't a song"
+  effect: "chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+money_everywhere:
+  when: "When you play this character"
+  effect: "your other characters gain “⟳ — Draw a card” this turn."
+
+plucky_play:
+  when: "Whenever this character challenges another character"
+  effect: "each opponent loses 1 lore."
+
+baffling_mystery:
+  when: "When you play this character"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+raise_a_ruckus:
+  when: "When you play this character"
+  effect: "chosen Detective character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+duck_of_action:
+  when: "Whenever this character is challenged"
+  effect: "you may return an action card that isn't a song card from your discard to your hand."
+
+wait_for_me:
+  when: "When you play this character"
+  effect: "chosen character gets +1 ◊ this turn."
+
+humble_pie:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, each opponent loses 2 lore."
+
+startled_awake:
+  when: "Whenever you play an action"
+  effect: "this character gets +2 ¤ this turn."
+
+odd_one_out:
+  when: "When this character is banished"
+  effect: "your other Seven Dwarfs characters get +2 ¤ until the start of your next turn."
+
+stronger_together:
+  when: "When you play this character"
+  effect: "if you have another Knight character in play, you may deal 1 damage to chosen character or location."
+
+very_rude_indeed:
+  when: "When you play this character"
+  effect: "you may put 1 damage counter on chosen character."
+
+into_the_shadows:
+  when: "Whenever one of your other characters is banished in a challenge"
+  effect: "you may return that card to your hand."
+
+youre_in_my_world:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character can't quest during their next turn."
+
+dreams_made_real:
+  when: "Whenever you play a song"
+  effect: "you may look at the top 2 cards of your deck. Put one on the top of your deck and the other on the bottom."
+
+where_fun_is_in_the_zone:
+  when: "Whenever a character quests while here"
+  effect: "you pay 2 ⬡ less for the next character you play this turn."
+
+aerial_duo:
+  when: "When you play this character"
+  effect: "chosen character gains Evasive until the start of your next turn."
+
+let_me_at_em:
+  when: "When you play this character"
+  effect: "you may deal 1 damage to chosen character."
+
+unearthed:
+  when: "When you play this character"
+  effect: "each opponent draws a card."
+
+cause_a_panic:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to chosen damaged character."
+
+eternal_winter:
+  when: "When you play this location"
+  effect: "choose an exerted character. While this location is in play, that character can't ready at the start of their turn."
+
+closer_look:
+  when: "When you play this character"
+  effect: "you may draw a card."
+
+winter_wall:
+  when: "Whenever this character quests"
+  effect: "you may exert chosen character. If you do and you have a character named Anna in play, the chosen character can't ready at the start of their next turn."
+
+thats_no_blizzard:
+  when: "Whenever you play a character named Anna"
+  effect: "ready this character. This character can't quest for the rest of this turn."
+
+deep_freeze:
+  when: "When you play this character"
+  effect: "exert up to 2 chosen characters. They can't ready at the start of their next turn."
+
+crystallize:
+  when: "When you play this character"
+  effect: "exert chosen opposing character."
+
+what_do_we_do_now:
+  when: "Whenever this character quests"
+  effect: "if you have a character named Anna in play, gain 1 lore."
+
+recommended_reading:
+  when: "When you play this character"
+  effect: "you may put the top card of your deck facedown under one of your characters or locations with Boost."
+
+training_exercises:
+  when: "Whenever one of your characters challenges another character"
+  effect: "if it's the second challenge this turn, gain 3 lore."
+
+stunning_transformation:
+  when: "Whenever you put a card under this character"
+  effect: "you may banish chosen opposing character. If you do, their player may reveal the top card of their deck. If that card is a character or item card, they may play it for free. Otherwise, they put it on the bottom of their deck."
+
+forget_the_coach_heres_a_sword:
+  when: "Whenever this character quests"
+  effect: "your characters gain Challenger +3 and “When this character is banished in a challenge, return this card to your hand” this turn. (They get +3 ¤ while challenging.)"
+
+just_leave_it_to_me:
+  when: "Whenever you play a character named Cinderella"
+  effect: "you may exert chosen character."
+
+toughen_up:
+  when: "When you play this character"
+  effect: "chosen character of yours gains Ward until the start of your next turn. (Opponents can't choose them except to challenge.)"
+
+i_took_care_of_everything:
+  when: "Whenever this character quests"
+  effect: "another chosen character of yours gains Evasive until the start of your next turn."
+
+icy_defense:
+  when: "Whenever you play a character"
+  effect: "they gain Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+you_better_run:
+  when: "When you play this character"
+  effect: "you may pay 2 ⬡ to return chosen opposing character with 2 ¤ or less to their player's hand."
+
+oh_my_land:
+  when: "When you play this character"
+  effect: "if you have a location in play, draw a card."
+
+lets_get_to_work:
+  when: "Whenever you return a Racer character card from your discard to your hand"
+  effect: "you may ready chosen Racer character. They can't quest for the rest of this turn."
+
+deep_research:
+  when: "Whenever this character quests"
+  effect: "you may give chosen Detective character +2 ¤ this turn."
+
+quick_escape:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+looking_for_friends:
+  when: "Whenever you play another character"
+  effect: "look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+this_is_a_very_big_day:
+  when: "Whenever this character is challenged"
+  effect: "the challenging player may choose and discard a card. If they don't, you gain 2 lore."
+
+here_comes_the_smolder:
+  when: "Whenever this character is challenged"
+  effect: "the challenging player chooses and discards a card."
+
+resourceful:
+  when: "When you play this item"
+  effect: "you may draw a card."
+
+just_so_cute:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -1 ¤ this turn."
+
+i_like_where_this_is_heading:
+  when: "Whenever this character quests"
+  effect: "reveal cards from the top of your deck until you reveal a Floodborn character card. Put that card into your hand and shuffle the rest into your deck."
+
+spitting_fire:
+  when: "When you play this character"
+  effect: "you may banish chosen item."
+
+how_cool_is_that:
+  when: "Whenever this character is challenged"
+  effect: "gain 2 lore."
+
+you_thieving_scoundrel:
+  when: "When you play this character"
+  effect: "the player or players with the most cards in their hand chooses and discards a card."
+
+brainstorm:
+  when: "Whenever you play an item"
+  effect: "this character gets +1 ◊ this turn."
+
+golly:
+  when: "When you play this character"
+  effect: "if an opponent has more cards in their hand than you, you may draw a card."
+
+recurring_gust:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+close_all_channels:
+  when: "When you play this character"
+  effect: "characters can't exert to sing songs until the start of your next turn."
+
+break_apart:
+  when: "When you play this character"
+  effect: "you may banish one of your items to give chosen character +2 ¤ this turn."
+
+positively_primeval:
+  when: "When you play this character"
+  effect: "deal 4 damage to the opposing character with the lowest cost. (If there's a tie, the opposing players choose from the tied characters.)"
+
+top_that:
+  when: "Whenever this character quests"
+  effect: "if there's a card under him, chosen opposing character can't challenge and must quest if able during their next turn."
+
+developed_brain:
+  when: "When you play this character"
+  effect: "look at the top 3 cards of your deck. You may put one into your hand. Put the rest on the bottom of your deck in any order."
+
+you_can_really_move:
+  when: "When you play this character"
+  effect: "chosen character gains Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)"
+
+crowd_favorite:
+  when: "When you play this character"
+  effect: "you may put a song card from your discard on the top of your deck."
+
+i_guess_you_earned_this:
+  when: "Whenever this character quests"
+  effect: "you may remove up to 2 damage from chosen character."
+
+disappear:
+  when: "When you play this character"
+  effect: "you may return chosen character to their player's hand."
+
+phenomenal_cosmic_power:
+  when: "Whenever this character quests"
+  effect: "you may play an action with cost 5 or less for free."
+
+three_wishes:
+  when: "Whenever this character quests"
+  effect: "you may shuffle this card into your deck to draw 3 cards."
+
+what_comes_next:
+  when: "When you play this character"
+  effect: "draw a card."
+
+your_reward_awaits:
+  when: "Whenever you play a card"
+  effect: "draw a card."
+
+seeking_inspiration:
+  when: "Whenever this character quests"
+  effect: "you may choose and discard any number of item cards to gain 1 lore for each item card discarded this way."
+
+mysterious_advantage:
+  when: "When you play this character"
+  effect: "you may choose and discard a card to gain 2 lore."
+
+pumpkin_spice:
+  when: "When you play this character"
+  effect: "each opponent loses 1 lore and you gain 1 lore."
+
+zero_resistance:
+  when: "When you play this character"
+  effect: "if you used Shift to play her, you may put chosen character into their player's inkwell facedown and exerted."
+
+stop_whining_woman_up:
+  when: "When you play this character"
+  effect: "you may pay 2 ⬡ to gain lore equal to the damage on chosen opposing character."
+
+need_this:
+  when: "When you play a Floodborn character on this card"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+claim_jumper:
+  when: "When you play this character"
+  effect: "chosen opponent reveals their hand and discards a location card of your choice."
+
+strike_gold:
+  when: "Whenever this character quests"
+  effect: "you may put a location card from chosen player's discard on the bottom of their deck to gain 1 lore."
+
+be_careful_all_of_you:
+  when: "Whenever one of your Gargoyle characters challenges another character"
+  effect: "gain 1 lore."
+
+even_the_score:
+  when: "Whenever one of your other Emerald characters is challenged and banished"
+  effect: "banish the challenging character."
+
+clever_design:
+  when: "Whenever this character quests"
+  effect: "chosen character gains Ward until the start of your next turn."
+
+star_power:
+  when: "Whenever this character challenges another character"
+  effect: "your other characters get +1 ◊ this turn."
+
+hot_pursuit:
+  when: "When you play this character and whenever he quests"
+  effect: "each opposing character gets -1 ¤ until the start of your next turn."
+
+perfect_trap:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -1 ¤ until the start of your next turn."
+
+and_two_for_tea:
+  when: "When you play this character"
+  effect: "you may remove up to 2 damage from each of your Musketeer characters."
+
+en_gawrsh:
+  when: "Whenever you play a character with Bodyguard"
+  effect: "ready this character. He can't quest for the rest of this turn."
+
+super_peanut_powers:
+  when: "Whenever this character challenges another character"
+  effect: "gain 2 lore."
+
+there_was_only_ocean:
+  when: "When you play this character"
+  effect: "look at the top 2 cards of your deck. You may put one into your hand. Put the rest on the bottom of your deck in any order."
+
+do_you_know_who_you_are:
+  when: "Whenever a card is put into your inkwell"
+  effect: "gain 1 lore."
+
+i_will_be_with_you:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+find_it:
+  when: "Whenever this character quests"
+  effect: "your other Alien characters get +1 ◊ this turn."
+
+ancient_insight:
+  when: "Whenever you remove 1 or more damage from one of your characters"
+  effect: "gain 2 lore."
+
+ive_got_all_the_luck_well_need:
+  when: "Whenever this character quests"
+  effect: "you may give chosen character of yours +2 ¤ this turn."
+
+rapid_fire:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next action you play this turn."
+
+sad_eyed_puppy:
+  when: "When this character is challenged and banished"
+  effect: "each opponent chooses one of their characters and returns that card to their hand."
+
+happy_day:
+  when: "When you play this character"
+  effect: "you may remove up to 2 damage from chosen character."
+
+swooping_strike:
+  when: "Whenever this character quests"
+  effect: "each opponent chooses and exerts one of their ready characters."
+
+ill_show_you:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -3 ¤ this turn."
+
+for_just_a_little_pain:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to another chosen character of yours to banish chosen character with cost 3 or less."
+
+is_there_a_downside_to_this:
+  when: "When you play this character"
+  effect: "you may put chosen opposing character into their player's inkwell facedown."
+
+what_dya_say:
+  when: "When you play this character"
+  effect: "you may choose an opposing character. If you do, draw 2 cards unless that character's player puts that card on the bottom of their deck."
+
+well_of_souls:
+  when: "When you play this character"
+  effect: "return a character card from your discard to your hand."
+
+short_on_patience:
+  when: "When you play this character and whenever he quests"
+  effect: "you may deal 2 damage to another chosen character of yours to draw 2 cards."
+
+royal_schemes:
+  when: "When you play this character"
+  effect: "if a Princess or Queen character is in play, gain 1 lore."
+
+stage_a_little_accident:
+  when: "Whenever this character quests"
+  effect: "you may deal 1 damage to chosen character."
+
+fatten_you_up:
+  when: "When you play this character"
+  effect: "if an opponent has more cards in their inkwell than you, you may put the top card of your deck into your inkwell facedown and exerted."
+
+clear_your_mind:
+  when: "When you play this character"
+  effect: "put all cards from your hand into your inkwell facedown and exerted."
+
+eat_anything:
+  when: "When you play this character"
+  effect: "exert chosen opposing item. It can't ready at the start of its next turn."
+
+hes_back:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+this_changes_everything:
+  when: "Whenever this character quests"
+  effect: "you may deal 3 damage to chosen damaged character."
+
+nothing_personal:
+  when: "When this character is challenged and banished"
+  effect: "banish the challenging character."
+
+future_sight:
+  when: "Whenever this character quests"
+  effect: "look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+fresh_ink:
+  when: "When you play this item"
+  effect: "draw a card."
+
+artificer:
+  when: "When you play this character and whenever he quests"
+  effect: "you may banish one of your items to draw 2 cards."
+
+origin_story:
+  when: "When you play a Floodborn character on this card"
+  effect: "draw a card."
+
+easy_street:
+  when: "Whenever you play a Floodborn character"
+  effect: "each opponent loses 1 lore."
+
+heres_the_best_part:
+  when: "When you play this character"
+  effect: "you may pay 2 ⬡ to have each opponent choose and discard a card."
+
+pretty_great_huh:
+  when: "Whenever you play a Floodborn character"
+  effect: "if you used Shift to play them, you may remove up to 2 damage from chosen character."
+
+lets_do_this:
+  when: "Whenever you play a Floodborn character"
+  effect: "if you used Shift to play them, you may return chosen character to their player's hand."
+
+tale_of_the_fifth_spirit:
+  when: "When you play this character"
+  effect: "if an opponent has an exerted character in play, gain 1 lore."
+
+finding_answers:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+i_know_the_way:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next character you play this turn."
+
+three_nephews:
+  when: "Whenever this character quests"
+  effect: "if you have characters named Dewey and Louie in play, you may draw 3 cards."
+
+watch_the_teeth:
+  when: "Whenever this character is dealt damage"
+  effect: "deal that much damage to chosen opposing character."
+
+in_disguise:
+  when: "Whenever this character quests"
+  effect: "you pay 2 ⬡ less for the next action you play this turn."
+
+guess_who:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+hold_still:
+  when: "When you play this item"
+  effect: "exert chosen opposing character."
+
+well_read:
+  when: "Whenever this character quests"
+  effect: "if you've played a character with cost 5 or more this turn, put the top card of your deck into your inkwell facedown and exerted."
+
+chilling_tale:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+enduring_love:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+call_to_the_front:
+  when: "Whenever one of your characters challenges another character"
+  effect: "you pay 1 ⬡ less for the next character you play this turn."
+
+energy_capture:
+  when: "Whenever an opponent draws a card during their turn"
+  effect: "if it's the second card they've drawn this turn, you may put the top card of your deck into your inkwell facedown and exerted."
+
+preflight_check:
+  when: "When you play this item"
+  effect: "draw a card."
+
+leave_it_to_me:
+  when: "Whenever this character quests"
+  effect: "your other characters can't quest for the rest of this turn."
+
+im_tired_of_perfect:
+  when: "Whenever one of your characters sings a song"
+  effect: "this character can't be challenged until the start of your next turn."
+
+thats_better:
+  when: "When you play this character"
+  effect: "chosen character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+dark_power:
+  when: "Whenever this character quests"
+  effect: "you may draw a card, then choose and discard a card. If an Illusion character card is discarded this way, you may play that character for free."
+
+i_am_your_master_now:
+  when: "When you play this character"
+  effect: "look at the top 2 cards of your deck. Put one on the top of your deck and the other on the bottom."
+
+never_ever_lose_sight:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+sneaky_idea:
+  when: "When you play this character"
+  effect: "chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+cunning_maneuver:
+  when: "When you play this character and whenever she's challenged"
+  effect: "each opponent chooses and discards a card."
+
+im_a_fast_learner:
+  when: "When you play this character"
+  effect: "remove up to 1 damage from chosen character of yours."
+
+extra_assistance:
+  when: "Whenever this character quests"
+  effect: "if you have no cards in your hand, draw a card for each Ally character you have in play."
+
+caretaker:
+  when: "When you play this character and whenever she quests"
+  effect: "you may remove up to 2 damage from each of your characters."
+
+youll_never_miss_it:
+  when: "Whenever this character quests"
+  effect: "each opponent loses 1 lore."
+
+just_what_you_need:
+  when: "When you play this character"
+  effect: "you may give another chosen character Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+ruler_of_the_seas:
+  when: "When you play this character"
+  effect: "if you used Shift to play her, return all other exerted characters to their players' hands."
+
+by_order_of_the_princess:
+  when: "When you play this character"
+  effect: "choose one: • Exert chosen damaged character. • Chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+uplifting_aura:
+  when: "Whenever this character quests"
+  effect: "if there's a card under her, remove up to 3 damage from each of your characters."
+
+always_planning:
+  when: "Whenever this character quests"
+  effect: "look at the top 3 cards of your deck. You may reveal an Ally character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+puppynapping:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character can't quest during their next turn."
+
+i_got_your_four_basic_food_groups:
+  when: "When you play this character"
+  effect: "chosen character gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+ambush_from_the_deep:
+  when: "When you play this character"
+  effect: "deal 3 damage to chosen opposing damaged character."
+
+ursula_has_great_powers:
+  when: "When you play this character"
+  effect: "deal 1 damage to each opposing character."
+
+welcome_extravagance:
+  when: "Whenever one of your characters is challenged"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+hire_a_crew:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal any number of Pirate character cards and put them into your hand. Put the rest on the bottom of your deck in any order."
+
+battle_stations:
+  when: "When you play this character"
+  effect: "you may deal 1 damage to chosen character or location."
+
+take_the_helm:
+  when: "Whenever you play a location"
+  effect: "this character may move there for free."
+
+this_is_it:
+  when: "When you play this character"
+  effect: "you may play a location with cost 4 or less for free."
+
+that_still_small_voice:
+  when: "When you play this character"
+  effect: "if you have a character named Pinocchio in play, you may draw a card."
+
+voice_of_experience:
+  when: "When you play this character"
+  effect: "if you have 3 or more other characters in play, gain 2 lore."
+
+ive_got_just_the_thing:
+  when: "Whenever this character quests"
+  effect: "you may remove up to 1 damage from each of your characters with Bodyguard."
+
+pick_your_fights:
+  when: "When you play this character and whenever he quests"
+  effect: "chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+chart_your_own_course:
+  when: "Whenever this character quests"
+  effect: "you may deal 1 damage to another chosen character of yours. If you do, ready that character. They can't quest for the rest of this turn."
+
+hunk_of_hardware:
+  when: "When you play this character"
+  effect: "chosen character can't challenge during their next turn."
+
+i_aint_gone_soft:
+  when: "Whenever you play an action that isn't a song"
+  effect: "you may deal 1 damage to chosen character."
+
+hidden_clues:
+  when: "When you play this character"
+  effect: "if you have another Detective character in play, you may put chosen item into its player's inkwell facedown and exerted."
+
+dont_call_me_cute:
+  when: "When you play this character"
+  effect: "you may banish chosen item. Its player draws a card."
+
+thorough_investigation:
+  when: "When you play this character and whenever she quests"
+  effect: "look at the top 3 cards of your deck. You may reveal a Detective character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+bees_knees:
+  when: "When you play this character"
+  effect: "move 1 damage counter from chosen character to chosen opposing character."
+
+signature_recipe:
+  when: "When you play this character"
+  effect: "you may remove up to 2 damage from chosen character. If you removed damage this way, you may draw a card."
+
+look_me_in_the_eye:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character gets -2 ¤ and gains Reckless until the start of your next turn. (They can't quest and must challenge if able.)"
+
+a_little_help:
+  when: "When you play this character"
+  effect: "if you have another Pirate character in play, you may deal 1 damage to chosen character or location."
+
+plunder:
+  when: "When you play this character"
+  effect: "each opponent loses 1 lore."
+
+head_coconut:
+  when: "Whenever this character quests"
+  effect: "you may draw a card, then choose and discard a card to deal 1 damage to chosen character or location. If you discarded a Pirate character card, deal 3 damage instead."
+
+dizzying_speed:
+  when: "When you play this character"
+  effect: "chosen Pirate character gains Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)"
+
+safe_and_sound:
+  when: "Whenever this character quests"
+  effect: "another chosen character of yours can't be challenged until the start of your next turn."
+
+perhaps_we_can_save_our_future:
+  when: "When you play this character"
+  effect: "all characters get -3 ¤ until the start of your next turn."
+
+sweet_revenge:
+  when: "Whenever one of your other Racer characters is banished"
+  effect: "each opponent chooses and banishes one of their characters."
+
+a_new_roster:
+  when: "When this character is banished"
+  effect: "you may return another Racer character card from your discard to your hand."
+
+changing_the_code:
+  when: "When you play this character"
+  effect: "you may draw 2 cards, then put a card from your hand on the bottom of your deck."
+
+lay_it_on_the_line:
+  when: "Whenever another character is banished"
+  effect: "you may remove up to 2 damage from this character."
+
+skysurfing:
+  when: "When you play this character"
+  effect: "you may return chosen opposing character with 2 ¤ or less to their player's hand."
+
+worth_mining:
+  when: "Whenever this character quests"
+  effect: "if there's a card under him, put the top card of your deck into your inkwell facedown and exerted."
+
+city_walls:
+  when: "Whenever a character is challenged and banished while here"
+  effect: "banish the challenging character."
+
+llama_breath:
+  when: "When you play this character"
+  effect: "you may return chosen character, item, or location with cost 2 or less to their player's hand."
+
+what_does_this_do:
+  when: "When you play this character"
+  effect: "each opponent chooses one of their characters and puts that card on the bottom of their deck. Then, each opponent may draw a card."
+
+outplacement:
+  when: "When you play this character"
+  effect: "you may put chosen item or location into its player's inkwell facedown and exerted."
+
+no_touchy:
+  when: "When this character is challenged and banished"
+  effect: "you may banish the challenging character."
+
+ok_where_am_i:
+  when: "When this character is banished"
+  effect: "you may draw a card."
+
+pack_of_her_own:
+  when: "Whenever you play a character"
+  effect: "this character gets +1 ¤ this turn."
+
+someone_to_care_for:
+  when: "When you play this character"
+  effect: "you may play a character with cost 2 or less for free."
+
+something_wonderful:
+  when: "When you play this character"
+  effect: "you may return up to 2 character cards with cost 2 or less each from your discard to your hand."
+
+power_to_rule_at_last:
+  when: "When you play this character"
+  effect: "each opponent chooses and banishes one of their characters."
+
+not_for_you:
+  when: "When you play this character"
+  effect: "each opponent with more lore than you loses 1 lore."
+
+expedient_schemes:
+  when: "Whenever this character quests"
+  effect: "if you've put a card under her this turn, you may play an action with cost 5 or less from your discard for free, then put that action card on the bottom of your deck instead of into your discard."
+
+do_it_again:
+  when: "When you play this character"
+  effect: "you may return an action card from your discard to your hand."
+
+off_the_map:
+  when: "When you play this character"
+  effect: "you may banish chosen location."
+
+fan_the_flames:
+  when: "When you play this character"
+  effect: "ready chosen character. They can't quest for the rest of this turn."
+
+arcane_connection:
+  when: "When you play this character"
+  effect: "if you have a character or location in play with a card under them, gain 1 lore."
+
+archery_lesson:
+  when: "Whenever this character quests"
+  effect: "your characters gain Evasive this turn. (They can challenge characters with Evasive.)"
+
+come_on_people_lets_move:
+  when: "When you play this character"
+  effect: "your other characters gain Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+go_get_em:
+  when: "Whenever this character quests"
+  effect: "chosen Alien character gains Challenger +2 and “This character can challenge ready characters” this turn."
+
+raaawr:
+  when: "When you play this character"
+  effect: "ready chosen character. They can't quest for the rest of this turn."
+
+ready_to_rassle:
+  when: "Whenever you put a card under this character"
+  effect: "ready him."
+
+what_a_beautiful_brawl:
+  when: "When you play this character"
+  effect: "choose one: • Chosen Hero character gains Resist +2 this turn. (Damage dealt to them is reduced by 2.) • Deal 2 damage to chosen Villain character."
+
+let_me_help:
+  when: "When you play this character"
+  effect: "you may remove up to 1 damage from chosen character."
+
+friendlier_than_he_looks:
+  when: "When you play this character"
+  effect: "chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+mouse_catcher:
+  when: "When you play this character"
+  effect: "each opponent chooses and discards either 2 cards or 1 action card."
+
+follow_my_voice:
+  when: "Whenever this character quests"
+  effect: "look at the top 2 cards of your deck. You may reveal any number of Puppy character cards and put them in your hand. Put the rest on the bottom of your deck in any order."
+
+puppy_love:
+  when: "Whenever this character quests"
+  effect: "if you have 4 or more other characters in play, your other characters get +1 ◊ this turn."
+
+lasting_legacy:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+superior_mind:
+  when: "When you play this character"
+  effect: "chosen opponent reveals their hand and discards a non-character card of your choice."
+
+sacrebleu:
+  when: "Whenever one of your items is banished"
+  effect: "this character gets +1 ◊ this turn."
+
+thanks_for_volunteering:
+  when: "Whenever one of your other characters is banished"
+  effect: "each opponent loses 1 lore."
+
+well_now_you_know:
+  when: "When you play this character"
+  effect: "chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)"
+
+well_have_to_look_into_this:
+  when: "Whenever this character quests"
+  effect: "you may look at the top card of chosen player's deck. Put it on top of their deck or into their discard."
+
+tea_party:
+  when: "Whenever this character is challenged"
+  effect: "you may draw a card."
+
+unbirthday_present:
+  when: "Whenever a damaged character challenges another character"
+  effect: "you may draw a card."
+
+play_rough:
+  when: "Whenever this character quests"
+  effect: "exert chosen opposing character."
+
+a_little_game:
+  when: "When you play this character"
+  effect: "banish her or return another chosen character of yours to your hand."
+
+chasing_the_rabbit:
+  when: "When you play this character"
+  effect: "banish her or return another chosen character of yours to your hand."
+
+i_win_i_win:
+  when: "When you play this character"
+  effect: "banish her or return another 2 chosen characters of yours to your hand."
+
+make_way_coming_through:
+  when: "When you play this character"
+  effect: "banish her or return another chosen character of yours to your hand."
+
+just_you_wait:
+  when: "When you play this character"
+  effect: "banish her or return another chosen character of yours to your hand."
+
+double_cross:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to another chosen character of yours to return chosen character with cost 2 or less to their player's hand."
+
+search_the_swamp:
+  when: "Whenever this character quests"
+  effect: "you may deal 2 damage to another chosen character of yours to put the top 3 cards of chosen player's deck into their discard."
+
+that_terrible_woman:
+  when: "When you play this character"
+  effect: "banish chosen opposing character with 3 ¤ or less."
+
+sweep:
+  when: "When you play this character"
+  effect: "you may shuffle a card from any discard into its player's deck."
+
+power_clean:
+  when: "When you play this character"
+  effect: "if you have a Sorcerer character in play, you may exert chosen opposing character. They can't ready at the start of their next turn."
+
+nice_and_tidy:
+  when: "Whenever you play another character"
+  effect: "you may banish this character to draw a card."
+
+make_it_shine:
+  when: "When you play this character"
+  effect: "chosen character gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+clean_this_clean_that:
+  when: "When you play this character"
+  effect: "you may shuffle all Broom cards from your discard into your deck."
+
+shadows_grasp:
+  when: "When you play this character"
+  effect: "if you used Shift to play her, you may draw 4 cards."
+
+dance_of_darkness:
+  when: "When you play this character"
+  effect: "you may return another chosen character of yours to your hand to draw a card."
+
+dark_incantation:
+  when: "When you play this character"
+  effect: "you may shuffle a card from chosen player's discard into their deck."
+
+mystical_manipulation:
+  when: "Whenever you put a card under one of your characters or locations"
+  effect: "you may move 1 damage counter from chosen character to chosen opposing character."
+
+all_mine:
+  when: "Whenever this character quests"
+  effect: "gain lore equal to the cost of one of your items in play."
+
+highborn_lady:
+  when: "When you play this character"
+  effect: "chosen character gets -2 ¤ this turn."
+
+if_it_pleases_the_lady:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -5 ¤ until the start of your next turn."
+
+back_fools:
+  when: "Whenever one of your opponents' characters"
+  effect: "items, or locations is returned to their hand from play, gain 1 lore."
+
+listen_well_all_of_you:
+  when: "When you play this character"
+  effect: "for each of your characters named Maleficent in play, return a chosen opposing character, item, or location with cost 3 or less to their player's hand."
+
+dark_knowledge:
+  when: "Whenever this character quests"
+  effect: "you may draw a card."
+
+dragon_fire:
+  when: "When you play this character"
+  effect: "you may banish chosen character."
+
+cast_my_spell:
+  when: "When you play this character"
+  effect: "you may draw a card."
+
+what_an_awkward_situation:
+  when: "Whenever this character quests"
+  effect: "you may choose and discard a card to return chosen character, item, or location with cost 3 or less to their player's hand."
+
+this_going_to_be_good:
+  when: "Whenever you play a song"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+ive_got_to_do_everything_around_here:
+  when: "Whenever you play a song"
+  effect: "you may move up to 2 damage counters from chosen character to chosen opposing character."
+
+listen_to_your_mama_now:
+  when: "Whenever this character quests"
+  effect: "you may move up to 2 damage counters from chosen character to chosen opposing character."
+
+light_the_candles:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to chosen damaged character."
+
+ill_show_you:
+  when: "Whenever this character quests"
+  effect: "you may give chosen character -2 ¤ this turn."
+
+durable:
+  when: "When this character is banished in a challenge"
+  effect: "you may return this card to your hand."
+
+cheeeehoooo:
+  when: "Whenever this character challenges another character"
+  effect: "you may return an action card from your discard to your hand."
+
+wayfinding:
+  when: "Whenever you play an action"
+  effect: "gain 1 lore."
+
+in_ma_belly:
+  when: "Whenever a character of yours named HeiHei quests"
+  effect: "this character gets +1 ◊ and loses Reckless this turn."
+
+im_not_finished_yet:
+  when: "When this character is banished"
+  effect: "choose one: • Put 2 damage counters on all opposing characters. • Banish all opposing items. • Banish all opposing locations."
+
+break_down:
+  when: "When this item is banished"
+  effect: "you may return an item card with cost 2 or less from your discard to your hand."
+
+looking_for_this:
+  when: "Whenever you play another item"
+  effect: "you may pay 1 ⬡ to draw a card."
+
+how_on_earth_did_that_happen:
+  when: "When you play this character"
+  effect: "you may banish chosen item of yours to draw a card. If the banished item is named Maurice's Machine, you may also banish chosen character with 2 ¤ or less."
+
+give_it_a_try:
+  when: "Whenever this character quests"
+  effect: "you pay 2 ⬡ less for the next item you play this turn."
+
+it_works:
+  when: "Whenever you play an item"
+  effect: "you may draw a card."
+
+number_one_hit:
+  when: "Whenever this character quests"
+  effect: "you may play a song card with cost 4 or less from your discard for free, then put it on the bottom of your deck instead of into your discard."
+
+personal_soundtrack:
+  when: "When you play this character"
+  effect: "you may pay 1 ⬡ to return a song card with cost 3 or less from your discard to your hand."
+
+horse_kick:
+  when: "When you play this character"
+  effect: "chosen character gets -2 ¤ this turn."
+
+shady_deal:
+  when: "When you play this character"
+  effect: "choose and discard a card or banish this character."
+
+people_always_do_crazy_things:
+  when: "Whenever you play a character named Hercules"
+  effect: "you may ready this character."
+
+wonder_boy:
+  when: "When you play this character"
+  effect: "chosen character gets +2 ¤ this turn."
+
+prestidigitonium:
+  when: "Whenever this character quests"
+  effect: "name a card, then reveal the top card of your deck. If it's the named card, put it into your inkwell facedown and exerted. Otherwise, put it on the top of your deck."
+
+legacy_of_learning:
+  when: "When this character is banished in a challenge"
+  effect: "if he had a card under him, draw 2 cards."
+
+ready_or_not:
+  when: "When you play this character and when he leaves play"
+  effect: "chosen character gains Challenger +3 this turn. (They get +3 ¤ while challenging.)"
+
+here_i_come:
+  when: "When you play this character and when he leaves play"
+  effect: "gain 1 lore."
+
+overdeveloped_brain:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, you may search your deck for any card, put that card into your hand, then shuffle your deck."
+
+hoppity_hip:
+  when: "When you play this character and when he leaves play"
+  effect: "you may draw a card."
+
+battle_of_wits:
+  when: "Whenever one of your other characters is returned to your hand from play"
+  effect: "this character gets +1 ◊ this turn."
+
+look_before_you_leap:
+  when: "When you play this character and when he leaves play"
+  effect: "look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+give_me_time_to_think:
+  when: "When you play this character and when he leaves play"
+  effect: "look at the top 2 cards of your deck. Put one on the top of your deck and the other on the bottom."
+
+ray_of_hope:
+  when: "When you play this character"
+  effect: "you may pay 1 ⬡ to give chosen character +2 ¤ this turn."
+
+misdirection:
+  when: "Whenever you play an action"
+  effect: "chosen opposing character can't quest during their next turn."
+
+get_a_clue:
+  when: "When you play this character"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+glad_youre_here:
+  when: "Whenever this character quests"
+  effect: "you pay 3 ⬡ less for the next character you play this turn."
+
+the_biggest_star_ever:
+  when: "When this character is banished"
+  effect: "deal 5 damage to each opposing character."
+
+strike_up_the_music:
+  when: "When you play this character"
+  effect: "chosen character gains Support this turn."
+
+musketeers_united:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, you may draw a card for each character with Bodyguard you have in play."
+
+mariners_might:
+  when: "Whenever this character quests"
+  effect: "chosen Pirate character gets +2 ¤ and gains “This character takes no damage from challenges” this turn."
+
+sweep_away:
+  when: "When you play this character"
+  effect: "deal damage to chosen character equal to the number of Broom characters you have in play."
+
+stand_strong:
+  when: "When you play this character"
+  effect: "chosen character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+ceaseless_worker:
+  when: "Whenever one of your Broom characters is banished in a challenge"
+  effect: "you may return that card to your hand."
+
+inspired_tech:
+  when: "When you play this item"
+  effect: "chosen character gets -1 ¤ this turn for each item named Microbots you have in play."
+
+take_them_by_surprise:
+  when: "When this character is banished"
+  effect: "return all opposing characters to their players' hands."
+
+im_your_guy:
+  when: "Whenever you play an action"
+  effect: "you may give chosen character +2 ¤ this turn."
+
+mystical_balance:
+  when: "Whenever one of your other Amethyst characters is banished in a challenge"
+  effect: "you may draw a card."
+
+patch_them_up:
+  when: "Whenever this character quests"
+  effect: "you may remove up to 2 damage from chosen character."
+
+dance_off:
+  when: "Whenever this character or one of your characters named Mickey Mouse challenges another character"
+  effect: "gain 1 lore."
+
+parade_order:
+  when: "When you play this character"
+  effect: "if you used Shift to play her, you may search your deck for a character card and reveal that card to all players. Shuffle your deck and put that card on top of it."
+
+search_the_shadows:
+  when: "When you play this character"
+  effect: "chosen Detective character gains Alert this turn. (They can challenge as if they had Evasive.)"
+
+entourage:
+  when: "Whenever you play a character with Bodyguard"
+  effect: "you may remove up to 2 damage from chosen character."
+
+dramatic_entrance:
+  when: "When you play this character"
+  effect: "banish chosen opposing character with 5 ¤ or more."
+
+cake_catapult:
+  when: "When you play this character"
+  effect: "chosen character gets -2 ¤ this turn."
+
+gather_around:
+  when: "Whenever you play a character"
+  effect: "this character gets +1 ◊ this turn."
+
+just_one_more:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character loses ¤ equal to this character's ◊ until the start of your next turn."
+
+bye_bye_now:
+  when: "Whenever this character quests"
+  effect: "you may banish chosen exerted character with 5 ¤ or more."
+
+undersea_adventure:
+  when: "Whenever you play a second action in a turn"
+  effect: "this character gets +2 ◊ this turn."
+
+confusing_presence:
+  when: "When you play this character"
+  effect: "each opposing player loses 2 lore."
+
+you_are_a_wonder:
+  when: "When you play this character"
+  effect: "you may reveal a song card in your hand to gain 1 lore."
+
+saving_the_miracle:
+  when: "Whenever this character quests"
+  effect: "your other Madrigal characters get +1 ◊ this turn."
+
+her_own_special_gift:
+  when: "Whenever this character quests"
+  effect: "you may return a song card with cost 3 or less from your discard to your hand."
+
+welcome_to_my_boat:
+  when: "Whenever this character quests while at a location"
+  effect: "ready all other characters here. They can't quest for the rest of this turn."
+
+this_is_not_who_you_are:
+  when: "When you play this character"
+  effect: "you may banish chosen character named Te Kā."
+
+adventurous_spirit:
+  when: "Whenever this character challenges another character"
+  effect: "another chosen character of yours gets +3 ¤ this turn."
+
+gathering_forces:
+  when: "When you play this character"
+  effect: "you may move any number of your characters to the same location for free. Gain 1 lore for each character you moved."
+
+we_can_fix_it:
+  when: "Whenever this character quests"
+  effect: "you may ready your other Princess characters. They can't quest for the rest of this turn."
+
+ive_come_to_collect:
+  when: "Whenever this character quests"
+  effect: "you may banish chosen item of yours to draw a card."
+
+mother_knows_best:
+  when: "When you play this character"
+  effect: "you may pay 3 ⬡ to return chosen character to their player's hand."
+
+look_what_youve_done:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to another chosen character of yours to give that character Challenger +1 and “When this character is banished in a challenge, return this card to your hand” this turn. (They get +1 ¤ while challenging.)"
+
+the_world_is_dark:
+  when: "When you play this character"
+  effect: "each opponent chooses one of their characters and returns that card to their hand."
+
+now_youve_upset_me:
+  when: "Whenever one of your characters challenges"
+  effect: "you may move 1 damage counter from chosen character to chosen opposing character."
+
+reincarnation:
+  when: "Whenever a character is banished while here"
+  effect: "you may put that card into your inkwell facedown and exerted."
+
+have_a_better_look:
+  when: "When you play this character"
+  effect: "chosen opponent reveals their hand and discards a non-character card of their choice."
+
+raise_the_colors:
+  when: "When you play this character"
+  effect: "you may deal damage to chosen character equal to the number of your other Pirate characters in play."
+
+pipe_up_the_crew:
+  when: "Whenever you play an action that isn't a song"
+  effect: "you may ready chosen Pirate character."
+
+tidy_up:
+  when: "Whenever you play a Floodborn character"
+  effect: "you may put the top card of your deck into your inkwell facedown and exerted."
+
+itll_turn_out_all_right:
+  when: "When you play this character"
+  effect: "if you have a character named Lumiere or Cogsworth in play, you may draw a card."
+
+the_sun_will_set:
+  when: "When this character is banished"
+  effect: "you may reveal the top card of your deck. If it's a character card, you may play that character for free and they enter play exerted. Otherwise, put it on the top of your deck."
+
+a_delicate_balance:
+  when: "When you play this character"
+  effect: "exert all cards in your inkwell, then return 2 cards at random from your inkwell to your hand."
+
+everything_the_light_touches:
+  when: "Whenever this character quests"
+  effect: "ready all cards in your inkwell."
+
+imperial_invitation:
+  when: "Whenever this character quests"
+  effect: "look at the top 4 cards of your deck. You may reveal a Princess character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+where_do_i_sign_in:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+straight_shooter:
+  when: "When you play this character"
+  effect: "if you used Shift to play her, she gets +3 ¤ this turn."
+
+time_to_shine:
+  when: "Whenever you play an action"
+  effect: "this character gets +2 ¤ this turn."
+
+exceptional_leader:
+  when: "Whenever this character challenges another character"
+  effect: "your other characters gain “This character can challenge ready characters” this turn."
+
+honor_to_the_ancestors:
+  when: "Whenever this character quests"
+  effect: "you may reveal the top card of your deck. If it's a song card, you may play it for free. Otherwise, put it on the top of your deck."
+
+i_need_firepower:
+  when: "When you play this item"
+  effect: "chosen character gains Rush this turn. (They can challenge the turn they're played.)"
+
+intimidating_and_awe_inspiring:
+  when: "Whenever one of your characters challenges"
+  effect: "they gain Resist +2 during that challenge. (Damage dealt to them is reduced by 2.)"
+
+all_fired_up:
+  when: "Whenever you play another character"
+  effect: "they gain Rush, Reckless, and Evasive this turn. (They can challenge the turn they're played. They can't quest and must challenge if able. They can challenge characters with Evasive.)"
+
+all_for_one_and_one_for_all:
+  when: "Whenever one of your characters with Bodyguard is banished"
+  effect: "you may draw a card."
+
+strategic_edge:
+  when: "When you play this character and at the start of your turn"
+  effect: "you may draw a card, then choose and discard a card."
+
+helpful_instincts:
+  when: "When you play this character"
+  effect: "you may choose and discard a card to return chosen character with cost 2 or less to their player's hand."
+
+nursemaid:
+  when: "Whenever you play a Floodborn character"
+  effect: "you may remove all damage from chosen character."
+
+look_whos_back:
+  when: "When this character is banished in a challenge"
+  effect: "return this card to your hand."
+
+its_called_a_hustle:
+  when: "When you play this character"
+  effect: "you may return an item card named Pawpsicle from your discard to your hand."
+
+fancy_footwork:
+  when: "Whenever you play an action"
+  effect: "this character takes no damage from challenges this turn."
+
+carrots_all_around:
+  when: "Whenever he quests"
+  effect: "each of your other characters gets +¤ equal to this character's ¤ this turn."
+
+second_chance:
+  when: "When this character leaves play"
+  effect: "you may return chosen character of yours to your hand."
+
+endless_tale:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -1 ¤ this turn."
+
+a_lot_to_learn:
+  when: "Whenever you play a second action in a turn"
+  effect: "gain 3 lore."
+
+shout_out_loud:
+  when: "Whenever you play a song"
+  effect: "this character gets +2 ¤ this turn."
+
+startled_shriek:
+  when: "When you play this character"
+  effect: "you may move up to 2 damage counters from chosen character to chosen opposing character."
+
+i_can_handle_it:
+  when: "When you play this character"
+  effect: "chosen character gets +2 ¤ this turn. If the chosen character is named Pain, he gets +4 ¤ instead."
+
+colorful_tactics:
+  when: "When you play this character"
+  effect: "look at the top 3 cards of your deck and put them back in any order."
+
+jumbo_pop:
+  when: "When you play this item"
+  effect: "you may draw a card."
+
+hop_on:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, your characters gain Evasive until the start of your next turn."
+
+enduring_loyalty:
+  when: "When you play this character"
+  effect: "you may remove up to 2 damage from chosen character and they gain Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1.)"
+
+clear_skies_clear_skies:
+  when: "Whenever one or more of your characters sings a song"
+  effect: "gain 1 lore."
+
+it_looks_like_rain:
+  when: "When you play this character"
+  effect: "you may exert chosen opposing character. That character can't ready at the start of their next turn unless they're at a location."
+
+in_the_nick_of_time:
+  when: "Whenever one of your Puppy characters is banished"
+  effect: "you may put that card into your inkwell facedown and exerted."
+
+quick_everyone_hide:
+  when: "When you play this character"
+  effect: "you may put all Puppy character cards from your discard into your inkwell facedown and exerted."
+
+come_along_children:
+  when: "When you play this character and whenever she quests"
+  effect: "you may play a character with cost 2 or less from your discard for free."
+
+whos_next:
+  when: "Whenever this character quests"
+  effect: "you pay 2 ⬡ less for the next Puppy character you play this turn."
+
+lost_in_the_waves:
+  when: "Whenever a character is challenged while here"
+  effect: "each opponent chooses and discards a card."
+
+take_that:
+  when: "Whenever you play an action"
+  effect: "this character gets +2 ¤ this turn."
+
+i_clobber_you:
+  when: "Whenever this character quests while he has 5 ¤ or more"
+  effect: "return chosen character with 2 ¤ or less to their player's hand."
+
+blow_the_whistle:
+  when: "When you play this character"
+  effect: "opponents can't play actions until the start of your next turn."
+
+pilfer_and_plunder:
+  when: "Whenever you play an action that isn't a song"
+  effect: "you may banish chosen item."
+
+scram:
+  when: "When you play this character"
+  effect: "if you have another character named Pete in play, you may banish chosen opposing character."
+
+youre_next:
+  when: "Whenever he challenges a Pirate character"
+  effect: "this character takes no damage from the challenge."
+
+shameless_promoter:
+  when: "Whenever you play a Hero character"
+  effect: "gain 1 lore."
+
+listen_to_your_conscience:
+  when: "When you play this character"
+  effect: "you may return chosen character or item with cost 3 or less to their player's hand."
+
+telling_lies:
+  when: "When you play this character"
+  effect: "you may exert chosen opposing character."
+
+reporting_for_duty:
+  when: "When you play this character"
+  effect: "put chosen character of yours into your inkwell facedown and exerted."
+
+to_the_rescue:
+  when: "When you play this character"
+  effect: "you may remove up to 3 damage from one of your characters."
+
+make_room:
+  when: "Whenever you play another Steel character"
+  effect: "you may banish chosen item."
+
+unwelcome_proposal:
+  when: "When you play this character"
+  effect: "you may exert chosen Princess character."
+
+surprise_maneuver:
+  when: "When this character is banished"
+  effect: "you may banish chosen character."
+
+help_help:
+  when: "Whenever an opponent plays a character"
+  effect: "deal 1 damage to this character."
+
+i_sentence_you:
+  when: "Whenever your opponent discards 1 or more cards"
+  effect: "you may draw a card for each card discarded."
+
+taxes_never_fail_me:
+  when: "Whenever you play an item"
+  effect: "this character gets +2 ¤ this turn."
+
+collect_taxes:
+  when: "Whenever this character quests"
+  effect: "each opponent with more lore than you loses 2 lore."
+
+its_beautiful_no:
+  when: "When you play this character"
+  effect: "you may play a song with cost 6 or less for free."
+
+heroism:
+  when: "When this character challenges and is banished"
+  effect: "you may banish the challenged character."
+
+best_defense:
+  when: "Whenever one of your characters is chosen for Support"
+  effect: "they gain Resist +1 this turn. (Damage dealt to them is reduced by 1.)"
+
+pressing_the_advantage:
+  when: "Whenever he challenges a damaged character"
+  effect: "ready this character after the challenge."
+
+slayer_of_dragons:
+  when: "When you play this character"
+  effect: "banish chosen opposing Dragon character."
+
+swift_and_sure:
+  when: "When you play this character"
+  effect: "banish all opposing damaged characters."
+
+always_there:
+  when: "When this character is banished"
+  effect: "you may shuffle this card into your deck."
+
+free_fruit:
+  when: "When this character is banished"
+  effect: "you may draw a card."
+
+off_with_their_heads:
+  when: "Whenever an opposing character is banished"
+  effect: "you may ready this character."
+
+royal_rage:
+  when: "When you play this character"
+  effect: "deal 1 damage to chosen damaged opposing character."
+
+let_the_game_begin:
+  when: "Whenever one of your characters challenges another character"
+  effect: "you may draw a card."
+
+if_i_lose_my_temper:
+  when: "Whenever another character is played"
+  effect: "put a damage counter on them."
+
+all_ways_here_are_my_ways:
+  when: "Whenever this character quests"
+  effect: "your other Villain characters get +1 ◊ this turn."
+
+be_more_careful:
+  when: "When you play this character"
+  effect: "you may remove up to 1 damage from chosen character."
+
+ancient_skills:
+  when: "Whenever he challenges a Hyena character"
+  effect: "this character takes no damage from the challenge."
+
+surprising_skill:
+  when: "When you play this character"
+  effect: "he gains Challenger +4 this turn. (They get +4 ¤ while challenging.)"
+
+protection_of_the_pack:
+  when: "Whenever you play another character with 5 ¤ or more"
+  effect: "you may ready this character. If you do, he can't quest for the rest of this turn."
+
+ensnarl:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -3 ¤ this turn."
+
+let_your_power_shine:
+  when: "Whenever you remove 1 or more damage from one of your characters"
+  effect: "you may draw a card."
+
+gleam_and_glow:
+  when: "When you play this character"
+  effect: "remove up to 3 damage from one of your characters. Draw a card for each 1 damage removed this way."
+
+wrapped_up:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character can't quest during their next turn."
+
+tangle:
+  when: "When you play this character"
+  effect: "each opponent loses 1 lore."
+
+act_of_kindness:
+  when: "Whenever one of your characters is chosen for Support"
+  effect: "until the start of your next turn, the next time they would be dealt damage they take no damage instead."
+
+a_marvelous_performance:
+  when: "Whenever you play an action while this character is exerted"
+  effect: "gain 1 lore."
+
+this_is_my_kingdom:
+  when: "When you play this character"
+  effect: "exert chosen opposing character with 3 ¤ or less. Choose one of your characters and ready them. They can't quest for the rest of this turn."
+
+dont_cross_me:
+  when: "Whenever this character challenges another character"
+  effect: "gain 1 lore for each other damaged character you have in play."
+
+we_have_to_come_together:
+  when: "When you play this character"
+  effect: "ready chosen character of yours at a location. They can't quest for the rest of this turn."
+
+unconventional_tactics:
+  when: "Whenever this character quests"
+  effect: "you may pay 2 ⬡ to ready another chosen character."
+
+champion_of_kumandra:
+  when: "Whenever this character challenges a damaged character"
+  effect: "she takes no damage from the challenge."
+
+my_orders_come_from_jafar:
+  when: "When you play this character"
+  effect: "if you have a character named Jafar in play, you may banish chosen item."
+
+look_at_this:
+  when: "Whenever you play a song"
+  effect: "chosen character gets -2 ¤ until the start of your next turn."
+
+what_is_to_come:
+  when: "When you play this item"
+  effect: "look at the top 4 cards of your deck. You may reveal a character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+tiny_howl:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -1 ¤ until the start of your next turn."
+
+a_bit_of_a_lark:
+  when: "Whenever a character of yours named Robin Hood quests"
+  effect: "you may ready this item."
+
+trick_shot:
+  when: "When you play this character"
+  effect: "if an opponent has a damaged character in play, gain 1 lore."
+
+the_good_of_others:
+  when: "When this character is banished in a challenge"
+  effect: "you may draw a card."
+
+expert_shot:
+  when: "Whenever this character quests"
+  effect: "if there's a card under him, deal 1 damage to up to 2 chosen characters."
+
+my_greatest_performance:
+  when: "Whenever this character quests"
+  effect: "look at the top 4 cards of your deck. You may reveal an action card with cost 6 or less and play it for free. Put the rest in your discard."
+
+feed_the_poor:
+  when: "When you play this character"
+  effect: "if an opponent has more cards in their hand than you, draw a card."
+
+there_you_go:
+  when: "Whenever this character quests"
+  effect: "you may remove up to 1 damage from each of your Puppy characters."
+
+adorable_antics:
+  when: "When you play this character"
+  effect: "you may put a character card from your discard into your inkwell facedown and exerted."
+
+im_a_pirate_too:
+  when: "When you play this character"
+  effect: "you may give chosen character -2 ¤ until the start of your next turn."
+
+safekeeping:
+  when: "Whenever this character quests"
+  effect: "you may put chosen item into its player's inkwell facedown and exerted."
+
+heavily_armed:
+  when: "Whenever you draw a card"
+  effect: "this character gains Challenger +1 this turn. (They get +1 ¤ while challenging.)"
+
+too_old_to_be_chasing_mice:
+  when: "When this character is banished"
+  effect: "you may put this card into your inkwell facedown and exerted."
+
+long_live_the_king:
+  when: "When you play this character"
+  effect: "you may banish chosen character named Mufasa."
+
+survival_of_the_fittest:
+  when: "Whenever you put a card under this character"
+  effect: "chosen opposing character gets -5 ¤ this turn."
+
+teeth_and_ambitions:
+  when: "When you play this character"
+  effect: "deal 2 damage to chosen character of yours to deal 2 damage to another chosen character."
+
+insidious_plot:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -5 ¤ this turn."
+
+rousing_speech:
+  when: "When you play this character"
+  effect: "ready your characters with cost 3 or less. They can't quest for the rest of this turn."
+
+lifes_not_fair_is_it:
+  when: "Whenever one of your characters challenges a damaged character"
+  effect: "you may draw a card."
+
+speculation:
+  when: "Whenever you play a character or location with Boost"
+  effect: "you may put the top card of your deck facedown under them."
+
+fabulous_wealth:
+  when: "When you play this character"
+  effect: "chosen character with a card under them gets +1 ◊ this turn."
+
+fortune_hunter:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+backup_plan:
+  when: "When you play this character"
+  effect: "draw a card, then choose and discard a card."
+
+on_the_move:
+  when: "When this character is challenged"
+  effect: "return this card to your hand. (No damage is dealt in that challenge.)"
+
+treasure_finder:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next item you play this turn."
+
+do_say_hello_to_mr_arrow:
+  when: "When you play this character"
+  effect: "you may pay 3 ⬡ to banish chosen damaged character."
+
+let_me_see:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+big_bully:
+  when: "When you play this character"
+  effect: "deal 2 damage to each opposing damaged character."
+
+what_have_we_got_here:
+  when: "Whenever one of your Hyena characters challenges a damaged character"
+  effect: "gain 2 lore."
+
+on_the_hunt:
+  when: "Whenever this character quests"
+  effect: "banish chosen opposing damaged character. Then, you may put 1 damage counter on another chosen character."
+
+what_a_pity:
+  when: "When you play this character"
+  effect: "discard your hand."
+
+dont_insult_my_intelligence:
+  when: "Whenever one of your characters challenges another character"
+  effect: "gain 1 lore."
+
+taxes_should_hurt:
+  when: "Whenever you discard a card"
+  effect: "you may deal 1 damage to chosen opposing character."
+
+fine_print:
+  when: "Whenever an opponent plays a song"
+  effect: "you may draw a card."
+
+i_laugh_in_the_face_of_danger:
+  when: "When you play this character"
+  effect: "chosen character gets +2 ¤ this turn."
+
+step_down_or_fight:
+  when: "When you play this character and whenever he banishes another character in a challenge during your turn"
+  effect: "you may choose one: • Draw 2 cards, then choose and discard 2 cards. • Deal 2 damage to chosen character."
+
+guess_what:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+timely_alliance:
+  when: "Whenever you put a card under this character"
+  effect: "you may reveal the top card of your deck. If it's a character card, you may play that character for free and they enter play exerted. Otherwise, put it on the bottom of your deck."
+
+fearsome_roar:
+  when: "When you play this character"
+  effect: "you may banish chosen item or location."
+
+code_of_honor:
+  when: "Whenever this character quests"
+  effect: "your other characters gain Support this turn. (Whenever they quest, you may add their ¤ to another chosen character's ¤ this turn.)"
+
+bring_on_the_heat:
+  when: "When you play this character"
+  effect: "banish chosen opposing character with 1 ¤ or less."
+
+i_trust_you:
+  when: "Whenever this character quests"
+  effect: "look at the top 2 cards of your deck. You may put one into your hand. Put the rest on the bottom of your deck in any order."
+
+i_got_this:
+  when: "When you play this character"
+  effect: "banish all opposing characters with 2 ¤ or less."
+
+trust_builds_trust:
+  when: "Whenever this character quests"
+  effect: "reveal the top card of your deck. If it's a Dragon character card, put it into your hand and repeat this effect. Otherwise, put it on either the top or the bottom of your deck."
+
+head_for_the_bridge:
+  when: "Whenever a character quests while here"
+  effect: "you may banish this location to gain 2 lore and give them Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)"
+
+headwind:
+  when: "When you play this character"
+  effect: "chosen Knight character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+ah_choo:
+  when: "Whenever you play this character or another Seven Dwarfs character"
+  effect: "you may give chosen character -1 ¤ this turn."
+
+i_wont_hurt_you:
+  when: "When you play this character"
+  effect: "you may remove up to 2 damage from chosen character."
+
+wishes_come_true:
+  when: "Whenever this character quests"
+  effect: "you may return a character card from your discard to your hand."
+
+routine_ruckus:
+  when: "Whenever a character with 3 ¤ or more challenges another character while here"
+  effect: "gain 1 lore. If the challenging character has 6 ¤ or more, gain 3 lore instead."
+
+unpalatable:
+  when: "When you play this character"
+  effect: "chosen opposing character gets -2 ¤ this turn."
+
+crime_of_opportunity:
+  when: "When you play this character"
+  effect: "chosen opponent loses 1 lore."
+
+ready_for_action:
+  when: "When you play this character"
+  effect: "if you used Shift to play him, you may put an action card from your discard on the top of your deck."
+
+ohana:
+  when: "When you play this character"
+  effect: "if you have 2 or more other characters in play, you may draw 2 cards."
+
+so_naughty:
+  when: "When you play this character"
+  effect: "each opponent puts the top card of their deck into their inkwell facedown and exerted."
+
+adoring_fans:
+  when: "Whenever you play a character with cost 2 or less"
+  effect: "you may exert them to draw a card."
+
+heave_ho:
+  when: "When you play this character"
+  effect: "you may deal 2 damage to chosen character."
+
+bring_it_home_kid:
+  when: "When you move a character here from a location"
+  effect: "you may banish this location to gain 3 lore and draw 3 cards."
+
+formidable_glare:
+  when: "When you play this character"
+  effect: "chosen character gets -3 ¤ this turn."
+
+reindeer_games:
+  when: "When you play this character"
+  effect: "you may ready chosen character. They can't quest or challenge for the rest of this turn."
+
+showstopper:
+  when: "When you play this character"
+  effect: "if you have a location in play, each opponent loses 1 lore."
+
+pick_one:
+  when: "When you play this character"
+  effect: "the opposing players together choose an item or location of theirs and banish it."
+
+coolest_collection:
+  when: "When you play this character"
+  effect: "return up to 2 item cards from your discard to your hand."
+
+im_beautiful_baby:
+  when: "Whenever this character quests"
+  effect: "you may play an item for free."
+
+what_have_we_here:
+  when: "When you play this character and whenever he quests"
+  effect: "you may return an item card from your discard to your hand."
+
+your_brothers_need_guidance:
+  when: "When you play this character"
+  effect: "you may remove up to 1 damage from chosen character or location."
+
+follow_the_pig:
+  when: "Whenever this character quests"
+  effect: "you may return a character card named Hen Wen from your discard to your hand."
+
+my_teeth_are_sharper:
+  when: "Whenever this character quests while at a location"
+  effect: "you may deal 1 damage to chosen character."
+
+show_me_the_way:
+  when: "Whenever a character quests while here"
+  effect: "you may draw a card, then choose and discard a card."
+
+ill_get_you:
+  when: "When this character is banished"
+  effect: "you may exert chosen character."
+
+all_will_be_seen:
+  when: "When you play this character"
+  effect: "look at the top card of each opponent's deck."
+
+witching_hour:
+  when: "When you play this character"
+  effect: "each player draws 3 cards, then discards 3 cards at random. Choose an opposing character and deal 2 damage to them for each action card discarded this way."
+
+leaves_no_trace:
+  when: "When you play this character"
+  effect: "banish chosen opposing character with 2 ¤ or less."
+
+arise:
+  when: "Whenever one of your other characters is banished in a challenge"
+  effect: "you may return that card to your hand, then choose and discard a card."
+
+change_of_heart:
+  when: "Whenever this character quests"
+  effect: "you may draw a card, then choose and discard a card."
+
+lost_in_a_book:
+  when: "Whenever a character is banished while here"
+  effect: "you may draw a card."
+
+now_you_can_fly:
+  when: "When you play this item"
+  effect: "choose a character of yours. While this item is in play, that character gains Evasive. (Only characters with Evasive can challenge them.)"
+
+you_are_a_disgrace:
+  when: "Whenever this character challenges another character"
+  effect: "each opponent loses 1 lore."
+
+the_gospel_truth:
+  when: "Whenever you play a song"
+  effect: "you may return chosen character with 2 ¤ or less to their player's hand."
+
+turning_tides:
+  when: "When you play this character"
+  effect: "you may move up to 2 damage counters from chosen character to chosen opposing character."
+
+who_is_the_fairest:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character gets -4 ¤ this turn and chosen character gets +4 ¤ this turn."
+
+gatherer_of_the_wicked:
+  when: "When you play this character"
+  effect: "look at the top 3 cards of your deck. You may reveal any number of character cards named The Queen and put them into your hand. Put the rest on the bottom of your deck in any order."
+
+calculating_and_vain:
+  when: "Whenever this character quests"
+  effect: "you may look at the top 3 cards of your deck and put them back in any order."
+
+major_malfunction:
+  when: "Whenever you play a character"
+  effect: "you may pay 1 ⬡ and banish this item to deal 2 damage to chosen character."
+
+commanding_presence:
+  when: "Whenever one of your Illusion characters quests"
+  effect: "exert chosen opposing character."
+
+mighty_hit:
+  when: "When you play this item"
+  effect: "banish chosen opposing Deity character."
+
+two_for_one:
+  when: "When you play this character"
+  effect: "if you have a location in play, you may deal 2 damage to chosen character."
+
+save_a_soul:
+  when: "Whenever a character quests while here"
+  effect: "you may pay 3 ⬡ to return a character card from your discard to your hand."
+
+a_wealth_of_happiness:
+  when: "When you play this character"
+  effect: "gain 1 lore."
+
+captivating_melody:
+  when: "Whenever you play a song"
+  effect: "each opposing character gets -1 ¤ until the start of your next turn."
+
+special_reservation:
+  when: "Whenever a character of yours is challenged while this character is exerted"
+  effect: "the challenging character gets -3 ¤ this turn unless their player pays 3 ⬡."
+
+swash_your_buckles:
+  when: "Whenever you play an action"
+  effect: "this character gets +1 ¤ and +1 ◊ this turn."
+
+energetic:
+  when: "Whenever you play an action"
+  effect: "this character gets +2 ¤ this turn."
+
+tastes_like_chicken:
+  when: "When you play this character"
+  effect: "you may remove up to 1 damage from chosen character."
+
+make_a_new_friend:
+  when: "When you play this character"
+  effect: "look at the top 4 cards of your deck. You may reveal a character card and put it into your hand. Put the rest on the bottom of your deck in any order."
+
+rock_the_boat:
+  when: "When you play this character"
+  effect: "deal 1 damage to each opposing character."
+
+pay_attention:
+  when: "Whenever you play a character with 5 ¤ or more"
+  effect: "you may exert them to gain 2 lore."
+
+pixie_dust:
+  when: "When you play this character"
+  effect: "chosen character gains Evasive this turn."
+
+shining_example:
+  when: "Whenever this character quests"
+  effect: "your other Fairy characters get +1 ◊ this turn."
+
+harmless_diversion:
+  when: "When you play this character"
+  effect: "exert chosen opposing character with 2 ¤ or less."
+
+i_can_use_that:
+  when: "Whenever one of your items is banished"
+  effect: "you may put that card into your inkwell facedown and exerted."
+
+measure_me_again:
+  when: "When you play this character"
+  effect: "you may put a card from your hand into your inkwell facedown and exerted."
+
+no_time_for_wisecracks:
+  when: "When you play this character"
+  effect: "chosen character of yours gets +1 ¤ this turn for each other character you have in play."
+
+how_do_i_get_in:
+  when: "When you play this character"
+  effect: "chosen character gains Ward until the start of your next turn. (Opponents can't choose them except to challenge.)"
+
+hows_pickings:
+  when: "When you play this character"
+  effect: "you may draw a card for each other character you have in play, then choose and discard that many cards."
+
+a_culinary_masterpiece:
+  when: "When you play this character"
+  effect: "remove up to 2 damage from chosen character."
+
+untold_treasure:
+  when: "When you play this character"
+  effect: "if you have an Illusion character in play, you may draw a card."
+
+keeper_of_atlantica:
+  when: "Whenever one of your locations is banished"
+  effect: "you may put that card into your inkwell facedown and exerted."
+
+on_a_roll:
+  when: "When you play this character"
+  effect: "you may move him and one of your other characters to the same location for free. The other character gets +2 ¤ this turn."
+
+another_recitation:
+  when: "Whenever this character quests"
+  effect: "you may return chosen damaged character to their player's hand."
+
+fixed_in_no_time:
+  when: "When this item is banished"
+  effect: "you pay 2 ⬡ less for the next item you play this turn."
+
+slippery_halls:
+  when: "Whenever a character is banished in a challenge while here"
+  effect: "you may return them to your hand."
+
+now_sing:
+  when: "Whenever you play a song"
+  effect: "you may pay 1 ⬡ to draw a card."
+
+youll_never_even_miss_it:
+  when: "When you play this character"
+  effect: "chosen opponent reveals their hand and discards a song card of your choice."
+
+what_a_deal:
+  when: "Whenever this character sings a song"
+  effect: "you may play that song again from your discard for free. If you do, put that card on the bottom of your deck instead of into your discard."
+
+vanessas_design:
+  when: "Whenever this character quests"
+  effect: "chosen opponent reveals their hand and discards a non-character card of your choice."
+
+its_too_easy:
+  when: "When you play this character"
+  effect: "each opponent loses 1 lore. You may draw a card for each 1 lore lost this way."
+
+youre_too_late:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character can't ready at the start of their next turn."
+
+now_i_am_the_ruler:
+  when: "Whenever this character quests"
+  effect: "exert chosen character."
+
+sing_for_me:
+  when: "When you play this character"
+  effect: "exert chosen opposing ready character. Then, you may play a song with cost equal to or less than the exerted character's cost for free."
+
+youve_got_to_pay_to_play:
+  when: "Whenever this character quests"
+  effect: "chosen opposing character gets -1 ¤ until the start of your next turn."
+
+pixlexia:
+  when: "When you play this character"
+  effect: "she gains Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)"
+
+i_hereby_decree:
+  when: "Whenever you play another Princess character"
+  effect: "all opposing characters get -1 ¤ until the start of your next turn."
+
+i_just_like_to_blow_things_up:
+  when: "When you play this character"
+  effect: "you may deal 3 damage to chosen character."
+
+high_standards:
+  when: "Whenever this character quests"
+  effect: "you may banish chosen item."
+
+blades_of_fury:
+  when: "When you play this character"
+  effect: "you may banish chosen item. Its player gains 1 lore."
+
+latest_entry:
+  when: "Whenever you put a card under one of your characters or locations"
+  effect: "you may pay 1 ⬡ to draw a card."
+
+work_smarter:
+  when: "Whenever this character quests"
+  effect: "if an opponent has more cards in their inkwell than you, you may put the top card of your deck into your inkwell facedown and exerted."
+
+contagious_energy:
+  when: "When you play this character"
+  effect: "chosen character gets +1 ¤ this turn."
+
+training:
+  when: "Whenever you play a character with 4 ¤ or more"
+  effect: "you may pay 1 ⬡ to draw a card."
+
+tell_no_tales:
+  when: "Whenever one of your other characters is banished"
+  effect: "you may remove all damage from chosen character."
+
+hunny_pot:
+  when: "Whenever this character quests"
+  effect: "you may put a card from your hand into your inkwell facedown."
+
+were_pirates_you_see:
+  when: "Whenever this character quests"
+  effect: "you pay 1 ⬡ less for the next Pirate character you play this turn."
+
+help_the_wounded:
+  when: "Whenever a character quests while here"
+  effect: "remove up to 2 damage from them. If they're a Hero character, remove up to 4 damage instead."
+
+ive_got_the_coolest_friend:
+  when: "When you play this character"
+  effect: "return a character card from your discard to your hand. If that card is a Princess character card, gain 2 lore."
+
+charged_up:
+  when: "When you play this character"
+  effect: "chosen Racer character gets +4 ¤ this turn."
+
+back_on_track:
+  when: "When you play this character and whenever he quests"
+  effect: "you may return a Racer character card with cost 6 or less from your discard to your hand. If you do, gain 1 lore."
+
+refreshing_break:
+  when: "Whenever you ready this character"
+  effect: "gain 1 lore for each 1 damage on him."
+
+i_wreck_things:
+  when: "Whenever this character quests"
+  effect: "you may banish chosen item or location to gain 2 lore."
+
+we_only_trust_nature:
+  when: "When you play this character"
+  effect: "chosen character gains Challenger +2 this turn. (They get +2 ¤ while challenging.)"
+
+timely_intervention:
+  when: "When you play this character"
+  effect: "if you have a character named Magic Broom in play, you may draw a card."
+
+time_to_upgrade:
+  when: "Whenever this character quests"
+  effect: "you may return one of your items to your hand to pay 2 ⬡ less for the next item you play this turn."
+
+technical_gain:
+  when: "Whenever this character quests"
+  effect: "draw a card for each opposing character with 0 ¤."
+
+back_to_work:
+  when: "Whenever another character is banished in a challenge"
+  effect: "return that card to its player's hand, then that player discards a card at random."
+
+youre_excused:
+  when: "Whenever this character quests"
+  effect: "look at the top card of your deck. Put it on either the top or the bottom of your deck."
+
+how_shall_i_do_it:
+  when: "When you play this character"
+  effect: "you may draw a card, then choose and discard a card."
+
+why_do_we_even_have_that_lever:
+  when: "When you play this character"
+  effect: "if you have a card named Pull the Lever! in your discard, you may search your deck for a card named Wrong Lever! and reveal that card to all players. Put that card into your hand and shuffle your deck."
+
+cruel_irony:
+  when: "When you play this character"
+  effect: "shuffle another chosen character card into their player's deck. That player draws 2 cards."
+
+i_win:
+  when: "When this character is banished"
+  effect: "if you have more cards in your hand than each opponent, you may return this card to your hand."
+
+target_practice:
+  when: "Whenever this character challenges another character"
+  effect: "he gets +¤ equal to the ¤ of chosen character this turn."
+
+# ============================================
+# NEEDS MANUAL REVIEW: 70 abilities
+# ============================================
+
+# theres_always_a_chance: "If you used Shift to play this character, you may draw 2 cards when he enters play."
+# the_miracle_is_you: "Once during your turn, whenever one or more of your characters sings a song, you may ready those characters."
+# of_course_they_can_come: "Once during your turn, whenever one of your characters sings a song, you may search your deck for a character card with cost 3 or less and reveal that card to all players. Put that card into your hand and shuffle your deck."
+# call_to_battle: "Once during your turn, whenever you put a card under one of your characters or locations, you may ready chosen character. If you do, that character can't quest for the rest of this turn."
+# command_performance: "Once during your turn, whenever you play a song, if there's a card under this character, you may draw a card."
+# its_better_this_way: "At the start of your turn, if this character has no damage, draw a card. Otherwise, he gets +4 ¤ this turn."
+# ill_check_it_out: "At the end of your turn, if this character is exerted, you may ready another chosen character of yours."
+# many_forms: "At the start of your turn, you may choose one: • This character gets +1 ◊ this turn. • This character gains Challenger +2 this turn. (While challenging, this character gets +2 ¤.)"
+# give_em_all_you_got: "Once during your turn, whenever an opposing character is damaged, your Pirate characters get +2 ¤ and gain Resist +2 this turn. (Damage dealt to them is reduced by 2.)"
+# our_home: "At the start of your turn, if you have a character here gain 1 lore."
+# into_the_gloom: "Once during your turn, whenever a character quests while here, you may ready chosen item."
+# whatever_you_wish_for: "At the end of your turn, if you played a Princess character this turn, you may put a card from your hand into your inkwell facedown to draw a card."
+# keep_in_step: "At the end of your turn, if chosen opponent has more cards in their hand than you, you may draw cards until you have the same number."
+# out_of_season: "Once during your turn, whenever a character with cost 2 or less is banished, put the top card of your deck into your inkwell facedown and exerted."
+# fowl_play: "Once during your turn, whenever a card is put into your inkwell, chosen opponent chooses one of their characters and returns that card to their hand."
+# be_sensible: "Once during your turn, whenever a card is put into your inkwell, look at the top card of your deck. You may put it on either the top or the bottom of your deck."
+# allow_me: "At the start of your turn, each player may draw a card."
+# face_the_flames: "At the start of Jafar's turn, he banishes this item to have each Illumineer choose one of their characters and deal 4 damage to them."
+# tiny_thieves: "At the start of your turn, if you have a character here, all opponents lose 1 lore and you gain lore equal to the lore lost this way."
+# narrow_advantage: "At the start of your turn, if you have a character in play with more ¤ than each opposing character, gain 3 lore."
+# forbidden_treasure: "At the end of your turn, put all the cards in your hand on the bottom of your deck in any order."
+# stolen_away: "At the end of your turn, if you didn't play a song this turn, banish this character."
+# dusk_to_dawn: "At the end of each player's turn, if they have more than 2 cards in their hand, they choose and discard cards until they have 2. If they have fewer than 2 cards in their hand, they draw until they have 2."
+# plenty_to_go_around: "At the end of your turn, you may remove up to 1 damage from each of your other characters. Ready each character you removed damage from this way."
+# family_vacation: "Once during your turn, whenever this character moves to a location, you may move one of your other characters to that location for free. If you do, draw a card."
+# growing_influence: "At the start of your turn, if an opponent has 2 or more ready characters in play, gain 2 lore."
+# mindless_wandering: "Once per turn, when this character moves to a location, each opponent loses 1 lore."
+# push_the_boundaries: "At the start of your turn, if you have a character here, gain 1 lore."
+# dont_just_sit_there: "At the start of your turn, deal 1 damage to each opposing ready character."
+# need_some_help: "At the end of your turn, you may ready another chosen character of yours."
+# he_needs_me: "At the end of your turn, if this character is exerted, you may ready another chosen character of yours and remove all damage from them."
+# we_can_figure_this_out: "At the start of your turn, choose one: • Each player draws a card. • Each player chooses and discards a card."
+# dont_you_say_a_word: "Once during your turn, whenever a card is put into your inkwell, you may return chosen character, item, or location with cost 2 or less to their player's hand, then that player draws a card."
+# no_place_id_rather_be: "At the start of your turn, if this card is in your discard, you may play her and she enters play exerted."
+# explosive: "Once during your turn, whenever a card is put into your inkwell, deal 2 damage to each character in play."
+# sneaky_move: "At the start of your turn, you may move up to 2 damage counters from this character to chosen opposing character."
+# royally_big_rewards: "At the end of your turn, if you have any characters in play with 5 ¤ or more, gain 2 lore. If you have any in play with 10 ¤ or more, gain 5 lore instead."
+# land_ho: "Once during your turn, whenever a card is put into your inkwell, you may return a location card from your discard to your hand."
+# no_thanks_necessary: "Once during your turn, whenever a card is put into your inkwell, your other characters with Bodyguard get +1 ◊ this turn."
+# the_gangs_all_here: "Once during your turn, whenever you play another character, you may ready this character. He can't quest or challenge for the rest of this turn."
+# oh_dear_dear_dear: "At the end of your turn, if this character is exerted and you don't have a Captain character in play, deal 1 damage to this character."
+# hard_earned_wisdom: "At the start of your turn, if you have a character named Mama Odie here, gain 1 lore."
+# not_bad: "At the start of your turn, you may move 1 damage counter from chosen character here to chosen opposing character."
+# helpful_supplies: "At the start of your turn, if you have an item in play, gain 1 lore."
+# perfect_directions: "At the start of your turn, if you have a location in play, gain 1 lore."
+# i_came_to_listen_to_the_stories: "Once per turn, when this character moves to a location, gain lore equal to that location's ◊."
+# got_to_keep_real_quiet: "Once during your turn, whenever you ready this character, you may draw a card."
+# guard_dog: "At the start of your turn, remove up to 3 damage from this character."
+# found_you_you_little_rascal: "At the start of your turn, look at the cards in your inkwell. You may play a Puppy character from there for free."
+# mash_up: "Once during your turn, whenever this character sings a song, look at the top 4 cards of your deck. You may reveal a song card with cost 9 or less and play it for free. Put the rest on the bottom of your deck in any order."
+# a_feeling_of_power: "At the end of each opponent's turn, if they have more than 3 cards in their hand, they discard until they have 3 cards in their hand."
+# symbol_of_nobility: "At the start of your turn, if you have a Princess or Queen character in play, gain 1 lore."
+# time_runs_out: "At the end of your turn, if you didn't put any cards into your inkwell this turn, banish this character."
+# come_on_lets_do_this: "Once during your turn, whenever a card is put into your inkwell, you may ready another chosen character of yours. They can't quest for the rest of this turn."
+# planning_session: "At the start of your turn, if you have a character here, you may put the top card of your deck into your inkwell facedown and exerted."
+# stick_with_me: "At the end of your turn, if this character is exerted, you may draw cards equal to the ¤ of chosen Ally character of yours. If you do, choose and discard 2 cards and banish that character."
+# understand_the_balance: "At the end of your turn, if this character is exerted, you may ready your other characters."
+# safe_haven: "At the start of your turn, if you have a Pirate character here, gain 1 lore."
+# stealth_mode: "At the start of your turn, if this card is in your discard, you may choose and discard a card with ◉ to play this character for free and he enters play exerted."
+# new_roster: "Once per turn, when this character moves to a location, gain 2 lore."
+# gather_resources: "Once during your turn, whenever you move a character with 5 ¤ or more here, you may draw a card."
+# using_the_mirror: "At the start of your turn, for each character you have here, you may draw a card."
+# royal_summons: "At the start of your turn, you may choose and discard a Princess or Queen character card to return a character card from your discard to your hand."
+# power_appointed: "At the start of your turn, if you have a character in play with more ¤ than each opposing character in play, each opponent loses 1 lore and you gain lore equal to the lore lost."
+# give_em_a_show: "At the start of your turn, you may move a character of yours to a location for free."
+# secret_weapon: "At the start of your turn, deal damage to chosen character or location equal to the number of characters here."
+# minor_stipulation: "At the start of your turn, banish this item to gain 3 lore."
+# as_ready_as_ill_ever_be: "At the start of your turn, if this character is at a location, draw a card and gain 1 lore."
+# danger_revealed: "At the start of your turn, if an opposing character has damage, gain 1 lore."
+# new_information: "Once during your turn, whenever you move a character here, you may draw a card, then choose and discard a card."
