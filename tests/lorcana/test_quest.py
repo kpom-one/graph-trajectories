@@ -240,8 +240,8 @@ class TestZeroLore:
               This matters for "whenever this character quests" triggers.
         """
         G = make_game()
-        # Gaston - Arrogant Hunter has 0 lore (he's Reckless, meant for combat)
-        gaston = add_character(G, 'p1', 'gaston_arrogant_hunter',
+        # The Queen - Disguised Peddler has 0 lore
+        queen = add_character(G, 'p1', 'the_queen_disguised_peddler',
             zone=Zone.PLAY,
             exerted=False,
             entered_play=0
@@ -250,7 +250,7 @@ class TestZeroLore:
         actions = compute_can_quest(G)
 
         assert len(actions) == 1, "Character with 0 lore CAN quest"
-        assert actions[0].src == gaston
+        assert actions[0].src == queen
 
     def test_questing_with_zero_lore_gains_nothing(self):
         """
@@ -258,27 +258,27 @@ class TestZeroLore:
 
         SETUP:
         - Player has 5 lore
-        - Gaston (0 lore) quests
+        - The Queen (0 lore) quests
 
         EXPECTED:
         - Player still has 5 lore (gained 0)
-        - Gaston is exerted
+        - The Queen is exerted
 
         RULE: 4.3.5.8 - You gain lore equal to {L}. If {L} is 0, you gain 0.
         """
         G = make_game()
         G.nodes['p1']['lore'] = '5'
-        gaston = add_character(G, 'p1', 'gaston_arrogant_hunter',
+        queen = add_character(G, 'p1', 'the_queen_disguised_peddler',
             zone=Zone.PLAY,
             exerted=False,
             entered_play=0
         )
         state = make_state(G)
 
-        execute_quest(state, gaston, 'p1')
+        execute_quest(state, queen, 'p1')
 
         assert G.nodes['p1']['lore'] == '5', "Should gain 0 lore"
-        assert G.nodes[gaston]['exerted'] == '1', "Should still exert"
+        assert G.nodes[queen]['exerted'] == '1', "Should still exert"
 
 
 # =============================================================================

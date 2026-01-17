@@ -23,6 +23,7 @@ class Keyword:
     EVASIVE = "evasive"
     ALERT = "alert"
     BODYGUARD = "bodyguard"
+    RECKLESS = "reckless"
 
 
 class Edge:
@@ -30,6 +31,7 @@ class Edge:
     SOURCE = "source"
     CURRENT_TURN = "current_turn"
     CURRENT_STEP = "current_step"
+    CANT_QUEST = "cant_quest"
 
 
 class Step:

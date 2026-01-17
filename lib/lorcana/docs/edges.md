@@ -51,7 +51,7 @@ execute: `execute_play()` - move to play/discard, spend ink, set entered_play (e
 ```
 card --[action_type=Action.QUEST]--> player
 ```
-available: `compute_can_quest()` - in play, ready, dry (entered_play < current_turn)
+available: `compute_can_quest()` - in play, ready, dry (entered_play < current_turn), no CANT_QUEST edge
 execute: `execute_quest()` - exert, add lore to player
 
 ### Action.CHALLENGE
@@ -64,6 +64,20 @@ available: `compute_can_challenge()`
     - Evasive check (attacker needs Evasive or Alert)
     - Bodyguard check (must target Bodyguard if able)
 execute: `execute_challenge()` - exert attacker, deal damage both ways
+
+---
+
+## Effect
+
+Edges that modify game rules. Created by abilities.
+
+### Edge.CANT_QUEST
+```
+ability --[Edge.CANT_QUEST]--> card
+```
+knows: `has_edge(G, card, Edge.CANT_QUEST)`
+created by: Reckless keyword
+effect: `compute_can_quest()` - blocks quest action
 
 ---
 
