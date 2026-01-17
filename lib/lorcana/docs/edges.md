@@ -42,9 +42,10 @@ execute: `execute_ink()` - move to ink zone, increment ink counters
 ### Action.PLAY
 ```
 card --[action_type=Action.PLAY]--> player
+card --[action_type=Action.PLAY, exerted=True]--> player  # Bodyguard option
 ```
-available: `compute_can_play()` - card in hand, ink_available >= cost
-execute: `execute_play()` - move to play/discard, spend ink, set entered_play
+available: `compute_can_play()` - card in hand, ink_available >= cost; Bodyguard cards get two edges
+execute: `execute_play()` - move to play/discard, spend ink, set entered_play (exerted if metadata.exerted)
 
 ### Action.QUEST
 ```

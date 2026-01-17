@@ -19,6 +19,7 @@ class ActionEdge(NamedTuple):
     dst: str          # Target node (e.g., player, or defender for challenge)
     action_type: str  # Type of action (CAN_CHALLENGE, CAN_QUEST, etc.)
     description: str  # Human-readable description for UI
+    metadata: dict | None = None  # Action-specific attributes (e.g., {'exerted': True} for Bodyguard)
 
 
 def get_player_step(player: str, step: str) -> str:
@@ -117,5 +118,25 @@ def has_keyword(G, card_node: str, keyword: str) -> bool:
     """
     for u, v, data in G.in_edges(card_node, data=True):
         if data.get('label') == keyword:
+            return True
+    return False
+
+
+def card_data_has_keyword(card_data: dict, keyword: str) -> bool:
+    """
+    Check if card data contains a specific keyword.
+
+    Use this for cards not yet in play (e.g., in hand) where ability
+    nodes don't exist yet. For cards in play, use has_keyword() instead.
+
+    Args:
+        card_data: Card data dict from card database
+        keyword: Keyword name as it appears in card data (e.g., 'Bodyguard', 'Shift')
+
+    Returns:
+        True if card has the keyword in its abilities
+    """
+    for ability in card_data.get('abilities', []):
+        if ability.get('keyword') == keyword:
             return True
     return False
