@@ -14,6 +14,8 @@ def create_printed_abilities(G, card_node: str, card_data: dict, turn: int) -> N
             create_ability(G, card_node, Keyword.RUSH, turn)
         elif keyword == 'Evasive':
             create_ability(G, card_node, Keyword.EVASIVE, turn)
+        elif keyword == 'Alert':
+            create_ability(G, card_node, Keyword.ALERT, turn)
 
 
 def create_ability(G, card_node: str, keyword: str, turn: int) -> str:
