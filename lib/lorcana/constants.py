@@ -21,6 +21,7 @@ class Keyword:
     """Keyword edge labels (boolean keywords - presence = has keyword)."""
     RUSH = "rush"
     EVASIVE = "evasive"
+    ALERT = "alert"
 
 
 class Edge:
