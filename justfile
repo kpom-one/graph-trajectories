@@ -109,3 +109,28 @@ generate-games num_seeds="1" games_per_seed="1":
 # Usage: just trajectory output/b013/seed/0/1/2 [output.dot]
 trajectory path output="trajectory.dot":
     {{python}} bin/trajectory-graph.py "{{path}}" "{{output}}"
+
+# Extract all trajectory.dot files to output-trajectories/
+extract-trajectories:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    mkdir -p output-trajectories
+
+    find output -name "trajectory.dot" | while read -r file; do
+        # Extract seed from path: output/<hash>/<seed>/...
+        seed=$(echo "$file" | cut -d'/' -f3)
+
+        # Create unique name using counter per seed
+        counter=1
+        while [[ -f "output-trajectories/${seed}-${counter}.traj.dot" ]]; do
+            ((counter++))
+        done
+
+        cp "$file" "output-trajectories/${seed}-${counter}.traj.dot"
+        echo "Copied: ${seed}-${counter}.traj.dot"
+    done
+
+    echo ""
+    echo "Done. Extracted to output-trajectories/"
+    ls -la output-trajectories/
