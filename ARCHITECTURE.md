@@ -215,6 +215,58 @@ if session.is_game_over():
     winner = session.get_winner()  # "p1" or "p2"
 ```
 
+## Trajectory Graphs
+
+A trajectory graph combines all states along a path into a single graph, enabling temporal analysis.
+
+### Structure
+
+Given a path `output/459b/seed/0/1/2` (3 actions from seed):
+
+```
+State 0 (seed)     State 1 (action 0)     State 2 (action 1)     State 3 (action 2)
+─────────────      ─────────────────      ─────────────────      ─────────────────
+game@0 ──────next────▶ game@1 ──────next────▶ game@2 ──────next────▶ game@3
+  │                      │                      │                      │
+p1@0 ───────next────▶ p1@1 ───────next────▶ p1@2 ───────next────▶ p1@3
+  │                      │                      │                      │
+p1.card.a@0 ──next──▶ p1.card.a@1 ──next──▶ p1.card.a@2            ✕ (banished)
+```
+
+### Node Namespacing
+
+Original node IDs get `@{state_index}` suffix:
+- `game` → `game@0`, `game@1`, `game@2`, ...
+- `p1.mulan.a` → `p1.mulan.a@0`, `p1.mulan.a@1`, ...
+
+All original attributes preserved, plus `state_index` added.
+
+### Edge Types
+
+**Preserved edges** (namespaced): All edges from original states
+```
+game@2 --[current_turn]--> p1@2
+p1.card.a@1 --[CAN_QUEST]--> p1@1
+```
+
+**Temporal edges** (new): Connect same entity across adjacent states
+```
+p1.card.a@0 --[next]--> p1.card.a@1
+```
+
+Temporal edges only exist when the entity exists in both states.
+
+### Generation
+
+```bash
+# Manual: build from any completed game path
+just trajectory output/459b/seed/0/1/2/... trajectory.dot
+
+# Automatic: set BUILD_TRAJECTORY=1 to generate on game completion
+BUILD_TRAJECTORY=1 just generate-games 1 1
+# Creates trajectory.dot in the winning state directory
+```
+
 ## Design Principles
 
 1. **Graph = source of truth**: Everything derivable from game.dot

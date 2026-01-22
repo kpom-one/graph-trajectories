@@ -7,7 +7,7 @@ digraph lorcana {
     p1 [type="Player", lore="0", ink_drops="1", ink_total="0", ink_available="0"];
     p2 [type="Player", lore="0", ink_drops="1", ink_total="0", ink_available="0"];
 
-    game -> p1 [label="CURRENT_TURN"];
+    game -> p1 [label="current_turn"];
 
     // ---- Turn Steps ----
     "step.p1.ready" [type="Step", player="p1", step="ready"];
@@ -22,6 +22,6 @@ digraph lorcana {
     "step.p2.main"  [type="Step", player="p2", step="main"];
     "step.p2.end"   [type="Step", player="p2", step="end"];
 
-    game -> "step.p1.main" [label="CURRENT_STEP"];
+    game -> "step.p1.main" [label="current_step"];
 
 }
