@@ -4,12 +4,14 @@ Execute actions on Lorcana game state.
 Applies mutations to the graph based on action types.
 Routes to specific mechanic implementations.
 """
+import os
 from pathlib import Path
 import sys
-from lib.core.graph import can_edges, get_node_attr, get_edge_attr
+from lib.core.graph import can_edges, get_node_attr, get_edge_attr, save_dot
 from lib.core.navigation import format_actions
 from lib.core.file_store import FileStore
 from lib.core.outcome import backpropagate, find_seed_path
+from lib.core.trajectory import build_trajectory_from_path
 from lib.lorcana.state import LorcanaState
 from lib.lorcana.compute import compute_all
 from lib.lorcana.mechanics.turn import advance_turn
@@ -105,3 +107,8 @@ def apply_action_at_path(path: Path) -> None:
         if seed_path:
             backpropagate(str(path), seed_path,
                 lambda parent, suffix: store.save_outcome(parent, suffix, outcome_data))
+
+        # Build trajectory graph for this completed game (if enabled)
+        if os.environ.get("BUILD_TRAJECTORY", "").lower() in ("1", "true", "yes"):
+            trajectory = build_trajectory_from_path(path)
+            save_dot(trajectory, path / "trajectory.dot")

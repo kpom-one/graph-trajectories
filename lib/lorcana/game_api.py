@@ -4,13 +4,15 @@ Python API for playing Lorcana games in-memory.
 Provides high-level game operations without filesystem I/O.
 Uses MemoryStore for fast state management.
 """
+import os
 import random
 from pathlib import Path
 from lib.core.store import StateStore
 from lib.core.memory_store import MemoryStore
 from lib.core.file_store import FileStore
-from lib.core.graph import can_edges, get_node_attr, get_edge_attr
+from lib.core.graph import can_edges, get_node_attr, get_edge_attr, save_dot
 from lib.core.outcome import backpropagate, find_seed_path
+from lib.core.trajectory import build_trajectory_from_path
 from lib.lorcana.state import LorcanaState
 from lib.lorcana.execute import execute_action
 from lib.core.navigation import format_actions, Action
@@ -116,6 +118,11 @@ class GameSession:
                     if seed_path:
                         backpropagate(new_key, seed_path,
                             lambda parent, suffix: self.store.save_outcome(parent, suffix, outcome_data))
+
+                    # Build trajectory graph for this completed game (if enabled)
+                    if os.environ.get("BUILD_TRAJECTORY", "").lower() in ("1", "true", "yes"):
+                        trajectory = build_trajectory_from_path(new_key)
+                        save_dot(trajectory, Path(new_key) / "trajectory.dot")
 
                 return True
 

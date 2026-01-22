@@ -63,6 +63,34 @@ just play output/b013/b123456.0123456.ab/0/1
 just clear
 ```
 
+## Trajectory Graphs
+
+A **trajectory graph** stacks all states along a game path into a single graph, connecting entities across time.
+
+```bash
+# Build from any game path
+just trajectory output/459b/seed/0/1/2/3
+
+# Or enable auto-generation when games complete
+BUILD_TRAJECTORY=1 just generate-games 1 1
+```
+
+**What you get**: A single DOT file where:
+- Nodes are namespaced by state: `p1.mulan.a` → `p1.mulan.a@0`, `p1.mulan.a@1`, ...
+- Edges within each state are preserved (just namespaced)
+- `next` edges connect the same entity across adjacent states
+
+**Example**: Track a card from hand → play → exerted → banished:
+```
+p1.mulan.a@0 [zone=hand]
+      ↓ next
+p1.mulan.a@1 [zone=play]
+      ↓ next
+p1.mulan.a@2 [zone=play, exerted=1]
+      ↓ next
+      ✕ (banished - no node@3)
+```
+
 ## What Works
 
 - ✅ Ink cards, play characters, quest for lore, challenge characters, end turn

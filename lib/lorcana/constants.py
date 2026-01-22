@@ -61,9 +61,13 @@ class CardType:
 
 
 class NodeType:
-    """Node type constants for graph nodes."""
-    GAME = "game"
-    PLAYER = "player"
-    CARD = "card"
-    STEP = "step"
-    ABILITY = "ability"
+    """
+    Node type constants for graph nodes.
+
+    Values are title-cased to match cards.json format.
+    """
+    GAME = "Game"
+    PLAYER = "Player"
+    CARD = "Card"
+    STEP = "Step"
+    ABILITY = "Ability"

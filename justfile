@@ -105,7 +105,7 @@ generate-games num_seeds="1" games_per_seed="1":
     echo "Done. Generated {{num_seeds}} seeds with {{games_per_seed}} games each."
     du -sh output/
 
-# Build per-card trajectory files from diff.txt files
-# Usage: just trajectories b013
-trajectories hash:
-    {{python}} bin/build-trajectories.py "output/{{hash}}"
+# Build trajectory graph from a game path
+# Usage: just trajectory output/b013/seed/0/1/2 [output.dot]
+trajectory path output="trajectory.dot":
+    {{python}} bin/trajectory-graph.py "{{path}}" "{{output}}"
