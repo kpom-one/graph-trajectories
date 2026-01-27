@@ -1,3 +1,0 @@
-0: ink:p1.cogsworth_illuminary_watchman.a
-1: end
-2: play:p1.cogsworth_illuminary_watchman.a

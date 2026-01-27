@@ -1,6 +1,6 @@
 # graph-trajectories
 
-Graph-based state modeling with entity trajectory tracking. Explore game trees as a filesystem - each directory is a state, subdirectories are actions. Built for ML training data generation and case-based reasoning.
+Generate ML training data from game simulations. Games are modeled as graphs, played to completion, and exported as self-contained **episodes** for downstream analysis.
 
 **Test platform**: Lorcana (trading card game)
 
@@ -10,138 +10,77 @@ Graph-based state modeling with entity trajectory tracking. Explore game trees a
 # Install dependencies
 just setup
 
-# Create a test game
-just test
+# Generate 6 random games (2 seeds × 3 games each)
+just generate-games 2 3
 
-# Explore the game tree
-just play output/b013/b123456.0123456.ab/0/1/0/6
-
+# Check output
+ls output/episodes/
 ```
 
-## Understanding Paths
+Each `.episode` directory is a complete game ready for ML pipelines.
 
-A path like `output/b013/b123456.0123456.ab/0/1/0/6` tells a story:
+## What's an Episode?
+
+An **episode** is a complete game from start to finish, packaged as a directory:
 
 ```
-output/b013/b123456.0123456.ab/0/1/0/6
-       │    └────seed─────┘  └─moves─┘
-       └─matchup (which decks)
+output/episodes/abc123-0.episode/
+├── graph.dot      # All states stacked into one graph with temporal edges
+├── history.txt    # Human-readable play-by-play
+├── result.json    # Winner, final scores, metadata
+├── deck1.dek      # Player 1's starting deck
+└── deck2.dek      # Player 2's starting deck
 ```
 
-- **`b013`** - Matchup between two specific decks
-- **`b123456.0123456.ab`** - Starting hands (deterministic shuffle)
-- **`0/1/0/6`** - Sequence of moves taken
+The `graph.dot` connects entities across time with `next` edges:
 
-Each directory contains:
-- **`game.dot`** - Complete game state as a graph
-- **`actions.txt`** - Available moves from here
-- **`diff.txt`** - What changed from the parent state
-
-### Reading the Files
-
-**actions.txt** shows your options:
-```
-0: play:p2.diablo_obedient_raven.d
-1: end
-```
-
-Pick an action number, `just play <whole_path>` with that directory → new game state computed.
-
-## Commands
-
-```bash
-# Create a matchup from two decks
-just match data/decks/deck1.txt data/decks/deck2.txt
-
-# Shuffle and draw starting hands (with seed for reproducibility)
-just shuffle b013 "b123456.0123456.ab"
-
-# Navigate to a state (computes it if needed)
-just play output/b013/b123456.0123456.ab/0/1
-
-# Clear all games
-just clear
-```
-
-## Trajectory Graphs
-
-A **trajectory graph** stacks all states along a game path into a single graph, connecting entities across time.
-
-```bash
-# Build from any game path
-just trajectory output/459b/seed/0/1/2/3
-
-# Or enable auto-generation when games complete
-BUILD_TRAJECTORY=1 just generate-games 1 1
-```
-
-**What you get**: A single DOT file where:
-- Nodes are namespaced by state: `p1.mulan.a` → `p1.mulan.a@0`, `p1.mulan.a@1`, ...
-- Edges within each state are preserved (just namespaced)
-- `next` edges connect the same entity across adjacent states
-
-**Example**: Track a card from hand → play → exerted → banished:
 ```
 p1.mulan.a@0 [zone=hand]
       ↓ next
 p1.mulan.a@1 [zone=play]
       ↓ next
-p1.mulan.a@2 [zone=play, exerted=1]
+p1.mulan.a@2 [zone=play, exerted=true]
       ↓ next
-      ✕ (banished - no node@3)
+      ✕ (banished - no @3)
 ```
+
+This structure enables extracting **trajectories** - a single card's path through the game - for training models on card behavior patterns.
+
+## Commands
+
+```bash
+# Generate random games
+just generate-games [num_seeds] [games_per_seed] [--output-tree]
+
+# Run tests
+just test
+
+# Clear all output
+just clear
+```
+
+The `--output-tree` flag writes the full game tree to `output/tree/` for debugging. Without it, only episodes are saved (faster, smaller).
+
+## Architecture
+
+**Game state = graph**: Nodes are entities (game, players, cards). Edges are relationships and legal actions.
+
+**GameSession**: Orchestrates gameplay. Applies actions, tracks state history, detects wins.
+
+**StateStore**: Pluggable storage. `MemoryStore` (fast, in-memory) or `FileStore` (writes tree to disk).
+
+**Episode export**: When a game ends, all states are stacked into a single temporal graph and written to `.episode/`.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for full details.
 
 ## What Works
 
-- ✅ Ink cards, play characters, quest for lore, challenge characters, end turn
-- ✅ Win detection (20 lore victory, deck-out)
-- ✅ Deterministic shuffle with reproducible seeds
-- ✅ Lazy state computation (only compute paths you explore)
-- ✅ Sequential action IDs (0, 1, 2...) - no collisions
-- ✅ Navigation files (actions.txt, diff.txt)
-- ✅ In-memory API for fast batch operations (GameSession)
-- ✅ Recursive path building (`just play long/path/to/state` works)
+- Core game mechanics (play, pass, actions)
+- Win detection and random action selection
+- Deterministic replay (same seed + moves = same game)
+- Episode export for ML training data
 
 ## What Doesn't (Yet)
 
-- ❌ Card abilities and effects
-- ❌ Singing songs
-- ❌ Web viewer for visual exploration
-- ❌ Effect modifiers (strength/willpower buffs)
-
-## Example: Replaying a Game
-
-```bash
-# Start fresh
-just clear
-
-# Set up a specific matchup
-just match data/decks/bs01.txt data/decks/rp01.txt
-
-# Shuffle with known seed (reproducible)
-just shuffle b013 "b123456.0123456.ab"
-
-# Replay a sequence of moves
-just play output/b013/b123456.0123456.ab/0/1/0/1/1/0/6
-
-# See what changed
-cat output/b013/b123456.0123456.ab/0/1/0/1/1/0/6/diff.txt
-```
-
-The same seed + same moves = same game state. Perfect for playtesting, bug reports, or AI training data.
-
----
-
-## [Advanced] How It Works
-
-**Game state as a graph**: Nodes are cards, players, and game metadata. Edges are relationships (ownership, turn order, legal actions).
-
-**Filesystem as game tree**: Each state is a directory. Actions are subdirectories. The tree structure mirrors possible game paths.
-
-**On-demand computation**: Empty directories don't exist. Navigate to `0/` → system computes what happens, creates `game.dot`.
-
-**Sequential action IDs**: Actions sorted deterministically, numbered 0, 1, 2... No hash collisions, easy indexing.
-
-**Navigation files**: Human-readable summaries (actions.txt, diff.txt) alongside machine-readable graph (game.dot).
-
-For deep technical details (graph schema, state representation, AI/ML use cases) → see [ARCHITECTURE.md](ARCHITECTURE.md)
+- A TON of rules/mechanics for the engine
+- The actual trajectory part... I'm still working that out :) 

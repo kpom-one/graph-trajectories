@@ -7,6 +7,7 @@ Useful for performance-critical operations like game tree search.
 from pathlib import Path
 from copy import deepcopy
 from lib.core.store import StateStore
+from lib.core.episode import Episode
 
 
 class MemoryStore(StateStore):
@@ -23,6 +24,8 @@ class MemoryStore(StateStore):
         self._states = {}
         # Optional: path -> formatted_actions (for navigation)
         self._actions = {}
+        # Action taken to reach each state: path -> action_description
+        self._action_taken = {}
         # Outcomes: path -> outcome_data dict
         self._outcomes = {}
         # Outcome refs: path -> list of action-path suffixes
@@ -61,7 +64,7 @@ class MemoryStore(StateStore):
             state: State object with graph, deck1_ids, deck2_ids attributes
             path: Key for where to save
             format_actions_fn: Optional function to format actions for navigation
-            action_taken: Ignored (no diff for memory store)
+            action_taken: Description of action that led to this state
         """
         path = str(path)  # Normalize to string key
 
@@ -75,6 +78,10 @@ class MemoryStore(StateStore):
         # Store formatted actions if provided
         if format_actions_fn:
             self._actions[path] = format_actions_fn(state.graph)
+
+        # Store action that led to this state
+        if action_taken is not None:
+            self._action_taken[path] = action_taken
 
     def state_exists(self, path: Path | str) -> bool:
         """
@@ -104,6 +111,7 @@ class MemoryStore(StateStore):
         """Clear all stored states from memory."""
         self._states.clear()
         self._actions.clear()
+        self._action_taken.clear()
         self._outcomes.clear()
         self._outcome_refs.clear()
 
@@ -136,3 +144,79 @@ class MemoryStore(StateStore):
     def get_outcomes(self, path: Path | str) -> dict:
         """Get outcomes data at this state."""
         return self._outcome_refs.get(str(path), {"outcomes": {}, "p1_wins": [], "p2_wins": []})
+
+    def get_episode(self, leaf_path: Path | str) -> Episode:
+        """
+        Build an Episode from root to the given leaf path.
+
+        Walks the path components from root to leaf,
+        collecting states, actions, decks, and outcome.
+
+        Args:
+            leaf_path: Path to the final state (e.g., "root/3/0/6")
+
+        Returns:
+            Episode object ready for serialization
+        """
+        leaf_path = str(leaf_path)
+
+        # Generate sequence of paths from root to leaf
+        # e.g., "root/3/0/6" -> ["root", "root/3", "root/3/0", "root/3/0/6"]
+        state_paths = self._path_sequence(leaf_path)
+
+        states = []
+        actions = []
+
+        for path in state_paths:
+            # Load state graph (need to import state class dynamically or store graphs directly)
+            if path not in self._states:
+                raise KeyError(f"State not found: {path}")
+
+            graph, deck1_ids, deck2_ids = self._states[path]
+            states.append(deepcopy(graph))
+
+            # Get action that led to this state
+            action = self._action_taken.get(path, "initial" if path == state_paths[0] else "unknown")
+            actions.append(action)
+
+        # Get starting decks from first state
+        _, deck1_ids, deck2_ids = self._states[state_paths[0]]
+
+        # Get outcome from leaf
+        outcome = self._outcomes.get(leaf_path, {"winner": "unknown", "p1_lore": 0, "p2_lore": 0})
+
+        # Generate game_id from root path name
+        root_path = state_paths[0]
+        game_id = root_path.split("/")[-1] if "/" in root_path else root_path
+
+        return Episode(
+            states=states,
+            actions=actions,
+            decks=(list(deck1_ids), list(deck2_ids)),
+            outcome=outcome,
+            game_id=game_id,
+            source_path=leaf_path,
+        )
+
+    def _path_sequence(self, leaf_path: str) -> list[str]:
+        """
+        Generate sequence of paths from root to leaf.
+
+        Walks path components and returns only those that have states stored.
+
+        Example:
+            "root/3/0/6" with states at root, root/3, root/3/0, root/3/0/6
+            -> ["root", "root/3", "root/3/0", "root/3/0/6"]
+        """
+        parts = leaf_path.split("/")
+        paths = []
+
+        for i in range(len(parts)):
+            path = "/".join(parts[:i + 1])
+            if path in self._states:
+                paths.append(path)
+
+        if not paths:
+            raise ValueError(f"No states found in path hierarchy: {leaf_path}")
+
+        return paths

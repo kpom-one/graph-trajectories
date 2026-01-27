@@ -9,6 +9,8 @@ import os
 from pathlib import Path
 from lib.core.store import StateStore
 from lib.core.graph import load_dot, save_dot, get_node_attr
+from lib.core.episode import Episode
+from lib.core.episode_graph import path_to_state_dirs
 from lib.lorcana.helpers import get_game_context
 from lib.core.navigation import write_actions_file, read_actions_file
 from lib.core.diff import diff_graphs
@@ -176,6 +178,54 @@ class FileStore(StateStore):
 
         return {"outcomes": {}, "p1_wins": [], "p2_wins": []}
 
+    def get_episode(self, leaf_path: Path | str) -> Episode:
+        """
+        Build an Episode from root to the given leaf path.
+
+        Walks up from leaf_path to find all state directories,
+        then collects states, actions, decks, and outcome.
+
+        Args:
+            leaf_path: Path to the final state (must have outcome.txt)
+
+        Returns:
+            Episode object ready for serialization
+        """
+        leaf_path = Path(leaf_path)
+        state_dirs = path_to_state_dirs(leaf_path)
+
+        states = []
+        actions = []
+
+        for state_dir in state_dirs:
+            # Load state graph
+            states.append(load_dot(state_dir / _GAME_FILE))
+
+            # Extract action from diff.txt
+            diff_file = state_dir / _DIFF_FILE
+            action = self._extract_action_from_diff(diff_file)
+            actions.append(action)
+
+        # Load starting decks from first state (seed directory)
+        seed_dir = state_dirs[0]
+        deck1_ids = self._load_deck(seed_dir, player=1)
+        deck2_ids = self._load_deck(seed_dir, player=2)
+
+        # Load outcome from leaf
+        outcome = self._load_outcome(leaf_path)
+
+        # Generate game_id from seed name
+        game_id = seed_dir.name
+
+        return Episode(
+            states=states,
+            actions=actions,
+            decks=(deck1_ids, deck2_ids),
+            outcome=outcome,
+            game_id=game_id,
+            source_path=str(leaf_path),
+        )
+
     # ========== Internal Helpers ==========
 
     def _load_deck(self, base_path: Path, player: int) -> list[str]:
@@ -257,3 +307,31 @@ class FileStore(StateStore):
                 f.write("\n")
                 for line in diff_lines:
                     f.write(f"{line}\n")
+
+    def _extract_action_from_diff(self, diff_file: Path) -> str:
+        """Extract the action description from a diff.txt file header."""
+        if not diff_file.exists():
+            return "initial"
+
+        with open(diff_file) as f:
+            for line in f:
+                if line.startswith("# action:"):
+                    return line.split(":", 1)[1].strip()
+        return "unknown"
+
+    def _load_outcome(self, leaf_dir: Path) -> dict:
+        """Load outcome from outcome.txt in leaf directory."""
+        outcome_file = leaf_dir / _OUTCOME_FILE
+        if not outcome_file.exists():
+            return {"winner": "unknown", "p1_lore": 0, "p2_lore": 0}
+
+        outcome = {}
+        with open(outcome_file) as f:
+            for line in f:
+                if line.startswith("winner:"):
+                    outcome["winner"] = line.split(":", 1)[1].strip()
+                elif line.startswith("p1_lore:"):
+                    outcome["p1_lore"] = int(line.split(":", 1)[1].strip())
+                elif line.startswith("p2_lore:"):
+                    outcome["p2_lore"] = int(line.split(":", 1)[1].strip())
+        return outcome

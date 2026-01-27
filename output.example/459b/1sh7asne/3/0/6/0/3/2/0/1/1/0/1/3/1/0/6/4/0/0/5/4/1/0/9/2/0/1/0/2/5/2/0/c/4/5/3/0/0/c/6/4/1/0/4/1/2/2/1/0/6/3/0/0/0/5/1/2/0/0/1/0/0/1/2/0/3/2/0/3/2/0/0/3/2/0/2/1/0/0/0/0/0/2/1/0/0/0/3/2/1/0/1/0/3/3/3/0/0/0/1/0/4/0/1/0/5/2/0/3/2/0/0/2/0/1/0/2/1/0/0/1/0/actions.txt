@@ -1,3 +1,0 @@
-0: ink:p2.prince_naveen_penniless_royal.c
-1: end
-2: play:p2.prince_naveen_penniless_royal.c

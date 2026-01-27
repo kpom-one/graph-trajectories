@@ -115,14 +115,16 @@ This codebase has unusual properties that enable this approach:
 
 ### 1. Full Game Trees (Not Just Logs)
 
-Most game AI has linear game logs. This system stores the full tree:
+Most game AI has linear game logs. With `--output-tree`, this system stores the full tree:
 
 ```
-output/matchup/seed/0/1/2/  ← took action 0, then 1, then 2
-output/matchup/seed/0/1/3/  ← alternate: took action 3 instead
+output/tree/matchup/seed/0/1/2/  ← took action 0, then 1, then 2
+output/tree/matchup/seed/0/1/3/  ← alternate: took action 3 instead
 ```
 
 Enables counterfactual analysis: "What if I'd done X instead?"
+
+Default mode (MemoryStore) exports self-contained `.episode` directories with the complete game graph - no tree structure, but all states stacked with temporal edges.
 
 ### 2. Deterministic Replay
 
@@ -205,26 +207,28 @@ Like RAG for LLMs:
 
 ## Storage Considerations
 
-### Current Measurements
+### Episode Storage (Default)
+
+Each `.episode` directory is ~50-100KB containing the complete game:
+- `graph.dot` - All states stacked with temporal edges
+- `history.txt` - Human-readable diffs
+- `result.json` - Metadata
+- Deck files
+
+10,000 episodes ≈ 500MB-1GB
+
+### Tree Storage (--output-tree)
+
+Full game tree written to disk. Much larger:
 
 | Metric | Value |
 |--------|-------|
 | Per game | ~1.8 MB |
 | Per state | ~26 KB |
 | Actions/game | ~68 |
-| 100 games | ~179 MB |
 | 10,000 games | ~18 GB |
 
-### The Real Cost
-
-Directory/inode overhead dominates. Each action = new directory.
-
-### Optimization Options
-
-1. **Summary only**: Store final trajectory, not intermediate states (70x reduction)
-2. **Flat files**: JSON lines instead of directory tree
-3. **Memory-first**: MemoryStore for play, dump summary at end
-4. **Compression**: gzip DOT files
+Use for debugging or counterfactual analysis, not bulk generation.
 
 ---
 
@@ -232,11 +236,11 @@ Directory/inode overhead dominates. Each action = new directory.
 
 ### Phase 1: Data Generation (Done)
 
-- Play random games
-- Write to filesystem
+- Play random games to completion
+- Export as `.episode` directories
 - Validate game engine at scale
 
-### Phase 2: Trajectory Extraction (Done)
+### Phase 2: Trajectory Extraction
 
 ```python
 def extract_trajectory(game_path, card_id) -> list[dict]:
