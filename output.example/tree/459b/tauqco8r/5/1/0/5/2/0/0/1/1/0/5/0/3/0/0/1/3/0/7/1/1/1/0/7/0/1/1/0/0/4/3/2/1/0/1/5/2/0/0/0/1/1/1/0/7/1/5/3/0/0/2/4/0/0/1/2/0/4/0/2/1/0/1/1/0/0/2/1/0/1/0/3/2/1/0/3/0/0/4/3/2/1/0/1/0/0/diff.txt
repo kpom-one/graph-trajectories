@@ -1,0 +1,24 @@
+# turn: 21
+# current_player: p2
+# lore: p1=8, p2=15
+# action: end
+
+add node p2.aladdin_cornered_swordsman.c card_id=171 damage=0 exerted=0 label=aladdin_cornered_swordsman type=Card zone=hand
+set node game turn=21
+set node p2 ink_available=7
+set node p2.dumptruck_karnage's_second_mate.c exerted=0
+set node p2.stitch_new_dog.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p2.aladdin_cornered_swordsman.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.aladdin_cornered_swordsman.c
+add edge p2.aladdin_cornered_swordsman.c -> p2 can_play action_id=5 action_type=can_play description=play:p2.aladdin_cornered_swordsman.c
+add edge p2.dumptruck_karnage's_second_mate.a -> p1.winnie_the_pooh_hunny_wizard.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.a->p1.winnie_the_pooh_hunny_wizard.b
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.c -> p1.winnie_the_pooh_hunny_wizard.b can_challenge action_id=1 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.c->p1.winnie_the_pooh_hunny_wizard.b
+add edge p2.dumptruck_karnage's_second_mate.c -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.c
+add edge p2.stitch_new_dog.b -> p1.winnie_the_pooh_hunny_wizard.b can_challenge action_id=2 action_type=can_challenge description=challenge:p2.stitch_new_dog.b->p1.winnie_the_pooh_hunny_wizard.b
+add edge p2.stitch_new_dog.b -> p2 can_quest action_id=8 action_type=can_quest description=quest:p2.stitch_new_dog.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass

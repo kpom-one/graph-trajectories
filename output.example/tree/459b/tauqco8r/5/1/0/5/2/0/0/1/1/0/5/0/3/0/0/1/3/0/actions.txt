@@ -1,0 +1,10 @@
+0: ink:p2.arges_the_cyclops.d
+1: ink:p2.chien_po_imperial_soldier.b
+2: ink:p2.chien_po_imperial_soldier.c
+3: ink:p2.jafar_royal_vizier.b
+4: ink:p2.stitch_carefree_surfer.a
+5: end
+6: play:p2.arges_the_cyclops.d
+7: play:p2.dumptruck_karnage's_second_mate.d
+8: play:p2.jafar_royal_vizier.b
+9: quest:p2.jafar_royal_vizier.d

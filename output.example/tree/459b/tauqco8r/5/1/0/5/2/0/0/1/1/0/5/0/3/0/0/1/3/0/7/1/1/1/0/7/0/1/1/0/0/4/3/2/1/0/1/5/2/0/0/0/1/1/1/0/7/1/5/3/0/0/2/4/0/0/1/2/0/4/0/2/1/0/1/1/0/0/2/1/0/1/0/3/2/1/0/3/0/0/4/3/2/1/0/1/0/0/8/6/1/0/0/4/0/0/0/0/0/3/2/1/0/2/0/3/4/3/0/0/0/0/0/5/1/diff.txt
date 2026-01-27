@@ -1,0 +1,11 @@
+# turn: 28
+# current_player: p1
+# lore: p1=16, p2=17
+# action: ink:p1.heathcliff_stoic_butler.b
+
+set node p1 ink_available=8 ink_drops=0 ink_total=8
+set node p1.heathcliff_stoic_butler.b zone=ink
+remove edge p1.heathcliff_stoic_butler.b -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.b -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest action_id=2

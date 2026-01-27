@@ -1,0 +1,13 @@
+# turn: 20
+# current_player: p1
+# lore: p1=8, p2=15
+# action: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.simba_protective_cub.d
+
+remove node bodyguard.t13.1
+set node p1.winnie_the_pooh_hunny_wizard.b damage=2 exerted=1
+set node p2.simba_protective_cub.d damage=6 zone=discard
+remove edge bodyguard.t13.1 -> p2.simba_protective_cub.d bodyguard
+remove edge bodyguard.t13.1 -> p2.simba_protective_cub.d source
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p2.simba_protective_cub.d can_challenge
+set edge p1 -> game can_pass action_id=0

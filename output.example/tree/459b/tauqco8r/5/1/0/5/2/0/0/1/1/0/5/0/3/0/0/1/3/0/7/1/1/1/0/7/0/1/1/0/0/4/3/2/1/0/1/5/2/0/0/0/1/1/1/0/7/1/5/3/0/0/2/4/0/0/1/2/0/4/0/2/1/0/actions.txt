@@ -1,0 +1,5 @@
+0: challenge:p1.maleficent_sorceress.b->p2.genie_satisfied_dragon.a
+1: challenge:p1.maleficent_sorceress.b->p2.jafar_royal_vizier.b
+2: end
+3: play:p1.luisa_madrigal_magically_strong_one.a
+4: quest:p1.maleficent_sorceress.b

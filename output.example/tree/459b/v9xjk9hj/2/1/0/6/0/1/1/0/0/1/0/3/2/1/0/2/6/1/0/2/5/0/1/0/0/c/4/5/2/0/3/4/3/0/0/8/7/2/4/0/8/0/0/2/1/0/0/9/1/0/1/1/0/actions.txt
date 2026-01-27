@@ -1,0 +1,7 @@
+0: challenge:p1.pinocchio_star_attraction.d->p2.chien_po_imperial_soldier.d
+1: challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+2: ink:p1.lena_sabrewing_rebellious_teenager.c
+3: end
+4: play:p1.lena_sabrewing_rebellious_teenager.c
+5: quest:p1.pinocchio_star_attraction.d
+6: quest:p1.tinker_bell_fast_flier.d

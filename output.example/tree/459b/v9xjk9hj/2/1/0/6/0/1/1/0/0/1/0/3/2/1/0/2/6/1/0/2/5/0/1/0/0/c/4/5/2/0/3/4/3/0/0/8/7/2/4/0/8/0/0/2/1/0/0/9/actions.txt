@@ -1,0 +1,8 @@
+0: challenge:p2.chien_po_imperial_soldier.d->p1.luisa_madrigal_magically_strong_one.d
+1: challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+2: ink:p2.chien_po_imperial_soldier.b
+3: ink:p2.mickey_mouse_standard_bearer.a
+4: end
+5: play:p2.mickey_mouse_standard_bearer.a
+6: quest:p2.chien_po_imperial_soldier.d
+7: quest:p2.stitch_new_dog.b

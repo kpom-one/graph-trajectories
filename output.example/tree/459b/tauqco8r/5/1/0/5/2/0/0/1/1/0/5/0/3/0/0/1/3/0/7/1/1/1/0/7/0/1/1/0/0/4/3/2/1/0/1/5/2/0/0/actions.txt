@@ -1,0 +1,8 @@
+0: ink:p2.aladdin_cornered_swordsman.b
+1: ink:p2.genie_satisfied_dragon.a
+2: ink:p2.stitch_carefree_surfer.a
+3: end
+4: play:p2.aladdin_cornered_swordsman.b
+5: play:p2.genie_satisfied_dragon.a
+6: quest:p2.jafar_royal_vizier.b
+7: quest:p2.jafar_royal_vizier.d

@@ -1,0 +1,5 @@
+0: challenge:p2.dumptruck_karnage's_second_mate.a->p1.winnie_the_pooh_hunny_wizard.b
+1: ink:p2.aladdin_cornered_swordsman.c
+2: end
+3: play:p2.aladdin_cornered_swordsman.c
+4: quest:p2.dumptruck_karnage's_second_mate.a

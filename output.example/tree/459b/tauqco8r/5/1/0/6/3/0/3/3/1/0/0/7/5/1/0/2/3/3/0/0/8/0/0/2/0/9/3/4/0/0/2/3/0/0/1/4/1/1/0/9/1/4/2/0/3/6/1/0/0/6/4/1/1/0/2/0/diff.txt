@@ -1,0 +1,22 @@
+# turn: 13
+# current_player: p2
+# lore: p1=7, p2=3
+# action: end
+
+add node p2.simba_protective_cub.d card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+set node game turn=13
+set node p2 ink_available=5
+set node p2.chien_po_imperial_soldier.c exerted=0
+set node p2.genie_satisfied_dragon.a exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.c -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.c
+add edge p2.genie_satisfied_dragon.a -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.genie_satisfied_dragon.a
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.simba_protective_cub.d -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.simba_protective_cub.d
+add edge p2.simba_protective_cub.d -> p2 can_play action_id=3 action_type=can_play description=play:p2.simba_protective_cub.d:exerted exerted=True
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass

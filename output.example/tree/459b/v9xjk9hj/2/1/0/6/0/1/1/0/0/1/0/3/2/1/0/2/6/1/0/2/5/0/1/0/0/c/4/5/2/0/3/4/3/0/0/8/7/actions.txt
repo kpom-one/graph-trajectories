@@ -1,0 +1,6 @@
+0: ink:p2.chien_po_imperial_soldier.b
+1: ink:p2.chien_po_imperial_soldier.d
+2: ink:p2.stitch_carefree_surfer.a
+3: ink:p2.stitch_new_dog.c
+4: end
+5: play:p2.stitch_new_dog.c

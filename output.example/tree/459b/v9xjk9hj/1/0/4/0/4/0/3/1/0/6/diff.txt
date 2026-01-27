@@ -1,0 +1,13 @@
+# turn: 4
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.cogsworth_illuminary_watchman.d
+
+set node p1 ink_available=1
+set node p1.cogsworth_illuminary_watchman.d entered_play=4 zone=play
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_ink
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_play
+set edge p1 -> game can_pass action_id=4
+set edge p1.maleficent_sorceress.a -> p1 can_ink action_id=1
+set edge p1.maleficent_sorceress.b -> p1 can_ink action_id=2
+set edge p1.tor_florist.b -> p1 can_ink action_id=3

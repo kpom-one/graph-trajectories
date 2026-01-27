@@ -1,0 +1,7 @@
+0: ink:p1.aladdin_prince_ali.b
+1: ink:p1.kuzco_wanted_llama.a
+2: ink:p1.lena_sabrewing_rebellious_teenager.c
+3: ink:p1.tinker_bell_fast_flier.a
+4: ink:p1.tinker_bell_fast_flier.d
+5: end
+6: quest:p1.cogsworth_illuminary_watchman.d

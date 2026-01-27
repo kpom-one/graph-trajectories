@@ -1,0 +1,13 @@
+# turn: 17
+# current_player: p2
+# lore: p1=3, p2=12
+# action: ink:p2.mr._arrow_legacy's_first_mate.c
+
+set node p2 ink_available=9 ink_drops=0 ink_total=9
+set node p2.mr._arrow_legacy's_first_mate.c zone=ink
+remove edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=1
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=2
+set edge p2.stitch_carefree_surfer.d -> p2 can_quest action_id=3

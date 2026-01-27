@@ -1,0 +1,4 @@
+0: ink:p2.stitch_carefree_surfer.a
+1: end
+2: quest:p2.genie_satisfied_dragon.a
+3: quest:p2.jafar_royal_vizier.b

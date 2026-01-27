@@ -1,0 +1,9 @@
+0: challenge:p2.jafar_royal_vizier.b->p1.lena_sabrewing_rebellious_teenager.c
+1: ink:p2.arges_the_cyclops.d
+2: ink:p2.chien_po_imperial_soldier.b
+3: ink:p2.chien_po_imperial_soldier.c
+4: ink:p2.genie_satisfied_dragon.a
+5: end
+6: play:p2.arges_the_cyclops.d
+7: play:p2.genie_satisfied_dragon.a
+8: quest:p2.jafar_royal_vizier.b

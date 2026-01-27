@@ -1,0 +1,1536 @@
+=== state 0 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+add node p1.fred_mascot_by_day.a card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+add node p1.luisa_madrigal_magically_strong_one.a card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+add node p1.luisa_madrigal_magically_strong_one.d card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+add node p1.maleficent_sorceress.a card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+add node p1.maleficent_sorceress.b card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+add node p1.tor_florist.b card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+add node p2.chien_po_imperial_soldier.a card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.chien_po_imperial_soldier.d card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.mulan_free_spirit.b card_id=231 damage=0 exerted=0 label=mulan_free_spirit type=Card zone=hand
+add node p2.prince_naveen_penniless_royal.a card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+add node p2.simba_protective_cub.a card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+add node p2.simba_protective_cub.c card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+add node p2.stitch_carefree_surfer.a card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+
+=== state 1 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.maleficent_sorceress.a
+
+set node p1 ink_available=1 ink_drops=0 ink_total=1
+set node p1.maleficent_sorceress.a zone=ink
+add edge p1.fred_mascot_by_day.a -> p1 can_play action_id=1 action_type=can_play description=play:p1.fred_mascot_by_day.a
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.fred_mascot_by_day.a -> p1 can_ink
+remove edge p1.maleficent_sorceress.a -> p1 can_ink
+remove edge p1.maleficent_sorceress.b -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+
+=== state 2 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.fred_mascot_by_day.a
+
+set node p1 ink_available=0
+set node p1.fred_mascot_by_day.a entered_play=0 zone=play
+remove edge p1.fred_mascot_by_day.a -> p1 can_play
+
+=== state 3 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p2.chien_po_imperial_soldier.c card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+set node game turn=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.a
+add edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.c
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.mulan_free_spirit.b -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.a
+add edge p2.simba_protective_cub.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.simba_protective_cub.a
+add edge p2.simba_protective_cub.c -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.simba_protective_cub.c
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 4 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p2.simba_protective_cub.c
+
+set node p2 ink_available=1 ink_drops=0 ink_total=1
+set node p2.simba_protective_cub.c zone=ink
+remove edge p2.chien_po_imperial_soldier.a -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.c -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.mulan_free_spirit.b -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_ink
+remove edge p2.simba_protective_cub.a -> p2 can_ink
+remove edge p2.simba_protective_cub.c -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 5 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p1.winnie_the_pooh_hunny_wizard.d card_id=275 damage=0 exerted=0 label=winnie_the_pooh_hunny_wizard type=Card zone=hand
+set node game turn=2
+set node p1 ink_available=1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.maleficent_sorceress.b -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.maleficent_sorceress.b
+add edge p1.tor_florist.b -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.tor_florist.b
+add edge p1.winnie_the_pooh_hunny_wizard.d -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 6 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.maleficent_sorceress.b
+
+set node p1 ink_available=2 ink_drops=0 ink_total=2
+set node p1.maleficent_sorceress.b zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.maleficent_sorceress.b -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=1
+
+=== state 7 ===
+# turn: 2
+# current_player: p1
+# lore: p1=1, p2=0
+# action: quest:p1.fred_mascot_by_day.a
+
+set node p1 lore=1
+set node p1.fred_mascot_by_day.a exerted=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+
+=== state 8 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.c card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=3
+set node p2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.a
+add edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.c
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mulan_free_spirit.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.a
+add edge p2.simba_protective_cub.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.simba_protective_cub.a
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 9 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: ink:p2.chien_po_imperial_soldier.a
+
+set node p2 ink_available=2 ink_drops=0 ink_total=2
+set node p2.chien_po_imperial_soldier.a zone=ink
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_play action_id=1 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.c
+add edge p2.simba_protective_cub.a -> p2 can_play action_id=3 action_type=can_play description=play:p2.simba_protective_cub.a:exerted exerted=True
+remove edge p2.chien_po_imperial_soldier.a -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.c -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mulan_free_spirit.b -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_ink
+remove edge p2.simba_protective_cub.a -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 10 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: play:p2.mickey_mouse_standard_bearer.c
+
+set node p2 ink_available=0
+set node p2.mickey_mouse_standard_bearer.c entered_play=3 zone=play
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_play
+remove edge p2.simba_protective_cub.a -> p2 can_play
+
+=== state 11 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: end
+
+add node p1.cogsworth_illuminary_watchman.d card_id=993 damage=0 exerted=0 label=cogsworth_illuminary_watchman type=Card zone=hand
+set node game turn=4
+set node p1 ink_drops=1
+set node p1.fred_mascot_by_day.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cogsworth_illuminary_watchman.d
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_play action_id=5 action_type=can_play description=play:p1.cogsworth_illuminary_watchman.d
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.tor_florist.b -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.tor_florist.b
+add edge p1.winnie_the_pooh_hunny_wizard.d -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 12 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: ink:p1.winnie_the_pooh_hunny_wizard.d
+
+set node p1 ink_available=3 ink_drops=0 ink_total=3
+set node p1.winnie_the_pooh_hunny_wizard.d zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_play action_id=1
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=2
+
+=== state 13 ===
+# turn: 4
+# current_player: p1
+# lore: p1=2, p2=0
+# action: quest:p1.fred_mascot_by_day.a
+
+set node p1 lore=2
+set node p1.fred_mascot_by_day.a exerted=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+
+=== state 14 ===
+# turn: 4
+# current_player: p1
+# lore: p1=2, p2=0
+# action: play:p1.cogsworth_illuminary_watchman.d
+
+set node p1 ink_available=2
+set node p1.cogsworth_illuminary_watchman.d entered_play=4 zone=play
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_play
+
+=== state 15 ===
+# turn: 5
+# current_player: p1
+# lore: p1=2, p2=0
+# action: end
+
+add node p2.chien_po_imperial_soldier.b card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+set node game turn=5
+set node p2 ink_available=2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.b
+add edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.c
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p1.fred_mascot_by_day.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.fred_mascot_by_day.a
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=b action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.c
+add edge p2.mulan_free_spirit.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.a
+add edge p2.simba_protective_cub.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.simba_protective_cub.a
+add edge p2.simba_protective_cub.a -> p2 can_play action_id=a action_type=can_play description=play:p2.simba_protective_cub.a:exerted exerted=True
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 16 ===
+# turn: 5
+# current_player: p1
+# lore: p1=2, p2=0
+# action: ink:p2.chien_po_imperial_soldier.c
+
+set node p2 ink_available=3 ink_drops=0 ink_total=3
+set node p2.chien_po_imperial_soldier.c zone=ink
+add edge p2.mulan_free_spirit.b -> p2 can_play action_id=2 action_type=can_play description=play:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_play action_id=3 action_type=can_play description=play:p2.prince_naveen_penniless_royal.a
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.c -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.mulan_free_spirit.b -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_ink
+remove edge p2.simba_protective_cub.a -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=1
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=6
+set edge p2.simba_protective_cub.a -> p2 can_play action_id=5
+
+=== state 17 ===
+# turn: 5
+# current_player: p1
+# lore: p1=2, p2=1
+# action: quest:p2.mickey_mouse_standard_bearer.c
+
+set node p2 lore=1
+set node p2.mickey_mouse_standard_bearer.c exerted=1
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.fred_mascot_by_day.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.mulan_free_spirit.b -> p2 can_play action_id=1
+set edge p2.prince_naveen_penniless_royal.a -> p2 can_play action_id=2
+set edge p2.simba_protective_cub.a -> p2 can_play action_id=4
+
+=== state 18 ===
+# turn: 5
+# current_player: p1
+# lore: p1=2, p2=1
+# action: play:p2.mulan_free_spirit.b
+
+set node p2 ink_available=0
+set node p2.mulan_free_spirit.b entered_play=5 zone=play
+remove edge p2.mulan_free_spirit.b -> p2 can_play
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_play
+remove edge p2.simba_protective_cub.a -> p2 can_play
+
+=== state 19 ===
+# turn: 6
+# current_player: p1
+# lore: p1=2, p2=1
+# action: end
+
+add node p1.winnie_the_pooh_hunny_wizard.c card_id=275 damage=0 exerted=0 label=winnie_the_pooh_hunny_wizard type=Card zone=hand
+set node game turn=6
+set node p1 ink_available=3 ink_drops=1
+set node p1.fred_mascot_by_day.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.cogsworth_illuminary_watchman.d
+add edge p1.cogsworth_illuminary_watchman.d -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0 action_type=can_challenge description=challenge:p1.cogsworth_illuminary_watchman.d->p2.mickey_mouse_standard_bearer.c
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=1 action_type=can_challenge description=challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+add edge p1.tor_florist.b -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.tor_florist.b
+add edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 20 ===
+# turn: 6
+# current_player: p1
+# lore: p1=2, p2=1
+# action: ink:p1.cauldron_born_mindless_horde.d
+
+set node p1 ink_available=4 ink_drops=0 ink_total=4
+set node p1.cauldron_born_mindless_horde.d zone=ink
+add edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=3 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.a
+add edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=4 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.d
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink
+set edge p1 -> game can_pass action_id=2
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=5
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=6
+
+=== state 21 ===
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: quest:p1.cogsworth_illuminary_watchman.d
+
+set node p1 lore=3
+set node p1.cogsworth_illuminary_watchman.d exerted=1
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest
+remove edge p1.cogsworth_illuminary_watchman.d -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=4
+set edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=2
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=3
+
+=== state 22 ===
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+
+set node p1.fred_mascot_by_day.a damage=1 exerted=1 zone=discard
+set node p2.mickey_mouse_standard_bearer.c damage=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+remove edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=1
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=2
+
+=== state 23 ===
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: play:p1.luisa_madrigal_magically_strong_one.a
+
+add node rush.t6.1 type=Ability
+set node p1 ink_available=0
+set node p1.luisa_madrigal_magically_strong_one.a entered_play=6 zone=play
+add edge p1.luisa_madrigal_magically_strong_one.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mickey_mouse_standard_bearer.c
+add edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+add edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a source
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+
+=== state 24 ===
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mickey_mouse_standard_bearer.c
+
+set node p1.luisa_madrigal_magically_strong_one.a damage=1 exerted=1
+set node p2.mickey_mouse_standard_bearer.c damage=5 zone=discard
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 25 ===
+# turn: 7
+# current_player: p1
+# lore: p1=3, p2=1
+# action: end
+
+add node p2.stitch_new_dog.b card_id=22 damage=0 exerted=0 label=stitch_new_dog type=Card zone=hand
+set node game turn=7
+set node p2 ink_available=3 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.b
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.mulan_free_spirit.b -> p1.cogsworth_illuminary_watchman.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mulan_free_spirit.b->p1.cogsworth_illuminary_watchman.d
+add edge p2.mulan_free_spirit.b -> p1.luisa_madrigal_magically_strong_one.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mulan_free_spirit.b->p1.luisa_madrigal_magically_strong_one.a
+add edge p2.mulan_free_spirit.b -> p2 can_quest action_id=d action_type=can_quest description=quest:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.a
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_play action_id=9 action_type=can_play description=play:p2.prince_naveen_penniless_royal.a
+add edge p2.simba_protective_cub.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.simba_protective_cub.a
+add edge p2.simba_protective_cub.a -> p2 can_play action_id=b action_type=can_play description=play:p2.simba_protective_cub.a:exerted exerted=True
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+add edge p2.stitch_new_dog.b -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_new_dog.b
+add edge p2.stitch_new_dog.b -> p2 can_play action_id=c action_type=can_play description=play:p2.stitch_new_dog.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 26 ===
+# turn: 7
+# current_player: p1
+# lore: p1=3, p2=1
+# action: play:p2.stitch_new_dog.b
+
+set node p2 ink_available=2
+set node p2.stitch_new_dog.b entered_play=7 zone=play
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_play
+remove edge p2.stitch_new_dog.b -> p2 can_ink
+remove edge p2.stitch_new_dog.b -> p2 can_play
+set edge p2 -> game can_pass action_id=7
+set edge p2.mulan_free_spirit.b -> p2 can_quest action_id=a
+set edge p2.simba_protective_cub.a -> p2 can_play action_id=9
+
+=== state 27 ===
+# turn: 7
+# current_player: p1
+# lore: p1=3, p2=1
+# action: ink:p2.prince_naveen_penniless_royal.a
+
+set node p2 ink_available=3 ink_drops=0 ink_total=4
+set node p2.prince_naveen_penniless_royal.a zone=ink
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_ink
+remove edge p2.simba_protective_cub.a -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=2
+set edge p2.mulan_free_spirit.b -> p2 can_quest action_id=5
+set edge p2.simba_protective_cub.a -> p2 can_play action_id=4
+
+=== state 28 ===
+# turn: 7
+# current_player: p1
+# lore: p1=3, p2=3
+# action: quest:p2.mulan_free_spirit.b
+
+set node p2 lore=3
+set node p2.mulan_free_spirit.b exerted=1
+remove edge p2.mulan_free_spirit.b -> p1.cogsworth_illuminary_watchman.d can_challenge
+remove edge p2.mulan_free_spirit.b -> p1.luisa_madrigal_magically_strong_one.a can_challenge
+remove edge p2.mulan_free_spirit.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.simba_protective_cub.a -> p2 can_play action_id=2
+
+=== state 29 ===
+# turn: 7
+# current_player: p1
+# lore: p1=3, p2=3
+# action: play:p2.simba_protective_cub.a:exerted
+
+add node bodyguard.t7.1 type=Ability
+set node p2 ink_available=1
+set node p2.simba_protective_cub.a entered_play=7 zone=play
+add edge bodyguard.t7.1 -> p2.simba_protective_cub.a bodyguard
+add edge bodyguard.t7.1 -> p2.simba_protective_cub.a source
+remove edge p2.simba_protective_cub.a -> p2 can_play
+
+=== state 30 ===
+# turn: 8
+# current_player: p1
+# lore: p1=3, p2=3
+# action: end
+
+add node p1.tinker_bell_fast_flier.d card_id=1242 damage=0 exerted=0 label=tinker_bell_fast_flier type=Card zone=hand
+set node game turn=8
+set node p1 ink_available=4 ink_drops=1
+set node p1.cogsworth_illuminary_watchman.d exerted=0
+set node p1.luisa_madrigal_magically_strong_one.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.cogsworth_illuminary_watchman.d
+add edge p1.cogsworth_illuminary_watchman.d -> p2.mulan_free_spirit.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.cogsworth_illuminary_watchman.d->p2.mulan_free_spirit.b
+add edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.luisa_madrigal_magically_strong_one.a
+add edge p1.luisa_madrigal_magically_strong_one.a -> p2.mulan_free_spirit.b can_challenge action_id=1 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mulan_free_spirit.b
+add edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=6 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.d
+add edge p1.tinker_bell_fast_flier.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p1 can_play action_id=7 action_type=can_play description=play:p1.tinker_bell_fast_flier.d
+add edge p1.tor_florist.b -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.tor_florist.b
+add edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 31 ===
+# turn: 8
+# current_player: p1
+# lore: p1=3, p2=3
+# action: ink:p1.tor_florist.b
+
+set node p1 ink_available=5 ink_drops=0 ink_total=5
+set node p1.tor_florist.b zone=ink
+add edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play action_id=5 action_type=can_play description=play:p1.winnie_the_pooh_hunny_wizard.c
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink
+set edge p1 -> game can_pass action_id=2
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=6
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=7
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=3
+set edge p1.tinker_bell_fast_flier.d -> p1 can_play action_id=4
+
+=== state 32 ===
+# turn: 8
+# current_player: p1
+# lore: p1=3, p2=3
+# action: play:p1.tinker_bell_fast_flier.d
+
+add node evasive.t8.1 type=Ability
+set node p1 ink_available=2
+set node p1.tinker_bell_fast_flier.d entered_play=8 zone=play
+add edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d evasive
+add edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_play
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=3
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=4
+
+=== state 33 ===
+# turn: 8
+# current_player: p1
+# lore: p1=4, p2=3
+# action: quest:p1.cogsworth_illuminary_watchman.d
+
+set node p1 lore=4
+set node p1.cogsworth_illuminary_watchman.d exerted=1
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest
+remove edge p1.cogsworth_illuminary_watchman.d -> p2.mulan_free_spirit.b can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=2
+set edge p1.luisa_madrigal_magically_strong_one.a -> p2.mulan_free_spirit.b can_challenge action_id=0
+
+=== state 34 ===
+# turn: 8
+# current_player: p1
+# lore: p1=4, p2=3
+# action: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mulan_free_spirit.b
+
+remove node rush.t6.1
+set node p1.luisa_madrigal_magically_strong_one.a damage=3 exerted=1 zone=discard
+set node p2.mulan_free_spirit.b damage=4 zone=discard
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.mulan_free_spirit.b can_challenge
+remove edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+remove edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a source
+set edge p1 -> game can_pass action_id=0
+
+=== state 35 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=3
+# action: end
+
+add node p2.stitch_new_dog.c card_id=22 damage=0 exerted=0 label=stitch_new_dog type=Card zone=hand
+set node game turn=9
+set node p2 ink_available=4 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.b
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.simba_protective_cub.a -> p1.cogsworth_illuminary_watchman.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.simba_protective_cub.a->p1.cogsworth_illuminary_watchman.d
+add edge p2.simba_protective_cub.a -> p2 can_quest action_id=8 action_type=can_quest description=quest:p2.simba_protective_cub.a
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+add edge p2.stitch_new_dog.b -> p1.cogsworth_illuminary_watchman.d can_challenge action_id=1 action_type=can_challenge description=challenge:p2.stitch_new_dog.b->p1.cogsworth_illuminary_watchman.d
+add edge p2.stitch_new_dog.b -> p2 can_quest action_id=9 action_type=can_quest description=quest:p2.stitch_new_dog.b
+add edge p2.stitch_new_dog.c -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.stitch_new_dog.c
+add edge p2.stitch_new_dog.c -> p2 can_play action_id=7 action_type=can_play description=play:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 36 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=4
+# action: quest:p2.simba_protective_cub.a
+
+set node p2 lore=4
+set node p2.simba_protective_cub.a exerted=1
+remove edge p2.simba_protective_cub.a -> p1.cogsworth_illuminary_watchman.d can_challenge
+remove edge p2.simba_protective_cub.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=5
+set edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=1
+set edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=2
+set edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=3
+set edge p2.stitch_new_dog.b -> p1.cogsworth_illuminary_watchman.d can_challenge action_id=0
+set edge p2.stitch_new_dog.b -> p2 can_quest action_id=7
+set edge p2.stitch_new_dog.c -> p2 can_ink action_id=4
+set edge p2.stitch_new_dog.c -> p2 can_play action_id=6
+
+=== state 37 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: quest:p2.stitch_new_dog.b
+
+set node p2 lore=5
+set node p2.stitch_new_dog.b exerted=1
+remove edge p2.stitch_new_dog.b -> p1.cogsworth_illuminary_watchman.d can_challenge
+remove edge p2.stitch_new_dog.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=4
+set edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=1
+set edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_ink action_id=3
+set edge p2.stitch_new_dog.c -> p2 can_play action_id=5
+
+=== state 38 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: ink:p2.stitch_carefree_surfer.a
+
+set node p2 ink_available=5 ink_drops=0 ink_total=5
+set node p2.stitch_carefree_surfer.a zone=ink
+add edge p2.chien_po_imperial_soldier.b -> p2 can_play action_id=2 action_type=can_play description=play:p2.chien_po_imperial_soldier.b:exerted exerted=True
+add edge p2.chien_po_imperial_soldier.d -> p2 can_play action_id=4 action_type=can_play description=play:p2.chien_po_imperial_soldier.d:exerted exerted=True
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+remove edge p2.stitch_new_dog.c -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 39 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: play:p2.chien_po_imperial_soldier.d:exerted
+
+add node bodyguard.t9.1 type=Ability
+set node p2 ink_available=0
+set node p2.chien_po_imperial_soldier.d entered_play=9 zone=play
+add edge bodyguard.t9.1 -> p2.chien_po_imperial_soldier.d bodyguard
+add edge bodyguard.t9.1 -> p2.chien_po_imperial_soldier.d source
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_play
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_play
+remove edge p2.stitch_new_dog.c -> p2 can_play
+
+=== state 40 ===
+# turn: 10
+# current_player: p1
+# lore: p1=4, p2=5
+# action: end
+
+add node p1.pinocchio_star_attraction.d card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+set node game turn=10
+set node p1 ink_available=5 ink_drops=1
+set node p1.cogsworth_illuminary_watchman.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.cogsworth_illuminary_watchman.d
+add edge p1.cogsworth_illuminary_watchman.d -> p2.simba_protective_cub.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.cogsworth_illuminary_watchman.d->p2.simba_protective_cub.a
+add edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=4 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.d
+add edge p1.pinocchio_star_attraction.d -> p1 can_play action_id=5 action_type=can_play description=play:p1.pinocchio_star_attraction.d
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.simba_protective_cub.a can_challenge action_id=1 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.simba_protective_cub.a
+add edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.c
+add edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play action_id=6 action_type=can_play description=play:p1.winnie_the_pooh_hunny_wizard.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 41 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=6
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.simba_protective_cub.a can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=6
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=3
+set edge p1.pinocchio_star_attraction.d -> p1 can_play action_id=4
+set edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=1
+set edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play action_id=5
+
+=== state 42 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: challenge:p1.cogsworth_illuminary_watchman.d->p2.simba_protective_cub.a
+
+set node p1.cogsworth_illuminary_watchman.d damage=2 exerted=1 zone=discard
+set node p2.simba_protective_cub.a damage=1
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest
+remove edge p1.cogsworth_illuminary_watchman.d -> p2.simba_protective_cub.a can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=2
+set edge p1.pinocchio_star_attraction.d -> p1 can_play action_id=3
+set edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=0
+set edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play action_id=4
+
+=== state 43 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: ink:p1.winnie_the_pooh_hunny_wizard.c
+
+set node p1 ink_available=6 ink_drops=0 ink_total=6
+set node p1.winnie_the_pooh_hunny_wizard.c zone=ink
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=1
+set edge p1.pinocchio_star_attraction.d -> p1 can_play action_id=2
+
+=== state 44 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: play:p1.pinocchio_star_attraction.d
+
+set node p1 ink_available=4
+set node p1.pinocchio_star_attraction.d entered_play=10 zone=play
+remove edge p1.pinocchio_star_attraction.d -> p1 can_play
+
+=== state 45 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: play:p1.luisa_madrigal_magically_strong_one.d
+
+add node rush.t10.1 type=Ability
+set node p1 ink_available=0
+set node p1.luisa_madrigal_magically_strong_one.d entered_play=10 zone=play
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.simba_protective_cub.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.simba_protective_cub.a
+add edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d rush
+add edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+
+=== state 46 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.simba_protective_cub.a
+
+remove node bodyguard.t7.1
+set node p1.luisa_madrigal_magically_strong_one.d damage=2 exerted=1
+set node p2.simba_protective_cub.a damage=5 zone=discard
+remove edge bodyguard.t7.1 -> p2.simba_protective_cub.a bodyguard
+remove edge bodyguard.t7.1 -> p2.simba_protective_cub.a source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p2.simba_protective_cub.a can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 47 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=5
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.a card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=11
+set node p2 ink_available=5 ink_drops=1
+set node p2.stitch_new_dog.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.b
+add edge p2.chien_po_imperial_soldier.b -> p2 can_play action_id=7 action_type=can_play description=play:p2.chien_po_imperial_soldier.b:exerted exerted=True
+add edge p2.chien_po_imperial_soldier.d -> p1.luisa_madrigal_magically_strong_one.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.chien_po_imperial_soldier.d->p1.luisa_madrigal_magically_strong_one.d
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=a action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.a
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_play action_id=8 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.a
+add edge p2.stitch_new_dog.b -> p1.luisa_madrigal_magically_strong_one.d can_challenge action_id=1 action_type=can_challenge description=challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+add edge p2.stitch_new_dog.b -> p2 can_quest action_id=b action_type=can_quest description=quest:p2.stitch_new_dog.b
+add edge p2.stitch_new_dog.c -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.stitch_new_dog.c
+add edge p2.stitch_new_dog.c -> p2 can_play action_id=9 action_type=can_play description=play:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 48 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=5
+# action: play:p2.stitch_new_dog.c
+
+set node p2 ink_available=4
+set node p2.stitch_new_dog.c entered_play=11 zone=play
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_play
+remove edge p2.stitch_new_dog.c -> p2 can_ink
+remove edge p2.stitch_new_dog.c -> p2 can_play
+set edge p2 -> game can_pass action_id=4
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=6
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_play action_id=5
+set edge p2.stitch_new_dog.b -> p2 can_quest action_id=7
+
+=== state 49 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=5
+# action: challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+
+remove node rush.t10.1
+set node p1.luisa_madrigal_magically_strong_one.d damage=4 zone=discard
+set node p2.stitch_new_dog.b damage=4 exerted=1 zone=discard
+remove edge p2.chien_po_imperial_soldier.d -> p1.luisa_madrigal_magically_strong_one.d can_challenge
+remove edge p2.stitch_new_dog.b -> p1.luisa_madrigal_magically_strong_one.d can_challenge
+remove edge p2.stitch_new_dog.b -> p2 can_quest
+remove edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d rush
+remove edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d source
+set edge p2 -> game can_pass action_id=2
+set edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=4
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink action_id=1
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_play action_id=3
+
+=== state 50 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=5
+# action: ink:p2.chien_po_imperial_soldier.b
+
+set node p2 ink_available=5 ink_drops=0 ink_total=6
+set node p2.chien_po_imperial_soldier.b zone=ink
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=2
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_play action_id=1
+
+=== state 51 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=5
+# action: play:p2.mickey_mouse_standard_bearer.a
+
+set node p2 ink_available=3
+set node p2.mickey_mouse_standard_bearer.a entered_play=11 zone=play
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_play
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=1
+
+=== state 52 ===
+# turn: 11
+# current_player: p1
+# lore: p1=6, p2=6
+# action: quest:p2.chien_po_imperial_soldier.d
+
+set node p2 lore=6
+set node p2.chien_po_imperial_soldier.d exerted=1
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+
+=== state 53 ===
+# turn: 12
+# current_player: p1
+# lore: p1=6, p2=6
+# action: end
+
+add node p1.lena_sabrewing_rebellious_teenager.c card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+set node game turn=12
+set node p1 ink_available=6 ink_drops=1
+set node p1.tinker_bell_fast_flier.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=4 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.pinocchio_star_attraction.d -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.pinocchio_star_attraction.d
+add edge p1.pinocchio_star_attraction.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.d->p2.chien_po_imperial_soldier.d
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 54 ===
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=8
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=3
+set edge p1.pinocchio_star_attraction.d -> p1 can_quest action_id=4
+
+=== state 55 ===
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: challenge:p1.pinocchio_star_attraction.d->p2.chien_po_imperial_soldier.d
+
+set node p1.pinocchio_star_attraction.d damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=1
+remove edge p1.pinocchio_star_attraction.d -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=2
+
+=== state 56 ===
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: play:p1.lena_sabrewing_rebellious_teenager.c
+
+add node rush.t12.1 type=Ability
+set node p1 ink_available=4
+set node p1.lena_sabrewing_rebellious_teenager.c entered_play=12 zone=play
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.lena_sabrewing_rebellious_teenager.c->p2.chien_po_imperial_soldier.d
+add edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c rush
+add edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c source
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+
+=== state 57 ===
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: challenge:p1.lena_sabrewing_rebellious_teenager.c->p2.chien_po_imperial_soldier.d
+
+remove node rush.t12.1
+set node p1.lena_sabrewing_rebellious_teenager.c damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=2
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p2.chien_po_imperial_soldier.d can_challenge
+remove edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c rush
+remove edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c source
+set edge p1 -> game can_pass action_id=0
+
+=== state 58 ===
+# turn: 13
+# current_player: p1
+# lore: p1=8, p2=6
+# action: end
+
+add node p2.stitch_carefree_surfer.d card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+set node game turn=13
+set node p2 ink_available=6 ink_drops=1
+set node p2.chien_po_imperial_soldier.d exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=2 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.a
+add edge p2.stitch_carefree_surfer.d -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.stitch_carefree_surfer.d
+add edge p2.stitch_new_dog.c -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 59 ===
+# turn: 13
+# current_player: p1
+# lore: p1=8, p2=6
+# action: ink:p2.stitch_carefree_surfer.d
+
+set node p2 ink_available=7 ink_drops=0 ink_total=7
+set node p2.stitch_carefree_surfer.d zone=ink
+remove edge p2.stitch_carefree_surfer.d -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=1
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=3
+
+=== state 60 ===
+# turn: 13
+# current_player: p1
+# lore: p1=8, p2=7
+# action: quest:p2.mickey_mouse_standard_bearer.a
+
+set node p2 lore=7
+set node p2.mickey_mouse_standard_bearer.a exerted=1
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=2
+
+=== state 61 ===
+# turn: 13
+# current_player: p1
+# lore: p1=8, p2=8
+# action: quest:p2.stitch_new_dog.c
+
+set node p2 lore=8
+set node p2.stitch_new_dog.c exerted=1
+remove edge p2.stitch_new_dog.c -> p2 can_quest
+
+=== state 62 ===
+# turn: 13
+# current_player: p1
+# lore: p1=8, p2=9
+# action: quest:p2.chien_po_imperial_soldier.d
+
+set node p2 lore=9
+set node p2.chien_po_imperial_soldier.d exerted=1
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+
+=== state 63 ===
+# turn: 14
+# current_player: p1
+# lore: p1=8, p2=9
+# action: end
+
+add node p1.pinocchio_star_attraction.b card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+set node game turn=14
+set node p1 ink_available=6
+set node p1.tinker_bell_fast_flier.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.pinocchio_star_attraction.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.pinocchio_star_attraction.b
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 64 ===
+# turn: 14
+# current_player: p1
+# lore: p1=10, p2=9
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=10
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.pinocchio_star_attraction.b -> p1 can_play action_id=1
+
+=== state 65 ===
+# turn: 14
+# current_player: p1
+# lore: p1=10, p2=9
+# action: play:p1.pinocchio_star_attraction.b
+
+set node p1 ink_available=4
+set node p1.pinocchio_star_attraction.b entered_play=14 zone=play
+remove edge p1.pinocchio_star_attraction.b -> p1 can_play
+
+=== state 66 ===
+# turn: 15
+# current_player: p1
+# lore: p1=10, p2=9
+# action: end
+
+add node p2.arges_the_cyclops.d card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+set node game turn=15
+set node p2 ink_drops=1
+set node p2.chien_po_imperial_soldier.d exerted=0
+set node p2.mickey_mouse_standard_bearer.a exerted=0
+set node p2.stitch_new_dog.c exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.arges_the_cyclops.d -> p2 can_play action_id=2 action_type=can_play description=play:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.a
+add edge p2.stitch_new_dog.c -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 67 ===
+# turn: 15
+# current_player: p1
+# lore: p1=10, p2=9
+# action: play:p2.arges_the_cyclops.d
+
+set node p2 ink_available=5
+set node p2.arges_the_cyclops.d entered_play=15 zone=play
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=1
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=3
+
+=== state 68 ===
+# turn: 15
+# current_player: p1
+# lore: p1=10, p2=10
+# action: quest:p2.mickey_mouse_standard_bearer.a
+
+set node p2 lore=10
+set node p2.mickey_mouse_standard_bearer.a exerted=1
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=2
+
+=== state 69 ===
+# turn: 15
+# current_player: p1
+# lore: p1=10, p2=11
+# action: quest:p2.stitch_new_dog.c
+
+set node p2 lore=11
+set node p2.stitch_new_dog.c exerted=1
+remove edge p2.stitch_new_dog.c -> p2 can_quest
+
+=== state 70 ===
+# turn: 15
+# current_player: p1
+# lore: p1=10, p2=12
+# action: quest:p2.chien_po_imperial_soldier.d
+
+set node p2 lore=12
+set node p2.chien_po_imperial_soldier.d exerted=1
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+
+=== state 71 ===
+# turn: 16
+# current_player: p1
+# lore: p1=10, p2=12
+# action: end
+
+add node p1.chip_the_teacup_gentle_soul.d card_id=253 damage=0 exerted=0 label=chip_the_teacup_gentle_soul type=Card zone=hand
+set node game turn=16
+set node p1 ink_available=6
+set node p1.tinker_bell_fast_flier.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.chip_the_teacup_gentle_soul.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.chip_the_teacup_gentle_soul.d
+add edge p1.chip_the_teacup_gentle_soul.d -> p1 can_play action_id=4 action_type=can_play description=play:p1.chip_the_teacup_gentle_soul.d
+add edge p1.pinocchio_star_attraction.b -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.pinocchio_star_attraction.b
+add edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.b->p2.chien_po_imperial_soldier.d
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 72 ===
+# turn: 16
+# current_player: p1
+# lore: p1=12, p2=12
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=12
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.chip_the_teacup_gentle_soul.d -> p1 can_ink action_id=1
+set edge p1.chip_the_teacup_gentle_soul.d -> p1 can_play action_id=3
+set edge p1.pinocchio_star_attraction.b -> p1 can_quest action_id=4
+
+=== state 73 ===
+# turn: 16
+# current_player: p1
+# lore: p1=12, p2=12
+# action: ink:p1.chip_the_teacup_gentle_soul.d
+
+set node p1 ink_available=7 ink_drops=0 ink_total=7
+set node p1.chip_the_teacup_gentle_soul.d zone=ink
+remove edge p1.chip_the_teacup_gentle_soul.d -> p1 can_ink
+remove edge p1.chip_the_teacup_gentle_soul.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.pinocchio_star_attraction.b -> p1 can_quest action_id=2
+
+=== state 74 ===
+# turn: 16
+# current_player: p1
+# lore: p1=15, p2=12
+# action: quest:p1.pinocchio_star_attraction.b
+
+set node p1 lore=15
+set node p1.pinocchio_star_attraction.b exerted=1
+remove edge p1.pinocchio_star_attraction.b -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 75 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=12
+# action: end
+
+add node p2.mr._arrow_legacy's_first_mate.c card_id=1381 damage=0 exerted=0 label=mr._arrow_legacy's_first_mate type=Card zone=hand
+set node game turn=17
+set node p2 ink_available=7
+set node p2.chien_po_imperial_soldier.d exerted=0
+set node p2.mickey_mouse_standard_bearer.a exerted=0
+set node p2.stitch_new_dog.c exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p1.pinocchio_star_attraction.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.arges_the_cyclops.d->p1.pinocchio_star_attraction.b
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.d -> p1.pinocchio_star_attraction.b can_challenge action_id=1 action_type=can_challenge description=challenge:p2.chien_po_imperial_soldier.d->p1.pinocchio_star_attraction.b
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=8 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.a -> p1.pinocchio_star_attraction.b can_challenge action_id=2 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.a->p1.pinocchio_star_attraction.b
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=9 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.a
+add edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.c
+add edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_play action_id=6 action_type=can_play description=play:p2.mr._arrow_legacy's_first_mate.c
+add edge p2.stitch_new_dog.c -> p1.pinocchio_star_attraction.b can_challenge action_id=3 action_type=can_challenge description=challenge:p2.stitch_new_dog.c->p1.pinocchio_star_attraction.b
+add edge p2.stitch_new_dog.c -> p2 can_quest action_id=a action_type=can_quest description=quest:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 76 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=12
+# action: challenge:p2.chien_po_imperial_soldier.d->p1.pinocchio_star_attraction.b
+
+set node p1.pinocchio_star_attraction.b damage=4 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=3 exerted=1
+remove edge p2.arges_the_cyclops.d -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.chien_po_imperial_soldier.d -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+remove edge p2.mickey_mouse_standard_bearer.a -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.stitch_new_dog.c -> p1.pinocchio_star_attraction.b can_challenge
+set edge p2 -> game can_pass action_id=1
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=3
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=4
+set edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_ink action_id=0
+set edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_play action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=5
+
+=== state 77 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=12
+# action: ink:p2.mr._arrow_legacy's_first_mate.c
+
+set node p2 ink_available=8 ink_drops=0 ink_total=8
+set node p2.mr._arrow_legacy's_first_mate.c zone=ink
+remove edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=1
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=3
+
+=== state 78 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=13
+# action: quest:p2.stitch_new_dog.c
+
+set node p2 lore=13
+set node p2.stitch_new_dog.c exerted=1
+remove edge p2.stitch_new_dog.c -> p2 can_quest
+
+=== state 79 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=14
+# action: quest:p2.mickey_mouse_standard_bearer.a
+
+set node p2 lore=14
+set node p2.mickey_mouse_standard_bearer.a exerted=1
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest
+
+=== state 80 ===
+# turn: 17
+# current_player: p1
+# lore: p1=15, p2=15
+# action: quest:p2.arges_the_cyclops.d
+
+set node p2 lore=15
+set node p2.arges_the_cyclops.d exerted=1
+remove edge p2.arges_the_cyclops.d -> p2 can_quest
+
+=== state 81 ===
+# turn: 18
+# current_player: p1
+# lore: p1=15, p2=15
+# action: end
+
+add node p1.tor_florist.d card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+set node game turn=18
+set node p1 ink_drops=1
+set node p1.tinker_bell_fast_flier.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+add edge p1.tor_florist.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.tor_florist.d
+add edge p1.tor_florist.d -> p1 can_play action_id=3 action_type=can_play description=play:p1.tor_florist.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 82 ===
+# turn: 18
+# current_player: p1
+# lore: p1=17, p2=15
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=17
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.tor_florist.d -> p1 can_ink action_id=0
+set edge p1.tor_florist.d -> p1 can_play action_id=2
+
+=== state 83 ===
+# turn: 18
+# current_player: p1
+# lore: p1=17, p2=15
+# action: ink:p1.tor_florist.d
+
+set node p1 ink_available=8 ink_drops=0 ink_total=8
+set node p1.tor_florist.d zone=ink
+remove edge p1.tor_florist.d -> p1 can_ink
+remove edge p1.tor_florist.d -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 84 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=15
+# action: end
+
+add node p2.mulan_free_spirit.c card_id=231 damage=0 exerted=0 label=mulan_free_spirit type=Card zone=hand
+set node game turn=19
+set node p2 ink_drops=1
+set node p2.arges_the_cyclops.d exerted=0
+set node p2.chien_po_imperial_soldier.d exerted=0
+set node p2.mickey_mouse_standard_bearer.a exerted=0
+set node p2.stitch_new_dog.c exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.a
+add edge p2.mulan_free_spirit.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.mulan_free_spirit.c
+add edge p2.mulan_free_spirit.c -> p2 can_play action_id=2 action_type=can_play description=play:p2.mulan_free_spirit.c
+add edge p2.stitch_new_dog.c -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 85 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=16
+# action: quest:p2.stitch_new_dog.c
+
+set node p2 lore=16
+set node p2.stitch_new_dog.c exerted=1
+remove edge p2.stitch_new_dog.c -> p2 can_quest
+
+=== state 86 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=17
+# action: quest:p2.mickey_mouse_standard_bearer.a
+
+set node p2 lore=17
+set node p2.mickey_mouse_standard_bearer.a exerted=1
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest
+
+=== state 87 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=17
+# action: play:p2.mulan_free_spirit.c
+
+set node p2 ink_available=5
+set node p2.mulan_free_spirit.c entered_play=19 zone=play
+remove edge p2.mulan_free_spirit.c -> p2 can_ink
+remove edge p2.mulan_free_spirit.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=1
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=2
+
+=== state 88 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=18
+# action: quest:p2.arges_the_cyclops.d
+
+set node p2 lore=18
+set node p2.arges_the_cyclops.d exerted=1
+remove edge p2.arges_the_cyclops.d -> p2 can_quest
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=1
+
+=== state 89 ===
+# turn: 19
+# current_player: p1
+# lore: p1=17, p2=19
+# action: quest:p2.chien_po_imperial_soldier.d
+
+set node p2 lore=19
+set node p2.chien_po_imperial_soldier.d exerted=1
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+
+=== state 90 ===
+# turn: 20
+# current_player: p1
+# lore: p1=17, p2=19
+# action: end
+
+add node p1.heathcliff_stoic_butler.c card_id=1277 damage=0 exerted=0 label=heathcliff_stoic_butler type=Card zone=hand
+set node game turn=20
+set node p1 ink_drops=1
+set node p1.tinker_bell_fast_flier.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.heathcliff_stoic_butler.c -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.heathcliff_stoic_butler.c
+add edge p1.heathcliff_stoic_butler.c -> p1 can_play action_id=3 action_type=can_play description=play:p1.heathcliff_stoic_butler.c
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 91 ===
+# turn: 20
+# current_player: p1
+# lore: p1=17, p2=19
+# action: challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+
+remove node evasive.t8.1
+set node p1.tinker_bell_fast_flier.d damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=4
+remove edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d evasive
+remove edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d source
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.heathcliff_stoic_butler.c -> p1 can_ink action_id=0
+set edge p1.heathcliff_stoic_butler.c -> p1 can_play action_id=2
+
+=== state 92 ===
+# turn: 20
+# current_player: p1
+# lore: p1=17, p2=19
+# action: play:p1.heathcliff_stoic_butler.c
+
+set node p1 ink_available=4
+set node p1.heathcliff_stoic_butler.c entered_play=20 zone=play
+remove edge p1.heathcliff_stoic_butler.c -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.c -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 93 ===
+# turn: 21
+# current_player: p1
+# lore: p1=17, p2=19
+# action: end
+
+add node p2.dumptruck_karnage's_second_mate.a card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+set node game turn=21
+set node p2 ink_available=8
+set node p2.arges_the_cyclops.d exerted=0
+set node p2.chien_po_imperial_soldier.d exerted=0
+set node p2.mickey_mouse_standard_bearer.a exerted=0
+set node p2.stitch_new_dog.c exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=0 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=2 action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=1 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.a
+add edge p2.mulan_free_spirit.c -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.mulan_free_spirit.c
+add edge p2.stitch_new_dog.c -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.stitch_new_dog.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 94 ===
+# turn: 21
+# current_player: p1
+# lore: p1=17, p2=21
+# action: quest:p2.mulan_free_spirit.c
+
+set node game game_over=1 winner=p2
+set node p2 lore=21
+set node p2.mulan_free_spirit.c exerted=1
+remove edge p2 -> game can_pass
+remove edge p2.arges_the_cyclops.d -> p2 can_quest
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest
+remove edge p2.mulan_free_spirit.c -> p2 can_quest
+remove edge p2.stitch_new_dog.c -> p2 can_quest

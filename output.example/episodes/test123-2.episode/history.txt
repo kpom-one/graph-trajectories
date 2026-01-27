@@ -1,0 +1,2152 @@
+=== state 0 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.cauldron_born_mindless_horde.a card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+add node p1.fred_mascot_by_day.a card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+add node p1.heathcliff_stoic_butler.d card_id=1277 damage=0 exerted=0 label=heathcliff_stoic_butler type=Card zone=hand
+add node p1.lena_sabrewing_rebellious_teenager.c card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+add node p1.the_white_rose_jewel_of_the_garden.a card_id=1239 damage=0 exerted=0 label=the_white_rose_jewel_of_the_garden type=Card zone=hand
+add node p1.the_white_rose_jewel_of_the_garden.c card_id=1239 damage=0 exerted=0 label=the_white_rose_jewel_of_the_garden type=Card zone=hand
+add node p1.winnie_the_pooh_hunny_wizard.b card_id=275 damage=0 exerted=0 label=winnie_the_pooh_hunny_wizard type=Card zone=hand
+add node p2.arges_the_cyclops.c card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.arges_the_cyclops.d card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.dumptruck_karnage's_second_mate.a card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+add node p2.jafar_royal_vizier.d card_id=400 damage=0 exerted=0 label=jafar_royal_vizier type=Card zone=hand
+add node p2.mickey_mouse_standard_bearer.c card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+add node p2.mr._arrow_legacy's_first_mate.d card_id=1381 damage=0 exerted=0 label=mr._arrow_legacy's_first_mate type=Card zone=hand
+add node p2.robin_hood_beloved_outlaw.a card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+
+=== state 1 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.heathcliff_stoic_butler.d
+
+set node p1 ink_available=1 ink_drops=0 ink_total=1
+set node p1.heathcliff_stoic_butler.d zone=ink
+add edge p1.fred_mascot_by_day.a -> p1 can_play action_id=1 action_type=can_play description=play:p1.fred_mascot_by_day.a
+remove edge p1.cauldron_born_mindless_horde.a -> p1 can_ink
+remove edge p1.fred_mascot_by_day.a -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+
+=== state 2 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.fred_mascot_by_day.a
+
+set node p1 ink_available=0
+set node p1.fred_mascot_by_day.a entered_play=0 zone=play
+remove edge p1.fred_mascot_by_day.a -> p1 can_play
+
+=== state 3 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p2.dumptruck_karnage's_second_mate.b card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+set node game turn=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.d
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 4 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p2.mr._arrow_legacy's_first_mate.d
+
+set node p2 ink_available=1 ink_drops=0 ink_total=1
+set node p2.mr._arrow_legacy's_first_mate.d zone=ink
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=1 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play action_id=2 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.b
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=3 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.a
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.d -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 5 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p2.dumptruck_karnage's_second_mate.b
+
+set node p2 ink_available=0
+set node p2.dumptruck_karnage's_second_mate.b entered_play=1 zone=play
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_play
+
+=== state 6 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p1.aladdin_prince_ali.d card_id=69 damage=0 exerted=0 label=aladdin_prince_ali type=Card zone=hand
+set node game turn=2
+set node p1 ink_available=1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.aladdin_prince_ali.d
+add edge p1.cauldron_born_mindless_horde.a -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.a
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=5 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 7 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.lena_sabrewing_rebellious_teenager.c
+
+set node p1 ink_available=2 ink_drops=0 ink_total=2
+set node p1.lena_sabrewing_rebellious_teenager.c zone=ink
+add edge p1.aladdin_prince_ali.d -> p1 can_play action_id=1 action_type=can_play description=play:p1.aladdin_prince_ali.d
+remove edge p1.aladdin_prince_ali.d -> p1 can_ink
+remove edge p1.cauldron_born_mindless_horde.a -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=2
+
+=== state 8 ===
+# turn: 2
+# current_player: p1
+# lore: p1=1, p2=0
+# action: quest:p1.fred_mascot_by_day.a
+
+set node p1 lore=1
+set node p1.fred_mascot_by_day.a exerted=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+
+=== state 9 ===
+# turn: 2
+# current_player: p1
+# lore: p1=1, p2=0
+# action: play:p1.aladdin_prince_ali.d
+
+set node p1 ink_available=0
+set node p1.aladdin_prince_ali.d entered_play=2 zone=play
+remove edge p1.aladdin_prince_ali.d -> p1 can_play
+
+=== state 10 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: end
+
+add node p2.mr._arrow_legacy's_first_mate.b card_id=1381 damage=0 exerted=0 label=mr._arrow_legacy's_first_mate type=Card zone=hand
+set node game turn=3
+set node p2 ink_available=1 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=7 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=8 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p1.fred_mascot_by_day.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.b->p1.fred_mascot_by_day.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=a action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.b
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.a
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=9 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 11 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: ink:p2.mr._arrow_legacy's_first_mate.b
+
+set node p2 ink_available=2 ink_drops=0 ink_total=2
+set node p2.mr._arrow_legacy's_first_mate.b zone=ink
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=2 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_play action_id=3 action_type=can_play description=play:p2.arges_the_cyclops.d
+add edge p2.jafar_royal_vizier.d -> p2 can_play action_id=5 action_type=can_play description=play:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_play action_id=6 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.c
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=1
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=4
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=8
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=7
+
+=== state 12 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: play:p2.mickey_mouse_standard_bearer.c
+
+set node p2 ink_available=0
+set node p2.mickey_mouse_standard_bearer.c entered_play=3 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+remove edge p2.jafar_royal_vizier.d -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_play
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_play
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=2
+
+=== state 13 ===
+# turn: 3
+# current_player: p1
+# lore: p1=1, p2=0
+# action: challenge:p2.dumptruck_karnage's_second_mate.b->p1.fred_mascot_by_day.a
+
+set node p2.dumptruck_karnage's_second_mate.b damage=1 exerted=1 zone=discard
+remove edge p2.dumptruck_karnage's_second_mate.b -> p1.fred_mascot_by_day.a can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+
+=== state 14 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: end
+
+add node p1.tor_florist.a card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+set node game turn=4
+set node p1 ink_available=2 ink_drops=1
+set node p1.fred_mascot_by_day.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.aladdin_prince_ali.d
+add edge p1.cauldron_born_mindless_horde.a -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.a
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.tor_florist.a -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.tor_florist.a
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 15 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: ink:p1.cauldron_born_mindless_horde.a
+
+set node p1 ink_available=3 ink_drops=0 ink_total=3
+set node p1.cauldron_born_mindless_horde.a zone=ink
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=1 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play action_id=2 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.c
+remove edge p1.cauldron_born_mindless_horde.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.tor_florist.a -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=3
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=4
+
+=== state 16 ===
+# turn: 4
+# current_player: p1
+# lore: p1=2, p2=0
+# action: quest:p1.aladdin_prince_ali.d
+
+set node p1 lore=2
+set node p1.aladdin_prince_ali.d exerted=1
+remove edge p1.aladdin_prince_ali.d -> p1 can_quest
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=3
+
+=== state 17 ===
+# turn: 4
+# current_player: p1
+# lore: p1=3, p2=0
+# action: quest:p1.fred_mascot_by_day.a
+
+set node p1 lore=3
+set node p1.fred_mascot_by_day.a exerted=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+
+=== state 18 ===
+# turn: 4
+# current_player: p1
+# lore: p1=3, p2=0
+# action: play:p1.the_white_rose_jewel_of_the_garden.c
+
+set node p1 ink_available=0
+set node p1.the_white_rose_jewel_of_the_garden.c entered_play=4 zone=play
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play
+
+=== state 19 ===
+# turn: 5
+# current_player: p1
+# lore: p1=3, p2=0
+# action: end
+
+add node p2.stitch_carefree_surfer.a card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+set node game turn=5
+set node p2 ink_available=2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=7 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=8 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.arges_the_cyclops.d -> p2 can_play action_id=9 action_type=can_play description=play:p2.arges_the_cyclops.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=a action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.jafar_royal_vizier.d -> p2 can_play action_id=b action_type=can_play description=play:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p1.aladdin_prince_ali.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.aladdin_prince_ali.d
+add edge p2.mickey_mouse_standard_bearer.c -> p1.fred_mascot_by_day.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.fred_mascot_by_day.a
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=d action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.c
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.a
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=c action_type=can_play description=play:p2.robin_hood_beloved_outlaw.a
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 20 ===
+# turn: 5
+# current_player: p1
+# lore: p1=3, p2=0
+# action: ink:p2.stitch_carefree_surfer.a
+
+set node p2 ink_available=3 ink_drops=0 ink_total=3
+set node p2.stitch_carefree_surfer.a zone=ink
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=2
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=3
+set edge p2.arges_the_cyclops.d -> p2 can_play action_id=4
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=5
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=6
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=8
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=7
+
+=== state 21 ===
+# turn: 5
+# current_player: p1
+# lore: p1=3, p2=0
+# action: play:p2.dumptruck_karnage's_second_mate.a
+
+set node p2 ink_available=2
+set node p2.dumptruck_karnage's_second_mate.a entered_play=5 zone=play
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=5
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=7
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=6
+
+=== state 22 ===
+# turn: 5
+# current_player: p1
+# lore: p1=3, p2=0
+# action: challenge:p2.mickey_mouse_standard_bearer.c->p1.aladdin_prince_ali.d
+
+set node p1.aladdin_prince_ali.d damage=1
+set node p2.mickey_mouse_standard_bearer.c damage=2 exerted=1
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.fred_mascot_by_day.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=1
+set edge p2.arges_the_cyclops.d -> p2 can_play action_id=2
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=3
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=4
+
+=== state 23 ===
+# turn: 5
+# current_player: p1
+# lore: p1=3, p2=0
+# action: play:p2.arges_the_cyclops.d
+
+set node p2 ink_available=0
+set node p2.arges_the_cyclops.d entered_play=5 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+remove edge p2.jafar_royal_vizier.d -> p2 can_play
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_play
+
+=== state 24 ===
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=0
+# action: end
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+set node game turn=6
+set node p1 ink_available=3 ink_drops=1
+set node p1.aladdin_prince_ali.d exerted=0
+set node p1.fred_mascot_by_day.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=7 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.aladdin_prince_ali.d
+add edge p1.aladdin_prince_ali.d -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.mickey_mouse_standard_bearer.c
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=a action_type=can_quest description=quest:p1.fred_mascot_by_day.a
+add edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=1 action_type=can_challenge description=challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=8 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_quest action_id=b action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=2 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.c->p2.mickey_mouse_standard_bearer.c
+add edge p1.tor_florist.a -> p1 can_ink action_id=5 action_type=can_ink description=ink:p1.tor_florist.a
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=6 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 25 ===
+# turn: 6
+# current_player: p1
+# lore: p1=4, p2=0
+# action: quest:p1.the_white_rose_jewel_of_the_garden.c
+
+set node p1 lore=4
+set node p1.the_white_rose_jewel_of_the_garden.c exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=6
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=8
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=2
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=9
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=3
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=7
+set edge p1.tor_florist.a -> p1 can_ink action_id=4
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=5
+
+=== state 26 ===
+# turn: 6
+# current_player: p1
+# lore: p1=4, p2=0
+# action: challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+
+set node p1.fred_mascot_by_day.a damage=1 exerted=1 zone=discard
+set node p2.mickey_mouse_standard_bearer.c damage=3 zone=discard
+remove edge p1.aladdin_prince_ali.d -> p2.mickey_mouse_standard_bearer.c can_challenge
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+remove edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=4
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=6
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=1
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=5
+set edge p1.tor_florist.a -> p1 can_ink action_id=2
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=3
+
+=== state 27 ===
+# turn: 6
+# current_player: p1
+# lore: p1=4, p2=0
+# action: ink:p1.tor_florist.a
+
+set node p1 ink_available=4 ink_drops=0 ink_total=4
+set node p1.tor_florist.a zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.tor_florist.a -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=2
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=1
+
+=== state 28 ===
+# turn: 6
+# current_player: p1
+# lore: p1=4, p2=0
+# action: play:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 ink_available=1
+set node p1.the_white_rose_jewel_of_the_garden.a entered_play=6 zone=play
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=1
+
+=== state 29 ===
+# turn: 6
+# current_player: p1
+# lore: p1=5, p2=0
+# action: quest:p1.aladdin_prince_ali.d
+
+set node p1 lore=5
+set node p1.aladdin_prince_ali.d exerted=1
+remove edge p1.aladdin_prince_ali.d -> p1 can_quest
+
+=== state 30 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=0
+# action: end
+
+add node p2.prince_naveen_penniless_royal.b card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+set node game turn=7
+set node p2 ink_available=3 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=9 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p1.aladdin_prince_ali.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.arges_the_cyclops.d->p1.aladdin_prince_ali.d
+add edge p2.arges_the_cyclops.d -> p1.the_white_rose_jewel_of_the_garden.c can_challenge action_id=1 action_type=can_challenge description=challenge:p2.arges_the_cyclops.d->p1.the_white_rose_jewel_of_the_garden.c
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=d action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p1.aladdin_prince_ali.d can_challenge action_id=2 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.a->p1.aladdin_prince_ali.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p1.the_white_rose_jewel_of_the_garden.c can_challenge action_id=3 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.a->p1.the_white_rose_jewel_of_the_garden.c
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=e action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.a
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.jafar_royal_vizier.d -> p2 can_play action_id=a action_type=can_play description=play:p2.jafar_royal_vizier.d
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=b action_type=can_play description=play:p2.prince_naveen_penniless_royal.b
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.a
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=c action_type=can_play description=play:p2.robin_hood_beloved_outlaw.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 31 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=0
+# action: ink:p2.robin_hood_beloved_outlaw.a
+
+set node p2 ink_available=4 ink_drops=0 ink_total=4
+set node p2.robin_hood_beloved_outlaw.a zone=ink
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_play
+set edge p2 -> game can_pass action_id=4
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=5
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=8
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=9
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=6
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=7
+
+=== state 32 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=0
+# action: challenge:p2.arges_the_cyclops.d->p1.the_white_rose_jewel_of_the_garden.c
+
+set node p1.the_white_rose_jewel_of_the_garden.c damage=4 zone=discard
+set node p2.arges_the_cyclops.d damage=3 exerted=1 zone=discard
+remove edge p2.arges_the_cyclops.d -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.arges_the_cyclops.d -> p1.the_white_rose_jewel_of_the_garden.c can_challenge
+remove edge p2.arges_the_cyclops.d -> p2 can_quest
+remove edge p2.dumptruck_karnage's_second_mate.a -> p1.the_white_rose_jewel_of_the_garden.c can_challenge
+set edge p2 -> game can_pass action_id=1
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=2
+set edge p2.dumptruck_karnage's_second_mate.a -> p1.aladdin_prince_ali.d can_challenge action_id=0
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=5
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=3
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=4
+
+=== state 33 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=0
+# action: play:p2.jafar_royal_vizier.d
+
+set node p2 ink_available=2
+set node p2.jafar_royal_vizier.d entered_play=7 zone=play
+remove edge p2.jafar_royal_vizier.d -> p2 can_play
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_play
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=3
+
+=== state 34 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=1
+# action: quest:p2.dumptruck_karnage's_second_mate.a
+
+set node p2 lore=1
+set node p2.dumptruck_karnage's_second_mate.a exerted=1
+remove edge p2.dumptruck_karnage's_second_mate.a -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=1
+
+=== state 35 ===
+# turn: 7
+# current_player: p1
+# lore: p1=5, p2=1
+# action: play:p2.arges_the_cyclops.c
+
+set node p2 ink_available=0
+set node p2.arges_the_cyclops.c entered_play=7 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+
+=== state 36 ===
+# turn: 8
+# current_player: p1
+# lore: p1=5, p2=1
+# action: end
+
+add node p1.pinocchio_star_attraction.a card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+set node game turn=8
+set node p1 ink_available=4 ink_drops=1
+set node p1.aladdin_prince_ali.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.aladdin_prince_ali.d
+add edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.dumptruck_karnage's_second_mate.a
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.pinocchio_star_attraction.a -> p1 can_play action_id=5 action_type=can_play description=play:p1.pinocchio_star_attraction.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.a can_challenge action_id=1 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.dumptruck_karnage's_second_mate.a
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 37 ===
+# turn: 8
+# current_player: p1
+# lore: p1=5, p2=1
+# action: play:p1.pinocchio_star_attraction.a
+
+set node p1 ink_available=2
+set node p1.pinocchio_star_attraction.a entered_play=8 zone=play
+remove edge p1.pinocchio_star_attraction.a -> p1 can_play
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=5
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=6
+
+=== state 38 ===
+# turn: 8
+# current_player: p1
+# lore: p1=5, p2=1
+# action: challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.dumptruck_karnage's_second_mate.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+set node p2.dumptruck_karnage's_second_mate.a damage=3 zone=discard
+remove edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.a can_challenge
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.a can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=3
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=1
+
+=== state 39 ===
+# turn: 8
+# current_player: p1
+# lore: p1=5, p2=1
+# action: ink:p1.cauldron_born_mindless_horde.d
+
+set node p1 ink_available=3 ink_drops=0 ink_total=5
+set node p1.cauldron_born_mindless_horde.d zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=1
+
+=== state 40 ===
+# turn: 8
+# current_player: p1
+# lore: p1=6, p2=1
+# action: quest:p1.aladdin_prince_ali.d
+
+set node p1 lore=6
+set node p1.aladdin_prince_ali.d exerted=1
+remove edge p1.aladdin_prince_ali.d -> p1 can_quest
+
+=== state 41 ===
+# turn: 9
+# current_player: p1
+# lore: p1=6, p2=1
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.b card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=9
+set node p2 ink_available=4 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p1.aladdin_prince_ali.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.arges_the_cyclops.c->p1.aladdin_prince_ali.d
+add edge p2.arges_the_cyclops.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.arges_the_cyclops.c->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.arges_the_cyclops.c -> p2 can_quest action_id=9 action_type=can_quest description=quest:p2.arges_the_cyclops.c
+add edge p2.jafar_royal_vizier.d -> p1.aladdin_prince_ali.d can_challenge action_id=2 action_type=can_challenge description=challenge:p2.jafar_royal_vizier.d->p1.aladdin_prince_ali.d
+add edge p2.jafar_royal_vizier.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=3 action_type=can_challenge description=challenge:p2.jafar_royal_vizier.d->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=a action_type=can_quest description=quest:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.b
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_play action_id=7 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=8 action_type=can_play description=play:p2.prince_naveen_penniless_royal.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 42 ===
+# turn: 9
+# current_player: p1
+# lore: p1=6, p2=1
+# action: play:p2.mickey_mouse_standard_bearer.b
+
+set node p2 ink_available=2
+set node p2.mickey_mouse_standard_bearer.b entered_play=9 zone=play
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_play
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_play
+set edge p2 -> game can_pass action_id=5
+set edge p2.arges_the_cyclops.c -> p2 can_quest action_id=6
+set edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=7
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=4
+
+=== state 43 ===
+# turn: 9
+# current_player: p1
+# lore: p1=6, p2=1
+# action: challenge:p2.arges_the_cyclops.c->p1.aladdin_prince_ali.d
+
+set node p1.aladdin_prince_ali.d damage=5 zone=discard
+set node p2.arges_the_cyclops.c damage=2 exerted=1 zone=discard
+remove edge p2.arges_the_cyclops.c -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.arges_the_cyclops.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.arges_the_cyclops.c -> p2 can_quest
+remove edge p2.jafar_royal_vizier.d -> p1.aladdin_prince_ali.d can_challenge
+set edge p2 -> game can_pass action_id=2
+set edge p2.jafar_royal_vizier.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=0
+set edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=3
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=1
+
+=== state 44 ===
+# turn: 9
+# current_player: p1
+# lore: p1=6, p2=2
+# action: quest:p2.jafar_royal_vizier.d
+
+set node p2 lore=2
+set node p2.jafar_royal_vizier.d exerted=1
+remove edge p2.jafar_royal_vizier.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.jafar_royal_vizier.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=0
+
+=== state 45 ===
+# turn: 9
+# current_player: p1
+# lore: p1=6, p2=2
+# action: ink:p2.prince_naveen_penniless_royal.b
+
+set node p2 ink_available=3 ink_drops=0 ink_total=5
+set node p2.prince_naveen_penniless_royal.b zone=ink
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 46 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=2
+# action: end
+
+add node p1.chip_the_teacup_gentle_soul.a card_id=253 damage=0 exerted=0 label=chip_the_teacup_gentle_soul type=Card zone=hand
+set node game turn=10
+set node p1 ink_available=5 ink_drops=1
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.chip_the_teacup_gentle_soul.a
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play action_id=5 action_type=can_play description=play:p1.chip_the_teacup_gentle_soul.a
+add edge p1.pinocchio_star_attraction.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.pinocchio_star_attraction.a
+add edge p1.pinocchio_star_attraction.a -> p2.jafar_royal_vizier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.a->p2.jafar_royal_vizier.d
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.jafar_royal_vizier.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.jafar_royal_vizier.d
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_play action_id=6 action_type=can_play description=play:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 47 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=2
+# action: ink:p1.winnie_the_pooh_hunny_wizard.b
+
+set node p1 ink_available=6 ink_drops=0 ink_total=6
+set node p1.winnie_the_pooh_hunny_wizard.b zone=ink
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_play
+set edge p1 -> game can_pass action_id=2
+set edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play action_id=3
+set edge p1.pinocchio_star_attraction.a -> p1 can_quest action_id=4
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=5
+
+=== state 48 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=2
+# action: challenge:p1.pinocchio_star_attraction.a->p2.jafar_royal_vizier.d
+
+set node p1.pinocchio_star_attraction.a damage=3 exerted=1 zone=discard
+set node p2.jafar_royal_vizier.d damage=1
+remove edge p1.pinocchio_star_attraction.a -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.a -> p2.jafar_royal_vizier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play action_id=2
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=3
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p2.jafar_royal_vizier.d can_challenge action_id=0
+
+=== state 49 ===
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=2
+# action: play:p1.chip_the_teacup_gentle_soul.a
+
+set node p1 ink_available=5
+set node p1.chip_the_teacup_gentle_soul.a entered_play=10 zone=play
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=2
+
+=== state 50 ===
+# turn: 10
+# current_player: p1
+# lore: p1=7, p2=2
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=7
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.jafar_royal_vizier.d can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 51 ===
+# turn: 11
+# current_player: p1
+# lore: p1=7, p2=2
+# action: end
+
+add node p2.prince_eric_dashing_and_brave.b card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+set node game turn=11
+set node p2 ink_available=5 ink_drops=1
+set node p2.jafar_royal_vizier.d exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.jafar_royal_vizier.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.jafar_royal_vizier.d->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.b->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.b
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.prince_eric_dashing_and_brave.b
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_play action_id=4 action_type=can_play description=play:p2.prince_eric_dashing_and_brave.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 52 ===
+# turn: 11
+# current_player: p1
+# lore: p1=7, p2=2
+# action: play:p2.prince_eric_dashing_and_brave.b
+
+set node p2 ink_available=3
+set node p2.prince_eric_dashing_and_brave.b entered_play=11 zone=play
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_ink
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_play
+set edge p2 -> game can_pass action_id=2
+set edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=3
+set edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest action_id=4
+
+=== state 53 ===
+# turn: 11
+# current_player: p1
+# lore: p1=7, p2=2
+# action: challenge:p2.jafar_royal_vizier.d->p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a damage=3 zone=discard
+set node p2.jafar_royal_vizier.d damage=4 exerted=1 zone=discard
+remove edge p2.jafar_royal_vizier.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.jafar_royal_vizier.d -> p2 can_quest
+remove edge p2.mickey_mouse_standard_bearer.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+set edge p2 -> game can_pass action_id=0
+set edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest action_id=1
+
+=== state 54 ===
+# turn: 11
+# current_player: p1
+# lore: p1=7, p2=3
+# action: quest:p2.mickey_mouse_standard_bearer.b
+
+set node p2 lore=3
+set node p2.mickey_mouse_standard_bearer.b exerted=1
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest
+
+=== state 55 ===
+# turn: 12
+# current_player: p1
+# lore: p1=7, p2=3
+# action: end
+
+add node p1.cogsworth_illuminary_watchman.b card_id=993 damage=0 exerted=0 label=cogsworth_illuminary_watchman type=Card zone=hand
+set node game turn=12
+set node p1 ink_available=6 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.chip_the_teacup_gentle_soul.a
+add edge p1.chip_the_teacup_gentle_soul.a -> p2.mickey_mouse_standard_bearer.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.chip_the_teacup_gentle_soul.a->p2.mickey_mouse_standard_bearer.b
+add edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cogsworth_illuminary_watchman.b
+add edge p1.cogsworth_illuminary_watchman.b -> p1 can_play action_id=3 action_type=can_play description=play:p1.cogsworth_illuminary_watchman.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 56 ===
+# turn: 12
+# current_player: p1
+# lore: p1=7, p2=3
+# action: challenge:p1.chip_the_teacup_gentle_soul.a->p2.mickey_mouse_standard_bearer.b
+
+set node p1.chip_the_teacup_gentle_soul.a damage=1 exerted=1
+set node p2.mickey_mouse_standard_bearer.b damage=2
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_quest
+remove edge p1.chip_the_teacup_gentle_soul.a -> p2.mickey_mouse_standard_bearer.b can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink action_id=0
+set edge p1.cogsworth_illuminary_watchman.b -> p1 can_play action_id=2
+
+=== state 57 ===
+# turn: 12
+# current_player: p1
+# lore: p1=7, p2=3
+# action: play:p1.cogsworth_illuminary_watchman.b
+
+set node p1 ink_available=5
+set node p1.cogsworth_illuminary_watchman.b entered_play=12 zone=play
+remove edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink
+remove edge p1.cogsworth_illuminary_watchman.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 58 ===
+# turn: 13
+# current_player: p1
+# lore: p1=7, p2=3
+# action: end
+
+add node p2.genie_satisfied_dragon.c card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=13
+set node p2 ink_available=5
+set node p2.mickey_mouse_standard_bearer.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.genie_satisfied_dragon.c
+add edge p2.genie_satisfied_dragon.c -> p2 can_play action_id=4 action_type=can_play description=play:p2.genie_satisfied_dragon.c
+add edge p2.mickey_mouse_standard_bearer.b -> p1.chip_the_teacup_gentle_soul.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.b->p1.chip_the_teacup_gentle_soul.a
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.b
+add edge p2.prince_eric_dashing_and_brave.b -> p1.chip_the_teacup_gentle_soul.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.prince_eric_dashing_and_brave.b->p1.chip_the_teacup_gentle_soul.a
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 59 ===
+# turn: 13
+# current_player: p1
+# lore: p1=7, p2=4
+# action: quest:p2.prince_eric_dashing_and_brave.b
+
+set node p2 lore=4
+set node p2.prince_eric_dashing_and_brave.b exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p1.chip_the_teacup_gentle_soul.a can_challenge
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=2
+set edge p2.genie_satisfied_dragon.c -> p2 can_ink action_id=1
+set edge p2.genie_satisfied_dragon.c -> p2 can_play action_id=3
+set edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest action_id=4
+
+=== state 60 ===
+# turn: 13
+# current_player: p1
+# lore: p1=7, p2=5
+# action: quest:p2.mickey_mouse_standard_bearer.b
+
+set node p2 lore=5
+set node p2.mickey_mouse_standard_bearer.b exerted=1
+remove edge p2.mickey_mouse_standard_bearer.b -> p1.chip_the_teacup_gentle_soul.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.genie_satisfied_dragon.c -> p2 can_ink action_id=0
+set edge p2.genie_satisfied_dragon.c -> p2 can_play action_id=2
+
+=== state 61 ===
+# turn: 13
+# current_player: p1
+# lore: p1=7, p2=5
+# action: ink:p2.genie_satisfied_dragon.c
+
+set node p2 ink_available=6 ink_drops=0 ink_total=6
+set node p2.genie_satisfied_dragon.c zone=ink
+remove edge p2.genie_satisfied_dragon.c -> p2 can_ink
+remove edge p2.genie_satisfied_dragon.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 62 ===
+# turn: 14
+# current_player: p1
+# lore: p1=7, p2=5
+# action: end
+
+add node p1.cauldron_born_mindless_horde.b card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+set node game turn=14
+set node p1 ink_available=6
+set node p1.chip_the_teacup_gentle_soul.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_play action_id=6 action_type=can_play description=play:p1.cauldron_born_mindless_horde.b
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.chip_the_teacup_gentle_soul.a
+add edge p1.chip_the_teacup_gentle_soul.a -> p2.mickey_mouse_standard_bearer.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.chip_the_teacup_gentle_soul.a->p2.mickey_mouse_standard_bearer.b
+add edge p1.chip_the_teacup_gentle_soul.a -> p2.prince_eric_dashing_and_brave.b can_challenge action_id=1 action_type=can_challenge description=challenge:p1.chip_the_teacup_gentle_soul.a->p2.prince_eric_dashing_and_brave.b
+add edge p1.cogsworth_illuminary_watchman.b -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.cogsworth_illuminary_watchman.b
+add edge p1.cogsworth_illuminary_watchman.b -> p2.mickey_mouse_standard_bearer.b can_challenge action_id=2 action_type=can_challenge description=challenge:p1.cogsworth_illuminary_watchman.b->p2.mickey_mouse_standard_bearer.b
+add edge p1.cogsworth_illuminary_watchman.b -> p2.prince_eric_dashing_and_brave.b can_challenge action_id=3 action_type=can_challenge description=challenge:p1.cogsworth_illuminary_watchman.b->p2.prince_eric_dashing_and_brave.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 63 ===
+# turn: 14
+# current_player: p1
+# lore: p1=7, p2=5
+# action: challenge:p1.cogsworth_illuminary_watchman.b->p2.mickey_mouse_standard_bearer.b
+
+set node p1.cogsworth_illuminary_watchman.b damage=1 exerted=1 zone=discard
+set node p2.mickey_mouse_standard_bearer.b damage=3 zone=discard
+remove edge p1.chip_the_teacup_gentle_soul.a -> p2.mickey_mouse_standard_bearer.b can_challenge
+remove edge p1.cogsworth_illuminary_watchman.b -> p1 can_quest
+remove edge p1.cogsworth_illuminary_watchman.b -> p2.mickey_mouse_standard_bearer.b can_challenge
+remove edge p1.cogsworth_illuminary_watchman.b -> p2.prince_eric_dashing_and_brave.b can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_ink action_id=1
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_play action_id=3
+set edge p1.chip_the_teacup_gentle_soul.a -> p1 can_quest action_id=4
+set edge p1.chip_the_teacup_gentle_soul.a -> p2.prince_eric_dashing_and_brave.b can_challenge action_id=0
+
+=== state 64 ===
+# turn: 14
+# current_player: p1
+# lore: p1=8, p2=5
+# action: quest:p1.chip_the_teacup_gentle_soul.a
+
+set node p1 lore=8
+set node p1.chip_the_teacup_gentle_soul.a exerted=1
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_quest
+remove edge p1.chip_the_teacup_gentle_soul.a -> p2.prince_eric_dashing_and_brave.b can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_ink action_id=0
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_play action_id=2
+
+=== state 65 ===
+# turn: 14
+# current_player: p1
+# lore: p1=8, p2=5
+# action: ink:p1.cauldron_born_mindless_horde.b
+
+set node p1 ink_available=7 ink_drops=0 ink_total=7
+set node p1.cauldron_born_mindless_horde.b zone=ink
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_ink
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 66 ===
+# turn: 15
+# current_player: p1
+# lore: p1=8, p2=5
+# action: end
+
+add node p2.genie_satisfied_dragon.d card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=15
+set node p2 ink_drops=1
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.d -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.genie_satisfied_dragon.d
+add edge p2.genie_satisfied_dragon.d -> p2 can_play action_id=3 action_type=can_play description=play:p2.genie_satisfied_dragon.d
+add edge p2.prince_eric_dashing_and_brave.b -> p1.chip_the_teacup_gentle_soul.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.prince_eric_dashing_and_brave.b->p1.chip_the_teacup_gentle_soul.a
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 67 ===
+# turn: 15
+# current_player: p1
+# lore: p1=8, p2=5
+# action: challenge:p2.prince_eric_dashing_and_brave.b->p1.chip_the_teacup_gentle_soul.a
+
+set node p1.chip_the_teacup_gentle_soul.a damage=2 zone=discard
+set node p2.prince_eric_dashing_and_brave.b damage=2 exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p1.chip_the_teacup_gentle_soul.a can_challenge
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.genie_satisfied_dragon.d -> p2 can_ink action_id=0
+set edge p2.genie_satisfied_dragon.d -> p2 can_play action_id=2
+
+=== state 68 ===
+# turn: 15
+# current_player: p1
+# lore: p1=8, p2=5
+# action: ink:p2.genie_satisfied_dragon.d
+
+set node p2 ink_available=7 ink_drops=0 ink_total=7
+set node p2.genie_satisfied_dragon.d zone=ink
+remove edge p2.genie_satisfied_dragon.d -> p2 can_ink
+remove edge p2.genie_satisfied_dragon.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 69 ===
+# turn: 16
+# current_player: p1
+# lore: p1=8, p2=5
+# action: end
+
+add node p1.aladdin_prince_ali.b card_id=69 damage=0 exerted=0 label=aladdin_prince_ali type=Card zone=hand
+set node game turn=16
+set node p1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.aladdin_prince_ali.b
+add edge p1.aladdin_prince_ali.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.aladdin_prince_ali.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 70 ===
+# turn: 16
+# current_player: p1
+# lore: p1=8, p2=5
+# action: ink:p1.aladdin_prince_ali.b
+
+set node p1 ink_available=8 ink_drops=0 ink_total=8
+set node p1.aladdin_prince_ali.b zone=ink
+remove edge p1.aladdin_prince_ali.b -> p1 can_ink
+remove edge p1.aladdin_prince_ali.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 71 ===
+# turn: 17
+# current_player: p1
+# lore: p1=8, p2=5
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.d card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=17
+set node p2 ink_drops=1
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.d
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_play action_id=2 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.d
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 72 ===
+# turn: 17
+# current_player: p1
+# lore: p1=8, p2=6
+# action: quest:p2.prince_eric_dashing_and_brave.b
+
+set node p2 lore=6
+set node p2.prince_eric_dashing_and_brave.b exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+
+=== state 73 ===
+# turn: 17
+# current_player: p1
+# lore: p1=8, p2=6
+# action: play:p2.mickey_mouse_standard_bearer.d
+
+set node p2 ink_available=5
+set node p2.mickey_mouse_standard_bearer.d entered_play=17 zone=play
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 74 ===
+# turn: 18
+# current_player: p1
+# lore: p1=8, p2=6
+# action: end
+
+add node p1.kuzco_wanted_llama.b card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=18
+set node p1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.kuzco_wanted_llama.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.kuzco_wanted_llama.b
+add edge p1.kuzco_wanted_llama.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.kuzco_wanted_llama.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 75 ===
+# turn: 18
+# current_player: p1
+# lore: p1=8, p2=6
+# action: ink:p1.kuzco_wanted_llama.b
+
+set node p1 ink_available=9 ink_drops=0 ink_total=9
+set node p1.kuzco_wanted_llama.b zone=ink
+remove edge p1.kuzco_wanted_llama.b -> p1 can_ink
+remove edge p1.kuzco_wanted_llama.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 76 ===
+# turn: 19
+# current_player: p1
+# lore: p1=8, p2=6
+# action: end
+
+add node p2.robin_hood_beloved_outlaw.d card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+set node game turn=19
+set node p2 ink_available=7
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.d
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+add edge p2.robin_hood_beloved_outlaw.d -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.d
+add edge p2.robin_hood_beloved_outlaw.d -> p2 can_play action_id=2 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.d
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 77 ===
+# turn: 19
+# current_player: p1
+# lore: p1=8, p2=6
+# action: ink:p2.robin_hood_beloved_outlaw.d
+
+set node p2 ink_available=8 ink_drops=0 ink_total=8
+set node p2.robin_hood_beloved_outlaw.d zone=ink
+remove edge p2.robin_hood_beloved_outlaw.d -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=1
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=2
+
+=== state 78 ===
+# turn: 19
+# current_player: p1
+# lore: p1=8, p2=7
+# action: quest:p2.prince_eric_dashing_and_brave.b
+
+set node p2 lore=7
+set node p2.prince_eric_dashing_and_brave.b exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+
+=== state 79 ===
+# turn: 19
+# current_player: p1
+# lore: p1=8, p2=8
+# action: quest:p2.mickey_mouse_standard_bearer.d
+
+set node p2 lore=8
+set node p2.mickey_mouse_standard_bearer.d exerted=1
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest
+
+=== state 80 ===
+# turn: 20
+# current_player: p1
+# lore: p1=8, p2=8
+# action: end
+
+add node p1.kuzco_wanted_llama.c card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=20
+set node p1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.kuzco_wanted_llama.c -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.kuzco_wanted_llama.c
+add edge p1.kuzco_wanted_llama.c -> p1 can_play action_id=2 action_type=can_play description=play:p1.kuzco_wanted_llama.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 81 ===
+# turn: 20
+# current_player: p1
+# lore: p1=8, p2=8
+# action: ink:p1.kuzco_wanted_llama.c
+
+set node p1 ink_available=10 ink_drops=0 ink_total=10
+set node p1.kuzco_wanted_llama.c zone=ink
+remove edge p1.kuzco_wanted_llama.c -> p1 can_ink
+remove edge p1.kuzco_wanted_llama.c -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 82 ===
+# turn: 21
+# current_player: p1
+# lore: p1=8, p2=8
+# action: end
+
+add node p2.simba_protective_cub.b card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+set node game turn=21
+set node p2 ink_drops=1
+set node p2.mickey_mouse_standard_bearer.d exerted=0
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.d
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+add edge p2.simba_protective_cub.b -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.simba_protective_cub.b
+add edge p2.simba_protective_cub.b -> p2 can_play action_id=3 action_type=can_play description=play:p2.simba_protective_cub.b:exerted exerted=True
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 83 ===
+# turn: 21
+# current_player: p1
+# lore: p1=8, p2=8
+# action: play:p2.simba_protective_cub.b:exerted
+
+add node bodyguard.t21.1 type=Ability
+set node p2 ink_available=6
+set node p2.simba_protective_cub.b entered_play=21 zone=play
+add edge bodyguard.t21.1 -> p2.simba_protective_cub.b bodyguard
+add edge bodyguard.t21.1 -> p2.simba_protective_cub.b source
+remove edge p2.simba_protective_cub.b -> p2 can_ink
+remove edge p2.simba_protective_cub.b -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=1
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=2
+
+=== state 84 ===
+# turn: 21
+# current_player: p1
+# lore: p1=8, p2=9
+# action: quest:p2.mickey_mouse_standard_bearer.d
+
+set node p2 lore=9
+set node p2.mickey_mouse_standard_bearer.d exerted=1
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=1
+
+=== state 85 ===
+# turn: 21
+# current_player: p1
+# lore: p1=8, p2=10
+# action: quest:p2.prince_eric_dashing_and_brave.b
+
+set node p2 lore=10
+set node p2.prince_eric_dashing_and_brave.b exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+
+=== state 86 ===
+# turn: 22
+# current_player: p1
+# lore: p1=8, p2=10
+# action: end
+
+add node p1.tor_florist.b card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+set node game turn=22
+set node p1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.tor_florist.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.tor_florist.b
+add edge p1.tor_florist.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.tor_florist.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 87 ===
+# turn: 22
+# current_player: p1
+# lore: p1=8, p2=10
+# action: play:p1.tor_florist.b
+
+set node p1 ink_available=5
+set node p1.tor_florist.b entered_play=22 zone=play
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 88 ===
+# turn: 23
+# current_player: p1
+# lore: p1=8, p2=10
+# action: end
+
+add node p2.genie_satisfied_dragon.a card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=23
+set node p2 ink_available=8
+set node p2.mickey_mouse_standard_bearer.d exerted=0
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.genie_satisfied_dragon.a
+add edge p2.genie_satisfied_dragon.a -> p2 can_play action_id=2 action_type=can_play description=play:p2.genie_satisfied_dragon.a
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.d
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+add edge p2.simba_protective_cub.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.simba_protective_cub.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 89 ===
+# turn: 23
+# current_player: p1
+# lore: p1=8, p2=10
+# action: ink:p2.genie_satisfied_dragon.a
+
+set node p2 ink_available=9 ink_drops=0 ink_total=9
+set node p2.genie_satisfied_dragon.a zone=ink
+remove edge p2.genie_satisfied_dragon.a -> p2 can_ink
+remove edge p2.genie_satisfied_dragon.a -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=1
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=2
+set edge p2.simba_protective_cub.b -> p2 can_quest action_id=3
+
+=== state 90 ===
+# turn: 23
+# current_player: p1
+# lore: p1=8, p2=11
+# action: quest:p2.prince_eric_dashing_and_brave.b
+
+set node p2 lore=11
+set node p2.prince_eric_dashing_and_brave.b exerted=1
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+set edge p2.simba_protective_cub.b -> p2 can_quest action_id=2
+
+=== state 91 ===
+# turn: 23
+# current_player: p1
+# lore: p1=8, p2=12
+# action: quest:p2.simba_protective_cub.b
+
+set node p2 lore=12
+set node p2.simba_protective_cub.b exerted=1
+remove edge p2.simba_protective_cub.b -> p2 can_quest
+
+=== state 92 ===
+# turn: 23
+# current_player: p1
+# lore: p1=8, p2=13
+# action: quest:p2.mickey_mouse_standard_bearer.d
+
+set node p2 lore=13
+set node p2.mickey_mouse_standard_bearer.d exerted=1
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest
+
+=== state 93 ===
+# turn: 24
+# current_player: p1
+# lore: p1=8, p2=13
+# action: end
+
+add node p1.lena_sabrewing_rebellious_teenager.b card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+set node game turn=24
+set node p1 ink_available=10
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.lena_sabrewing_rebellious_teenager.b -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.b
+add edge p1.lena_sabrewing_rebellious_teenager.b -> p1 can_play action_id=3 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.b
+add edge p1.tor_florist.b -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.tor_florist.b
+add edge p1.tor_florist.b -> p2.simba_protective_cub.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tor_florist.b->p2.simba_protective_cub.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 94 ===
+# turn: 24
+# current_player: p1
+# lore: p1=8, p2=13
+# action: ink:p1.lena_sabrewing_rebellious_teenager.b
+
+set node p1 ink_available=11 ink_drops=0 ink_total=11
+set node p1.lena_sabrewing_rebellious_teenager.b zone=ink
+remove edge p1.lena_sabrewing_rebellious_teenager.b -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.b -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.tor_florist.b -> p1 can_quest action_id=2
+
+=== state 95 ===
+# turn: 24
+# current_player: p1
+# lore: p1=8, p2=13
+# action: challenge:p1.tor_florist.b->p2.simba_protective_cub.b
+
+remove node bodyguard.t21.1
+set node p1.tor_florist.b damage=2 exerted=1
+set node p2.simba_protective_cub.b damage=4 zone=discard
+remove edge bodyguard.t21.1 -> p2.simba_protective_cub.b bodyguard
+remove edge bodyguard.t21.1 -> p2.simba_protective_cub.b source
+remove edge p1.tor_florist.b -> p1 can_quest
+remove edge p1.tor_florist.b -> p2.simba_protective_cub.b can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 96 ===
+# turn: 25
+# current_player: p1
+# lore: p1=8, p2=13
+# action: end
+
+add node p2.prince_eric_dashing_and_brave.c card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+set node game turn=25
+set node p2 ink_drops=1
+set node p2.mickey_mouse_standard_bearer.d exerted=0
+set node p2.prince_eric_dashing_and_brave.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.d -> p1.tor_florist.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.d->p1.tor_florist.b
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.d
+add edge p2.prince_eric_dashing_and_brave.b -> p1.tor_florist.b can_challenge action_id=1 action_type=can_challenge description=challenge:p2.prince_eric_dashing_and_brave.b->p1.tor_florist.b
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.prince_eric_dashing_and_brave.b
+add edge p2.prince_eric_dashing_and_brave.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.prince_eric_dashing_and_brave.c
+add edge p2.prince_eric_dashing_and_brave.c -> p2 can_play action_id=4 action_type=can_play description=play:p2.prince_eric_dashing_and_brave.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 97 ===
+# turn: 25
+# current_player: p1
+# lore: p1=8, p2=13
+# action: challenge:p2.prince_eric_dashing_and_brave.b->p1.tor_florist.b
+
+set node p1.tor_florist.b damage=3
+set node p2.prince_eric_dashing_and_brave.b damage=6 exerted=1 zone=discard
+remove edge p2.prince_eric_dashing_and_brave.b -> p1.tor_florist.b can_challenge
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=2
+set edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=4
+set edge p2.prince_eric_dashing_and_brave.c -> p2 can_ink action_id=1
+set edge p2.prince_eric_dashing_and_brave.c -> p2 can_play action_id=3
+
+=== state 98 ===
+# turn: 25
+# current_player: p1
+# lore: p1=8, p2=13
+# action: challenge:p2.mickey_mouse_standard_bearer.d->p1.tor_florist.b
+
+set node p1.tor_florist.b damage=4
+set node p2.mickey_mouse_standard_bearer.d damage=4 exerted=1 zone=discard
+remove edge p2.mickey_mouse_standard_bearer.d -> p1.tor_florist.b can_challenge
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.prince_eric_dashing_and_brave.c -> p2 can_ink action_id=0
+set edge p2.prince_eric_dashing_and_brave.c -> p2 can_play action_id=2
+
+=== state 99 ===
+# turn: 25
+# current_player: p1
+# lore: p1=8, p2=13
+# action: ink:p2.prince_eric_dashing_and_brave.c
+
+set node p2 ink_available=10 ink_drops=0 ink_total=10
+set node p2.prince_eric_dashing_and_brave.c zone=ink
+remove edge p2.prince_eric_dashing_and_brave.c -> p2 can_ink
+remove edge p2.prince_eric_dashing_and_brave.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 100 ===
+# turn: 26
+# current_player: p1
+# lore: p1=8, p2=13
+# action: end
+
+add node p1.fred_mascot_by_day.d card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+set node game turn=26
+set node p1 ink_drops=1
+set node p1.tor_florist.b exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.fred_mascot_by_day.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.fred_mascot_by_day.d
+add edge p1.fred_mascot_by_day.d -> p1 can_play action_id=2 action_type=can_play description=play:p1.fred_mascot_by_day.d
+add edge p1.tor_florist.b -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.tor_florist.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 101 ===
+# turn: 26
+# current_player: p1
+# lore: p1=8, p2=13
+# action: ink:p1.fred_mascot_by_day.d
+
+set node p1 ink_available=12 ink_drops=0 ink_total=12
+set node p1.fred_mascot_by_day.d zone=ink
+remove edge p1.fred_mascot_by_day.d -> p1 can_ink
+remove edge p1.fred_mascot_by_day.d -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.tor_florist.b -> p1 can_quest action_id=1
+
+=== state 102 ===
+# turn: 26
+# current_player: p1
+# lore: p1=9, p2=13
+# action: quest:p1.tor_florist.b
+
+set node p1 lore=9
+set node p1.tor_florist.b exerted=1
+remove edge p1.tor_florist.b -> p1 can_quest
+
+=== state 103 ===
+# turn: 27
+# current_player: p1
+# lore: p1=9, p2=13
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.a card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=27
+set node p2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.a
+add edge p2.mickey_mouse_standard_bearer.a -> p2 can_play action_id=2 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 104 ===
+# turn: 27
+# current_player: p1
+# lore: p1=9, p2=13
+# action: ink:p2.mickey_mouse_standard_bearer.a
+
+set node p2 ink_available=11 ink_drops=0 ink_total=11
+set node p2.mickey_mouse_standard_bearer.a zone=ink
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 105 ===
+# turn: 28
+# current_player: p1
+# lore: p1=9, p2=13
+# action: end
+
+add node p1.maleficent_sorceress.a card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+set node game turn=28
+set node p1 ink_drops=1
+set node p1.tor_florist.b exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.maleficent_sorceress.a -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.maleficent_sorceress.a
+add edge p1.maleficent_sorceress.a -> p1 can_play action_id=2 action_type=can_play description=play:p1.maleficent_sorceress.a
+add edge p1.tor_florist.b -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.tor_florist.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 106 ===
+# turn: 28
+# current_player: p1
+# lore: p1=9, p2=13
+# action: ink:p1.maleficent_sorceress.a
+
+set node p1 ink_available=13 ink_drops=0 ink_total=13
+set node p1.maleficent_sorceress.a zone=ink
+remove edge p1.maleficent_sorceress.a -> p1 can_ink
+remove edge p1.maleficent_sorceress.a -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.tor_florist.b -> p1 can_quest action_id=1
+
+=== state 107 ===
+# turn: 28
+# current_player: p1
+# lore: p1=10, p2=13
+# action: quest:p1.tor_florist.b
+
+set node p1 lore=10
+set node p1.tor_florist.b exerted=1
+remove edge p1.tor_florist.b -> p1 can_quest
+
+=== state 108 ===
+# turn: 29
+# current_player: p1
+# lore: p1=10, p2=13
+# action: end
+
+add node p2.chien_po_imperial_soldier.b card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+set node game turn=29
+set node p2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.b
+add edge p2.chien_po_imperial_soldier.b -> p2 can_play action_id=3 action_type=can_play description=play:p2.chien_po_imperial_soldier.b:exerted exerted=True
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 109 ===
+# turn: 29
+# current_player: p1
+# lore: p1=10, p2=13
+# action: play:p2.chien_po_imperial_soldier.b:exerted
+
+add node bodyguard.t29.1 type=Ability
+set node p2 ink_available=6
+set node p2.chien_po_imperial_soldier.b entered_play=29 zone=play
+add edge bodyguard.t29.1 -> p2.chien_po_imperial_soldier.b bodyguard
+add edge bodyguard.t29.1 -> p2.chien_po_imperial_soldier.b source
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 110 ===
+# turn: 30
+# current_player: p1
+# lore: p1=10, p2=13
+# action: end
+
+add node p1.cogsworth_illuminary_watchman.a card_id=993 damage=0 exerted=0 label=cogsworth_illuminary_watchman type=Card zone=hand
+set node game turn=30
+set node p1 ink_drops=1
+set node p1.tor_florist.b exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.cogsworth_illuminary_watchman.a -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cogsworth_illuminary_watchman.a
+add edge p1.cogsworth_illuminary_watchman.a -> p1 can_play action_id=2 action_type=can_play description=play:p1.cogsworth_illuminary_watchman.a
+add edge p1.tor_florist.b -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.tor_florist.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 111 ===
+# turn: 30
+# current_player: p1
+# lore: p1=11, p2=13
+# action: quest:p1.tor_florist.b
+
+set node p1 lore=11
+set node p1.tor_florist.b exerted=1
+remove edge p1.tor_florist.b -> p1 can_quest
+
+=== state 112 ===
+# turn: 30
+# current_player: p1
+# lore: p1=11, p2=13
+# action: ink:p1.cogsworth_illuminary_watchman.a
+
+set node p1 ink_available=14 ink_drops=0 ink_total=14
+set node p1.cogsworth_illuminary_watchman.a zone=ink
+remove edge p1.cogsworth_illuminary_watchman.a -> p1 can_ink
+remove edge p1.cogsworth_illuminary_watchman.a -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 113 ===
+# turn: 31
+# current_player: p1
+# lore: p1=11, p2=13
+# action: end
+
+add node p2.mulan_free_spirit.a card_id=231 damage=0 exerted=0 label=mulan_free_spirit type=Card zone=hand
+set node game turn=31
+set node p2 ink_available=11
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p1.tor_florist.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.chien_po_imperial_soldier.b->p1.tor_florist.b
+add edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.mulan_free_spirit.a -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.mulan_free_spirit.a
+add edge p2.mulan_free_spirit.a -> p2 can_play action_id=3 action_type=can_play description=play:p2.mulan_free_spirit.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 114 ===
+# turn: 31
+# current_player: p1
+# lore: p1=11, p2=14
+# action: quest:p2.chien_po_imperial_soldier.b
+
+set node p2 lore=14
+set node p2.chien_po_imperial_soldier.b exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p1.tor_florist.b can_challenge
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.mulan_free_spirit.a -> p2 can_ink action_id=0
+set edge p2.mulan_free_spirit.a -> p2 can_play action_id=2
+
+=== state 115 ===
+# turn: 31
+# current_player: p1
+# lore: p1=11, p2=14
+# action: play:p2.mulan_free_spirit.a
+
+set node p2 ink_available=8
+set node p2.mulan_free_spirit.a entered_play=31 zone=play
+remove edge p2.mulan_free_spirit.a -> p2 can_ink
+remove edge p2.mulan_free_spirit.a -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 116 ===
+# turn: 32
+# current_player: p1
+# lore: p1=11, p2=14
+# action: end
+
+add node p1.fred_mascot_by_day.c card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+set node game turn=32
+set node p1 ink_drops=1
+set node p1.tor_florist.b exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.fred_mascot_by_day.c -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.fred_mascot_by_day.c
+add edge p1.fred_mascot_by_day.c -> p1 can_play action_id=3 action_type=can_play description=play:p1.fred_mascot_by_day.c
+add edge p1.tor_florist.b -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.tor_florist.b
+add edge p1.tor_florist.b -> p2.chien_po_imperial_soldier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tor_florist.b->p2.chien_po_imperial_soldier.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 117 ===
+# turn: 32
+# current_player: p1
+# lore: p1=11, p2=14
+# action: play:p1.fred_mascot_by_day.c
+
+set node p1 ink_available=13
+set node p1.fred_mascot_by_day.c entered_play=32 zone=play
+remove edge p1.fred_mascot_by_day.c -> p1 can_ink
+remove edge p1.fred_mascot_by_day.c -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.tor_florist.b -> p1 can_quest action_id=2
+
+=== state 118 ===
+# turn: 32
+# current_player: p1
+# lore: p1=11, p2=14
+# action: challenge:p1.tor_florist.b->p2.chien_po_imperial_soldier.b
+
+set node p1.tor_florist.b damage=8 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.b damage=4
+remove edge p1.tor_florist.b -> p1 can_quest
+remove edge p1.tor_florist.b -> p2.chien_po_imperial_soldier.b can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 119 ===
+# turn: 33
+# current_player: p1
+# lore: p1=11, p2=14
+# action: end
+
+add node p2.prince_eric_dashing_and_brave.a card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+set node game turn=33
+set node p2 ink_available=11
+set node p2.chien_po_imperial_soldier.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.mulan_free_spirit.a -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.mulan_free_spirit.a
+add edge p2.prince_eric_dashing_and_brave.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.prince_eric_dashing_and_brave.a
+add edge p2.prince_eric_dashing_and_brave.a -> p2 can_play action_id=2 action_type=can_play description=play:p2.prince_eric_dashing_and_brave.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 120 ===
+# turn: 33
+# current_player: p1
+# lore: p1=11, p2=16
+# action: quest:p2.mulan_free_spirit.a
+
+set node p2 lore=16
+set node p2.mulan_free_spirit.a exerted=1
+remove edge p2.mulan_free_spirit.a -> p2 can_quest
+
+=== state 121 ===
+# turn: 33
+# current_player: p1
+# lore: p1=11, p2=16
+# action: ink:p2.prince_eric_dashing_and_brave.a
+
+set node p2 ink_available=12 ink_drops=0 ink_total=12
+set node p2.prince_eric_dashing_and_brave.a zone=ink
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 can_ink
+remove edge p2.prince_eric_dashing_and_brave.a -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=1
+
+=== state 122 ===
+# turn: 33
+# current_player: p1
+# lore: p1=11, p2=17
+# action: quest:p2.chien_po_imperial_soldier.b
+
+set node p2 lore=17
+set node p2.chien_po_imperial_soldier.b exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_quest
+
+=== state 123 ===
+# turn: 34
+# current_player: p1
+# lore: p1=11, p2=17
+# action: end
+
+add node p1.tinker_bell_fast_flier.c card_id=1242 damage=0 exerted=0 label=tinker_bell_fast_flier type=Card zone=hand
+set node game turn=34
+set node p1 ink_available=14
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.fred_mascot_by_day.c -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.fred_mascot_by_day.c
+add edge p1.fred_mascot_by_day.c -> p2.chien_po_imperial_soldier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.fred_mascot_by_day.c->p2.chien_po_imperial_soldier.b
+add edge p1.tinker_bell_fast_flier.c -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.tinker_bell_fast_flier.c
+add edge p1.tinker_bell_fast_flier.c -> p1 can_play action_id=3 action_type=can_play description=play:p1.tinker_bell_fast_flier.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 124 ===
+# turn: 34
+# current_player: p1
+# lore: p1=12, p2=17
+# action: quest:p1.fred_mascot_by_day.c
+
+set node p1 lore=12
+set node p1.fred_mascot_by_day.c exerted=1
+remove edge p1.fred_mascot_by_day.c -> p1 can_quest
+remove edge p1.fred_mascot_by_day.c -> p2.chien_po_imperial_soldier.b can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.tinker_bell_fast_flier.c -> p1 can_ink action_id=0
+set edge p1.tinker_bell_fast_flier.c -> p1 can_play action_id=2
+
+=== state 125 ===
+# turn: 34
+# current_player: p1
+# lore: p1=12, p2=17
+# action: play:p1.tinker_bell_fast_flier.c
+
+add node evasive.t34.1 type=Ability
+set node p1 ink_available=11
+set node p1.tinker_bell_fast_flier.c entered_play=34 zone=play
+add edge evasive.t34.1 -> p1.tinker_bell_fast_flier.c evasive
+add edge evasive.t34.1 -> p1.tinker_bell_fast_flier.c source
+remove edge p1.tinker_bell_fast_flier.c -> p1 can_ink
+remove edge p1.tinker_bell_fast_flier.c -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+
+=== state 126 ===
+# turn: 35
+# current_player: p1
+# lore: p1=12, p2=17
+# action: end
+
+add node p2.robin_hood_beloved_outlaw.b card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+set node game turn=35
+set node p2 ink_drops=1
+set node p2.chien_po_imperial_soldier.b exerted=0
+set node p2.mulan_free_spirit.a exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.b -> p1.fred_mascot_by_day.c can_challenge action_id=0 action_type=can_challenge description=challenge:p2.chien_po_imperial_soldier.b->p1.fred_mascot_by_day.c
+add edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.mulan_free_spirit.a -> p1.fred_mascot_by_day.c can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mulan_free_spirit.a->p1.fred_mascot_by_day.c
+add edge p2.mulan_free_spirit.a -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.mulan_free_spirit.a
+add edge p2.robin_hood_beloved_outlaw.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.b
+add edge p2.robin_hood_beloved_outlaw.b -> p2 can_play action_id=4 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 127 ===
+# turn: 35
+# current_player: p1
+# lore: p1=12, p2=17
+# action: challenge:p2.mulan_free_spirit.a->p1.fred_mascot_by_day.c
+
+set node p1.fred_mascot_by_day.c damage=2 zone=discard
+set node p2.mulan_free_spirit.a damage=1 exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p1.fred_mascot_by_day.c can_challenge
+remove edge p2.mulan_free_spirit.a -> p1.fred_mascot_by_day.c can_challenge
+remove edge p2.mulan_free_spirit.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=3
+set edge p2.robin_hood_beloved_outlaw.b -> p2 can_ink action_id=0
+set edge p2.robin_hood_beloved_outlaw.b -> p2 can_play action_id=2
+
+=== state 128 ===
+# turn: 35
+# current_player: p1
+# lore: p1=12, p2=18
+# action: quest:p2.chien_po_imperial_soldier.b
+
+set node p2 lore=18
+set node p2.chien_po_imperial_soldier.b exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_quest
+
+=== state 129 ===
+# turn: 35
+# current_player: p1
+# lore: p1=12, p2=18
+# action: play:p2.robin_hood_beloved_outlaw.b
+
+set node p2 ink_available=11
+set node p2.robin_hood_beloved_outlaw.b entered_play=35 zone=play
+remove edge p2.robin_hood_beloved_outlaw.b -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.b -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 130 ===
+# turn: 36
+# current_player: p1
+# lore: p1=12, p2=18
+# action: end
+
+add node p1.the_white_rose_jewel_of_the_garden.d card_id=1239 damage=0 exerted=0 label=the_white_rose_jewel_of_the_garden type=Card zone=hand
+set node game turn=36
+set node p1 ink_available=14
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.the_white_rose_jewel_of_the_garden.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.d
+add edge p1.the_white_rose_jewel_of_the_garden.d -> p1 can_play action_id=3 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.d
+add edge p1.tinker_bell_fast_flier.c -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.c
+add edge p1.tinker_bell_fast_flier.c -> p2.chien_po_imperial_soldier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.c->p2.chien_po_imperial_soldier.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 131 ===
+# turn: 36
+# current_player: p1
+# lore: p1=12, p2=18
+# action: ink:p1.the_white_rose_jewel_of_the_garden.d
+
+set node p1 ink_available=15 ink_drops=0 ink_total=15
+set node p1.the_white_rose_jewel_of_the_garden.d zone=ink
+remove edge p1.the_white_rose_jewel_of_the_garden.d -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.tinker_bell_fast_flier.c -> p1 can_quest action_id=2
+
+=== state 132 ===
+# turn: 36
+# current_player: p1
+# lore: p1=14, p2=18
+# action: quest:p1.tinker_bell_fast_flier.c
+
+set node p1 lore=14
+set node p1.tinker_bell_fast_flier.c exerted=1
+remove edge p1.tinker_bell_fast_flier.c -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.c -> p2.chien_po_imperial_soldier.b can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 133 ===
+# turn: 37
+# current_player: p1
+# lore: p1=14, p2=18
+# action: end
+
+add node p2.aladdin_cornered_swordsman.b card_id=171 damage=0 exerted=0 label=aladdin_cornered_swordsman type=Card zone=hand
+set node game turn=37
+set node p2 ink_available=12
+set node p2.chien_po_imperial_soldier.b exerted=0
+set node p2.mulan_free_spirit.a exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.aladdin_cornered_swordsman.b -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.aladdin_cornered_swordsman.b
+add edge p2.aladdin_cornered_swordsman.b -> p2 can_play action_id=2 action_type=can_play description=play:p2.aladdin_cornered_swordsman.b
+add edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=3 action_type=can_quest description=quest:p2.chien_po_imperial_soldier.b
+add edge p2.mulan_free_spirit.a -> p2 can_quest action_id=4 action_type=can_quest description=quest:p2.mulan_free_spirit.a
+add edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.robin_hood_beloved_outlaw.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 134 ===
+# turn: 37
+# current_player: p1
+# lore: p1=14, p2=18
+# action: ink:p2.aladdin_cornered_swordsman.b
+
+set node p2 ink_available=13 ink_drops=0 ink_total=13
+set node p2.aladdin_cornered_swordsman.b zone=ink
+remove edge p2.aladdin_cornered_swordsman.b -> p2 can_ink
+remove edge p2.aladdin_cornered_swordsman.b -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=1
+set edge p2.mulan_free_spirit.a -> p2 can_quest action_id=2
+set edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest action_id=3
+
+=== state 135 ===
+# turn: 37
+# current_player: p1
+# lore: p1=14, p2=19
+# action: quest:p2.chien_po_imperial_soldier.b
+
+set node p2 lore=19
+set node p2.chien_po_imperial_soldier.b exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_quest
+set edge p2.mulan_free_spirit.a -> p2 can_quest action_id=1
+set edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest action_id=2
+
+=== state 136 ===
+# turn: 37
+# current_player: p1
+# lore: p1=14, p2=20
+# action: quest:p2.robin_hood_beloved_outlaw.b
+
+set node game game_over=1 winner=p2
+set node p2 lore=20
+set node p2.robin_hood_beloved_outlaw.b exerted=1
+remove edge p2 -> game can_pass
+remove edge p2.mulan_free_spirit.a -> p2 can_quest
+remove edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest

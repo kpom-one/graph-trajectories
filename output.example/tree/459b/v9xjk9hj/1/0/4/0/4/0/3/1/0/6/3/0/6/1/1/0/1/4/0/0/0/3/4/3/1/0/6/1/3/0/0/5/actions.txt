@@ -1,0 +1,11 @@
+0: challenge:p2.simba_protective_cub.c->p1.luisa_madrigal_magically_strong_one.d
+1: challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+2: end
+3: play:p2.chien_po_imperial_soldier.b
+4: play:p2.chien_po_imperial_soldier.b:exerted
+5: play:p2.chien_po_imperial_soldier.c
+6: play:p2.chien_po_imperial_soldier.c:exerted
+7: play:p2.chien_po_imperial_soldier.d
+8: play:p2.chien_po_imperial_soldier.d:exerted
+9: quest:p2.simba_protective_cub.c
+a: quest:p2.stitch_new_dog.b

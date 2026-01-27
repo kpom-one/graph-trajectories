@@ -1,0 +1,6 @@
+0: ink:p1.cauldron_born_mindless_horde.d
+1: ink:p1.fred_mascot_by_day.a
+2: ink:p1.maleficent_sorceress.a
+3: ink:p1.maleficent_sorceress.b
+4: ink:p1.tor_florist.b
+5: end

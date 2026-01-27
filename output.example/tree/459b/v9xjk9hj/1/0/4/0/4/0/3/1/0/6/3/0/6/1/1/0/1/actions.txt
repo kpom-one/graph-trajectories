@@ -1,0 +1,7 @@
+0: challenge:p1.cogsworth_illuminary_watchman.d->p2.simba_protective_cub.a
+1: end
+2: play:p1.luisa_madrigal_magically_strong_one.a
+3: play:p1.luisa_madrigal_magically_strong_one.d
+4: play:p1.maleficent_sorceress.a
+5: play:p1.maleficent_sorceress.b
+6: quest:p1.cogsworth_illuminary_watchman.d

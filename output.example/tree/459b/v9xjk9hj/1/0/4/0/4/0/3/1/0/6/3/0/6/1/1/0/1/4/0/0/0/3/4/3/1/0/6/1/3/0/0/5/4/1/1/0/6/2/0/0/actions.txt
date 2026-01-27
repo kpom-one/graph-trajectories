@@ -1,0 +1,11 @@
+0: ink:p2.chien_po_imperial_soldier.c
+1: ink:p2.chien_po_imperial_soldier.d
+2: ink:p2.mickey_mouse_standard_bearer.a
+3: end
+4: play:p2.chien_po_imperial_soldier.c
+5: play:p2.chien_po_imperial_soldier.c:exerted
+6: play:p2.chien_po_imperial_soldier.d
+7: play:p2.chien_po_imperial_soldier.d:exerted
+8: play:p2.mickey_mouse_standard_bearer.a
+9: quest:p2.chien_po_imperial_soldier.b
+a: quest:p2.simba_protective_cub.c

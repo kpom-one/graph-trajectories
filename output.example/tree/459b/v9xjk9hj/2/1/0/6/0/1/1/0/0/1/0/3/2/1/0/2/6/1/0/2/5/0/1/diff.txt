@@ -1,0 +1,14 @@
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: play:p1.luisa_madrigal_magically_strong_one.a
+
+add node rush.t6.1 type=Ability
+set node p1 ink_available=0
+set node p1.luisa_madrigal_magically_strong_one.a entered_play=6 zone=play
+add edge p1.luisa_madrigal_magically_strong_one.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mickey_mouse_standard_bearer.c
+add edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+add edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a source
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1

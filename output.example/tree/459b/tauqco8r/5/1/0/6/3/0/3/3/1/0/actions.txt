@@ -1,0 +1,11 @@
+0: challenge:p2.robin_hood_beloved_outlaw.d->p1.cogsworth_illuminary_watchman.d
+1: ink:p2.arges_the_cyclops.d
+2: ink:p2.chien_po_imperial_soldier.b
+3: ink:p2.chien_po_imperial_soldier.c
+4: ink:p2.jafar_royal_vizier.d
+5: ink:p2.robin_hood_beloved_outlaw.b
+6: ink:p2.stitch_carefree_surfer.a
+7: end
+8: play:p2.dumptruck_karnage's_second_mate.d
+9: play:p2.robin_hood_beloved_outlaw.b
+a: quest:p2.robin_hood_beloved_outlaw.d

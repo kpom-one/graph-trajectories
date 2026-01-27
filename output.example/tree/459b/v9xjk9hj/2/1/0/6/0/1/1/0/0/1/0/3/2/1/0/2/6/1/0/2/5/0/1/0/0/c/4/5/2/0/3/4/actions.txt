@@ -1,0 +1,5 @@
+0: challenge:p1.cogsworth_illuminary_watchman.d->p2.mulan_free_spirit.b
+1: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mulan_free_spirit.b
+2: end
+3: quest:p1.cogsworth_illuminary_watchman.d
+4: quest:p1.luisa_madrigal_magically_strong_one.a

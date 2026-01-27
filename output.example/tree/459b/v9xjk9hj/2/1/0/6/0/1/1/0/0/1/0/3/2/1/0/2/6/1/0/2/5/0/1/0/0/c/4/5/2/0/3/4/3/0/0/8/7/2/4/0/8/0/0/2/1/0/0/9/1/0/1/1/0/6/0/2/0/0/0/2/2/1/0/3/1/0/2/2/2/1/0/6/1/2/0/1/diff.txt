@@ -1,0 +1,18 @@
+# turn: 17
+# current_player: p2
+# lore: p1=15, p2=12
+# action: challenge:p2.chien_po_imperial_soldier.d->p1.pinocchio_star_attraction.b
+
+set node p1.pinocchio_star_attraction.b damage=4 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=3 exerted=1
+remove edge p2.arges_the_cyclops.d -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.chien_po_imperial_soldier.d -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_quest
+remove edge p2.mickey_mouse_standard_bearer.a -> p1.pinocchio_star_attraction.b can_challenge
+remove edge p2.stitch_new_dog.c -> p1.pinocchio_star_attraction.b can_challenge
+set edge p2 -> game can_pass action_id=1
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=3
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_quest action_id=4
+set edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_ink action_id=0
+set edge p2.mr._arrow_legacy's_first_mate.c -> p2 can_play action_id=2
+set edge p2.stitch_new_dog.c -> p2 can_quest action_id=5

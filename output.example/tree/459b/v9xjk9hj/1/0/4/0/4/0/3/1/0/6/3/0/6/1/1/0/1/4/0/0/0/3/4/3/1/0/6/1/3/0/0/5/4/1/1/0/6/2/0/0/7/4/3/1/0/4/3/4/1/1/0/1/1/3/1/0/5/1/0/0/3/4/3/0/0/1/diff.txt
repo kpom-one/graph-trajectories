@@ -1,0 +1,13 @@
+# turn: 16
+# current_player: p1
+# lore: p1=3, p2=12
+# action: challenge:p1.pinocchio_star_attraction.b->p2.chien_po_imperial_soldier.d
+
+set node p1.pinocchio_star_attraction.b damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=5
+remove edge p1.pinocchio_star_attraction.b -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.b can_challenge
+remove edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.chip_the_teacup_gentle_soul.d -> p1 can_ink action_id=0
+set edge p1.chip_the_teacup_gentle_soul.d -> p1 can_play action_id=2

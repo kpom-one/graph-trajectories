@@ -1,0 +1,3 @@
+0: end
+1: quest:p2.genie_satisfied_dragon.a
+2: quest:p2.jafar_royal_vizier.b

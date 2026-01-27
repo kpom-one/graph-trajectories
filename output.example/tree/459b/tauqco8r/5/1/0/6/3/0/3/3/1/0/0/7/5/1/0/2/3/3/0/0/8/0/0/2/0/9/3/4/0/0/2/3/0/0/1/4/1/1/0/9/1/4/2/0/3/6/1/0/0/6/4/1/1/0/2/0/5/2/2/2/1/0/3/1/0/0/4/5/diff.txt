@@ -1,0 +1,9 @@
+# turn: 15
+# current_player: p2
+# lore: p1=8, p2=9
+# action: quest:p2.genie_satisfied_dragon.a
+
+set node p2 lore=9
+set node p2.genie_satisfied_dragon.a exerted=1
+remove edge p2.genie_satisfied_dragon.a -> p2 can_quest
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=5

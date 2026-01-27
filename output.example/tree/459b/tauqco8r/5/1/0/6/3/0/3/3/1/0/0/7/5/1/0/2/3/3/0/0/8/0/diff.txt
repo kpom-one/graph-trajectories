@@ -1,0 +1,15 @@
+# turn: 5
+# current_player: p2
+# lore: p1=2, p2=0
+# action: challenge:p2.dumptruck_karnage's_second_mate.d->p1.lena_sabrewing_rebellious_teenager.c
+
+set node p2.dumptruck_karnage's_second_mate.d damage=1 exerted=1 zone=discard
+remove edge p2.dumptruck_karnage's_second_mate.d -> p1.lena_sabrewing_rebellious_teenager.c can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.d -> p1.lena_sabrewing_rebellious_teenager.d can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=2
+set edge p2.arges_the_cyclops.d -> p2 can_play action_id=3
+set edge p2.jafar_royal_vizier.b -> p2 can_play action_id=4
+set edge p2.robin_hood_beloved_outlaw.b -> p1.lena_sabrewing_rebellious_teenager.c can_challenge action_id=0
+set edge p2.robin_hood_beloved_outlaw.b -> p1.lena_sabrewing_rebellious_teenager.d can_challenge action_id=1
+set edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest action_id=5

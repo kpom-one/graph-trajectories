@@ -1,0 +1,20 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=7
+# action: end
+
+add node p1.maleficent_sorceress.b card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+set node game turn=12
+set node p1 ink_available=5 ink_drops=1
+set node p1.tinker_bell_fast_flier.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.maleficent_sorceress.b -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.maleficent_sorceress.b
+add edge p1.maleficent_sorceress.b -> p1 can_play action_id=4 action_type=can_play description=play:p1.maleficent_sorceress.b
+add edge p1.tinker_bell_fast_flier.a -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.a
+add edge p1.tinker_bell_fast_flier.a -> p2.genie_satisfied_dragon.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.a->p2.genie_satisfied_dragon.a
+add edge p1.tinker_bell_fast_flier.a -> p2.jafar_royal_vizier.b can_challenge action_id=1 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

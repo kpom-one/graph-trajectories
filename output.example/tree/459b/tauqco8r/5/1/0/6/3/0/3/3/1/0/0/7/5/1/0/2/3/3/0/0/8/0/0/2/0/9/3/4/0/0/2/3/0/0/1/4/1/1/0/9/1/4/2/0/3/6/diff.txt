@@ -1,0 +1,13 @@
+# turn: 10
+# current_player: p1
+# lore: p1=7, p2=2
+# action: quest:p1.pinocchio_star_attraction.c
+
+set node p1 lore=7
+set node p1.pinocchio_star_attraction.c exerted=1
+remove edge p1.pinocchio_star_attraction.c -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.c -> p2.genie_satisfied_dragon.a can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.fred_mascot_by_day.b -> p1 can_quest action_id=4
+set edge p1.kuzco_wanted_llama.d -> p1 can_ink action_id=1
+set edge p1.kuzco_wanted_llama.d -> p1 can_play action_id=3

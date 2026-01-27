@@ -1,0 +1,10 @@
+# turn: 14
+# current_player: p1
+# lore: p1=3, p2=8
+# action: play:p1.pinocchio_star_attraction.b
+
+set node p1 ink_available=5
+set node p1.pinocchio_star_attraction.b entered_play=14 zone=play
+remove edge p1.pinocchio_star_attraction.b -> p1 can_play
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=5
+set edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=6

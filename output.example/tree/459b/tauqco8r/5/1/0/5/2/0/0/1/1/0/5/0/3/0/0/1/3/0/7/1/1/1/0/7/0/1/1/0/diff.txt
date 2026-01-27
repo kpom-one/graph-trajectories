@@ -1,0 +1,24 @@
+# turn: 7
+# current_player: p2
+# lore: p1=1, p2=1
+# action: end
+
+add node p2.genie_satisfied_dragon.a card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=7
+set node p2 ink_available=3 ink_drops=1
+set node p2.jafar_royal_vizier.d exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.d -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.arges_the_cyclops.d
+add edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.c
+add edge p2.dumptruck_karnage's_second_mate.d -> p2 can_quest action_id=8 action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.d
+add edge p2.genie_satisfied_dragon.a -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.genie_satisfied_dragon.a
+add edge p2.genie_satisfied_dragon.a -> p2 can_play action_id=5 action_type=can_play description=play:p2.genie_satisfied_dragon.a
+add edge p2.jafar_royal_vizier.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.jafar_royal_vizier.b
+add edge p2.jafar_royal_vizier.b -> p2 can_play action_id=6 action_type=can_play description=play:p2.jafar_royal_vizier.b
+add edge p2.jafar_royal_vizier.d -> p2 can_quest action_id=9 action_type=can_quest description=quest:p2.jafar_royal_vizier.d
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass

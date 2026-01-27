@@ -1,0 +1,6 @@
+0: ink:p2.arges_the_cyclops.d
+1: end
+2: play:p2.arges_the_cyclops.d
+3: quest:p2.chien_po_imperial_soldier.d
+4: quest:p2.mickey_mouse_standard_bearer.a
+5: quest:p2.stitch_new_dog.c

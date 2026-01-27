@@ -1,0 +1,24 @@
+# turn: 10
+# current_player: p1
+# lore: p1=3, p2=6
+# action: end
+
+add node p1.kuzco_wanted_llama.d card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=10
+set node p1 ink_available=4
+set node p1.tinker_bell_fast_flier.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.kuzco_wanted_llama.d -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.kuzco_wanted_llama.d
+add edge p1.kuzco_wanted_llama.d -> p1 can_play action_id=6 action_type=can_play description=play:p1.kuzco_wanted_llama.d
+add edge p1.luisa_madrigal_magically_strong_one.b -> p1 can_play action_id=7 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.b
+add edge p1.pinocchio_star_attraction.c -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.pinocchio_star_attraction.c
+add edge p1.pinocchio_star_attraction.c -> p2.jafar_royal_vizier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.b
+add edge p1.pinocchio_star_attraction.c -> p2.jafar_royal_vizier.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.d
+add edge p1.tinker_bell_fast_flier.a -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.a
+add edge p1.tinker_bell_fast_flier.a -> p2.jafar_royal_vizier.b can_challenge action_id=2 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.b
+add edge p1.tinker_bell_fast_flier.a -> p2.jafar_royal_vizier.d can_challenge action_id=3 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

@@ -1,0 +1,12 @@
+# turn: 11
+# current_player: p2
+# lore: p1=7, p2=2
+# action: challenge:p2.genie_satisfied_dragon.a->p1.pinocchio_star_attraction.c
+
+set node p1.pinocchio_star_attraction.c damage=3 zone=discard
+set node p2.genie_satisfied_dragon.a damage=2 exerted=1
+remove edge p2.chien_po_imperial_soldier.c -> p1.pinocchio_star_attraction.c can_challenge
+remove edge p2.genie_satisfied_dragon.a -> p1.pinocchio_star_attraction.c can_challenge
+remove edge p2.genie_satisfied_dragon.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.c -> p2 can_quest action_id=1

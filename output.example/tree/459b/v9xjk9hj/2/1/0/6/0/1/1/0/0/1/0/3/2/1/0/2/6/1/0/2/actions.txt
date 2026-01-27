@@ -1,0 +1,7 @@
+0: challenge:p1.cogsworth_illuminary_watchman.d->p2.mickey_mouse_standard_bearer.c
+1: challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+2: end
+3: play:p1.luisa_madrigal_magically_strong_one.a
+4: play:p1.luisa_madrigal_magically_strong_one.d
+5: quest:p1.cogsworth_illuminary_watchman.d
+6: quest:p1.fred_mascot_by_day.a

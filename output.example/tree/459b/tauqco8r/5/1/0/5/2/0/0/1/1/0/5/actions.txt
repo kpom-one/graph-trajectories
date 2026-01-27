@@ -1,0 +1,6 @@
+0: challenge:p2.robin_hood_beloved_outlaw.b->p1.cogsworth_illuminary_watchman.d
+1: end
+2: play:p2.arges_the_cyclops.d
+3: play:p2.dumptruck_karnage's_second_mate.d
+4: play:p2.jafar_royal_vizier.d
+5: quest:p2.robin_hood_beloved_outlaw.b

@@ -1,0 +1,11 @@
+# turn: 19
+# current_player: p2
+# lore: p1=3, p2=19
+# action: play:p2.mulan_free_spirit.c
+
+set node p2 ink_available=6
+set node p2.mulan_free_spirit.c entered_play=19 zone=play
+remove edge p2.mulan_free_spirit.c -> p2 can_ink
+remove edge p2.mulan_free_spirit.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=1

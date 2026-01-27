@@ -1,0 +1,10 @@
+# turn: 18
+# current_player: p1
+# lore: p1=3, p2=16
+# action: play:p1.tor_florist.d
+
+set node p1 ink_available=3
+set node p1.tor_florist.d entered_play=18 zone=play
+remove edge p1.tor_florist.d -> p1 can_ink
+remove edge p1.tor_florist.d -> p1 can_play
+set edge p1 -> game can_pass action_id=0

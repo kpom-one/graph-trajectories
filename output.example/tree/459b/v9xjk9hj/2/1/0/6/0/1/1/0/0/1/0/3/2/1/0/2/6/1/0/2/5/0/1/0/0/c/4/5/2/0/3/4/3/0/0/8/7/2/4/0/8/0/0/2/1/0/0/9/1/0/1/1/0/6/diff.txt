@@ -1,0 +1,13 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=8
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=3
+set edge p1.pinocchio_star_attraction.d -> p1 can_quest action_id=4

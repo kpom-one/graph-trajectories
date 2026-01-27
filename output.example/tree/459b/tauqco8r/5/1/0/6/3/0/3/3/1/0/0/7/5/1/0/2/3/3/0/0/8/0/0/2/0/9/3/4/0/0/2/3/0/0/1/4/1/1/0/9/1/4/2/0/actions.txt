@@ -1,0 +1,12 @@
+0: challenge:p1.fred_mascot_by_day.b->p2.genie_satisfied_dragon.a
+1: challenge:p1.fred_mascot_by_day.b->p2.jafar_royal_vizier.b
+2: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.genie_satisfied_dragon.a
+3: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.jafar_royal_vizier.b
+4: challenge:p1.pinocchio_star_attraction.c->p2.genie_satisfied_dragon.a
+5: challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.b
+6: ink:p1.kuzco_wanted_llama.d
+7: end
+8: play:p1.kuzco_wanted_llama.d
+9: quest:p1.fred_mascot_by_day.b
+a: quest:p1.luisa_madrigal_magically_strong_one.b
+b: quest:p1.pinocchio_star_attraction.c

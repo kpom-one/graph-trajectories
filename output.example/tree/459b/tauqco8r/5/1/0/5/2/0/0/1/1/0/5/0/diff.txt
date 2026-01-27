@@ -1,0 +1,13 @@
+# turn: 3
+# current_player: p2
+# lore: p1=1, p2=0
+# action: challenge:p2.robin_hood_beloved_outlaw.b->p1.cogsworth_illuminary_watchman.d
+
+set node p1.cogsworth_illuminary_watchman.d damage=2 zone=discard
+set node p2.robin_hood_beloved_outlaw.b damage=1 exerted=1
+remove edge p2.robin_hood_beloved_outlaw.b -> p1.cogsworth_illuminary_watchman.d can_challenge
+remove edge p2.robin_hood_beloved_outlaw.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.d -> p2 can_play action_id=1
+set edge p2.dumptruck_karnage's_second_mate.d -> p2 can_play action_id=2
+set edge p2.jafar_royal_vizier.d -> p2 can_play action_id=3

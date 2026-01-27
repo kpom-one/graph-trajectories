@@ -1,0 +1,6 @@
+0: challenge:p1.tinker_bell_fast_flier.a->p2.arges_the_cyclops.d
+1: challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.d
+2: end
+3: play:p1.luisa_madrigal_magically_strong_one.b
+4: play:p1.pinocchio_star_attraction.c
+5: quest:p1.tinker_bell_fast_flier.a

@@ -1,0 +1,7 @@
+0: challenge:p1.kuzco_wanted_llama.b->p2.prince_naveen_penniless_royal.a
+1: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.prince_naveen_penniless_royal.a
+2: ink:p1.heathcliff_stoic_butler.c
+3: end
+4: play:p1.heathcliff_stoic_butler.c
+5: quest:p1.kuzco_wanted_llama.b
+6: quest:p1.winnie_the_pooh_hunny_wizard.b

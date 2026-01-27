@@ -1,0 +1,12 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: challenge:p1.lena_sabrewing_rebellious_teenager.c->p2.chien_po_imperial_soldier.d
+
+remove node rush.t12.1
+set node p1.lena_sabrewing_rebellious_teenager.c damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=2
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p2.chien_po_imperial_soldier.d can_challenge
+remove edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c rush
+remove edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c source
+set edge p1 -> game can_pass action_id=0

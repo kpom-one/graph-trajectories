@@ -1,0 +1,10 @@
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.kuzco_wanted_llama.a
+
+set node p1 ink_available=0
+set node p1.kuzco_wanted_llama.a entered_play=2 zone=play
+remove edge p1.kuzco_wanted_llama.a -> p1 can_play
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=1

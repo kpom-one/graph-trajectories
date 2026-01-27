@@ -1,0 +1,4 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.robin_hood_beloved_outlaw.b
+1: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.robin_hood_beloved_outlaw.b
+2: end
+3: quest:p1.lena_sabrewing_rebellious_teenager.d

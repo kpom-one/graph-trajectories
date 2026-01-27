@@ -1,0 +1,13 @@
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.maleficent_sorceress.b
+
+set node p1 ink_available=2 ink_drops=0 ink_total=2
+set node p1.maleficent_sorceress.b zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.maleficent_sorceress.b -> p1 can_ink
+remove edge p1.tor_florist.b -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.d -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=1

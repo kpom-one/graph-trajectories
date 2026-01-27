@@ -1,0 +1,10 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=7
+# action: play:p1.maleficent_sorceress.b
+
+set node p1 ink_available=2
+set node p1.maleficent_sorceress.b entered_play=12 zone=play
+remove edge p1.maleficent_sorceress.b -> p1 can_ink
+remove edge p1.maleficent_sorceress.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0

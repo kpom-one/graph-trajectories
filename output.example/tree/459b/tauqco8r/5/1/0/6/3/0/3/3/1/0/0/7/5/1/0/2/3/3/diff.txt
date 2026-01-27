@@ -1,0 +1,11 @@
+# turn: 4
+# current_player: p1
+# lore: p1=2, p2=0
+# action: quest:p1.lena_sabrewing_rebellious_teenager.c
+
+set node p1 lore=2
+set node p1.lena_sabrewing_rebellious_teenager.c exerted=1
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_quest
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p2.robin_hood_beloved_outlaw.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p2.robin_hood_beloved_outlaw.d can_challenge action_id=0

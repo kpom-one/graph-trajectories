@@ -1,0 +1,13 @@
+# turn: 10
+# current_player: p1
+# lore: p1=6, p2=5
+# action: play:p1.luisa_madrigal_magically_strong_one.d
+
+add node rush.t10.1 type=Ability
+set node p1 ink_available=0
+set node p1.luisa_madrigal_magically_strong_one.d entered_play=10 zone=play
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.simba_protective_cub.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.simba_protective_cub.a
+add edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d rush
+add edge rush.t10.1 -> p1.luisa_madrigal_magically_strong_one.d source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1

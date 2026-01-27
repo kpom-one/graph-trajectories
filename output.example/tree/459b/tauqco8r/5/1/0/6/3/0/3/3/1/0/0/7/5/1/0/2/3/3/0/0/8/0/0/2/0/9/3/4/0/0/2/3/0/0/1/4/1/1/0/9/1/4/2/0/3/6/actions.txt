@@ -1,0 +1,5 @@
+0: challenge:p1.fred_mascot_by_day.b->p2.genie_satisfied_dragon.a
+1: ink:p1.kuzco_wanted_llama.d
+2: end
+3: play:p1.kuzco_wanted_llama.d
+4: quest:p1.fred_mascot_by_day.b

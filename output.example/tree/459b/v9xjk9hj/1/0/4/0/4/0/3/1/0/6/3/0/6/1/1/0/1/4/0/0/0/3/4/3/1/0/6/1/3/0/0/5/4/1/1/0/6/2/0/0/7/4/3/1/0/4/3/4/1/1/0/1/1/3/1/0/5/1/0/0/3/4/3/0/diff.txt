@@ -1,0 +1,10 @@
+# turn: 15
+# current_player: p2
+# lore: p1=3, p2=12
+# action: ink:p2.arges_the_cyclops.d
+
+set node p2 ink_available=8 ink_drops=0 ink_total=8
+set node p2.arges_the_cyclops.d zone=ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0

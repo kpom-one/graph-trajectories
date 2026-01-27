@@ -1,0 +1,13 @@
+# turn: 9
+# current_player: p2
+# lore: p1=4, p2=5
+# action: play:p2.chien_po_imperial_soldier.d:exerted
+
+add node bodyguard.t9.1 type=Ability
+set node p2 ink_available=0
+set node p2.chien_po_imperial_soldier.d entered_play=9 zone=play
+add edge bodyguard.t9.1 -> p2.chien_po_imperial_soldier.d bodyguard
+add edge bodyguard.t9.1 -> p2.chien_po_imperial_soldier.d source
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_play
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_play
+remove edge p2.stitch_new_dog.c -> p2 can_play

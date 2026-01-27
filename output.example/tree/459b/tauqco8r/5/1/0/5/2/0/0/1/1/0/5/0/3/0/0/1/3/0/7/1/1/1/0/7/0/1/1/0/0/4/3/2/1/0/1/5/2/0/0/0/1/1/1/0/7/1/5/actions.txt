@@ -1,0 +1,4 @@
+0: challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.b
+1: ink:p1.kuzco_wanted_llama.d
+2: end
+3: quest:p1.pinocchio_star_attraction.c

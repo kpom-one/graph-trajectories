@@ -1,0 +1,10 @@
+# turn: 16
+# current_player: p1
+# lore: p1=15, p2=12
+# action: quest:p1.pinocchio_star_attraction.b
+
+set node p1 lore=15
+set node p1.pinocchio_star_attraction.b exerted=1
+remove edge p1.pinocchio_star_attraction.b -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=0

@@ -1,0 +1,25 @@
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+add node p1.fred_mascot_by_day.a card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+add node p1.luisa_madrigal_magically_strong_one.a card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+add node p1.luisa_madrigal_magically_strong_one.d card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+add node p1.maleficent_sorceress.a card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+add node p1.maleficent_sorceress.b card_id=49 damage=0 exerted=0 label=maleficent_sorceress type=Card zone=hand
+add node p1.tor_florist.b card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+add node p2.chien_po_imperial_soldier.a card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.chien_po_imperial_soldier.d card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.mulan_free_spirit.b card_id=231 damage=0 exerted=0 label=mulan_free_spirit type=Card zone=hand
+add node p2.prince_naveen_penniless_royal.a card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+add node p2.simba_protective_cub.a card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+add node p2.simba_protective_cub.c card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+add node p2.stitch_carefree_surfer.a card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.fred_mascot_by_day.a -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.fred_mascot_by_day.a
+add edge p1.maleficent_sorceress.a -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.maleficent_sorceress.a
+add edge p1.maleficent_sorceress.b -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.maleficent_sorceress.b
+add edge p1.tor_florist.b -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.tor_florist.b
+set edge p1 -> game can_pass action_id=5

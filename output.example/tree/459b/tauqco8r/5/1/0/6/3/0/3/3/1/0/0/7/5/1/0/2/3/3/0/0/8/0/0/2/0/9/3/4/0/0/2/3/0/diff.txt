@@ -1,0 +1,13 @@
+# turn: 7
+# current_player: p2
+# lore: p1=3, p2=0
+# action: challenge:p2.jafar_royal_vizier.b->p1.lena_sabrewing_rebellious_teenager.c
+
+remove node rush.t2.1
+set node p1.lena_sabrewing_rebellious_teenager.c damage=5 zone=discard
+set node p2.jafar_royal_vizier.b damage=1 exerted=1
+remove edge p2.jafar_royal_vizier.b -> p1.lena_sabrewing_rebellious_teenager.c can_challenge
+remove edge p2.jafar_royal_vizier.b -> p2 can_quest
+remove edge rush.t2.1 -> p1.lena_sabrewing_rebellious_teenager.c rush
+remove edge rush.t2.1 -> p1.lena_sabrewing_rebellious_teenager.c source
+set edge p2 -> game can_pass action_id=0

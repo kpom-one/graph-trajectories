@@ -1,0 +1,14 @@
+# turn: 14
+# current_player: p1
+# lore: p1=3, p2=8
+# action: challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.b
+
+remove node evasive.t10.1
+set node p1.tinker_bell_fast_flier.d damage=6 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.b damage=2
+remove edge evasive.t10.1 -> p1.tinker_bell_fast_flier.d evasive
+remove edge evasive.t10.1 -> p1.tinker_bell_fast_flier.d source
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.b can_challenge
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=0

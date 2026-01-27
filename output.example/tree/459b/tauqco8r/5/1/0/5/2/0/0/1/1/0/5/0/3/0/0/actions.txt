@@ -1,0 +1,7 @@
+0: ink:p1.lena_sabrewing_rebellious_teenager.c
+1: ink:p1.lena_sabrewing_rebellious_teenager.d
+2: ink:p1.tinker_bell_fast_flier.a
+3: ink:p1.tinker_bell_fast_flier.d
+4: end
+5: play:p1.lena_sabrewing_rebellious_teenager.c
+6: play:p1.lena_sabrewing_rebellious_teenager.d
