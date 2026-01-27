@@ -1,0 +1,16 @@
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: play:p1.lena_sabrewing_rebellious_teenager.d
+
+add node rush.t4.1 type=Ability
+set node p1 ink_available=1
+set node p1.lena_sabrewing_rebellious_teenager.d entered_play=4 zone=play
+add edge p1.lena_sabrewing_rebellious_teenager.d -> p2.robin_hood_beloved_outlaw.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.robin_hood_beloved_outlaw.d
+add edge rush.t4.1 -> p1.lena_sabrewing_rebellious_teenager.d rush
+add edge rush.t4.1 -> p1.lena_sabrewing_rebellious_teenager.d source
+remove edge p1.aladdin_prince_ali.b -> p1 can_play
+remove edge p1.lena_sabrewing_rebellious_teenager.d -> p1 can_play
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_play
+set edge p1 -> game can_pass action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_quest action_id=3

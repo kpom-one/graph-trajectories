@@ -1,0 +1,8 @@
+0: challenge:p2.stitch_new_dog.b->p1.cogsworth_illuminary_watchman.d
+1: ink:p2.chien_po_imperial_soldier.b
+2: ink:p2.chien_po_imperial_soldier.d
+3: ink:p2.stitch_carefree_surfer.a
+4: ink:p2.stitch_new_dog.c
+5: end
+6: play:p2.stitch_new_dog.c
+7: quest:p2.stitch_new_dog.b

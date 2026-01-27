@@ -1,0 +1,17 @@
+# turn: 13
+# current_player: p2
+# lore: p1=3, p2=7
+# action: challenge:p2.chien_po_imperial_soldier.b->p1.pinocchio_star_attraction.d
+
+set node p1.pinocchio_star_attraction.d damage=4 zone=discard
+set node p2.chien_po_imperial_soldier.b damage=1 exerted=1
+remove edge p2.chien_po_imperial_soldier.b -> p1.luisa_madrigal_magically_strong_one.a can_challenge
+remove edge p2.chien_po_imperial_soldier.b -> p1.pinocchio_star_attraction.d can_challenge
+remove edge p2.chien_po_imperial_soldier.b -> p2 can_quest
+remove edge p2.chien_po_imperial_soldier.d -> p1.pinocchio_star_attraction.d can_challenge
+set edge p2 -> game can_pass action_id=3
+set edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=1
+set edge p2.chien_po_imperial_soldier.c -> p2 can_play action_id=5
+set edge p2.chien_po_imperial_soldier.d -> p1.luisa_madrigal_magically_strong_one.a can_challenge action_id=0
+set edge p2.chien_po_imperial_soldier.d -> p2 can_quest action_id=6
+set edge p2.stitch_carefree_surfer.d -> p2 can_ink action_id=2

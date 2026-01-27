@@ -1,0 +1,8 @@
+# turn: 24
+# current_player: p1
+# lore: p1=11, p2=17
+# action: quest:p1.winnie_the_pooh_hunny_wizard.b
+
+set node p1 lore=11
+set node p1.winnie_the_pooh_hunny_wizard.b exerted=1
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest

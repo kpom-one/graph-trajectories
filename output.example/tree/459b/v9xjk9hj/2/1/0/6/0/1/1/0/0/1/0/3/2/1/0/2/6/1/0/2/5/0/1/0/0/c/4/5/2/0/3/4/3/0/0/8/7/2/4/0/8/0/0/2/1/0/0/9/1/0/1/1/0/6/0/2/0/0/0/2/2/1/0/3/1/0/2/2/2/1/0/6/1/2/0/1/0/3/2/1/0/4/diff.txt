@@ -1,0 +1,12 @@
+# turn: 18
+# current_player: p1
+# lore: p1=17, p2=15
+# action: quest:p1.tinker_bell_fast_flier.d
+
+set node p1 lore=17
+set node p1.tinker_bell_fast_flier.d exerted=1
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.tor_florist.d -> p1 can_ink action_id=0
+set edge p1.tor_florist.d -> p1 can_play action_id=2

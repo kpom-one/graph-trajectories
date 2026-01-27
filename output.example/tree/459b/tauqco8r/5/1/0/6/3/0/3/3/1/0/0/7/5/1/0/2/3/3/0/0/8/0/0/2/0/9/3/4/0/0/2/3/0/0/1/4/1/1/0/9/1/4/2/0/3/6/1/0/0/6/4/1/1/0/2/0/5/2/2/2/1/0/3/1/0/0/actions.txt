@@ -1,0 +1,13 @@
+0: challenge:p2.arges_the_cyclops.d->p1.maleficent_sorceress.b
+1: challenge:p2.chien_po_imperial_soldier.c->p1.maleficent_sorceress.b
+2: challenge:p2.genie_satisfied_dragon.a->p1.maleficent_sorceress.b
+3: challenge:p2.mr._arrow_legacy's_first_mate.b->p1.maleficent_sorceress.b
+4: challenge:p2.simba_protective_cub.d->p1.maleficent_sorceress.b
+5: ink:p2.stitch_new_dog.b
+6: end
+7: play:p2.stitch_new_dog.b
+8: quest:p2.arges_the_cyclops.d
+9: quest:p2.chien_po_imperial_soldier.c
+a: quest:p2.genie_satisfied_dragon.a
+b: quest:p2.mr._arrow_legacy's_first_mate.b
+c: quest:p2.simba_protective_cub.d

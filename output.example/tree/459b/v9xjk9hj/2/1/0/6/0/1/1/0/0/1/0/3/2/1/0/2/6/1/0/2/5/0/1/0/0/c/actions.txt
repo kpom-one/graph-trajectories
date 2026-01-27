@@ -1,0 +1,11 @@
+0: challenge:p2.mulan_free_spirit.b->p1.cogsworth_illuminary_watchman.d
+1: challenge:p2.mulan_free_spirit.b->p1.luisa_madrigal_magically_strong_one.a
+2: ink:p2.chien_po_imperial_soldier.b
+3: ink:p2.chien_po_imperial_soldier.d
+4: ink:p2.prince_naveen_penniless_royal.a
+5: ink:p2.simba_protective_cub.a
+6: ink:p2.stitch_carefree_surfer.a
+7: end
+8: play:p2.simba_protective_cub.a
+9: play:p2.simba_protective_cub.a:exerted
+a: quest:p2.mulan_free_spirit.b

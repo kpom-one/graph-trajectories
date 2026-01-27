@@ -1,0 +1,17 @@
+# turn: 14
+# current_player: p1
+# lore: p1=3, p2=8
+# action: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.chien_po_imperial_soldier.d
+
+remove node rush.t12.1
+set node p1.luisa_madrigal_magically_strong_one.a damage=6 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=4
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.chien_po_imperial_soldier.b can_challenge
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.chien_po_imperial_soldier.d can_challenge
+remove edge rush.t12.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+remove edge rush.t12.1 -> p1.luisa_madrigal_magically_strong_one.a source
+set edge p1 -> game can_pass action_id=2
+set edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=3
+set edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.b can_challenge action_id=0
+set edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.d can_challenge action_id=1

@@ -1,0 +1,8 @@
+# turn: 2
+# current_player: p1
+# lore: p1=1, p2=0
+# action: quest:p1.cogsworth_illuminary_watchman.d
+
+set node p1 lore=1
+set node p1.cogsworth_illuminary_watchman.d exerted=1
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest

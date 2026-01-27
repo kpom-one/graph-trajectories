@@ -1,0 +1,12 @@
+0: challenge:p2.arges_the_cyclops.d->p1.fred_mascot_by_day.b
+1: challenge:p2.jafar_royal_vizier.b->p1.fred_mascot_by_day.b
+2: challenge:p2.jafar_royal_vizier.d->p1.fred_mascot_by_day.b
+3: ink:p2.aladdin_cornered_swordsman.b
+4: ink:p2.genie_satisfied_dragon.a
+5: ink:p2.stitch_carefree_surfer.a
+6: end
+7: play:p2.aladdin_cornered_swordsman.b
+8: play:p2.genie_satisfied_dragon.a
+9: quest:p2.arges_the_cyclops.d
+a: quest:p2.jafar_royal_vizier.b
+b: quest:p2.jafar_royal_vizier.d

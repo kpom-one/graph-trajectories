@@ -1,0 +1,19 @@
+# turn: 16
+# current_player: p1
+# lore: p1=3, p2=12
+# action: end
+
+add node p1.chip_the_teacup_gentle_soul.d card_id=253 damage=0 exerted=0 label=chip_the_teacup_gentle_soul type=Card zone=hand
+set node game turn=16
+set node p1 ink_available=7
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.chip_the_teacup_gentle_soul.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.chip_the_teacup_gentle_soul.d
+add edge p1.chip_the_teacup_gentle_soul.d -> p1 can_play action_id=4 action_type=can_play description=play:p1.chip_the_teacup_gentle_soul.d
+add edge p1.pinocchio_star_attraction.b -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.pinocchio_star_attraction.b
+add edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.b->p2.chien_po_imperial_soldier.b
+add edge p1.pinocchio_star_attraction.b -> p2.chien_po_imperial_soldier.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.b->p2.chien_po_imperial_soldier.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

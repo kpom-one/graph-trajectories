@@ -1,0 +1,7 @@
+0: challenge:p2.chien_po_imperial_soldier.d->p1.luisa_madrigal_magically_strong_one.a
+1: ink:p2.chien_po_imperial_soldier.c
+2: ink:p2.stitch_carefree_surfer.d
+3: end
+4: play:p2.chien_po_imperial_soldier.c
+5: play:p2.chien_po_imperial_soldier.c:exerted
+6: quest:p2.chien_po_imperial_soldier.d

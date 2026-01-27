@@ -1,0 +1,6 @@
+0: challenge:p2.stitch_new_dog.b->p1.winnie_the_pooh_hunny_wizard.b
+1: ink:p2.chien_po_imperial_soldier.d
+2: end
+3: play:p2.chien_po_imperial_soldier.d
+4: play:p2.chien_po_imperial_soldier.d:exerted
+5: quest:p2.stitch_new_dog.b

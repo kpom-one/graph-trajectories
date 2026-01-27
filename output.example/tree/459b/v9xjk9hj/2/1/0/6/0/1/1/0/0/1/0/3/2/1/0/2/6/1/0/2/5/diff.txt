@@ -1,0 +1,14 @@
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: quest:p1.cogsworth_illuminary_watchman.d
+
+set node p1 lore=3
+set node p1.cogsworth_illuminary_watchman.d exerted=1
+remove edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest
+remove edge p1.cogsworth_illuminary_watchman.d -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.fred_mascot_by_day.a -> p1 can_quest action_id=4
+set edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=2
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=3

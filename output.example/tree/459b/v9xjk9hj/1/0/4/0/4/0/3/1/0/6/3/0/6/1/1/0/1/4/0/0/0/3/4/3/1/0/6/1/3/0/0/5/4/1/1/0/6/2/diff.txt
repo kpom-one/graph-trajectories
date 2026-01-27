@@ -1,0 +1,8 @@
+# turn: 10
+# current_player: p1
+# lore: p1=0, p2=5
+# action: play:p1.pinocchio_star_attraction.d
+
+set node p1 ink_available=0
+set node p1.pinocchio_star_attraction.d entered_play=10 zone=play
+remove edge p1.pinocchio_star_attraction.d -> p1 can_play

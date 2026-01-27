@@ -1,0 +1,18 @@
+# turn: 20
+# current_player: p1
+# lore: p1=8, p2=15
+# action: end
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+set node game turn=20
+set node p1 ink_available=5
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=2 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_play action_id=3 action_type=can_play description=play:p1.cauldron_born_mindless_horde.d
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.winnie_the_pooh_hunny_wizard.b
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p2.simba_protective_cub.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.simba_protective_cub.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

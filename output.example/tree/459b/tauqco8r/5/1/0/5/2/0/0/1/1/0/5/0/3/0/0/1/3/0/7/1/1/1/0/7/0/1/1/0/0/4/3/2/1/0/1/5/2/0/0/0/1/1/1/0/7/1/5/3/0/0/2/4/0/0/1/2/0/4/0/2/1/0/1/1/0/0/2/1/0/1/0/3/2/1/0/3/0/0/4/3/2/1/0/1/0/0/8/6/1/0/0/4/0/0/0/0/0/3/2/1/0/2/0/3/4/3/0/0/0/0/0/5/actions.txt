@@ -1,0 +1,5 @@
+0: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.prince_naveen_penniless_royal.a
+1: ink:p1.heathcliff_stoic_butler.b
+2: end
+3: play:p1.heathcliff_stoic_butler.b
+4: quest:p1.winnie_the_pooh_hunny_wizard.b

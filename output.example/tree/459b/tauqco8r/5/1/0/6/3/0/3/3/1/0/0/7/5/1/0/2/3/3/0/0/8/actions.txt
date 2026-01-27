@@ -1,0 +1,9 @@
+0: challenge:p2.dumptruck_karnage's_second_mate.d->p1.lena_sabrewing_rebellious_teenager.c
+1: challenge:p2.dumptruck_karnage's_second_mate.d->p1.lena_sabrewing_rebellious_teenager.d
+2: challenge:p2.robin_hood_beloved_outlaw.b->p1.lena_sabrewing_rebellious_teenager.c
+3: challenge:p2.robin_hood_beloved_outlaw.b->p1.lena_sabrewing_rebellious_teenager.d
+4: end
+5: play:p2.arges_the_cyclops.d
+6: play:p2.jafar_royal_vizier.b
+7: quest:p2.dumptruck_karnage's_second_mate.d
+8: quest:p2.robin_hood_beloved_outlaw.b

@@ -1,0 +1,10 @@
+# turn: 25
+# current_player: p2
+# lore: p1=11, p2=17
+# action: play:p2.prince_naveen_penniless_royal.a
+
+set node p2 ink_available=6
+set node p2.prince_naveen_penniless_royal.a entered_play=25 zone=play
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.a -> p2 can_play
+set edge p2 -> game can_pass action_id=0

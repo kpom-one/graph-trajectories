@@ -1,0 +1,4 @@
+0: ink:p2.stitch_new_dog.b
+1: end
+2: play:p2.stitch_new_dog.b
+3: quest:p2.chien_po_imperial_soldier.c

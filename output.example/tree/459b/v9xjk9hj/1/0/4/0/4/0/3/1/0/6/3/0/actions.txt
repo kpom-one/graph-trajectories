@@ -1,0 +1,11 @@
+0: ink:p2.chien_po_imperial_soldier.a
+1: ink:p2.chien_po_imperial_soldier.b
+2: ink:p2.chien_po_imperial_soldier.c
+3: ink:p2.chien_po_imperial_soldier.d
+4: ink:p2.mulan_free_spirit.b
+5: ink:p2.simba_protective_cub.c
+6: ink:p2.stitch_carefree_surfer.a
+7: end
+8: play:p2.simba_protective_cub.c
+9: play:p2.simba_protective_cub.c:exerted
+a: quest:p2.simba_protective_cub.a

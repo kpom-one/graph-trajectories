@@ -1,0 +1,6 @@
+0: challenge:p1.lena_sabrewing_rebellious_teenager.d->p2.robin_hood_beloved_outlaw.b
+1: end
+2: play:p1.aladdin_prince_ali.b
+3: play:p1.fred_mascot_by_day.b
+4: play:p1.luisa_madrigal_magically_strong_one.b
+5: quest:p1.lena_sabrewing_rebellious_teenager.d

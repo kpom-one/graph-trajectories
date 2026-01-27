@@ -1,0 +1,2 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.genie_satisfied_dragon.a
+1: end

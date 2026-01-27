@@ -1,0 +1,5 @@
+0: challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.d
+1: ink:p1.heathcliff_stoic_butler.c
+2: end
+3: play:p1.heathcliff_stoic_butler.c
+4: quest:p1.tinker_bell_fast_flier.d

@@ -1,0 +1,6 @@
+0: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.dumptruck_karnage's_second_mate.c
+1: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.stitch_new_dog.b
+2: ink:p1.kuzco_wanted_llama.b
+3: end
+4: play:p1.kuzco_wanted_llama.b
+5: quest:p1.winnie_the_pooh_hunny_wizard.b

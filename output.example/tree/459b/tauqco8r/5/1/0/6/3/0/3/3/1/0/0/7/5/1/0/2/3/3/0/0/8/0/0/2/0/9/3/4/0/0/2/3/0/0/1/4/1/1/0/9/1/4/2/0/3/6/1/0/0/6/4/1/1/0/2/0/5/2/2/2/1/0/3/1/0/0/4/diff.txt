@@ -1,0 +1,20 @@
+# turn: 15
+# current_player: p2
+# lore: p1=8, p2=8
+# action: challenge:p2.simba_protective_cub.d->p1.maleficent_sorceress.b
+
+set node p1.maleficent_sorceress.b damage=2 zone=discard
+set node p2.simba_protective_cub.d damage=2 exerted=1
+remove edge p2.arges_the_cyclops.d -> p1.maleficent_sorceress.b can_challenge
+remove edge p2.chien_po_imperial_soldier.c -> p1.maleficent_sorceress.b can_challenge
+remove edge p2.genie_satisfied_dragon.a -> p1.maleficent_sorceress.b can_challenge
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p1.maleficent_sorceress.b can_challenge
+remove edge p2.simba_protective_cub.d -> p1.maleficent_sorceress.b can_challenge
+remove edge p2.simba_protective_cub.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.arges_the_cyclops.d -> p2 can_quest action_id=3
+set edge p2.chien_po_imperial_soldier.c -> p2 can_quest action_id=4
+set edge p2.genie_satisfied_dragon.a -> p2 can_quest action_id=5
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=6
+set edge p2.stitch_new_dog.b -> p2 can_ink action_id=0
+set edge p2.stitch_new_dog.b -> p2 can_play action_id=2

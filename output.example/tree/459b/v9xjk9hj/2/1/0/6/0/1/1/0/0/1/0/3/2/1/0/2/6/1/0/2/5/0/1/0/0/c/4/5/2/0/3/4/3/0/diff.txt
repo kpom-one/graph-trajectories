@@ -1,0 +1,13 @@
+# turn: 8
+# current_player: p1
+# lore: p1=4, p2=3
+# action: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mulan_free_spirit.b
+
+remove node rush.t6.1
+set node p1.luisa_madrigal_magically_strong_one.a damage=3 exerted=1 zone=discard
+set node p2.mulan_free_spirit.b damage=4 zone=discard
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.mulan_free_spirit.b can_challenge
+remove edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+remove edge rush.t6.1 -> p1.luisa_madrigal_magically_strong_one.a source
+set edge p1 -> game can_pass action_id=0

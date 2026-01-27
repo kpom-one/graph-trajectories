@@ -1,0 +1,15 @@
+# turn: 8
+# current_player: p1
+# lore: p1=3, p2=3
+# action: play:p1.tinker_bell_fast_flier.d
+
+add node evasive.t8.1 type=Ability
+set node p1 ink_available=2
+set node p1.tinker_bell_fast_flier.d entered_play=8 zone=play
+add edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d evasive
+add edge evasive.t8.1 -> p1.tinker_bell_fast_flier.d source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_play
+remove edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_play
+set edge p1.cogsworth_illuminary_watchman.d -> p1 can_quest action_id=3
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_quest action_id=4

@@ -1,0 +1,18 @@
+# turn: 8
+# current_player: p1
+# lore: p1=0, p2=4
+# action: challenge:p1.maleficent_sorceress.a->p2.simba_protective_cub.a
+
+remove node bodyguard.t3.1
+set node p1.maleficent_sorceress.a damage=2 exerted=1 zone=discard
+set node p2.simba_protective_cub.a damage=3 zone=discard
+add edge p1.luisa_madrigal_magically_strong_one.d -> p2.mulan_free_spirit.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.luisa_madrigal_magically_strong_one.d->p2.mulan_free_spirit.b
+remove edge bodyguard.t3.1 -> p2.simba_protective_cub.a bodyguard
+remove edge bodyguard.t3.1 -> p2.simba_protective_cub.a source
+remove edge p1.luisa_madrigal_magically_strong_one.d -> p2.simba_protective_cub.a can_challenge
+remove edge p1.maleficent_sorceress.a -> p1 can_quest
+remove edge p1.maleficent_sorceress.a -> p2.simba_protective_cub.a can_challenge
+set edge p1 -> game can_pass action_id=4
+set edge p1.maleficent_sorceress.b -> p1 can_ink action_id=1
+set edge p1.tinker_bell_fast_flier.d -> p1 can_ink action_id=2
+set edge p1.winnie_the_pooh_hunny_wizard.c -> p1 can_ink action_id=3

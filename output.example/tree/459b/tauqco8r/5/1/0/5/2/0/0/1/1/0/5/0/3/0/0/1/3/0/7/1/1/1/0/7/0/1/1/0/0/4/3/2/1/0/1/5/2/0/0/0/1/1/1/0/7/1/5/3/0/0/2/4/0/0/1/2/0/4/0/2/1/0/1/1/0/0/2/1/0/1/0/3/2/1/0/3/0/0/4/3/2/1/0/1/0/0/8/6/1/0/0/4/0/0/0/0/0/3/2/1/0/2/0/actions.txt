@@ -1,0 +1,6 @@
+0: ink:p1.tinker_bell_fast_flier.c
+1: end
+2: play:p1.tinker_bell_fast_flier.c
+3: quest:p1.fred_mascot_by_day.a
+4: quest:p1.kuzco_wanted_llama.b
+5: quest:p1.winnie_the_pooh_hunny_wizard.b

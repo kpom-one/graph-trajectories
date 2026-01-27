@@ -1,0 +1,12 @@
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=1
+# action: challenge:p1.fred_mascot_by_day.a->p2.mickey_mouse_standard_bearer.c
+
+set node p1.fred_mascot_by_day.a damage=1 exerted=1 zone=discard
+set node p2.mickey_mouse_standard_bearer.c damage=1
+remove edge p1.fred_mascot_by_day.a -> p1 can_quest
+remove edge p1.fred_mascot_by_day.a -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=1
+set edge p1.luisa_madrigal_magically_strong_one.d -> p1 can_play action_id=2

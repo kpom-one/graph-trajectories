@@ -1,0 +1,18 @@
+# turn: 11
+# current_player: p2
+# lore: p1=0, p2=5
+# action: play:p2.chien_po_imperial_soldier.d:exerted
+
+add node bodyguard.t11.1 type=Ability
+set node p2 ink_available=0
+set node p2.chien_po_imperial_soldier.d entered_play=11 zone=play
+add edge bodyguard.t11.1 -> p2.chien_po_imperial_soldier.d bodyguard
+add edge bodyguard.t11.1 -> p2.chien_po_imperial_soldier.d source
+remove edge p2.chien_po_imperial_soldier.c -> p2 can_play
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_ink
+remove edge p2.chien_po_imperial_soldier.d -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.a -> p2 can_play
+set edge p2 -> game can_pass action_id=2
+set edge p2.chien_po_imperial_soldier.b -> p2 can_quest action_id=3
+set edge p2.mickey_mouse_standard_bearer.a -> p2 can_ink action_id=1
+set edge p2.simba_protective_cub.c -> p2 can_quest action_id=4

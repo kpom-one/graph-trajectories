@@ -1,0 +1,1497 @@
+=== state 0 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.cauldron_born_mindless_horde.a card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+add node p1.fred_mascot_by_day.a card_id=1274 damage=0 exerted=0 label=fred_mascot_by_day type=Card zone=hand
+add node p1.heathcliff_stoic_butler.d card_id=1277 damage=0 exerted=0 label=heathcliff_stoic_butler type=Card zone=hand
+add node p1.lena_sabrewing_rebellious_teenager.c card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+add node p1.the_white_rose_jewel_of_the_garden.a card_id=1239 damage=0 exerted=0 label=the_white_rose_jewel_of_the_garden type=Card zone=hand
+add node p1.the_white_rose_jewel_of_the_garden.c card_id=1239 damage=0 exerted=0 label=the_white_rose_jewel_of_the_garden type=Card zone=hand
+add node p1.winnie_the_pooh_hunny_wizard.b card_id=275 damage=0 exerted=0 label=winnie_the_pooh_hunny_wizard type=Card zone=hand
+add node p2.arges_the_cyclops.c card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.arges_the_cyclops.d card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.dumptruck_karnage's_second_mate.a card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+add node p2.jafar_royal_vizier.d card_id=400 damage=0 exerted=0 label=jafar_royal_vizier type=Card zone=hand
+add node p2.mickey_mouse_standard_bearer.c card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+add node p2.mr._arrow_legacy's_first_mate.d card_id=1381 damage=0 exerted=0 label=mr._arrow_legacy's_first_mate type=Card zone=hand
+add node p2.robin_hood_beloved_outlaw.a card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+
+=== state 1 ===
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.fred_mascot_by_day.a
+
+set node p1 ink_available=1 ink_drops=0 ink_total=1
+set node p1.fred_mascot_by_day.a zone=ink
+remove edge p1.cauldron_born_mindless_horde.a -> p1 can_ink
+remove edge p1.fred_mascot_by_day.a -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+
+=== state 2 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p2.dumptruck_karnage's_second_mate.b card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+set node game turn=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.d
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 3 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p2.mr._arrow_legacy's_first_mate.d
+
+set node p2 ink_available=1 ink_drops=0 ink_total=1
+set node p2.mr._arrow_legacy's_first_mate.d zone=ink
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=1 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play action_id=2 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.b
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_play action_id=3 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.a
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.d -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+
+=== state 4 ===
+# turn: 1
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p2.robin_hood_beloved_outlaw.a
+
+set node p2 ink_available=0
+set node p2.robin_hood_beloved_outlaw.a entered_play=1 zone=play
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_play
+
+=== state 5 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p1.aladdin_prince_ali.d card_id=69 damage=0 exerted=0 label=aladdin_prince_ali type=Card zone=hand
+set node game turn=2
+set node p1 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=7 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.aladdin_prince_ali.d
+add edge p1.cauldron_born_mindless_horde.a -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.a
+add edge p1.heathcliff_stoic_butler.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.heathcliff_stoic_butler.d
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=5 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=6 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 6 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p1.cauldron_born_mindless_horde.a
+
+set node p1 ink_available=2 ink_drops=0 ink_total=2
+set node p1.cauldron_born_mindless_horde.a zone=ink
+add edge p1.aladdin_prince_ali.d -> p1 can_play action_id=1 action_type=can_play description=play:p1.aladdin_prince_ali.d
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=2 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+remove edge p1.aladdin_prince_ali.d -> p1 can_ink
+remove edge p1.cauldron_born_mindless_horde.a -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+
+=== state 7 ===
+# turn: 2
+# current_player: p1
+# lore: p1=0, p2=0
+# action: play:p1.aladdin_prince_ali.d
+
+set node p1 ink_available=0
+set node p1.aladdin_prince_ali.d entered_play=2 zone=play
+remove edge p1.aladdin_prince_ali.d -> p1 can_play
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+
+=== state 8 ===
+# turn: 3
+# current_player: p1
+# lore: p1=0, p2=0
+# action: end
+
+add node p2.mr._arrow_legacy's_first_mate.b card_id=1381 damage=0 exerted=0 label=mr._arrow_legacy's_first_mate type=Card zone=hand
+set node game turn=3
+set node p2 ink_available=1 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=6 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play action_id=7 action_type=can_play description=play:p2.dumptruck_karnage's_second_mate.b
+add edge p2.jafar_royal_vizier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.jafar_royal_vizier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=8 action_type=can_quest description=quest:p2.robin_hood_beloved_outlaw.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 9 ===
+# turn: 3
+# current_player: p1
+# lore: p1=0, p2=0
+# action: ink:p2.jafar_royal_vizier.d
+
+set node p2 ink_available=2 ink_drops=0 ink_total=2
+set node p2.jafar_royal_vizier.d zone=ink
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=1 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_play action_id=2 action_type=can_play description=play:p2.arges_the_cyclops.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_play action_id=5 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=6 action_type=can_play description=play:p2.mr._arrow_legacy's_first_mate.b
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.jafar_royal_vizier.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink
+set edge p2 -> game can_pass action_id=0
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play action_id=3
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play action_id=4
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=7
+
+=== state 10 ===
+# turn: 3
+# current_player: p1
+# lore: p1=0, p2=1
+# action: quest:p2.robin_hood_beloved_outlaw.a
+
+set node p2 lore=1
+set node p2.robin_hood_beloved_outlaw.a exerted=1
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest
+
+=== state 11 ===
+# turn: 3
+# current_player: p1
+# lore: p1=0, p2=1
+# action: play:p2.dumptruck_karnage's_second_mate.a
+
+set node p2 ink_available=1
+set node p2.dumptruck_karnage's_second_mate.a entered_play=3 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_play
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play action_id=1
+
+=== state 12 ===
+# turn: 3
+# current_player: p1
+# lore: p1=0, p2=1
+# action: play:p2.dumptruck_karnage's_second_mate.b
+
+set node p2 ink_available=0
+set node p2.dumptruck_karnage's_second_mate.b entered_play=3 zone=play
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_play
+
+=== state 13 ===
+# turn: 4
+# current_player: p1
+# lore: p1=0, p2=1
+# action: end
+
+add node p1.tor_florist.a card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+set node game turn=4
+set node p1 ink_available=2 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=7 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.aladdin_prince_ali.d
+add edge p1.aladdin_prince_ali.d -> p2.robin_hood_beloved_outlaw.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.robin_hood_beloved_outlaw.a
+add edge p1.heathcliff_stoic_butler.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.heathcliff_stoic_butler.d
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=8 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.tor_florist.a -> p1 can_ink action_id=5 action_type=can_ink description=ink:p1.tor_florist.a
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=6 action_type=can_ink description=ink:p1.winnie_the_pooh_hunny_wizard.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 14 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=1
+# action: quest:p1.aladdin_prince_ali.d
+
+set node p1 lore=1
+set node p1.aladdin_prince_ali.d exerted=1
+remove edge p1.aladdin_prince_ali.d -> p1 can_quest
+remove edge p1.aladdin_prince_ali.d -> p2.robin_hood_beloved_outlaw.a can_challenge
+set edge p1 -> game can_pass action_id=6
+set edge p1.heathcliff_stoic_butler.d -> p1 can_ink action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=7
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink action_id=2
+set edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=3
+set edge p1.tor_florist.a -> p1 can_ink action_id=4
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink action_id=5
+
+=== state 15 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=1
+# action: ink:p1.winnie_the_pooh_hunny_wizard.b
+
+set node p1 ink_available=3 ink_drops=0 ink_total=3
+set node p1.winnie_the_pooh_hunny_wizard.b zone=ink
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play action_id=2 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play action_id=3 action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.c
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.tor_florist.a -> p1 can_ink
+remove edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=1
+
+=== state 16 ===
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=1
+# action: play:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 ink_available=0
+set node p1.the_white_rose_jewel_of_the_garden.a entered_play=4 zone=play
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_play
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play
+
+=== state 17 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=1
+# action: end
+
+add node p2.stitch_carefree_surfer.a card_id=21 damage=0 exerted=0 label=stitch_carefree_surfer type=Card zone=hand
+set node game turn=5
+set node p2 ink_available=2 ink_drops=1
+set node p2.robin_hood_beloved_outlaw.a exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=9 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.arges_the_cyclops.d
+add edge p2.arges_the_cyclops.d -> p2 can_play action_id=a action_type=can_play description=play:p2.arges_the_cyclops.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p1.aladdin_prince_ali.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.a->p1.aladdin_prince_ali.d
+add edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=d action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p1.aladdin_prince_ali.d can_challenge action_id=1 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.b->p1.aladdin_prince_ali.d
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=e action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.b
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_play action_id=b action_type=can_play description=play:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=c action_type=can_play description=play:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.robin_hood_beloved_outlaw.a -> p1.aladdin_prince_ali.d can_challenge action_id=2 action_type=can_challenge description=challenge:p2.robin_hood_beloved_outlaw.a->p1.aladdin_prince_ali.d
+add edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=f action_type=can_quest description=quest:p2.robin_hood_beloved_outlaw.a
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 18 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=1
+# action: ink:p2.arges_the_cyclops.d
+
+set node p2 ink_available=3 ink_drops=0 ink_total=3
+set node p2.arges_the_cyclops.d zone=ink
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_ink
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=3
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=4
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=7
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=8
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_play action_id=5
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=6
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=9
+
+=== state 19 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=1
+# action: play:p2.mickey_mouse_standard_bearer.c
+
+set node p2 ink_available=1
+set node p2.mickey_mouse_standard_bearer.c entered_play=5 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_play
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=4
+set edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=5
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=6
+
+=== state 20 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=2
+# action: quest:p2.dumptruck_karnage's_second_mate.b
+
+set node p2 lore=2
+set node p2.dumptruck_karnage's_second_mate.b exerted=1
+remove edge p2.dumptruck_karnage's_second_mate.b -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=2
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=3
+set edge p2.robin_hood_beloved_outlaw.a -> p1.aladdin_prince_ali.d can_challenge action_id=1
+set edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest action_id=4
+
+=== state 21 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=3
+# action: quest:p2.robin_hood_beloved_outlaw.a
+
+set node p2 lore=3
+set node p2.robin_hood_beloved_outlaw.a exerted=1
+remove edge p2.robin_hood_beloved_outlaw.a -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.robin_hood_beloved_outlaw.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest action_id=2
+
+=== state 22 ===
+# turn: 5
+# current_player: p1
+# lore: p1=1, p2=4
+# action: quest:p2.dumptruck_karnage's_second_mate.a
+
+set node p2 lore=4
+set node p2.dumptruck_karnage's_second_mate.a exerted=1
+remove edge p2.dumptruck_karnage's_second_mate.a -> p1.aladdin_prince_ali.d can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+
+=== state 23 ===
+# turn: 6
+# current_player: p1
+# lore: p1=1, p2=4
+# action: end
+
+add node p1.cauldron_born_mindless_horde.d card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+set node game turn=6
+set node p1 ink_available=3 ink_drops=1
+set node p1.aladdin_prince_ali.d exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=b action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=e action_type=can_quest description=quest:p1.aladdin_prince_ali.d
+add edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.dumptruck_karnage's_second_mate.a
+add edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.b can_challenge action_id=1 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.dumptruck_karnage's_second_mate.b
+add edge p1.aladdin_prince_ali.d -> p2.robin_hood_beloved_outlaw.a can_challenge action_id=2 action_type=can_challenge description=challenge:p1.aladdin_prince_ali.d->p2.robin_hood_beloved_outlaw.a
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=6 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.heathcliff_stoic_butler.d -> p1 can_ink action_id=7 action_type=can_ink description=ink:p1.heathcliff_stoic_butler.d
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=8 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=c action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=f action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.a can_challenge action_id=3 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.dumptruck_karnage's_second_mate.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.b can_challenge action_id=4 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.dumptruck_karnage's_second_mate.b
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.robin_hood_beloved_outlaw.a can_challenge action_id=5 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.robin_hood_beloved_outlaw.a
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=9 action_type=can_ink description=ink:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play action_id=d action_type=can_play description=play:p1.the_white_rose_jewel_of_the_garden.c
+add edge p1.tor_florist.a -> p1 can_ink action_id=a action_type=can_ink description=ink:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 24 ===
+# turn: 6
+# current_player: p1
+# lore: p1=1, p2=4
+# action: challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.dumptruck_karnage's_second_mate.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+set node p2.dumptruck_karnage's_second_mate.a damage=3 zone=discard
+remove edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.a can_challenge
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.a can_challenge
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.dumptruck_karnage's_second_mate.b can_challenge
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.robin_hood_beloved_outlaw.a can_challenge
+set edge p1 -> game can_pass action_id=7
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=a
+set edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.b can_challenge action_id=0
+set edge p1.aladdin_prince_ali.d -> p2.robin_hood_beloved_outlaw.a can_challenge action_id=1
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=2
+set edge p1.heathcliff_stoic_butler.d -> p1 can_ink action_id=3
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=4
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=8
+set edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink action_id=5
+set edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play action_id=9
+set edge p1.tor_florist.a -> p1 can_ink action_id=6
+
+=== state 25 ===
+# turn: 6
+# current_player: p1
+# lore: p1=1, p2=4
+# action: ink:p1.the_white_rose_jewel_of_the_garden.c
+
+set node p1 ink_available=4 ink_drops=0 ink_total=4
+set node p1.the_white_rose_jewel_of_the_garden.c zone=ink
+add edge p1.heathcliff_stoic_butler.d -> p1 can_play action_id=3 action_type=can_play description=play:p1.heathcliff_stoic_butler.d
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_ink
+remove edge p1.the_white_rose_jewel_of_the_garden.c -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_ink
+set edge p1 -> game can_pass action_id=2
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=5
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=4
+
+=== state 26 ===
+# turn: 6
+# current_player: p1
+# lore: p1=1, p2=4
+# action: play:p1.heathcliff_stoic_butler.d
+
+set node p1 ink_available=0
+set node p1.heathcliff_stoic_butler.d entered_play=6 zone=play
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_play
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+set edge p1.aladdin_prince_ali.d -> p1 can_quest action_id=3
+
+=== state 27 ===
+# turn: 6
+# current_player: p1
+# lore: p1=1, p2=4
+# action: challenge:p1.aladdin_prince_ali.d->p2.robin_hood_beloved_outlaw.a
+
+set node p1.aladdin_prince_ali.d damage=2 exerted=1 zone=discard
+set node p2.robin_hood_beloved_outlaw.a damage=2 zone=discard
+remove edge p1.aladdin_prince_ali.d -> p1 can_quest
+remove edge p1.aladdin_prince_ali.d -> p2.dumptruck_karnage's_second_mate.b can_challenge
+remove edge p1.aladdin_prince_ali.d -> p2.robin_hood_beloved_outlaw.a can_challenge
+set edge p1 -> game can_pass action_id=0
+
+=== state 28 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=4
+# action: end
+
+add node p2.prince_naveen_penniless_royal.b card_id=407 damage=0 exerted=0 label=prince_naveen_penniless_royal type=Card zone=hand
+set node game turn=7
+set node p2 ink_available=3 ink_drops=1
+set node p2.dumptruck_karnage's_second_mate.b exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=6 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.arges_the_cyclops.c
+add edge p2.arges_the_cyclops.c -> p2 can_play action_id=7 action_type=can_play description=play:p2.arges_the_cyclops.c
+add edge p2.dumptruck_karnage's_second_mate.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.dumptruck_karnage's_second_mate.b->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest action_id=a action_type=can_quest description=quest:p2.dumptruck_karnage's_second_mate.b
+add edge p2.mickey_mouse_standard_bearer.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=b action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=8 action_type=can_play description=play:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=9 action_type=can_play description=play:p2.prince_naveen_penniless_royal.b
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 29 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=4
+# action: challenge:p2.dumptruck_karnage's_second_mate.b->p1.the_white_rose_jewel_of_the_garden.a
+
+set node p2.dumptruck_karnage's_second_mate.b damage=3 exerted=1 zone=discard
+remove edge p2.dumptruck_karnage's_second_mate.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=5
+set edge p2.arges_the_cyclops.c -> p2 can_ink action_id=1
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=6
+set edge p2.mickey_mouse_standard_bearer.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=0
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=9
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink action_id=2
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=7
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=3
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=8
+set edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=4
+
+=== state 30 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=4
+# action: ink:p2.stitch_carefree_surfer.a
+
+set node p2 ink_available=4 ink_drops=0 ink_total=4
+set node p2.stitch_carefree_surfer.a zone=ink
+remove edge p2.arges_the_cyclops.c -> p2 can_ink
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_ink
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_ink
+remove edge p2.stitch_carefree_surfer.a -> p2 can_ink
+set edge p2 -> game can_pass action_id=1
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=2
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=5
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play action_id=3
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=4
+
+=== state 31 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=4
+# action: play:p2.mr._arrow_legacy's_first_mate.b
+
+set node p2 ink_available=2
+set node p2.mr._arrow_legacy's_first_mate.b entered_play=7 zone=play
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_play
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_play
+set edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=3
+
+=== state 32 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=5
+# action: quest:p2.mickey_mouse_standard_bearer.c
+
+set node p2 lore=5
+set node p2.mickey_mouse_standard_bearer.c exerted=1
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.arges_the_cyclops.c -> p2 can_play action_id=1
+
+=== state 33 ===
+# turn: 7
+# current_player: p1
+# lore: p1=1, p2=5
+# action: play:p2.arges_the_cyclops.c
+
+set node p2 ink_available=0
+set node p2.arges_the_cyclops.c entered_play=7 zone=play
+remove edge p2.arges_the_cyclops.c -> p2 can_play
+
+=== state 34 ===
+# turn: 8
+# current_player: p1
+# lore: p1=1, p2=5
+# action: end
+
+add node p1.pinocchio_star_attraction.a card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+set node game turn=8
+set node p1 ink_available=4 ink_drops=1
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.heathcliff_stoic_butler.d -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.heathcliff_stoic_butler.d
+add edge p1.heathcliff_stoic_butler.d -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=0 action_type=can_challenge description=challenge:p1.heathcliff_stoic_butler.d->p2.mickey_mouse_standard_bearer.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=6 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.pinocchio_star_attraction.a -> p1 can_play action_id=7 action_type=can_play description=play:p1.pinocchio_star_attraction.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.mickey_mouse_standard_bearer.c can_challenge action_id=1 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.mickey_mouse_standard_bearer.c
+add edge p1.tor_florist.a -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 35 ===
+# turn: 8
+# current_player: p1
+# lore: p1=2, p2=5
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=2
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=4
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=1
+set edge p1.heathcliff_stoic_butler.d -> p1 can_quest action_id=7
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=2
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=5
+set edge p1.pinocchio_star_attraction.a -> p1 can_play action_id=6
+set edge p1.tor_florist.a -> p1 can_ink action_id=3
+
+=== state 36 ===
+# turn: 8
+# current_player: p1
+# lore: p1=2, p2=5
+# action: ink:p1.lena_sabrewing_rebellious_teenager.c
+
+set node p1 ink_available=5 ink_drops=0 ink_total=5
+set node p1.lena_sabrewing_rebellious_teenager.c zone=ink
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_play action_id=2 action_type=can_play description=play:p1.cauldron_born_mindless_horde.d
+add edge p1.tor_florist.a -> p1 can_play action_id=4 action_type=can_play description=play:p1.tor_florist.a
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_ink
+set edge p1 -> game can_pass action_id=1
+set edge p1.heathcliff_stoic_butler.d -> p1 can_quest action_id=5
+set edge p1.pinocchio_star_attraction.a -> p1 can_play action_id=3
+
+=== state 37 ===
+# turn: 8
+# current_player: p1
+# lore: p1=4, p2=5
+# action: quest:p1.heathcliff_stoic_butler.d
+
+set node p1 lore=4
+set node p1.heathcliff_stoic_butler.d exerted=1
+remove edge p1.heathcliff_stoic_butler.d -> p1 can_quest
+remove edge p1.heathcliff_stoic_butler.d -> p2.mickey_mouse_standard_bearer.c can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_play action_id=1
+set edge p1.pinocchio_star_attraction.a -> p1 can_play action_id=2
+set edge p1.tor_florist.a -> p1 can_play action_id=3
+
+=== state 38 ===
+# turn: 8
+# current_player: p1
+# lore: p1=4, p2=5
+# action: play:p1.pinocchio_star_attraction.a
+
+set node p1 ink_available=3
+set node p1.pinocchio_star_attraction.a entered_play=8 zone=play
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_play
+remove edge p1.pinocchio_star_attraction.a -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_play
+
+=== state 39 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.b card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=9
+set node p2 ink_available=4 ink_drops=1
+set node p2.mickey_mouse_standard_bearer.c exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.arges_the_cyclops.c -> p1.heathcliff_stoic_butler.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.arges_the_cyclops.c->p1.heathcliff_stoic_butler.d
+add edge p2.arges_the_cyclops.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.arges_the_cyclops.c->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.arges_the_cyclops.c -> p2 can_quest action_id=b action_type=can_quest description=quest:p2.arges_the_cyclops.c
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.b
+add edge p2.mickey_mouse_standard_bearer.b -> p2 can_play action_id=9 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.b
+add edge p2.mickey_mouse_standard_bearer.c -> p1.heathcliff_stoic_butler.d can_challenge action_id=2 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.heathcliff_stoic_butler.d
+add edge p2.mickey_mouse_standard_bearer.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=3 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.c->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest action_id=c action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.c
+add edge p2.mr._arrow_legacy's_first_mate.b -> p1.heathcliff_stoic_butler.d can_challenge action_id=4 action_type=can_challenge description=challenge:p2.mr._arrow_legacy's_first_mate.b->p1.heathcliff_stoic_butler.d
+add edge p2.mr._arrow_legacy's_first_mate.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=5 action_type=can_challenge description=challenge:p2.mr._arrow_legacy's_first_mate.b->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=d action_type=can_quest description=quest:p2.mr._arrow_legacy's_first_mate.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.b
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=a action_type=can_play description=play:p2.prince_naveen_penniless_royal.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 40 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: challenge:p2.mickey_mouse_standard_bearer.c->p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a damage=1
+set node p2.mickey_mouse_standard_bearer.c damage=3 exerted=1 zone=discard
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.heathcliff_stoic_butler.d can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=6
+set edge p2.arges_the_cyclops.c -> p2 can_quest action_id=9
+set edge p2.mickey_mouse_standard_bearer.b -> p2 can_ink action_id=4
+set edge p2.mickey_mouse_standard_bearer.b -> p2 can_play action_id=7
+set edge p2.mr._arrow_legacy's_first_mate.b -> p1.heathcliff_stoic_butler.d can_challenge action_id=2
+set edge p2.mr._arrow_legacy's_first_mate.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=3
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=a
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_ink action_id=5
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=8
+
+=== state 41 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: ink:p2.mickey_mouse_standard_bearer.b
+
+set node p2 ink_available=5 ink_drops=0 ink_total=5
+set node p2.mickey_mouse_standard_bearer.b zone=ink
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.b -> p2 can_play
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_ink
+set edge p2 -> game can_pass action_id=4
+set edge p2.arges_the_cyclops.c -> p2 can_quest action_id=6
+set edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest action_id=7
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=5
+
+=== state 42 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: challenge:p2.mr._arrow_legacy's_first_mate.b->p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a damage=2
+set node p2.mr._arrow_legacy's_first_mate.b damage=3 exerted=1 zone=discard
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p1.heathcliff_stoic_butler.d can_challenge
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.mr._arrow_legacy's_first_mate.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=2
+set edge p2.arges_the_cyclops.c -> p2 can_quest action_id=4
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=3
+
+=== state 43 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: challenge:p2.arges_the_cyclops.c->p1.heathcliff_stoic_butler.d
+
+set node p1.heathcliff_stoic_butler.d damage=4 zone=discard
+set node p2.arges_the_cyclops.c damage=3 exerted=1 zone=discard
+remove edge p2.arges_the_cyclops.c -> p1.heathcliff_stoic_butler.d can_challenge
+remove edge p2.arges_the_cyclops.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.arges_the_cyclops.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+set edge p2.prince_naveen_penniless_royal.b -> p2 can_play action_id=1
+
+=== state 44 ===
+# turn: 9
+# current_player: p1
+# lore: p1=4, p2=5
+# action: play:p2.prince_naveen_penniless_royal.b
+
+set node p2 ink_available=2
+set node p2.prince_naveen_penniless_royal.b entered_play=9 zone=play
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_play
+
+=== state 45 ===
+# turn: 10
+# current_player: p1
+# lore: p1=4, p2=5
+# action: end
+
+add node p1.chip_the_teacup_gentle_soul.a card_id=253 damage=0 exerted=0 label=chip_the_teacup_gentle_soul type=Card zone=hand
+set node game turn=10
+set node p1 ink_available=5 ink_drops=1
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.d
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_play action_id=4 action_type=can_play description=play:p1.cauldron_born_mindless_horde.d
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.chip_the_teacup_gentle_soul.a
+add edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play action_id=5 action_type=can_play description=play:p1.chip_the_teacup_gentle_soul.a
+add edge p1.pinocchio_star_attraction.a -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.pinocchio_star_attraction.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.tor_florist.a -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.tor_florist.a
+add edge p1.tor_florist.a -> p1 can_play action_id=6 action_type=can_play description=play:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 46 ===
+# turn: 10
+# current_player: p1
+# lore: p1=5, p2=5
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=5
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+
+=== state 47 ===
+# turn: 10
+# current_player: p1
+# lore: p1=5, p2=5
+# action: ink:p1.chip_the_teacup_gentle_soul.a
+
+set node p1 ink_available=6 ink_drops=0 ink_total=6
+set node p1.chip_the_teacup_gentle_soul.a zone=ink
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_ink
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_ink
+remove edge p1.chip_the_teacup_gentle_soul.a -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_ink
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_play action_id=1
+set edge p1.pinocchio_star_attraction.a -> p1 can_quest action_id=3
+set edge p1.tor_florist.a -> p1 can_play action_id=2
+
+=== state 48 ===
+# turn: 10
+# current_player: p1
+# lore: p1=5, p2=5
+# action: play:p1.cauldron_born_mindless_horde.d
+
+set node p1 ink_available=1
+set node p1.cauldron_born_mindless_horde.d entered_play=10 zone=play
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_play
+set edge p1.pinocchio_star_attraction.a -> p1 can_quest action_id=1
+
+=== state 49 ===
+# turn: 10
+# current_player: p1
+# lore: p1=8, p2=5
+# action: quest:p1.pinocchio_star_attraction.a
+
+set node p1 lore=8
+set node p1.pinocchio_star_attraction.a exerted=1
+remove edge p1.pinocchio_star_attraction.a -> p1 can_quest
+
+=== state 50 ===
+# turn: 11
+# current_player: p1
+# lore: p1=8, p2=5
+# action: end
+
+add node p2.prince_eric_dashing_and_brave.b card_id=187 damage=0 exerted=0 label=prince_eric_dashing_and_brave type=Card zone=hand
+set node game turn=11
+set node p2 ink_available=5 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.prince_eric_dashing_and_brave.b
+add edge p2.prince_eric_dashing_and_brave.b -> p2 can_play action_id=4 action_type=can_play description=play:p2.prince_eric_dashing_and_brave.b
+add edge p2.prince_naveen_penniless_royal.b -> p1.pinocchio_star_attraction.a can_challenge action_id=0 action_type=can_challenge description=challenge:p2.prince_naveen_penniless_royal.b->p1.pinocchio_star_attraction.a
+add edge p2.prince_naveen_penniless_royal.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.prince_naveen_penniless_royal.b->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.prince_naveen_penniless_royal.b -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.prince_naveen_penniless_royal.b
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 51 ===
+# turn: 11
+# current_player: p1
+# lore: p1=8, p2=5
+# action: challenge:p2.prince_naveen_penniless_royal.b->p1.pinocchio_star_attraction.a
+
+set node p1.pinocchio_star_attraction.a damage=4 zone=discard
+set node p2.prince_naveen_penniless_royal.b damage=1 exerted=1
+remove edge p2.prince_naveen_penniless_royal.b -> p1.pinocchio_star_attraction.a can_challenge
+remove edge p2.prince_naveen_penniless_royal.b -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.prince_naveen_penniless_royal.b -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_ink action_id=0
+set edge p2.prince_eric_dashing_and_brave.b -> p2 can_play action_id=2
+
+=== state 52 ===
+# turn: 11
+# current_player: p1
+# lore: p1=8, p2=5
+# action: ink:p2.prince_eric_dashing_and_brave.b
+
+set node p2 ink_available=6 ink_drops=0 ink_total=6
+set node p2.prince_eric_dashing_and_brave.b zone=ink
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_ink
+remove edge p2.prince_eric_dashing_and_brave.b -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 53 ===
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=5
+# action: end
+
+add node p1.cogsworth_illuminary_watchman.b card_id=993 damage=0 exerted=0 label=cogsworth_illuminary_watchman type=Card zone=hand
+set node game turn=12
+set node p1 ink_available=6 ink_drops=1
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.d
+add edge p1.cauldron_born_mindless_horde.d -> p2.prince_naveen_penniless_royal.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.cauldron_born_mindless_horde.d->p2.prince_naveen_penniless_royal.b
+add edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.cogsworth_illuminary_watchman.b
+add edge p1.cogsworth_illuminary_watchman.b -> p1 can_play action_id=5 action_type=can_play description=play:p1.cogsworth_illuminary_watchman.b
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.prince_naveen_penniless_royal.b can_challenge action_id=1 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.prince_naveen_penniless_royal.b
+add edge p1.tor_florist.a -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.tor_florist.a
+add edge p1.tor_florist.a -> p1 can_play action_id=6 action_type=can_play description=play:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 54 ===
+# turn: 12
+# current_player: p1
+# lore: p1=9, p2=5
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=9
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.prince_naveen_penniless_royal.b can_challenge
+set edge p1 -> game can_pass action_id=3
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=6
+set edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink action_id=1
+set edge p1.cogsworth_illuminary_watchman.b -> p1 can_play action_id=4
+set edge p1.tor_florist.a -> p1 can_ink action_id=2
+set edge p1.tor_florist.a -> p1 can_play action_id=5
+
+=== state 55 ===
+# turn: 12
+# current_player: p1
+# lore: p1=9, p2=5
+# action: ink:p1.cogsworth_illuminary_watchman.b
+
+set node p1 ink_available=7 ink_drops=0 ink_total=7
+set node p1.cogsworth_illuminary_watchman.b zone=ink
+remove edge p1.cogsworth_illuminary_watchman.b -> p1 can_ink
+remove edge p1.cogsworth_illuminary_watchman.b -> p1 can_play
+remove edge p1.tor_florist.a -> p1 can_ink
+set edge p1 -> game can_pass action_id=1
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=3
+set edge p1.tor_florist.a -> p1 can_play action_id=2
+
+=== state 56 ===
+# turn: 12
+# current_player: p1
+# lore: p1=9, p2=5
+# action: challenge:p1.cauldron_born_mindless_horde.d->p2.prince_naveen_penniless_royal.b
+
+set node p1.cauldron_born_mindless_horde.d damage=4 exerted=1
+set node p2.prince_naveen_penniless_royal.b damage=7 zone=discard
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_quest
+remove edge p1.cauldron_born_mindless_horde.d -> p2.prince_naveen_penniless_royal.b can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.tor_florist.a -> p1 can_play action_id=1
+
+=== state 57 ===
+# turn: 12
+# current_player: p1
+# lore: p1=9, p2=5
+# action: play:p1.tor_florist.a
+
+set node p1 ink_available=2
+set node p1.tor_florist.a entered_play=12 zone=play
+remove edge p1.tor_florist.a -> p1 can_play
+
+=== state 58 ===
+# turn: 13
+# current_player: p1
+# lore: p1=9, p2=5
+# action: end
+
+add node p2.genie_satisfied_dragon.c card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=13
+set node p2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.c -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.genie_satisfied_dragon.c
+add edge p2.genie_satisfied_dragon.c -> p2 can_play action_id=2 action_type=can_play description=play:p2.genie_satisfied_dragon.c
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 59 ===
+# turn: 13
+# current_player: p1
+# lore: p1=9, p2=5
+# action: play:p2.genie_satisfied_dragon.c
+
+set node p2 ink_available=3
+set node p2.genie_satisfied_dragon.c entered_play=13 zone=play
+remove edge p2.genie_satisfied_dragon.c -> p2 can_ink
+remove edge p2.genie_satisfied_dragon.c -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 60 ===
+# turn: 14
+# current_player: p1
+# lore: p1=9, p2=5
+# action: end
+
+add node p1.cauldron_born_mindless_horde.b card_id=2228 damage=0 exerted=0 label=cauldron_born_mindless_horde type=Card zone=hand
+set node game turn=14
+set node p1 ink_available=7 ink_drops=1
+set node p1.cauldron_born_mindless_horde.d exerted=0
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.d
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.tor_florist.a -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 61 ===
+# turn: 14
+# current_player: p1
+# lore: p1=9, p2=5
+# action: play:p1.cauldron_born_mindless_horde.b
+
+set node p1 ink_available=2
+set node p1.cauldron_born_mindless_horde.b entered_play=14 zone=play
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_ink
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=1
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=2
+set edge p1.tor_florist.a -> p1 can_quest action_id=3
+
+=== state 62 ===
+# turn: 14
+# current_player: p1
+# lore: p1=10, p2=5
+# action: quest:p1.tor_florist.a
+
+set node p1 lore=10
+set node p1.tor_florist.a exerted=1
+remove edge p1.tor_florist.a -> p1 can_quest
+
+=== state 63 ===
+# turn: 14
+# current_player: p1
+# lore: p1=11, p2=5
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=11
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+
+=== state 64 ===
+# turn: 14
+# current_player: p1
+# lore: p1=12, p2=5
+# action: quest:p1.cauldron_born_mindless_horde.d
+
+set node p1 lore=12
+set node p1.cauldron_born_mindless_horde.d exerted=1
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_quest
+
+=== state 65 ===
+# turn: 15
+# current_player: p1
+# lore: p1=12, p2=5
+# action: end
+
+add node p2.genie_satisfied_dragon.d card_id=1853 damage=0 exerted=0 label=genie_satisfied_dragon type=Card zone=hand
+set node game turn=15
+set node p2 ink_available=6
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=4 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.c -> p1.cauldron_born_mindless_horde.d can_challenge action_id=0 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.c->p1.cauldron_born_mindless_horde.d
+add edge p2.genie_satisfied_dragon.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=1 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.c->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.genie_satisfied_dragon.c -> p1.tor_florist.a can_challenge action_id=2 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.c->p1.tor_florist.a
+add edge p2.genie_satisfied_dragon.c -> p2 can_quest action_id=6 action_type=can_quest description=quest:p2.genie_satisfied_dragon.c
+add edge p2.genie_satisfied_dragon.d -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.genie_satisfied_dragon.d
+add edge p2.genie_satisfied_dragon.d -> p2 can_play action_id=5 action_type=can_play description=play:p2.genie_satisfied_dragon.d
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 66 ===
+# turn: 15
+# current_player: p1
+# lore: p1=12, p2=5
+# action: challenge:p2.genie_satisfied_dragon.c->p1.tor_florist.a
+
+set node p1.tor_florist.a damage=3
+set node p2.genie_satisfied_dragon.c damage=4 exerted=1 zone=discard
+remove edge p2.genie_satisfied_dragon.c -> p1.cauldron_born_mindless_horde.d can_challenge
+remove edge p2.genie_satisfied_dragon.c -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.genie_satisfied_dragon.c -> p1.tor_florist.a can_challenge
+remove edge p2.genie_satisfied_dragon.c -> p2 can_quest
+set edge p2 -> game can_pass action_id=1
+set edge p2.genie_satisfied_dragon.d -> p2 can_ink action_id=0
+set edge p2.genie_satisfied_dragon.d -> p2 can_play action_id=2
+
+=== state 67 ===
+# turn: 15
+# current_player: p1
+# lore: p1=12, p2=5
+# action: play:p2.genie_satisfied_dragon.d
+
+set node p2 ink_available=3
+set node p2.genie_satisfied_dragon.d entered_play=15 zone=play
+remove edge p2.genie_satisfied_dragon.d -> p2 can_ink
+remove edge p2.genie_satisfied_dragon.d -> p2 can_play
+set edge p2 -> game can_pass action_id=0
+
+=== state 68 ===
+# turn: 16
+# current_player: p1
+# lore: p1=12, p2=5
+# action: end
+
+add node p1.aladdin_prince_ali.b card_id=69 damage=0 exerted=0 label=aladdin_prince_ali type=Card zone=hand
+set node game turn=16
+set node p1 ink_available=7
+set node p1.cauldron_born_mindless_horde.d exerted=0
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+set node p1.tor_florist.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.aladdin_prince_ali.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.aladdin_prince_ali.b
+add edge p1.aladdin_prince_ali.b -> p1 can_play action_id=2 action_type=can_play description=play:p1.aladdin_prince_ali.b
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.d
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.tor_florist.a -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 69 ===
+# turn: 16
+# current_player: p1
+# lore: p1=13, p2=5
+# action: quest:p1.cauldron_born_mindless_horde.d
+
+set node p1 lore=13
+set node p1.cauldron_born_mindless_horde.d exerted=1
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_quest
+set edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=4
+set edge p1.tor_florist.a -> p1 can_quest action_id=5
+
+=== state 70 ===
+# turn: 16
+# current_player: p1
+# lore: p1=14, p2=5
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=14
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+set edge p1.tor_florist.a -> p1 can_quest action_id=4
+
+=== state 71 ===
+# turn: 16
+# current_player: p1
+# lore: p1=14, p2=5
+# action: ink:p1.aladdin_prince_ali.b
+
+set node p1 ink_available=8 ink_drops=0 ink_total=8
+set node p1.aladdin_prince_ali.b zone=ink
+remove edge p1.aladdin_prince_ali.b -> p1 can_ink
+remove edge p1.aladdin_prince_ali.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=1
+set edge p1.tor_florist.a -> p1 can_quest action_id=2
+
+=== state 72 ===
+# turn: 16
+# current_player: p1
+# lore: p1=15, p2=5
+# action: quest:p1.cauldron_born_mindless_horde.b
+
+set node p1 lore=15
+set node p1.cauldron_born_mindless_horde.b exerted=1
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_quest
+set edge p1.tor_florist.a -> p1 can_quest action_id=1
+
+=== state 73 ===
+# turn: 16
+# current_player: p1
+# lore: p1=16, p2=5
+# action: quest:p1.tor_florist.a
+
+set node p1 lore=16
+set node p1.tor_florist.a exerted=1
+remove edge p1.tor_florist.a -> p1 can_quest
+
+=== state 74 ===
+# turn: 17
+# current_player: p1
+# lore: p1=16, p2=5
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.d card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=17
+set node p2 ink_available=6
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p2.genie_satisfied_dragon.d -> p1.cauldron_born_mindless_horde.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.d->p1.cauldron_born_mindless_horde.b
+add edge p2.genie_satisfied_dragon.d -> p1.cauldron_born_mindless_horde.d can_challenge action_id=1 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.d->p1.cauldron_born_mindless_horde.d
+add edge p2.genie_satisfied_dragon.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=2 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.d->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.genie_satisfied_dragon.d -> p1.tor_florist.a can_challenge action_id=3 action_type=can_challenge description=challenge:p2.genie_satisfied_dragon.d->p1.tor_florist.a
+add edge p2.genie_satisfied_dragon.d -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.genie_satisfied_dragon.d
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.d
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_play action_id=6 action_type=can_play description=play:p2.mickey_mouse_standard_bearer.d
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 75 ===
+# turn: 17
+# current_player: p1
+# lore: p1=16, p2=5
+# action: play:p2.mickey_mouse_standard_bearer.d
+
+set node p2 ink_available=4
+set node p2.mickey_mouse_standard_bearer.d entered_play=17 zone=play
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_ink
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_play
+set edge p2 -> game can_pass action_id=4
+set edge p2.genie_satisfied_dragon.d -> p2 can_quest action_id=5
+
+=== state 76 ===
+# turn: 17
+# current_player: p1
+# lore: p1=16, p2=6
+# action: quest:p2.genie_satisfied_dragon.d
+
+set node p2 lore=6
+set node p2.genie_satisfied_dragon.d exerted=1
+remove edge p2.genie_satisfied_dragon.d -> p1.cauldron_born_mindless_horde.b can_challenge
+remove edge p2.genie_satisfied_dragon.d -> p1.cauldron_born_mindless_horde.d can_challenge
+remove edge p2.genie_satisfied_dragon.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.genie_satisfied_dragon.d -> p1.tor_florist.a can_challenge
+remove edge p2.genie_satisfied_dragon.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+
+=== state 77 ===
+# turn: 18
+# current_player: p1
+# lore: p1=16, p2=6
+# action: end
+
+add node p1.kuzco_wanted_llama.b card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=18
+set node p1 ink_drops=1
+set node p1.cauldron_born_mindless_horde.b exerted=0
+set node p1.cauldron_born_mindless_horde.d exerted=0
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=0
+set node p1.tor_florist.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=7 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.b -> p2.genie_satisfied_dragon.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.cauldron_born_mindless_horde.b->p2.genie_satisfied_dragon.d
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.d
+add edge p1.cauldron_born_mindless_horde.d -> p2.genie_satisfied_dragon.d can_challenge action_id=1 action_type=can_challenge description=challenge:p1.cauldron_born_mindless_horde.d->p2.genie_satisfied_dragon.d
+add edge p1.kuzco_wanted_llama.b -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.kuzco_wanted_llama.b
+add edge p1.kuzco_wanted_llama.b -> p1 can_play action_id=6 action_type=can_play description=play:p1.kuzco_wanted_llama.b
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.the_white_rose_jewel_of_the_garden.a
+add edge p1.the_white_rose_jewel_of_the_garden.a -> p2.genie_satisfied_dragon.d can_challenge action_id=2 action_type=can_challenge description=challenge:p1.the_white_rose_jewel_of_the_garden.a->p2.genie_satisfied_dragon.d
+add edge p1.tor_florist.a -> p1 can_quest action_id=a action_type=can_quest description=quest:p1.tor_florist.a
+add edge p1.tor_florist.a -> p2.genie_satisfied_dragon.d can_challenge action_id=3 action_type=can_challenge description=challenge:p1.tor_florist.a->p2.genie_satisfied_dragon.d
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 78 ===
+# turn: 18
+# current_player: p1
+# lore: p1=17, p2=6
+# action: quest:p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1 lore=17
+set node p1.the_white_rose_jewel_of_the_garden.a exerted=1
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p1 can_quest
+remove edge p1.the_white_rose_jewel_of_the_garden.a -> p2.genie_satisfied_dragon.d can_challenge
+set edge p1 -> game can_pass action_id=4
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=6
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=7
+set edge p1.kuzco_wanted_llama.b -> p1 can_ink action_id=3
+set edge p1.kuzco_wanted_llama.b -> p1 can_play action_id=5
+set edge p1.tor_florist.a -> p1 can_quest action_id=8
+set edge p1.tor_florist.a -> p2.genie_satisfied_dragon.d can_challenge action_id=2
+
+=== state 79 ===
+# turn: 18
+# current_player: p1
+# lore: p1=18, p2=6
+# action: quest:p1.cauldron_born_mindless_horde.b
+
+set node p1 lore=18
+set node p1.cauldron_born_mindless_horde.b exerted=1
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_quest
+remove edge p1.cauldron_born_mindless_horde.b -> p2.genie_satisfied_dragon.d can_challenge
+set edge p1 -> game can_pass action_id=3
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=5
+set edge p1.cauldron_born_mindless_horde.d -> p2.genie_satisfied_dragon.d can_challenge action_id=0
+set edge p1.kuzco_wanted_llama.b -> p1 can_ink action_id=2
+set edge p1.kuzco_wanted_llama.b -> p1 can_play action_id=4
+set edge p1.tor_florist.a -> p1 can_quest action_id=6
+set edge p1.tor_florist.a -> p2.genie_satisfied_dragon.d can_challenge action_id=1
+
+=== state 80 ===
+# turn: 18
+# current_player: p1
+# lore: p1=18, p2=6
+# action: challenge:p1.tor_florist.a->p2.genie_satisfied_dragon.d
+
+set node p1.tor_florist.a damage=6 exerted=1
+set node p2.genie_satisfied_dragon.d damage=4 zone=discard
+remove edge p1.cauldron_born_mindless_horde.d -> p2.genie_satisfied_dragon.d can_challenge
+remove edge p1.tor_florist.a -> p1 can_quest
+remove edge p1.tor_florist.a -> p2.genie_satisfied_dragon.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=3
+set edge p1.kuzco_wanted_llama.b -> p1 can_ink action_id=0
+set edge p1.kuzco_wanted_llama.b -> p1 can_play action_id=2
+
+=== state 81 ===
+# turn: 18
+# current_player: p1
+# lore: p1=18, p2=6
+# action: ink:p1.kuzco_wanted_llama.b
+
+set node p1 ink_available=9 ink_drops=0 ink_total=9
+set node p1.kuzco_wanted_llama.b zone=ink
+remove edge p1.kuzco_wanted_llama.b -> p1 can_ink
+remove edge p1.kuzco_wanted_llama.b -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=1
+
+=== state 82 ===
+# turn: 18
+# current_player: p1
+# lore: p1=19, p2=6
+# action: quest:p1.cauldron_born_mindless_horde.d
+
+set node p1 lore=19
+set node p1.cauldron_born_mindless_horde.d exerted=1
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_quest
+
+=== state 83 ===
+# turn: 19
+# current_player: p1
+# lore: p1=19, p2=6
+# action: end
+
+add node p2.robin_hood_beloved_outlaw.d card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+set node game turn=19
+set node p2 ink_available=6
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p2.mickey_mouse_standard_bearer.d -> p1.cauldron_born_mindless_horde.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.d->p1.cauldron_born_mindless_horde.b
+add edge p2.mickey_mouse_standard_bearer.d -> p1.cauldron_born_mindless_horde.d can_challenge action_id=1 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.d->p1.cauldron_born_mindless_horde.d
+add edge p2.mickey_mouse_standard_bearer.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge action_id=2 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.d->p1.the_white_rose_jewel_of_the_garden.a
+add edge p2.mickey_mouse_standard_bearer.d -> p1.tor_florist.a can_challenge action_id=3 action_type=can_challenge description=challenge:p2.mickey_mouse_standard_bearer.d->p1.tor_florist.a
+add edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=7 action_type=can_quest description=quest:p2.mickey_mouse_standard_bearer.d
+add edge p2.robin_hood_beloved_outlaw.d -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.robin_hood_beloved_outlaw.d
+add edge p2.robin_hood_beloved_outlaw.d -> p2 can_play action_id=6 action_type=can_play description=play:p2.robin_hood_beloved_outlaw.d
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass
+
+=== state 84 ===
+# turn: 19
+# current_player: p1
+# lore: p1=19, p2=6
+# action: play:p2.robin_hood_beloved_outlaw.d
+
+set node p2 ink_available=5
+set node p2.robin_hood_beloved_outlaw.d entered_play=19 zone=play
+remove edge p2.robin_hood_beloved_outlaw.d -> p2 can_ink
+remove edge p2.robin_hood_beloved_outlaw.d -> p2 can_play
+set edge p2 -> game can_pass action_id=4
+set edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest action_id=5
+
+=== state 85 ===
+# turn: 19
+# current_player: p1
+# lore: p1=19, p2=6
+# action: challenge:p2.mickey_mouse_standard_bearer.d->p1.the_white_rose_jewel_of_the_garden.a
+
+set node p1.the_white_rose_jewel_of_the_garden.a damage=3 zone=discard
+set node p2.mickey_mouse_standard_bearer.d damage=3 exerted=1 zone=discard
+remove edge p2.mickey_mouse_standard_bearer.d -> p1.cauldron_born_mindless_horde.b can_challenge
+remove edge p2.mickey_mouse_standard_bearer.d -> p1.cauldron_born_mindless_horde.d can_challenge
+remove edge p2.mickey_mouse_standard_bearer.d -> p1.the_white_rose_jewel_of_the_garden.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.d -> p1.tor_florist.a can_challenge
+remove edge p2.mickey_mouse_standard_bearer.d -> p2 can_quest
+set edge p2 -> game can_pass action_id=0
+
+=== state 86 ===
+# turn: 20
+# current_player: p1
+# lore: p1=19, p2=6
+# action: end
+
+add node p1.kuzco_wanted_llama.c card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+set node game turn=20
+set node p1 ink_drops=1
+set node p1.cauldron_born_mindless_horde.b exerted=0
+set node p1.cauldron_born_mindless_horde.d exerted=0
+set node p1.tor_florist.a exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=1 action_type=can_pass description=end
+add edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=3 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.b
+add edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=4 action_type=can_quest description=quest:p1.cauldron_born_mindless_horde.d
+add edge p1.kuzco_wanted_llama.c -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.kuzco_wanted_llama.c
+add edge p1.kuzco_wanted_llama.c -> p1 can_play action_id=2 action_type=can_play description=play:p1.kuzco_wanted_llama.c
+add edge p1.tor_florist.a -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.tor_florist.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass
+
+=== state 87 ===
+# turn: 20
+# current_player: p1
+# lore: p1=19, p2=6
+# action: ink:p1.kuzco_wanted_llama.c
+
+set node p1 ink_available=10 ink_drops=0 ink_total=10
+set node p1.kuzco_wanted_llama.c zone=ink
+remove edge p1.kuzco_wanted_llama.c -> p1 can_ink
+remove edge p1.kuzco_wanted_llama.c -> p1 can_play
+set edge p1 -> game can_pass action_id=0
+set edge p1.cauldron_born_mindless_horde.b -> p1 can_quest action_id=1
+set edge p1.cauldron_born_mindless_horde.d -> p1 can_quest action_id=2
+set edge p1.tor_florist.a -> p1 can_quest action_id=3
+
+=== state 88 ===
+# turn: 20
+# current_player: p1
+# lore: p1=20, p2=6
+# action: quest:p1.cauldron_born_mindless_horde.b
+
+set node game game_over=1 winner=p1
+set node p1 lore=20
+set node p1.cauldron_born_mindless_horde.b exerted=1
+remove edge p1 -> game can_pass
+remove edge p1.cauldron_born_mindless_horde.b -> p1 can_quest
+remove edge p1.cauldron_born_mindless_horde.d -> p1 can_quest
+remove edge p1.tor_florist.a -> p1 can_quest

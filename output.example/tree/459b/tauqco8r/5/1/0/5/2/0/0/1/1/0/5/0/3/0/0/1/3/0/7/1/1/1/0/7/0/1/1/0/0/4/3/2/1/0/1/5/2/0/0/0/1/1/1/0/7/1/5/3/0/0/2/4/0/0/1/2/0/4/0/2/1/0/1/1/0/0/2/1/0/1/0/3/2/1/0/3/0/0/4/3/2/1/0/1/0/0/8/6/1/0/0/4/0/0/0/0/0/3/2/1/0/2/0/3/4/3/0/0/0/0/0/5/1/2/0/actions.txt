@@ -1,0 +1,6 @@
+0: challenge:p2.prince_naveen_penniless_royal.a->p1.kuzco_wanted_llama.b
+1: challenge:p2.prince_naveen_penniless_royal.a->p1.winnie_the_pooh_hunny_wizard.b
+2: ink:p2.jafar_royal_vizier.c
+3: end
+4: play:p2.jafar_royal_vizier.c
+5: quest:p2.prince_naveen_penniless_royal.a

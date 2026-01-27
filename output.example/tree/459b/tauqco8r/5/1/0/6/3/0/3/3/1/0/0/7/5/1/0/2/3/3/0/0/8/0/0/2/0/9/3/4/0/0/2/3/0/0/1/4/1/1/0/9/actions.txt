@@ -1,0 +1,8 @@
+0: challenge:p2.genie_satisfied_dragon.a->p1.luisa_madrigal_magically_strong_one.b
+1: ink:p2.aladdin_cornered_swordsman.b
+2: ink:p2.arges_the_cyclops.d
+3: ink:p2.chien_po_imperial_soldier.c
+4: end
+5: play:p2.aladdin_cornered_swordsman.b
+6: play:p2.arges_the_cyclops.d
+7: quest:p2.genie_satisfied_dragon.a

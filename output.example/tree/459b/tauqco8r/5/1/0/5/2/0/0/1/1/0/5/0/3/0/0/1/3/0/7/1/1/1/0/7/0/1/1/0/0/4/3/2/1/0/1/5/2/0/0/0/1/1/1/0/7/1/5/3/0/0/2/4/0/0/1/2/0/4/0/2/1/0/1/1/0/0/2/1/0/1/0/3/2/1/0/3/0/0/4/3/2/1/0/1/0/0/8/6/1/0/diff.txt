@@ -1,0 +1,9 @@
+# turn: 21
+# current_player: p2
+# lore: p1=8, p2=17
+# action: challenge:p2.dumptruck_karnage's_second_mate.a->p1.winnie_the_pooh_hunny_wizard.b
+
+set node p2.dumptruck_karnage's_second_mate.a damage=5 exerted=1 zone=discard
+remove edge p2.dumptruck_karnage's_second_mate.a -> p1.winnie_the_pooh_hunny_wizard.b can_challenge
+remove edge p2.dumptruck_karnage's_second_mate.a -> p2 can_quest
+set edge p2 -> game can_pass action_id=0

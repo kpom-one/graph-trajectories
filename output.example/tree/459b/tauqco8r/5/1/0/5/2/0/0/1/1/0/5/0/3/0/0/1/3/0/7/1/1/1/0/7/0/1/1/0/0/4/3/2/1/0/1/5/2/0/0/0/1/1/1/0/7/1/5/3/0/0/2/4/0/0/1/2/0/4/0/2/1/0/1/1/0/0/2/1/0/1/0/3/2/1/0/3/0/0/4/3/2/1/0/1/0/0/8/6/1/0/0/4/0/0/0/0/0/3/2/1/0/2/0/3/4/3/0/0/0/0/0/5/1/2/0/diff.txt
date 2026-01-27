@@ -1,0 +1,20 @@
+# turn: 29
+# current_player: p2
+# lore: p1=18, p2=17
+# action: end
+
+add node p2.jafar_royal_vizier.c card_id=400 damage=0 exerted=0 label=jafar_royal_vizier type=Card zone=hand
+set node game turn=29
+set node p2 ink_drops=1
+set node p2.prince_naveen_penniless_royal.a exerted=0
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p2.jafar_royal_vizier.c -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.jafar_royal_vizier.c
+add edge p2.jafar_royal_vizier.c -> p2 can_play action_id=4 action_type=can_play description=play:p2.jafar_royal_vizier.c
+add edge p2.prince_naveen_penniless_royal.a -> p1.kuzco_wanted_llama.b can_challenge action_id=0 action_type=can_challenge description=challenge:p2.prince_naveen_penniless_royal.a->p1.kuzco_wanted_llama.b
+add edge p2.prince_naveen_penniless_royal.a -> p1.winnie_the_pooh_hunny_wizard.b can_challenge action_id=1 action_type=can_challenge description=challenge:p2.prince_naveen_penniless_royal.a->p1.winnie_the_pooh_hunny_wizard.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_quest action_id=5 action_type=can_quest description=quest:p2.prince_naveen_penniless_royal.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass

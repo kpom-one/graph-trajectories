@@ -1,0 +1,22 @@
+# turn: 3
+# current_player: p2
+# lore: p1=1, p2=0
+# action: end
+
+add node p2.mickey_mouse_standard_bearer.c card_id=879 damage=0 exerted=0 label=mickey_mouse_standard_bearer type=Card zone=hand
+set node game turn=3
+set node p2 ink_drops=1
+add edge game -> p2 current_turn
+add edge game -> step.p2.main current_step
+add edge p2 -> game can_pass action_id=8 action_type=can_pass description=end
+add edge p2.chien_po_imperial_soldier.a -> p2 can_ink action_id=0 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.a
+add edge p2.chien_po_imperial_soldier.c -> p2 can_ink action_id=1 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.c
+add edge p2.chien_po_imperial_soldier.d -> p2 can_ink action_id=2 action_type=can_ink description=ink:p2.chien_po_imperial_soldier.d
+add edge p2.mickey_mouse_standard_bearer.c -> p2 can_ink action_id=3 action_type=can_ink description=ink:p2.mickey_mouse_standard_bearer.c
+add edge p2.mulan_free_spirit.b -> p2 can_ink action_id=4 action_type=can_ink description=ink:p2.mulan_free_spirit.b
+add edge p2.prince_naveen_penniless_royal.a -> p2 can_ink action_id=5 action_type=can_ink description=ink:p2.prince_naveen_penniless_royal.a
+add edge p2.simba_protective_cub.a -> p2 can_ink action_id=6 action_type=can_ink description=ink:p2.simba_protective_cub.a
+add edge p2.stitch_carefree_surfer.a -> p2 can_ink action_id=7 action_type=can_ink description=ink:p2.stitch_carefree_surfer.a
+remove edge game -> p1 current_turn
+remove edge game -> step.p1.main current_step
+remove edge p1 -> game can_pass

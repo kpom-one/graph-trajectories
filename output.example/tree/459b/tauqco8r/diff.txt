@@ -1,0 +1,26 @@
+# turn: 0
+# current_player: p1
+# lore: p1=0, p2=0
+# action: initial
+
+add node p1.aladdin_prince_ali.b card_id=69 damage=0 exerted=0 label=aladdin_prince_ali type=Card zone=hand
+add node p1.cogsworth_illuminary_watchman.d card_id=993 damage=0 exerted=0 label=cogsworth_illuminary_watchman type=Card zone=hand
+add node p1.kuzco_wanted_llama.a card_id=261 damage=0 exerted=0 label=kuzco_wanted_llama type=Card zone=hand
+add node p1.lena_sabrewing_rebellious_teenager.c card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+add node p1.luisa_madrigal_magically_strong_one.b card_id=738 damage=0 exerted=0 label=luisa_madrigal_magically_strong_one type=Card zone=hand
+add node p1.tinker_bell_fast_flier.a card_id=1242 damage=0 exerted=0 label=tinker_bell_fast_flier type=Card zone=hand
+add node p1.tor_florist.d card_id=782 damage=0 exerted=0 label=tor_florist type=Card zone=hand
+add node p2.arges_the_cyclops.d card_id=864 damage=0 exerted=0 label=arges_the_cyclops type=Card zone=hand
+add node p2.chien_po_imperial_soldier.c card_id=869 damage=0 exerted=0 label=chien_po_imperial_soldier type=Card zone=hand
+add node p2.dumptruck_karnage's_second_mate.d card_id=1849 damage=0 exerted=0 label=dumptruck_karnage's_second_mate type=Card zone=hand
+add node p2.jafar_royal_vizier.d card_id=400 damage=0 exerted=0 label=jafar_royal_vizier type=Card zone=hand
+add node p2.robin_hood_beloved_outlaw.b card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+add node p2.robin_hood_beloved_outlaw.d card_id=625 damage=0 exerted=0 label=robin_hood_beloved_outlaw type=Card zone=hand
+add node p2.simba_protective_cub.b card_id=20 damage=0 exerted=0 label=simba_protective_cub type=Card zone=hand
+add edge p1.aladdin_prince_ali.b -> p1 can_ink action_id=0 action_type=can_ink description=ink:p1.aladdin_prince_ali.b
+add edge p1.cogsworth_illuminary_watchman.d -> p1 can_ink action_id=1 action_type=can_ink description=ink:p1.cogsworth_illuminary_watchman.d
+add edge p1.kuzco_wanted_llama.a -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.kuzco_wanted_llama.a
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=3 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.tinker_bell_fast_flier.a -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.tinker_bell_fast_flier.a
+add edge p1.tor_florist.d -> p1 can_ink action_id=5 action_type=can_ink description=ink:p1.tor_florist.d
+set edge p1 -> game can_pass action_id=6

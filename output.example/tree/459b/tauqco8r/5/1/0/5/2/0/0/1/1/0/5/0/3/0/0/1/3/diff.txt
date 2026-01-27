@@ -1,0 +1,13 @@
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: play:p1.tinker_bell_fast_flier.d
+
+add node evasive.t4.1 type=Ability
+set node p1 ink_available=0
+set node p1.tinker_bell_fast_flier.d entered_play=4 zone=play
+add edge evasive.t4.1 -> p1.tinker_bell_fast_flier.d evasive
+add edge evasive.t4.1 -> p1.tinker_bell_fast_flier.d source
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+remove edge p1.tinker_bell_fast_flier.a -> p1 can_play
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_play

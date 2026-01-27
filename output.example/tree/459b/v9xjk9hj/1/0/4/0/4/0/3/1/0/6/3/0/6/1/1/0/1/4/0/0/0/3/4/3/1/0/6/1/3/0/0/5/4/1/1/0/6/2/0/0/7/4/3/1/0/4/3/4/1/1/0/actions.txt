@@ -1,0 +1,11 @@
+0: challenge:p2.chien_po_imperial_soldier.b->p1.luisa_madrigal_magically_strong_one.a
+1: challenge:p2.chien_po_imperial_soldier.b->p1.pinocchio_star_attraction.d
+2: challenge:p2.chien_po_imperial_soldier.d->p1.luisa_madrigal_magically_strong_one.a
+3: challenge:p2.chien_po_imperial_soldier.d->p1.pinocchio_star_attraction.d
+4: ink:p2.chien_po_imperial_soldier.c
+5: ink:p2.stitch_carefree_surfer.d
+6: end
+7: play:p2.chien_po_imperial_soldier.c
+8: play:p2.chien_po_imperial_soldier.c:exerted
+9: quest:p2.chien_po_imperial_soldier.b
+a: quest:p2.chien_po_imperial_soldier.d

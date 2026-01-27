@@ -1,0 +1,13 @@
+# turn: 8
+# current_player: p1
+# lore: p1=3, p2=4
+# action: quest:p1.tinker_bell_fast_flier.a
+
+set node p1 lore=3
+set node p1.tinker_bell_fast_flier.a exerted=1
+remove edge p1.tinker_bell_fast_flier.a -> p1 can_quest
+remove edge p1.tinker_bell_fast_flier.a -> p2.arges_the_cyclops.d can_challenge
+remove edge p1.tinker_bell_fast_flier.a -> p2.jafar_royal_vizier.d can_challenge
+set edge p1 -> game can_pass action_id=0
+set edge p1.luisa_madrigal_magically_strong_one.b -> p1 can_play action_id=1
+set edge p1.pinocchio_star_attraction.c -> p1 can_play action_id=2

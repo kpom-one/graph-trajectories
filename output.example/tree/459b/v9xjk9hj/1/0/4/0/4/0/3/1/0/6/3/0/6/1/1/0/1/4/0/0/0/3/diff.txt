@@ -1,0 +1,10 @@
+# turn: 7
+# current_player: p2
+# lore: p1=0, p2=1
+# action: play:p2.stitch_new_dog.b
+
+set node p2 ink_available=3
+set node p2.stitch_new_dog.b entered_play=7 zone=play
+remove edge p2.stitch_new_dog.b -> p2 can_play
+set edge p2.mulan_free_spirit.b -> p2 can_quest action_id=3
+set edge p2.simba_protective_cub.a -> p2 can_quest action_id=4

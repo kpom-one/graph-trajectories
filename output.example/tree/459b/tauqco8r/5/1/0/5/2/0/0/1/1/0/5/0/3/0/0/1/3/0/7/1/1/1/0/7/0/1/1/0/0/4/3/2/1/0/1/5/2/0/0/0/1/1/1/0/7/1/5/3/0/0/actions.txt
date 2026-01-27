@@ -1,0 +1,8 @@
+0: challenge:p2.genie_satisfied_dragon.a->p1.pinocchio_star_attraction.c
+1: challenge:p2.jafar_royal_vizier.b->p1.pinocchio_star_attraction.c
+2: ink:p2.mr._arrow_legacy's_first_mate.b
+3: ink:p2.stitch_carefree_surfer.a
+4: end
+5: play:p2.mr._arrow_legacy's_first_mate.b
+6: quest:p2.genie_satisfied_dragon.a
+7: quest:p2.jafar_royal_vizier.b

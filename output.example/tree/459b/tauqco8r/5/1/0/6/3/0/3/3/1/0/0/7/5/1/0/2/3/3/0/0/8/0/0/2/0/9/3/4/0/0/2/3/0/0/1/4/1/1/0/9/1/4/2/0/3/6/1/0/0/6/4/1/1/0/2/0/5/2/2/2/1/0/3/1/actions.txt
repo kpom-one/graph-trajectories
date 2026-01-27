@@ -1,0 +1,2 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.chien_po_imperial_soldier.c
+1: end

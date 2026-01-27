@@ -1,0 +1,9 @@
+# turn: 5
+# current_player: p2
+# lore: p1=2, p2=0
+# action: play:p2.jafar_royal_vizier.b
+
+set node p2 ink_available=1
+set node p2.jafar_royal_vizier.b entered_play=5 zone=play
+remove edge p2.arges_the_cyclops.d -> p2 can_play
+remove edge p2.jafar_royal_vizier.b -> p2 can_play

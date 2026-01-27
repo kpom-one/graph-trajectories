@@ -1,0 +1,13 @@
+# turn: 12
+# current_player: p1
+# lore: p1=0, p2=7
+# action: ink:p1.lena_sabrewing_rebellious_teenager.c
+
+set node p1 ink_available=7 ink_drops=0 ink_total=7
+set node p1.lena_sabrewing_rebellious_teenager.c zone=ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play
+set edge p1 -> game can_pass action_id=4
+set edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=5
+set edge p1.pinocchio_star_attraction.d -> p1 can_quest action_id=6
+set edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=7

@@ -1,0 +1,12 @@
+# turn: 14
+# current_player: p1
+# lore: p1=8, p2=9
+# action: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.genie_satisfied_dragon.a
+
+remove node rush.t14.1
+set node p1.luisa_madrigal_magically_strong_one.a damage=3 exerted=1 zone=discard
+set node p2.genie_satisfied_dragon.a damage=5 zone=discard
+remove edge p1.luisa_madrigal_magically_strong_one.a -> p2.genie_satisfied_dragon.a can_challenge
+remove edge rush.t14.1 -> p1.luisa_madrigal_magically_strong_one.a rush
+remove edge rush.t14.1 -> p1.luisa_madrigal_magically_strong_one.a source
+set edge p1 -> game can_pass action_id=0

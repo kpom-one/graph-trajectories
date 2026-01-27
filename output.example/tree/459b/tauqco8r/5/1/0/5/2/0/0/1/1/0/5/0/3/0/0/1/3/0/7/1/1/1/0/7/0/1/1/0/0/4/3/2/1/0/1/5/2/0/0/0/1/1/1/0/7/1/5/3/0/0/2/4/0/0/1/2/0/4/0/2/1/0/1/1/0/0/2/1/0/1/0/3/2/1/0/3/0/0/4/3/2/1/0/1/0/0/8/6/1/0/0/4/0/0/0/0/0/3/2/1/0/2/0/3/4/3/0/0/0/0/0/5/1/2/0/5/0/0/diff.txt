@@ -1,0 +1,22 @@
+# turn: 30
+# current_player: p1
+# lore: p1=18, p2=18
+# action: end
+
+add node p1.heathcliff_stoic_butler.c card_id=1277 damage=0 exerted=0 label=heathcliff_stoic_butler type=Card zone=hand
+set node game turn=30
+set node p1 ink_drops=1
+set node p1.kuzco_wanted_llama.b exerted=0
+set node p1.winnie_the_pooh_hunny_wizard.b exerted=0
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=3 action_type=can_pass description=end
+add edge p1.heathcliff_stoic_butler.c -> p1 can_ink action_id=2 action_type=can_ink description=ink:p1.heathcliff_stoic_butler.c
+add edge p1.heathcliff_stoic_butler.c -> p1 can_play action_id=4 action_type=can_play description=play:p1.heathcliff_stoic_butler.c
+add edge p1.kuzco_wanted_llama.b -> p1 can_quest action_id=5 action_type=can_quest description=quest:p1.kuzco_wanted_llama.b
+add edge p1.kuzco_wanted_llama.b -> p2.prince_naveen_penniless_royal.a can_challenge action_id=0 action_type=can_challenge description=challenge:p1.kuzco_wanted_llama.b->p2.prince_naveen_penniless_royal.a
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest action_id=6 action_type=can_quest description=quest:p1.winnie_the_pooh_hunny_wizard.b
+add edge p1.winnie_the_pooh_hunny_wizard.b -> p2.prince_naveen_penniless_royal.a can_challenge action_id=1 action_type=can_challenge description=challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.prince_naveen_penniless_royal.a
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

@@ -1,0 +1,15 @@
+# turn: 16
+# current_player: p1
+# lore: p1=8, p2=10
+# action: end
+
+add node p1.pinocchio_star_attraction.b card_id=272 damage=0 exerted=0 label=pinocchio_star_attraction type=Card zone=hand
+set node game turn=16
+set node p1 ink_available=5
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=0 action_type=can_pass description=end
+add edge p1.pinocchio_star_attraction.b -> p1 can_play action_id=1 action_type=can_play description=play:p1.pinocchio_star_attraction.b
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

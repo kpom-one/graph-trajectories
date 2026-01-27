@@ -1,0 +1,9 @@
+# turn: 24
+# current_player: p1
+# lore: p1=9, p2=17
+# action: quest:p1.kuzco_wanted_llama.b
+
+set node p1 lore=9
+set node p1.kuzco_wanted_llama.b exerted=1
+remove edge p1.kuzco_wanted_llama.b -> p1 can_quest
+set edge p1.winnie_the_pooh_hunny_wizard.b -> p1 can_quest action_id=3

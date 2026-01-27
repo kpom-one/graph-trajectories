@@ -1,0 +1,16 @@
+# turn: 6
+# current_player: p1
+# lore: p1=3, p2=0
+# action: ink:p1.tinker_bell_fast_flier.d
+
+set node p1 ink_available=4 ink_drops=0 ink_total=4
+set node p1.tinker_bell_fast_flier.d zone=ink
+add edge p1.luisa_madrigal_magically_strong_one.b -> p1 can_play action_id=4 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.b
+remove edge p1.aladdin_prince_ali.b -> p1 can_ink
+remove edge p1.fred_mascot_by_day.b -> p1 can_ink
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_ink
+remove edge p1.tinker_bell_fast_flier.d -> p1 can_play
+set edge p1 -> game can_pass action_id=1
+set edge p1.aladdin_prince_ali.b -> p1 can_play action_id=2
+set edge p1.fred_mascot_by_day.b -> p1 can_play action_id=3
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p1 can_quest action_id=5

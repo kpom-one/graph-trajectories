@@ -1,0 +1,13 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: play:p1.lena_sabrewing_rebellious_teenager.c
+
+add node rush.t12.1 type=Ability
+set node p1 ink_available=4
+set node p1.lena_sabrewing_rebellious_teenager.c entered_play=12 zone=play
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p2.chien_po_imperial_soldier.d can_challenge action_id=0 action_type=can_challenge description=challenge:p1.lena_sabrewing_rebellious_teenager.c->p2.chien_po_imperial_soldier.d
+add edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c rush
+add edge rush.t12.1 -> p1.lena_sabrewing_rebellious_teenager.c source
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink
+remove edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play

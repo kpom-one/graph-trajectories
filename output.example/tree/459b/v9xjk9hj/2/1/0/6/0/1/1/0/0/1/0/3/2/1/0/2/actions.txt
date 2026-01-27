@@ -1,0 +1,7 @@
+0: challenge:p2.mickey_mouse_standard_bearer.c->p1.fred_mascot_by_day.a
+1: end
+2: play:p2.mulan_free_spirit.b
+3: play:p2.prince_naveen_penniless_royal.a
+4: play:p2.simba_protective_cub.a
+5: play:p2.simba_protective_cub.a:exerted
+6: quest:p2.mickey_mouse_standard_bearer.c

@@ -1,0 +1,7 @@
+0: challenge:p1.fred_mascot_by_day.b->p2.genie_satisfied_dragon.a
+1: challenge:p1.pinocchio_star_attraction.c->p2.genie_satisfied_dragon.a
+2: ink:p1.kuzco_wanted_llama.d
+3: end
+4: play:p1.kuzco_wanted_llama.d
+5: quest:p1.fred_mascot_by_day.b
+6: quest:p1.pinocchio_star_attraction.c

@@ -1,0 +1,15 @@
+0: challenge:p2.dumptruck_karnage's_second_mate.d->p1.lena_sabrewing_rebellious_teenager.c
+1: challenge:p2.dumptruck_karnage's_second_mate.d->p1.lena_sabrewing_rebellious_teenager.d
+2: challenge:p2.robin_hood_beloved_outlaw.b->p1.lena_sabrewing_rebellious_teenager.c
+3: challenge:p2.robin_hood_beloved_outlaw.b->p1.lena_sabrewing_rebellious_teenager.d
+4: ink:p2.arges_the_cyclops.d
+5: ink:p2.chien_po_imperial_soldier.b
+6: ink:p2.chien_po_imperial_soldier.c
+7: ink:p2.jafar_royal_vizier.b
+8: ink:p2.jafar_royal_vizier.d
+9: end
+a: play:p2.arges_the_cyclops.d
+b: play:p2.jafar_royal_vizier.b
+c: play:p2.jafar_royal_vizier.d
+d: quest:p2.dumptruck_karnage's_second_mate.d
+e: quest:p2.robin_hood_beloved_outlaw.b

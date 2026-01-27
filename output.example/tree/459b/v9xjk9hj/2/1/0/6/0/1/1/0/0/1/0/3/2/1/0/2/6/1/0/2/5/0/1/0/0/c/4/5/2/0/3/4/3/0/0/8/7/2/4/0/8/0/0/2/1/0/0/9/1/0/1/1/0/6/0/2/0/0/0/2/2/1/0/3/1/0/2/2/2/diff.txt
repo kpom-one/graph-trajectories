@@ -1,0 +1,8 @@
+# turn: 15
+# current_player: p2
+# lore: p1=10, p2=11
+# action: quest:p2.stitch_new_dog.c
+
+set node p2 lore=11
+set node p2.stitch_new_dog.c exerted=1
+remove edge p2.stitch_new_dog.c -> p2 can_quest

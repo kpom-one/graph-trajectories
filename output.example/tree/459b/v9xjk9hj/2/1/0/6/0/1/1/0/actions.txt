@@ -1,0 +1,9 @@
+0: ink:p2.chien_po_imperial_soldier.a
+1: ink:p2.chien_po_imperial_soldier.c
+2: ink:p2.chien_po_imperial_soldier.d
+3: ink:p2.mickey_mouse_standard_bearer.c
+4: ink:p2.mulan_free_spirit.b
+5: ink:p2.prince_naveen_penniless_royal.a
+6: ink:p2.simba_protective_cub.a
+7: ink:p2.stitch_carefree_surfer.a
+8: end

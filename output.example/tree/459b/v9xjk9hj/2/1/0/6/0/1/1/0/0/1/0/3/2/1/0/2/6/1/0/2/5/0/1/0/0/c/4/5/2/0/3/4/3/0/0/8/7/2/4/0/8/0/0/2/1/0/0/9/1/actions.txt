@@ -1,0 +1,5 @@
+0: ink:p2.chien_po_imperial_soldier.b
+1: ink:p2.mickey_mouse_standard_bearer.a
+2: end
+3: play:p2.mickey_mouse_standard_bearer.a
+4: quest:p2.chien_po_imperial_soldier.d

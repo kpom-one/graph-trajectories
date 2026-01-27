@@ -1,0 +1,11 @@
+# turn: 10
+# current_player: p1
+# lore: p1=8, p2=6
+# action: quest:p1.pinocchio_star_attraction.c
+
+set node p1 lore=8
+set node p1.pinocchio_star_attraction.c exerted=1
+remove edge p1.pinocchio_star_attraction.c -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.c -> p2.jafar_royal_vizier.b can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.kuzco_wanted_llama.d -> p1 can_ink action_id=0

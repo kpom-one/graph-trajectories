@@ -1,0 +1,7 @@
+0: challenge:p2.prince_naveen_penniless_royal.a->p1.fred_mascot_by_day.a
+1: challenge:p2.prince_naveen_penniless_royal.a->p1.kuzco_wanted_llama.b
+2: challenge:p2.prince_naveen_penniless_royal.a->p1.winnie_the_pooh_hunny_wizard.b
+3: ink:p2.stitch_new_dog.a
+4: end
+5: play:p2.stitch_new_dog.a
+6: quest:p2.prince_naveen_penniless_royal.a

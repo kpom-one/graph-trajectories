@@ -1,0 +1,7 @@
+0: ink:p2.simba_protective_cub.d
+1: ink:p2.stitch_carefree_surfer.a
+2: end
+3: play:p2.simba_protective_cub.d
+4: play:p2.simba_protective_cub.d:exerted
+5: quest:p2.genie_satisfied_dragon.a
+6: quest:p2.jafar_royal_vizier.b

@@ -1,0 +1,10 @@
+0: challenge:p1.cogsworth_illuminary_watchman.d->p2.mulan_free_spirit.b
+1: challenge:p1.luisa_madrigal_magically_strong_one.a->p2.mulan_free_spirit.b
+2: ink:p1.tinker_bell_fast_flier.d
+3: ink:p1.tor_florist.b
+4: ink:p1.winnie_the_pooh_hunny_wizard.c
+5: end
+6: play:p1.luisa_madrigal_magically_strong_one.d
+7: play:p1.tinker_bell_fast_flier.d
+8: quest:p1.cogsworth_illuminary_watchman.d
+9: quest:p1.luisa_madrigal_magically_strong_one.a

@@ -1,0 +1,6 @@
+0: challenge:p2.genie_satisfied_dragon.a->p1.luisa_madrigal_magically_strong_one.b
+1: end
+2: play:p2.arges_the_cyclops.d
+3: play:p2.chien_po_imperial_soldier.c
+4: play:p2.chien_po_imperial_soldier.c:exerted
+5: quest:p2.genie_satisfied_dragon.a

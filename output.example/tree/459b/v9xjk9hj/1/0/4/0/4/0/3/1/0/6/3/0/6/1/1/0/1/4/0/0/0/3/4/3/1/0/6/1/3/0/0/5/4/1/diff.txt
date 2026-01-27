@@ -1,0 +1,15 @@
+# turn: 9
+# current_player: p2
+# lore: p1=0, p2=4
+# action: challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+
+remove node rush.t8.1
+set node p1.luisa_madrigal_magically_strong_one.d damage=4 zone=discard
+set node p2.stitch_new_dog.b damage=4 exerted=1 zone=discard
+remove edge p2.simba_protective_cub.c -> p1.luisa_madrigal_magically_strong_one.d can_challenge
+remove edge p2.stitch_new_dog.b -> p1.luisa_madrigal_magically_strong_one.d can_challenge
+remove edge p2.stitch_new_dog.b -> p2 can_quest
+remove edge rush.t8.1 -> p1.luisa_madrigal_magically_strong_one.d rush
+remove edge rush.t8.1 -> p1.luisa_madrigal_magically_strong_one.d source
+set edge p2 -> game can_pass action_id=0
+set edge p2.simba_protective_cub.c -> p2 can_quest action_id=1

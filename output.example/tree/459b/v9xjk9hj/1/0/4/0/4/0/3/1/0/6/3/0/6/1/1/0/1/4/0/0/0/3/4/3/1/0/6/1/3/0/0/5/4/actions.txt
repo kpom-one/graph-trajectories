@@ -1,0 +1,5 @@
+0: challenge:p2.simba_protective_cub.c->p1.luisa_madrigal_magically_strong_one.d
+1: challenge:p2.stitch_new_dog.b->p1.luisa_madrigal_magically_strong_one.d
+2: end
+3: quest:p2.simba_protective_cub.c
+4: quest:p2.stitch_new_dog.b

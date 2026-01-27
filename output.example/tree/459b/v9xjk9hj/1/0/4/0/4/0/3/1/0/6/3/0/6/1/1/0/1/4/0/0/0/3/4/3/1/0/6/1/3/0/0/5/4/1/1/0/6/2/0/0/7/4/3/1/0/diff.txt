@@ -1,0 +1,23 @@
+# turn: 12
+# current_player: p1
+# lore: p1=0, p2=7
+# action: end
+
+add node p1.lena_sabrewing_rebellious_teenager.c card_id=479 damage=0 exerted=0 label=lena_sabrewing_rebellious_teenager type=Card zone=hand
+set node game turn=12
+set node p1 ink_available=6 ink_drops=1
+add edge game -> p1 current_turn
+add edge game -> step.p1.main current_step
+add edge p1 -> game can_pass action_id=5 action_type=can_pass description=end
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=4 action_type=can_ink description=ink:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=6 action_type=can_play description=play:p1.lena_sabrewing_rebellious_teenager.c
+add edge p1.luisa_madrigal_magically_strong_one.a -> p1 can_play action_id=7 action_type=can_play description=play:p1.luisa_madrigal_magically_strong_one.a
+add edge p1.pinocchio_star_attraction.d -> p1 can_quest action_id=8 action_type=can_quest description=quest:p1.pinocchio_star_attraction.d
+add edge p1.pinocchio_star_attraction.d -> p2.chien_po_imperial_soldier.b can_challenge action_id=0 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.d->p2.chien_po_imperial_soldier.b
+add edge p1.pinocchio_star_attraction.d -> p2.simba_protective_cub.c can_challenge action_id=1 action_type=can_challenge description=challenge:p1.pinocchio_star_attraction.d->p2.simba_protective_cub.c
+add edge p1.tinker_bell_fast_flier.d -> p1 can_quest action_id=9 action_type=can_quest description=quest:p1.tinker_bell_fast_flier.d
+add edge p1.tinker_bell_fast_flier.d -> p2.chien_po_imperial_soldier.b can_challenge action_id=2 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.chien_po_imperial_soldier.b
+add edge p1.tinker_bell_fast_flier.d -> p2.simba_protective_cub.c can_challenge action_id=3 action_type=can_challenge description=challenge:p1.tinker_bell_fast_flier.d->p2.simba_protective_cub.c
+remove edge game -> p2 current_turn
+remove edge game -> step.p2.main current_step
+remove edge p2 -> game can_pass

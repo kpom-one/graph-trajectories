@@ -1,0 +1,5 @@
+0: challenge:p2.jafar_royal_vizier.b->p1.lena_sabrewing_rebellious_teenager.c
+1: end
+2: play:p2.arges_the_cyclops.d
+3: play:p2.genie_satisfied_dragon.a
+4: quest:p2.jafar_royal_vizier.b

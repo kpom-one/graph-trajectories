@@ -1,0 +1,12 @@
+# turn: 3
+# current_player: p2
+# lore: p1=0, p2=0
+# action: play:p2.simba_protective_cub.a
+
+add node bodyguard.t3.1 type=Ability
+set node p2 ink_available=0
+set node p2.simba_protective_cub.a entered_play=3 zone=play
+add edge bodyguard.t3.1 -> p2.simba_protective_cub.a bodyguard
+add edge bodyguard.t3.1 -> p2.simba_protective_cub.a source
+remove edge p2.simba_protective_cub.a -> p2 can_play
+remove edge p2.simba_protective_cub.c -> p2 can_play

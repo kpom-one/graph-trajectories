@@ -1,0 +1,10 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.jafar_royal_vizier.b
+1: challenge:p1.luisa_madrigal_magically_strong_one.b->p2.jafar_royal_vizier.d
+2: challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.b
+3: challenge:p1.pinocchio_star_attraction.c->p2.jafar_royal_vizier.d
+4: challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.b
+5: challenge:p1.tinker_bell_fast_flier.a->p2.jafar_royal_vizier.d
+6: ink:p1.kuzco_wanted_llama.d
+7: end
+8: quest:p1.pinocchio_star_attraction.c
+9: quest:p1.tinker_bell_fast_flier.a

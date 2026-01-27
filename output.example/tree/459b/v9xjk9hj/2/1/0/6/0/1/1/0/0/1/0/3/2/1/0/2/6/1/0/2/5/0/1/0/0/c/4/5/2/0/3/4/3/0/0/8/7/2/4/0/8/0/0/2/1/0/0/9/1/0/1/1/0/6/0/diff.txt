@@ -1,0 +1,12 @@
+# turn: 12
+# current_player: p1
+# lore: p1=8, p2=6
+# action: challenge:p1.pinocchio_star_attraction.d->p2.chien_po_imperial_soldier.d
+
+set node p1.pinocchio_star_attraction.d damage=4 exerted=1 zone=discard
+set node p2.chien_po_imperial_soldier.d damage=1
+remove edge p1.pinocchio_star_attraction.d -> p1 can_quest
+remove edge p1.pinocchio_star_attraction.d -> p2.chien_po_imperial_soldier.d can_challenge
+set edge p1 -> game can_pass action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=2

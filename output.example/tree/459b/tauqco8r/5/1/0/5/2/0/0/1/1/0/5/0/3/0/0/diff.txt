@@ -1,0 +1,16 @@
+# turn: 4
+# current_player: p1
+# lore: p1=1, p2=0
+# action: challenge:p1.kuzco_wanted_llama.a->p2.robin_hood_beloved_outlaw.b
+
+set node p1.kuzco_wanted_llama.a damage=2 exerted=1 zone=discard
+set node p2.robin_hood_beloved_outlaw.b damage=2 zone=discard
+remove edge p1.kuzco_wanted_llama.a -> p1 can_quest
+remove edge p1.kuzco_wanted_llama.a -> p2.robin_hood_beloved_outlaw.b can_challenge
+set edge p1 -> game can_pass action_id=4
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_ink action_id=0
+set edge p1.lena_sabrewing_rebellious_teenager.c -> p1 can_play action_id=5
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p1 can_ink action_id=1
+set edge p1.lena_sabrewing_rebellious_teenager.d -> p1 can_play action_id=6
+set edge p1.tinker_bell_fast_flier.a -> p1 can_ink action_id=2
+set edge p1.tinker_bell_fast_flier.d -> p1 can_ink action_id=3

@@ -1,0 +1,11 @@
+0: challenge:p2.arges_the_cyclops.d->p1.pinocchio_star_attraction.b
+1: challenge:p2.chien_po_imperial_soldier.d->p1.pinocchio_star_attraction.b
+2: challenge:p2.mickey_mouse_standard_bearer.a->p1.pinocchio_star_attraction.b
+3: challenge:p2.stitch_new_dog.c->p1.pinocchio_star_attraction.b
+4: ink:p2.mr._arrow_legacy's_first_mate.c
+5: end
+6: play:p2.mr._arrow_legacy's_first_mate.c
+7: quest:p2.arges_the_cyclops.d
+8: quest:p2.chien_po_imperial_soldier.d
+9: quest:p2.mickey_mouse_standard_bearer.a
+a: quest:p2.stitch_new_dog.c

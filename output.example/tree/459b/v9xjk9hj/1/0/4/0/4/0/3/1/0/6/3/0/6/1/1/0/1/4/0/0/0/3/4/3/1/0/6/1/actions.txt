@@ -1,0 +1,5 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.mulan_free_spirit.b
+1: ink:p1.maleficent_sorceress.b
+2: ink:p1.tinker_bell_fast_flier.d
+3: ink:p1.winnie_the_pooh_hunny_wizard.c
+4: end

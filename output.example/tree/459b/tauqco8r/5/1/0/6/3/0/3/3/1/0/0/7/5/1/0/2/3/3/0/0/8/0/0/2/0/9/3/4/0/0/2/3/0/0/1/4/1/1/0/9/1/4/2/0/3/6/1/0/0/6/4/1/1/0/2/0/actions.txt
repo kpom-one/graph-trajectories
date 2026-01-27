@@ -1,0 +1,8 @@
+0: ink:p2.simba_protective_cub.d
+1: end
+2: play:p2.simba_protective_cub.d
+3: play:p2.simba_protective_cub.d:exerted
+4: quest:p2.arges_the_cyclops.d
+5: quest:p2.chien_po_imperial_soldier.c
+6: quest:p2.genie_satisfied_dragon.a
+7: quest:p2.mr._arrow_legacy's_first_mate.b

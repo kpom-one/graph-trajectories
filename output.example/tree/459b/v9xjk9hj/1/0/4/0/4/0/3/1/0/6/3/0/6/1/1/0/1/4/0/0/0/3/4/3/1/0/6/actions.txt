@@ -1,0 +1,7 @@
+0: challenge:p1.luisa_madrigal_magically_strong_one.d->p2.simba_protective_cub.a
+1: challenge:p1.maleficent_sorceress.a->p2.simba_protective_cub.a
+2: ink:p1.maleficent_sorceress.b
+3: ink:p1.tinker_bell_fast_flier.d
+4: ink:p1.winnie_the_pooh_hunny_wizard.c
+5: end
+6: quest:p1.maleficent_sorceress.a

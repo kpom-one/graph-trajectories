@@ -1,0 +1,5 @@
+0: challenge:p1.winnie_the_pooh_hunny_wizard.b->p2.simba_protective_cub.d
+1: ink:p1.cauldron_born_mindless_horde.d
+2: end
+3: play:p1.cauldron_born_mindless_horde.d
+4: quest:p1.winnie_the_pooh_hunny_wizard.b
