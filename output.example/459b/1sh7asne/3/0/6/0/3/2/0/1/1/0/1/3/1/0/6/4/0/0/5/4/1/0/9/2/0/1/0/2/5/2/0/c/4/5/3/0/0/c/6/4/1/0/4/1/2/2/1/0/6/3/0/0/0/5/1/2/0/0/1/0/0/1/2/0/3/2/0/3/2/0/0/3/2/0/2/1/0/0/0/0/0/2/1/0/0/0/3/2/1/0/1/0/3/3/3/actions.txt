@@ -1,3 +1,0 @@
-0: ink:p2.aladdin_cornered_swordsman.d
-1: end
-2: play:p2.aladdin_cornered_swordsman.d

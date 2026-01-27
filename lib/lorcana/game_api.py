@@ -4,15 +4,13 @@ Python API for playing Lorcana games in-memory.
 Provides high-level game operations without filesystem I/O.
 Uses MemoryStore for fast state management.
 """
-import os
 import random
 from pathlib import Path
 from lib.core.store import StateStore
 from lib.core.memory_store import MemoryStore
 from lib.core.file_store import FileStore
-from lib.core.graph import can_edges, get_node_attr, get_edge_attr, save_dot
+from lib.core.graph import can_edges, get_node_attr, get_edge_attr
 from lib.core.outcome import backpropagate, find_seed_path
-from lib.core.trajectory import build_trajectory_from_path
 from lib.lorcana.state import LorcanaState
 from lib.lorcana.execute import execute_action
 from lib.core.navigation import format_actions, Action
@@ -119,10 +117,15 @@ class GameSession:
                         backpropagate(new_key, seed_path,
                             lambda parent, suffix: self.store.save_outcome(parent, suffix, outcome_data))
 
-                    # Build trajectory graph for this completed game (if enabled)
-                    if os.environ.get("BUILD_TRAJECTORY", "").lower() in ("1", "true", "yes"):
-                        trajectory = build_trajectory_from_path(new_key)
-                        save_dot(trajectory, Path(new_key) / "trajectory.dot")
+                    # Export .episode directory for this completed game
+                    episode = self.store.get_episode(new_key)
+                    output_dir = Path("output/episodes")
+                    output_dir.mkdir(parents=True, exist_ok=True)
+                    # Generate unique name
+                    counter = 1
+                    while (output_dir / f"{episode.game_id}-{counter}.episode").exists():
+                        counter += 1
+                    episode.to_episode_dir(output_dir / f"{episode.game_id}-{counter}.episode")
 
                 return True
 

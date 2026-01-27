@@ -127,7 +127,7 @@ def init_game(deck1_txt: str | Path, deck2_txt: str | Path) -> str:
 
     # Generate hash from deck contents
     matchup_hash = _generate_matchup_hash(deck1_txt, deck2_txt)
-    matchdir = Path("output") / matchup_hash
+    matchdir = Path("output/tree") / matchup_hash
     matchdir.mkdir(parents=True, exist_ok=True)
 
     # Load template
@@ -155,6 +155,63 @@ def _generate_matchup_hash(deck1: Path, deck2: Path) -> str:
     content2 = deck2.read_text()
     combined = content1 + content2
     return hashlib.md5(combined.encode()).hexdigest()[:4]
+
+
+def create_initial_state(
+    deck1_txt: str | Path,
+    deck2_txt: str | Path,
+    seed: str,
+) -> LorcanaState:
+    """
+    Create a ready-to-play game state in memory.
+
+    Reads deck files and template, shuffles, draws hands.
+    No file I/O except reading inputs.
+
+    Args:
+        deck1_txt: Path to P1's decklist
+        deck2_txt: Path to P2's decklist
+        seed: Shuffle seed (simple string or hand-spec format)
+
+    Returns:
+        LorcanaState ready for GameSession
+    """
+    deck1_txt = Path(deck1_txt)
+    deck2_txt = Path(deck2_txt)
+
+    # Load template
+    G = load_dot(Path("data/template.dot"))
+
+    # Preload card database
+    get_card_db()
+
+    # Compute initial state
+    compute_all(G)
+
+    # Build shuffled decks
+    if '.' in seed:
+        # Hand-spec format
+        hand_spec = parse_seed(seed)
+        if not hand_spec:
+            raise ValueError(f"Invalid hand-spec seed format: {seed}")
+        deck1_ids = build_shuffled_deck(deck1_txt, seed, hand_spec['p1_hand'])
+        deck2_ids = build_shuffled_deck(deck2_txt, seed, hand_spec['p2_hand'])
+    else:
+        # Simple seed - true random shuffle
+        deck1_ids = build_shuffled_deck(deck1_txt, seed + "_p1")
+        deck2_ids = build_shuffled_deck(deck2_txt, seed + "_p2")
+
+    # Create state with decks
+    state = LorcanaState(G, deck1_ids, deck2_ids)
+
+    # Draw starting hands
+    state.draw(player=1, count=7)
+    state.draw(player=2, count=7)
+
+    # Recompute legal actions
+    compute_all(state.graph)
+
+    return state
 
 
 def shuffle_and_draw(matchdir: str | Path, seed: str) -> str:

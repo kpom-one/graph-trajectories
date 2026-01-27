@@ -1,6 +1,6 @@
 # Architecture
 
-Graph-based game state engine with filesystem persistence. Designed for game tree exploration, replay, and ML training data generation.
+Graph-based game state engine for ML training data generation. Games are modeled as graphs, played to completion, and exported as self-contained episodes.
 
 ## Core Concepts
 
@@ -20,11 +20,13 @@ Game state represented as a **NetworkX MultiDiGraph**, serialized to DOT format.
 
 Legal action edges are **computed from game rules** and stored on the graph, making the state self-documenting.
 
-### Filesystem as Game Tree
+### Filesystem as Game Tree (optional)
+
+With `--output-tree`, the full game tree is written to disk for debugging:
 
 ```
-output/<matchup-hash>/<shuffle-seed>/<action>/<action>/...
-                                     └─ sequential action IDs (0, 1, 2...)
+output/tree/<matchup-hash>/<shuffle-seed>/<action>/<action>/...
+                                          └─ sequential action IDs (0, 1, 2...)
 ```
 
 **Each directory = one game state**:
@@ -33,22 +35,15 @@ output/<matchup-hash>/<shuffle-seed>/<action>/<action>/...
 - `diff.txt` - What changed from parent state
 - `deck1.dek`, `deck2.dek` - Remaining cards in deck
 
-**Tree structure**:
-- Root: initial game state after shuffle
-- Branches: alternate move sequences
-- Leaves: games in progress (explored but not continued)
+Useful for inspecting intermediate states or debugging game logic.
 
-### Lazy State Computation
+### State Storage
 
-States only exist when explored:
-1. Navigate to `output/.../0/1/2/`
-2. If `game.dot` doesn't exist → load parent, apply action, save result
-3. Recursive: automatically builds missing parent states
+Two storage backends for different use cases:
 
-**Benefits**:
-- Sparse storage (only explored paths)
-- Parallel exploration (each state independent)
-- Natural caching (once computed, reused)
+**MemoryStore** (default): States kept in memory only. Fast, no disk I/O. Episodes exported at game end.
+
+**FileStore** (`--output-tree`): States written to disk as computed. Enables debugging, parallel exploration, and caching across runs.
 
 ### Deterministic Replay
 
@@ -145,23 +140,25 @@ p1.card_name.b
 ## State Lifecycle
 
 ```
-1. Initialize (match)
+1. Initialize
    ├─ Load template graph (players, steps)
    ├─ Hash deck contents → matchup ID
-   └─ Save: output/<hash>/game.dot
+   └─ Create initial game state
 
-2. Shuffle (deterministic)
+2. Shuffle
    ├─ Parse seed → which cards go to each hand
    ├─ Create card nodes with zone="hand"
-   ├─ Compute legal actions → add CAN_* edges
-   └─ Save: output/<hash>/<seed>/game.dot, *.dek
+   └─ Compute legal actions → add CAN_* edges
 
-3. Play (on-demand)
-   ├─ If game.dot exists → load and return
-   ├─ Else: load parent, apply action, save
-   ├─ Compute legal actions for new state
-   ├─ Write actions.txt, diff.txt
-   └─ Recursive: auto-builds missing parents
+3. Play (GameSession)
+   ├─ Apply action, compute new state
+   ├─ Track state history (MemoryStore or FileStore)
+   └─ Repeat until game over
+
+4. Export (Episode)
+   ├─ Stack all states into episode graph
+   ├─ Write to output/episodes/<id>.episode/
+   └─ Contains: graph.dot, history.txt, result.json, deck files
 ```
 
 ## Extension Points
@@ -187,19 +184,25 @@ Sequential action IDs assigned automatically.
 
 ### Custom Analysis Tools
 
-All data accessible via standard tools:
-- `find`, `grep` for filesystem queries
-- NetworkX for graph analysis
-- Shell scripts for batch processing
+Episode data accessible via standard tools:
+- NetworkX for graph analysis (load `graph.dot`)
+- JSON for metadata (`result.json`)
 - DOT files viewable with Graphviz
+- With `--output-tree`: `find`, `grep` for filesystem queries
 
 ### API/Programmatic Access
 
 ```python
+from lib.lorcana.setup import create_initial_state
 from lib.lorcana.game_api import GameSession
+from lib.core.memory_store import MemoryStore
 
-# Load from existing file-based state
-session = GameSession.from_file("output/b013/seed/0/1/2")
+# Create initial state
+state = create_initial_state("data/decks/deck1.txt", "data/decks/deck2.txt", seed="abc123")
+
+# Play with in-memory storage (fast)
+store = MemoryStore()
+session = GameSession(state, store=store, root_key="abc123")
 
 # Get available actions
 actions = session.get_actions()  # [{'id': '0', 'description': '...'}, ...]
@@ -208,20 +211,20 @@ actions = session.get_actions()  # [{'id': '0', 'description': '...'}, ...]
 session.apply_action("0")
 
 # Play random until game ends
-path = session.play_until_game_over()
+session.play_until_game_over()
 
-# Check winner
-if session.is_game_over():
-    winner = session.get_winner()  # "p1" or "p2"
+# Get episode for export
+episode = store.get_episode(session.current_key)
+episode.to_episode_dir("output/episodes/my-game.episode")
 ```
 
-## Trajectory Graphs
+## Episode Graphs
 
-A trajectory graph combines all states along a path into a single graph, enabling temporal analysis.
+An **episode graph** combines all states from a complete game into a single graph, enabling temporal analysis. This is the `graph.dot` file in each `.episode` directory.
 
 ### Structure
 
-Given a path `output/459b/seed/0/1/2` (3 actions from seed):
+Given a game with 4 states (initial + 3 actions):
 
 ```
 State 0 (seed)     State 1 (action 0)     State 2 (action 1)     State 3 (action 2)
@@ -258,20 +261,24 @@ Temporal edges only exist when the entity exists in both states.
 
 ### Generation
 
-```bash
-# Manual: build from any completed game path
-just trajectory output/459b/seed/0/1/2/... trajectory.dot
+Episode graphs are built automatically when games complete:
 
-# Automatic: set BUILD_TRAJECTORY=1 to generate on game completion
-BUILD_TRAJECTORY=1 just generate-games 1 1
-# Creates trajectory.dot in the winning state directory
+```bash
+just generate-games 2 3  # Creates 6 .episode directories
 ```
+
+Each `.episode` directory contains:
+- `graph.dot` - The episode graph (all states stacked)
+- `history.txt` - Human-readable diff sequence
+- `result.json` - Winner, final lore, metadata
+- `deck1.dek`, `deck2.dek` - Starting deck lists
+
+Implementation: `lib/core/episode.py` and `lib/core/episode_graph.py`
 
 ## Design Principles
 
-1. **Graph = source of truth**: Everything derivable from game.dot
-2. **Filesystem = interface**: Standard tools work (ls, grep, diff)
-3. **Lazy = efficient**: Only compute what you explore
-4. **Deterministic = reproducible**: Same inputs → same outputs
-5. **Self-documenting**: Navigation files (actions.txt, diff.txt) alongside graph
-6. **Composable**: Unix philosophy, pipe-friendly
+1. **Graph = source of truth**: Game state fully represented as a graph
+2. **Deterministic = reproducible**: Same inputs → same outputs
+3. **Self-contained episodes**: Each `.episode` has everything needed for analysis
+4. **Pluggable storage**: MemoryStore for speed, FileStore for debugging
+5. **Composable**: Standard formats (DOT, JSON) work with existing tools

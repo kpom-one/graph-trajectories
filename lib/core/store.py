@@ -7,6 +7,8 @@ Implementations: FileStore (DOT files), MemoryStore (dict-based).
 from abc import ABC, abstractmethod
 from pathlib import Path
 
+from lib.core.episode import Episode
+
 
 class StateStore(ABC):
     """Abstract base class for state storage backends."""
@@ -90,3 +92,23 @@ class StateStore(ABC):
             Dict with 'outcomes' (per-action stats), 'p1_wins', 'p2_wins' (path lists)
         """
         return {"outcomes": {}, "p1_wins": [], "p2_wins": []}
+
+    @abstractmethod
+    def get_episode(self, leaf_path: Path | str) -> Episode:
+        """
+        Build an Episode from root to the given leaf path.
+
+        Walks the path from the first game state to leaf_path,
+        collecting states, actions, decks, and outcome.
+
+        Args:
+            leaf_path: Path to the final state (must be a completed game)
+
+        Returns:
+            Episode object ready for serialization
+
+        Raises:
+            KeyError or FileNotFoundError: If path doesn't exist
+            ValueError: If path doesn't represent a completed game
+        """
+        pass
