@@ -53,3 +53,13 @@ generate-games num_seeds="1" games_per_seed="1" *flags="":
     echo "Episodes: $(ls -1d output/episodes/*.episode 2>/dev/null | wc -l)"
     du -sh output/ 2>/dev/null || true
 
+# Extract per-card trajectory files from an episode
+# Usage: just build-trajectories output/episodes/abc.episode
+build-trajectories episode_path:
+    {{python}} bin/build-trajectories.py "{{episode_path}}"
+
+# Build narrative files for all cards across episodes
+# Usage: just build-narratives                     (all episodes)
+#        just build-narratives output/episodes/abc.episode  (single episode)
+build-narratives *episode_path:
+    {{python}} bin/build-narratives.py {{episode_path}}

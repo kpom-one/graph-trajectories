@@ -1,0 +1,22 @@
+**Heathcliff Stoic Butler** — Narrative
+
+**Turn 0:** I was drawn into hand. My owner chose to ink Lena Sabrewing Rebellious Teenager instead of me.
+
+**Turn 1:** I waited in hand.
+
+**Turn 2:** I gained the ability to ink. My owner chose to ink Aladdin Prince Ali instead of me.
+
+**Turn 3:** I waited in hand.
+
+**Turn 4:** I gained the ability to ink. My owner chose to ink Maleficent Sorceress instead of me.
+
+**Turn 5:** I waited in hand.
+
+**Turn 6:** I gained the ability to ink. I was inked, leaving the game permanently.
+
+---
+
+**Arc:**
+Held in hand for 7 turn(s) → inked on turn 6
+
+**Game Result:** We lost. Final score: p1=12, p2=20. Winner: p2.
