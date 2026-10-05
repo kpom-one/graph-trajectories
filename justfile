@@ -13,7 +13,7 @@ default:
 setup:
     python3 -m venv .venv
     .venv/bin/pip install --upgrade pip
-    .venv/bin/pip install networkx pydot flask pytest
+    .venv/bin/pip install networkx pydot flask jinja2 pytest
     @echo "Environment ready. Dependencies installed."
 
 # Run tests
@@ -63,3 +63,9 @@ build-trajectories episode_path:
 #        just build-narratives output/episodes/abc.episode  (single episode)
 build-narratives *episode_path:
     {{python}} bin/build-narratives.py {{episode_path}}
+
+# Serve the Jev board + ask endpoint at http://localhost:8765
+# Usage: just serve               (default port 8765)
+#        just serve 9000          (custom port)
+serve port="8765":
+    {{python}} bin/jev-server.py --port {{port}}
