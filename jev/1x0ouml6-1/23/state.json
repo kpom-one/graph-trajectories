@@ -1,0 +1,334 @@
+{
+  "cards": {
+    "tor - florist c": {
+      "display_name": "Tor - Florist",
+      "letter": "c",
+      "cost": 5,
+      "strength": 4,
+      "willpower": 7,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set4/91_8a3fa9426e4bbf6b22499b0f6aa4db543529bfda.jpg"
+    },
+    "heathcliff - stoic butler a": {
+      "display_name": "Heathcliff - Stoic Butler",
+      "letter": "a",
+      "cost": 4,
+      "strength": 3,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Ward"
+      ],
+      "abilities_text": "Ward (Opponents can't choose this character\nexcept to challenge.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/78_c7457ad832ae9e59e0a6501c787628c81b01dd92.jpg"
+    },
+    "maleficent - sorceress": {
+      "display_name": "Maleficent - Sorceress",
+      "letter": null,
+      "cost": 3,
+      "strength": 2,
+      "willpower": 2,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "CAST MY SPELL! When you play this character,\nyou may draw a card.",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/49_1faa08c58b7c1e3cc11da1656fb8a856b25e1f1f.jpg"
+    },
+    "tinker bell - fast flier d": {
+      "display_name": "Tinker Bell - Fast Flier",
+      "letter": "d",
+      "cost": 3,
+      "strength": 1,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Evasive"
+      ],
+      "abilities_text": "Evasive (Only characters with Evasive can\nchallenge this character.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/43_33a86f99e97fe00cff699ae7d083e2ed8383603a.jpg"
+    },
+    "tinker bell - fast flier a": {
+      "display_name": "Tinker Bell - Fast Flier",
+      "letter": "a",
+      "cost": 3,
+      "strength": 1,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Evasive"
+      ],
+      "abilities_text": "Evasive (Only characters with Evasive can\nchallenge this character.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/43_33a86f99e97fe00cff699ae7d083e2ed8383603a.jpg"
+    },
+    "tor - florist a": {
+      "display_name": "Tor - Florist",
+      "letter": "a",
+      "cost": 5,
+      "strength": 4,
+      "willpower": 7,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set4/91_8a3fa9426e4bbf6b22499b0f6aa4db543529bfda.jpg"
+    },
+    "luisa madrigal - magically strong one": {
+      "display_name": "Luisa Madrigal - Magically Strong One",
+      "letter": null,
+      "cost": 4,
+      "strength": 4,
+      "willpower": 3,
+      "lore": 1,
+      "type": "character",
+      "keywords": [
+        "Rush"
+      ],
+      "abilities_text": "Rush (This character can challenge the turn\nthey're played.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set4/47_ac6a0fa89c9e287cf70852e696b294764ec2c229.jpg"
+    },
+    "mickey mouse - standard bearer": {
+      "display_name": "Mickey Mouse - Standard Bearer",
+      "letter": null,
+      "cost": 2,
+      "strength": 1,
+      "willpower": 3,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "STAND STRONG When you play this character,\nchosen character gains Challenger +2 this turn.\n(They get +2 \u00a4 while challenging.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set4/188_9e5b78d11dc4e5e259d350433bc6ce807917efbd.jpg"
+    },
+    "genie - satisfied dragon": {
+      "display_name": "Genie - Satisfied Dragon",
+      "letter": null,
+      "cost": 3,
+      "strength": 3,
+      "willpower": 4,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "BUG CATCHER During your turn, this character\ngains Evasive. (They can challenge characters\nwith Evasive.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set8/189_405a2b04bd88d4c91e957c7dda5b012b7892b4cc.jpg"
+    },
+    "aladdin - cornered swordsman": {
+      "display_name": "Aladdin - Cornered Swordsman",
+      "letter": null,
+      "cost": 2,
+      "strength": 2,
+      "willpower": 1,
+      "lore": 2,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/171_920b3aafedec34f336223421a30511b4b2cb8daf.jpg"
+    },
+    "stitch - new dog": {
+      "display_name": "Stitch - New Dog",
+      "letter": null,
+      "cost": 1,
+      "strength": 2,
+      "willpower": 2,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/22_971f043169234b0cbc38aedf5373abbb37fb9df7.jpg"
+    },
+    "mr. arrow - legacy's first mate": {
+      "display_name": "Mr. Arrow - Legacy's First Mate",
+      "letter": null,
+      "cost": 2,
+      "strength": 1,
+      "willpower": 2,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Resist"
+      ],
+      "abilities_text": "Resist +1 (Damage dealt to this character is\nreduced by 1.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/182_e4778fe78483fbcf2dc0ebdb6cdd41555426c06c.jpg"
+    },
+    "prince naveen - penniless royal": {
+      "display_name": "Prince Naveen - Penniless Royal",
+      "letter": null,
+      "cost": 3,
+      "strength": 4,
+      "willpower": 3,
+      "lore": 1,
+      "type": "character",
+      "keywords": [],
+      "abilities_text": "",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set2/191_506c8d6d3f45f9224ad619128fd2d971c4c54186.jpg"
+    },
+    "mulan - free spirit d": {
+      "display_name": "Mulan - Free Spirit",
+      "letter": "d",
+      "cost": 3,
+      "strength": 2,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Support"
+      ],
+      "abilities_text": "Support (Whenever this character quests, you\nmay add their \u00a4 to another chosen character's\n\u00a4 this turn.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set2/15_89dd8994653f97f0b4be02f5b65b47c38259c01d.jpg"
+    },
+    "chien-po - imperial soldier": {
+      "display_name": "Chien-Po - Imperial Soldier",
+      "letter": null,
+      "cost": 5,
+      "strength": 4,
+      "willpower": 7,
+      "lore": 1,
+      "type": "character",
+      "keywords": [
+        "Bodyguard"
+      ],
+      "abilities_text": "Bodyguard (This character may enter play exerted.\nAn opposing character who challenges one of\nyour characters must choose one with Bodyguard\nif able.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set4/178_d4a7d814b074e857ce97f6b9e6306a53881820db.jpg"
+    },
+    "heathcliff - stoic butler c": {
+      "display_name": "Heathcliff - Stoic Butler",
+      "letter": "c",
+      "cost": 4,
+      "strength": 3,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Ward"
+      ],
+      "abilities_text": "Ward (Opponents can't choose this character\nexcept to challenge.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/78_c7457ad832ae9e59e0a6501c787628c81b01dd92.jpg"
+    },
+    "mulan - free spirit c": {
+      "display_name": "Mulan - Free Spirit",
+      "letter": "c",
+      "cost": 3,
+      "strength": 2,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Support"
+      ],
+      "abilities_text": "Support (Whenever this character quests, you\nmay add their \u00a4 to another chosen character's\n\u00a4 this turn.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set2/15_89dd8994653f97f0b4be02f5b65b47c38259c01d.jpg"
+    },
+    "heathcliff - stoic butler d": {
+      "display_name": "Heathcliff - Stoic Butler",
+      "letter": "d",
+      "cost": 4,
+      "strength": 3,
+      "willpower": 3,
+      "lore": 2,
+      "type": "character",
+      "keywords": [
+        "Ward"
+      ],
+      "abilities_text": "Ward (Opponents can't choose this character\nexcept to challenge.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set6/78_c7457ad832ae9e59e0a6501c787628c81b01dd92.jpg"
+    },
+    "simba - protective cub": {
+      "display_name": "Simba - Protective Cub",
+      "letter": null,
+      "cost": 2,
+      "strength": 2,
+      "willpower": 3,
+      "lore": 1,
+      "type": "character",
+      "keywords": [
+        "Bodyguard"
+      ],
+      "abilities_text": "Bodyguard (This character may enter play exerted.\nAn opposing character who challenges one of\nyour characters must choose one with Bodyguard\nif able.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/20_b2f2a37d828a715e998f77ee0d95e49c84e54509.jpg"
+    },
+    "aladdin - prince ali": {
+      "display_name": "Aladdin - Prince Ali",
+      "letter": null,
+      "cost": 2,
+      "strength": 2,
+      "willpower": 2,
+      "lore": 1,
+      "type": "character",
+      "keywords": [
+        "Ward"
+      ],
+      "abilities_text": "Ward (Opponents can't choose this character\nexcept to challenge.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/69_567caacf82f67ff08587b6ded1c7ebeb1f77a196.jpg"
+    },
+    "prince eric - dashing and brave": {
+      "display_name": "Prince Eric - Dashing and Brave",
+      "letter": null,
+      "cost": 2,
+      "strength": 1,
+      "willpower": 3,
+      "lore": 1,
+      "type": "character",
+      "keywords": [
+        "Challenger"
+      ],
+      "abilities_text": "Challenger +2 (While challenging, this character\ngets +2 \u00a4.)",
+      "image": "https://api.lorcana.ravensburger.com/images/en/set1/187_8538f8771bfee2ee71b7c477d34de0dd7def63c8.jpg"
+    }
+  },
+  "board_state": {
+    "turn": 7,
+    "phase": "main",
+    "win_target": 20,
+    "me": {
+      "lore": 4,
+      "ink_available": 1,
+      "ink_total": 4,
+      "hand": [
+        "prince naveen - penniless royal",
+        "mulan - free spirit d",
+        "chien-po - imperial soldier",
+        "prince eric - dashing and brave"
+      ],
+      "in_play": {
+        "genie - satisfied dragon": {
+          "exerted": false
+        },
+        "mr. arrow - legacy's first mate": {
+          "exerted": true,
+          "damage": 1
+        },
+        "simba - protective cub": {
+          "exerted": false
+        }
+      },
+      "inkwell": 4,
+      "discard": [],
+      "deck_size": 0
+    },
+    "opponent": {
+      "lore": 0,
+      "ink_available": 0,
+      "ink_total": 4,
+      "hand": {
+        "hidden": true,
+        "size": 4
+      },
+      "in_play": {
+        "tinker bell - fast flier a": {
+          "exerted": true,
+          "damage": 1
+        },
+        "heathcliff - stoic butler c": {
+          "exerted": false
+        }
+      },
+      "inkwell": 4,
+      "discard": [],
+      "deck_size": 0
+    }
+  }
+}

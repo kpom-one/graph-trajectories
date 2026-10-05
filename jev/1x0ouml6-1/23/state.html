@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lorcana state · turn 7 (main)</title>
+  <style>
+    :root {
+      --accent: #7fc892;
+      --accent-2: #a3dab4;
+      --accent-ink: #0e1a12;
+      --muted: #cfe0d4;
+      --line: rgba(255,255,255,0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: linear-gradient(180deg, #1d2a1f 0%, #243524 100%);
+      color: #cfe0d4;
+      min-height: 100vh;
+      padding: 16px;
+    }
+    .board {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 8px;
+    }
+    /* Middle row: battlefield on the left, hand column on the right.
+       Both stretch to the same height so they share a visual frame. */
+    .mid-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: stretch;
+    }
+.lane {
+      background: rgba(0,0,0,0.30);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 130px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .counters {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 16px;
+      min-height: 56px;
+      padding: 8px 12px;
+    }
+    .counters .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      min-width: 60px;
+    }
+    .counters .label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      color: var(--muted);
+    }
+    .counters .val {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f1c75c;
+      line-height: 1;
+    }
+
+    .battlefield {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 220px;
+    }
+    .battlefield .half {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      min-height: 100px;
+    }
+    .battlefield .half.opp-half { padding: 8px; }
+    .battlefield .half.my-half  { padding: 8px; }
+    .battlefield .sep {
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* My hand sits beside the my-half battlefield inside a horizontal row. */
+    .battlefield .my-row {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: stretch;
+      gap: 4px;
+      min-height: 100px;
+    }
+    .battlefield .my-row .my-half {
+      flex: 1 1 auto;
+      background: transparent;
+      min-height: 0;
+      padding: 8px;
+    }
+    .my-hand {
+      flex: 0 0 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0,0,0,0.18);
+      border-radius: 8px;
+      padding: 8px 6px;
+      align-self: stretch;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    .my-hand-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+    .my-hand-cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+    .my-hand-cards .card {
+      width: 84px;
+      height: 118px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    /* Stack cards so each one peeks out its TOP — the cost circle sits in
+       the top-left corner of every Lorcana card, so the visible strip
+       always shows the cost. Z-index makes the LAST (most recently
+       drawn) card sit on top, with older cards fanning out underneath.
+       A small alternating X-offset gives the stack a fanned look. */
+    .my-hand-cards .card ~ .card {
+      margin-top: -78px;
+    }
+    .my-hand-cards .card:nth-child(odd)  { transform: translateX(-4px); }
+    .my-hand-cards .card:nth-child(even) { transform: translateX(4px);  }
+    /* Keep the alternate offset when cards are also exerted. */
+    .my-hand-cards .card.exerted:nth-child(odd)  { transform: rotate(90deg) translateX(-4px); }
+    .my-hand-cards .card.exerted:nth-child(even) { transform: rotate(90deg) translateX(4px);  }
+    .my-hand-cards .card:nth-last-child(1) { z-index: 7; }
+    .my-hand-cards .card:nth-last-child(2) { z-index: 6; }
+    .my-hand-cards .card:nth-last-child(3) { z-index: 5; }
+    .my-hand-cards .card:nth-last-child(4) { z-index: 4; }
+    .my-hand-cards .card:nth-last-child(5) { z-index: 3; }
+    .my-hand-cards .card:nth-last-child(6) { z-index: 2; }
+    .my-hand-cards .card:nth-last-child(n+7) { z-index: 1; }
+
+    /* My counter row spans the full board width to match the opp-counter row. */
+    .my-counters {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .my-counters .lane.counters {
+      margin: 0;
+      min-height: 56px;
+      padding: 8px 12px;
+    }
+
+    .card {
+      width: 84px; height: 118px;
+      border-radius: 5px;
+      background: #000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card.face-down { background: #070a14; }
+    .opp-lane .card.face-down { opacity: 0.9; }
+    /* Exerted (tapped) cards: rotate the wrapper 90° so the artwork lies
+       sideways. The rotation keeps the image inside fully visible (no
+       clipping), but the rotated bounding box extends beyond the lane —
+       offset with a small negative margin so neighbors stay tight. */
+    .card.exerted {
+      /* Rotate 90° and reserve a wider horizontal slot so neighbors don't
+         crowd the rotated bounding box (visual width is 118, slot is 84). */
+      transform: rotate(90deg);
+      margin: 17px 17px;
+    }
+    .card .dmg {
+      position: absolute;
+      bottom: 6px; left: 6px;
+      background: rgba(220, 40, 40, 0.95);
+      color: #fff;
+      font-weight: 700; font-size: 16px;
+      border-radius: 50%;
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+    /* Counter-rotate the damage badge so it stays upright when the card
+       is exerted (rotated 90°). */
+    .card.exerted .dmg {
+      transform: rotate(-90deg);
+      transform-origin: center;
+      bottom: 6px; left: 6px;
+    }
+    .placeholder { background: linear-gradient(135deg, #2a2f3a, #1a1d24); }
+
+    [data-tooltip] { position: relative; }
+    [data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%; transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .actions {
+      max-width: 980px;
+      margin: 16px auto 0;
+      background: rgba(0,0,0,0.30);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .actions h3 {
+      margin: 0 0 8px 0;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      color: var(--muted);
+    }
+    .action-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .action-group h4 {
+      margin: 0 0 4px 0;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.55;
+      color: #cfe0d4;
+    }
+    .action-group ul {
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .action-group li {
+      padding: 3px 0;
+      font-size: 12px;
+      color: #cfe0d4;
+    }
+    .action-group li.taken {
+      color: #a3dab4;
+      background: rgba(127, 200, 146, 0.10);
+      border-left: 2px solid #7fc892;
+      padding-left: 6px;
+      border-radius: 3px;
+    }
+
+    .turn-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 220px;
+      padding: 14px 10px;
+      background: rgba(0,0,0,0.45);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      overflow-y: auto;
+      font-size: 12px;
+      z-index: 10;
+    }
+    .turn-nav .label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+    .turn-nav details {
+      margin-bottom: 4px;
+    }
+    .turn-nav summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      border: 1px solid transparent;
+    }
+    .turn-nav summary::-webkit-details-marker { display: none; }
+    .turn-nav summary:hover { background: rgba(255,255,255,0.05); }
+    .turn-nav .turn-label {
+      font-weight: 600;
+      color: #cfe0d4;
+    }
+    .turn-nav .turn-count {
+      font-size: 10px;
+      opacity: 0.5;
+    }
+    .turn-nav details.current > summary {
+      background: rgba(127, 200, 146, 0.15);
+      border-color: rgba(127, 200, 146, 0.4);
+    }
+    .turn-nav details.current > summary .turn-label {
+      color: #a3dab4;
+    }
+    .turn-nav .turn-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .turn-nav .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 4px 4px 6px 22px;
+    }
+    .turn-nav a.step {
+      display: block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #cfe0d4;
+      text-decoration: none;
+      font-size: 11px;
+      opacity: 0.75;
+      line-height: 1.3;
+    }
+    .turn-nav a.step .step-label {
+      display: block;
+      word-break: break-word;
+    }
+    .turn-nav a.step:hover { background: rgba(127, 200, 146, 0.15); opacity: 1; }
+    .turn-nav a.step.on {
+      background: #7fc892;
+      color: #0e1a12;
+      opacity: 1;
+      font-weight: 600;
+    }
+    body { margin-left: 220px; }
+    @media (max-width: 700px) {
+      .turn-nav { position: static; width: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      body { margin-left: 0; }
+    }
+
+    .ask {
+      max-width: 980px;
+      margin: 16px auto 0;
+      background: rgba(0,0,0,0.30);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .ask h3 {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+    .ask-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .ask-tabs {
+      display: inline-flex;
+      padding: 2px;
+      gap: 2px;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.28);
+    }
+    .ask-tab {
+      border: 0;
+      border-radius: 4px;
+      padding: 5px 10px;
+      background: transparent;
+      color: #cfe0d4;
+      font: inherit;
+      font-size: 11px;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    .ask-tab:hover { opacity: 1; }
+    .ask-tab[aria-selected="true"] {
+      background: rgba(127, 200, 146, 0.18);
+      color: var(--accent-2);
+      opacity: 1;
+    }
+    .ask-tab:focus-visible { outline: 1px solid var(--accent); }
+    #ask-form { display: grid; }
+    .ask-panel { display: grid; gap: 10px; }
+    .ask-panel[hidden] { display: none; }
+    .ask-submit {
+      background: #7fc892;
+      color: #0e1a12;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .ask-submit:hover { background: #a3dab4; }
+    .ask-submit:disabled,
+    .add-question:disabled { cursor: not-allowed; opacity: 0.45; }
+    .ask-result { margin-top: 10px; font-size: 12px; }
+    .ask-result.pending { opacity: 0.6; }
+    .ask-result.error   { color: #ff7575; }
+    .ask-result.ok      { color: #cfe0d4; }
+    .ask-choice         { font-size: 14px; margin-bottom: 2px; }
+    .ask-engine         { font-family: monospace; opacity: 0.5; font-size: 11px; margin-bottom: 4px; }
+    .ask-meta           { opacity: 0.5; font-size: 11px; }
+    .probs              { margin-top: 8px; opacity: 0.8; }
+    .probs summary      { cursor: pointer; font-size: 11px; }
+    .prob-row           { display: flex; justify-content: space-between; padding: 2px 0; font-size: 11px; }
+
+    .question-list { display: grid; gap: 2px; }
+    .question-row {
+      display: grid;
+      grid-template-columns: 22px minmax(220px, 1fr) auto auto;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .question-number {
+      color: var(--accent-2);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .question-prompt {
+      width: 100%;
+      min-width: 0;
+      background: rgba(0,0,0,0.4);
+      color: #cfe0d4;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 8px;
+      font: inherit;
+      font-size: 12px;
+    }
+    .question-prompt:focus { outline: 1px solid var(--accent); }
+    .question-row.invalid .question-prompt { border-color: #ff7575; }
+    .question-filters { justify-content: flex-end; }
+    .remove-question,
+    .add-question {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.04);
+      color: #cfe0d4;
+      padding: 5px 9px;
+      font: inherit;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .remove-question:hover:not(:disabled),
+    .add-question:hover:not(:disabled) { background: rgba(255,255,255,0.09); }
+    .remove-question:disabled { visibility: hidden; }
+    .question-controls { display: flex; align-items: center; gap: 8px; }
+    .available-answers { margin-top: 4px; }
+    .question-result {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .question-result:last-of-type { border-bottom: 0; }
+    .result-prompt { color: var(--accent-2); font-weight: 600; margin-bottom: 5px; }
+    .result-usage { margin-top: 8px; opacity: 0.5; font-size: 11px; }
+
+    .ask-field  { display: flex; flex-direction: row; align-items: center; gap: 8px; }
+    .ask-field > label { flex: 0 0 140px; }
+    .ask-field > label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .ask-field > input[type="text"],
+    .ask-field > textarea {
+      background: rgba(0,0,0,0.4);
+      color: #cfe0d4;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 4px;
+      padding: 6px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .ask-field > textarea {
+      resize: vertical;
+      min-height: 88px;
+      line-height: 1.4;
+    }
+    .ask-field > input[type="text"]:focus,
+    .ask-field > textarea:focus { outline: 1px solid #7fc892; }
+
+    .ask-field--actions { align-items: flex-start; }
+    .ask-actions { flex: 1 1 auto; display: flex; flex-direction: column; gap: 8px; }
+    .action-groups--inline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .actions-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 8px 0;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    .actions-header h3 {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+    .actions-filters {
+      display: inline-flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .actions-filter {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      font-size: 10px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255,255,255,0.04);
+      text-transform: lowercase;
+      letter-spacing: 0;
+    }
+    .actions-filter input { display: none; }
+    .actions-filter.on {
+      background: #7fc892;
+      color: #0e1a12;
+      border-color: #7fc892;
+    }
+
+    @media (max-width: 700px) {
+      .ask-header { align-items: flex-start; flex-direction: column; }
+      .ask-field { align-items: flex-start; flex-direction: column; }
+      .ask-field > label { flex-basis: auto; }
+      .ask-actions { width: 100%; }
+      .question-row { grid-template-columns: 22px minmax(0, 1fr) auto; }
+      .question-filters { grid-column: 2 / 4; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <div class="lane counters"><div class="stat"><span class="label">lore</span><span class="val">0</span></div><div class="stat"><span class="label">discard</span><span class="val">0</span></div><div class="stat"><span class="label">deck</span><span class="val">43</span></div><div class="stat"><span class="label">inkwell</span><span class="val">4</span></div><div class="stat"><span class="label">hand</span><span class="val">4</span></div></div>
+    <div class="mid-row">
+      <div class="lane battlefield">
+        <div class="half opp-half opp-lane"><div class="card exerted" data-tooltip="Tinker Bell - Fast Flier (a) | 3 · ⚔1 · ❤3 · ⭐2"><img src="https://api.lorcana.ravensburger.com/images/en/set6/43_33a86f99e97fe00cff699ae7d083e2ed8383603a.jpg" alt=""/><div class="dmg">1</div></div><div class="card" data-tooltip="Heathcliff - Stoic Butler (c) | 4 · ⚔3 · ❤3 · ⭐2"><img src="https://api.lorcana.ravensburger.com/images/en/set6/78_c7457ad832ae9e59e0a6501c787628c81b01dd92.jpg" alt=""/></div></div>
+        <div class="sep"></div>
+        <div class="half my-half my-lane"><div class="card" data-tooltip="Genie - Satisfied Dragon | 3 · ⚔3 · ❤4 · ⭐1"><img src="https://api.lorcana.ravensburger.com/images/en/set8/189_405a2b04bd88d4c91e957c7dda5b012b7892b4cc.jpg" alt=""/></div><div class="card exerted" data-tooltip="Mr. Arrow - Legacy&#x27;s First Mate | 2 · ⚔1 · ❤2 · ⭐2"><img src="https://api.lorcana.ravensburger.com/images/en/set6/182_e4778fe78483fbcf2dc0ebdb6cdd41555426c06c.jpg" alt=""/><div class="dmg">1</div></div><div class="card" data-tooltip="Simba - Protective Cub | 2 · ⚔2 · ❤3 · ⭐1"><img src="https://api.lorcana.ravensburger.com/images/en/set1/20_b2f2a37d828a715e998f77ee0d95e49c84e54509.jpg" alt=""/></div></div>
+      </div>
+      <div class="lane my-hand">
+        <div class="my-hand-label">Hand</div>
+        <div class="my-hand-cards"><div class="card" data-tooltip="Prince Naveen - Penniless Royal | 3 · ⚔4 · ❤3 · ⭐1"><img src="https://api.lorcana.ravensburger.com/images/en/set2/191_506c8d6d3f45f9224ad619128fd2d971c4c54186.jpg" alt=""/></div><div class="card" data-tooltip="Mulan - Free Spirit (d) | 3 · ⚔2 · ❤3 · ⭐2"><img src="https://api.lorcana.ravensburger.com/images/en/set2/15_89dd8994653f97f0b4be02f5b65b47c38259c01d.jpg" alt=""/></div><div class="card" data-tooltip="Chien-Po - Imperial Soldier | 5 · ⚔4 · ❤7 · ⭐1"><img src="https://api.lorcana.ravensburger.com/images/en/set4/178_d4a7d814b074e857ce97f6b9e6306a53881820db.jpg" alt=""/></div><div class="card" data-tooltip="Prince Eric - Dashing and Brave | 2 · ⚔1 · ❤3 · ⭐1"><img src="https://api.lorcana.ravensburger.com/images/en/set1/187_8538f8771bfee2ee71b7c477d34de0dd7def63c8.jpg" alt=""/></div></div>
+      </div>
+    </div>
+    <div class="lane counters"><div class="stat"><span class="label">lore</span><span class="val">4</span></div><div class="stat"><span class="label">discard</span><span class="val">0</span></div><div class="stat"><span class="label">deck</span><span class="val">42</span></div><div class="stat"><span class="label">inkwell</span><span class="val">4</span></div><div class="stat"><span class="label">hand</span><span class="val">4</span></div></div>
+  </div>
+
+  <section class="ask">
+    <div class="ask-header">
+      <h3>Ask Jev</h3>
+      <div class="ask-tabs" role="tablist" aria-label="Ask Jev sections">
+        <button class="ask-tab" id="questions-tab" type="button" role="tab" aria-selected="true" aria-controls="questions-panel">Questions</button>
+        <button class="ask-tab" id="information-tab" type="button" role="tab" aria-selected="false" aria-controls="information-panel" tabindex="-1">Information</button>
+      </div>
+    </div>
+    <form id="ask-form">
+      <section class="ask-panel" id="questions-panel" role="tabpanel" aria-labelledby="questions-tab">
+        <div class="question-list" id="question-list"></div>
+        <template id="question-row-template">
+          <div class="question-row">
+            <span class="question-number"></span>
+            <input class="question-prompt" type="text" placeholder="What should I do this turn?" />
+            <div class="actions-filters question-filters">
+              <label class="actions-filter on" data-type="end"><input type="checkbox" checked/> end</label>
+              <label class="actions-filter on" data-type="ink"><input type="checkbox" checked/> ink</label>
+              <label class="actions-filter on" data-type="play"><input type="checkbox" checked/> play</label>
+              <label class="actions-filter on" data-type="quest"><input type="checkbox" checked/> quest</label>
+              <label class="actions-filter on" data-type="challenge"><input type="checkbox" checked/> challenge</label>
+            </div>
+            <button class="remove-question" type="button">Remove</button>
+          </div>
+        </template>
+
+        <div class="question-controls">
+          <button class="add-question" id="add-question" type="button">+ Add question</button>
+          <button class="ask-submit" id="ask-all" type="submit">Ask all</button>
+        </div>
+
+        <div class="ask-field ask-field--actions available-answers">
+          <label>Available Answers</label>
+          <div class="ask-actions">
+            <div class="action-groups action-groups--inline"><div class="action-group" data-type="end"><h4>end</h4><ul><li>End the turn</li></ul></div><div class="action-group" data-type="quest"><h4>quest</h4><ul><li>Quest with Simba - Protective Cub (1 lore)</li></ul></div></div>
+          </div>
+        </div>
+
+        <div id="ask-result" class="ask-result" aria-live="polite"></div>
+      </section>
+
+      <section class="ask-panel" id="information-panel" role="tabpanel" aria-labelledby="information-tab" hidden>
+        <div class="ask-field">
+          <label for="player">Player</label>
+          <textarea id="player" name="player" placeholder="Describe the player and how they approach the game"></textarea>
+        </div>
+        <div class="ask-field">
+          <label for="deck">Deck</label>
+          <textarea id="deck" name="deck" placeholder="Describe the deck and its game plan"></textarea>
+        </div>
+        <div class="ask-field">
+          <label for="past-matches">Past matches</label>
+          <textarea id="past-matches" name="past_matches" placeholder="What happened in relevant past matches?"></textarea>
+        </div>
+        <div class="ask-field">
+          <label for="future-lines">Future Lines I See</label>
+          <textarea id="future-lines" name="future_lines" placeholder="What future lines are you considering?"></textarea>
+        </div>
+      </section>
+    </form>
+  </section>
+
+  <script>
+    window.STATE_DIR = "1x0ouml6-1/23";
+    window.EPISODE_ID = "";
+    window.TURN_BUCKETS = [];
+    window.CURRENT_STATE = 23;
+    const QUESTION_STORAGE_KEY = "jev-question:" + window.STATE_DIR;
+    const INFORMATION_STORAGE_KEY = "jev-information";
+
+    // Keyboard navigation: ←/→ prev/next state, Shift+←/→ jump turns.
+    (function() {
+      const buckets = window.TURN_BUCKETS || [];
+      const cur = window.CURRENT_STATE;
+      if (!buckets.length || cur === null) return;
+
+      const allStates = buckets.flatMap(([, states]) => states);
+      const flatIndex = allStates.indexOf(cur);
+
+      function jump(state) {
+        if (state === undefined || state === null) return;
+        window.location.href = "/" + window.EPISODE_ID + "/" + state;
+      }
+
+      document.addEventListener("keydown", (e) => {
+        const t = e.target;
+        if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        if (flatIndex < 0) return;
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          if (e.shiftKey) {
+            // Previous turn: first state of bucket before current turn.
+            for (let i = buckets.length - 1; i >= 0; i--) {
+              const [t, states] = buckets[i];
+              if (t < currentTurnBucket()) { jump(states[0]); return; }
+            }
+          } else {
+            jump(allStates[flatIndex - 1]);
+          }
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          if (e.shiftKey) {
+            for (let i = 0; i < buckets.length; i++) {
+              const [t, states] = buckets[i];
+              if (t > currentTurnBucket()) { jump(states[0]); return; }
+            }
+          } else {
+            jump(allStates[flatIndex + 1]);
+          }
+        }
+      });
+
+      function currentTurnBucket() {
+        for (const [t, states] of buckets) {
+          if (states.includes(cur)) return t;
+        }
+        return 0;
+      }
+    })();
+
+    (() => {
+      const form = document.getElementById("ask-form");
+      const result = document.getElementById("ask-result");
+      const questionList = document.getElementById("question-list");
+      const questionTemplate = document.getElementById("question-row-template");
+      const addQuestionButton = document.getElementById("add-question");
+      const askAllButton = document.getElementById("ask-all");
+      const playerEl = document.getElementById("player");
+      const deckEl = document.getElementById("deck");
+      const pastMatchesEl = document.getElementById("past-matches");
+      const futureLinesEl = document.getElementById("future-lines");
+      const tabEls = Array.from(document.querySelectorAll(".ask-tab"));
+      const questionLimit = 10;
+
+      function selectTab(tab) {
+        tabEls.forEach(el => {
+          const selected = el === tab;
+          el.setAttribute("aria-selected", String(selected));
+          el.tabIndex = selected ? 0 : -1;
+          document.getElementById(el.getAttribute("aria-controls")).hidden = !selected;
+        });
+      }
+
+      tabEls.forEach((tab, index) => {
+        tab.addEventListener("click", () => selectTab(tab));
+        tab.addEventListener("keydown", (event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          const offset = event.key === "ArrowRight" ? 1 : -1;
+          const next = tabEls[(index + offset + tabEls.length) % tabEls.length];
+          selectTab(next);
+          next.focus();
+        });
+      });
+
+      function questionRows() {
+        return Array.from(questionList.querySelectorAll(".question-row"));
+      }
+
+      function refreshQuestionRows() {
+        const rows = questionRows();
+        rows.forEach((row, index) => {
+          row.querySelector(".question-number").textContent = String(index + 1);
+          row.querySelector(".question-prompt").setAttribute("aria-label", `Question ${index + 1}`);
+          const removeButton = row.querySelector(".remove-question");
+          removeButton.disabled = rows.length === 1;
+          removeButton.setAttribute("aria-label", `Remove question ${index + 1}`);
+        });
+        addQuestionButton.disabled = rows.length >= questionLimit;
+      }
+
+      function savedQuestionRows() {
+        return questionRows().map(row => {
+          const types = {};
+          row.querySelectorAll(".actions-filter").forEach(filter => {
+            types[filter.dataset.type] = filter.classList.contains("on");
+          });
+          return {
+            prompt: row.querySelector(".question-prompt").value,
+            types,
+          };
+        });
+      }
+
+      function requestQuestions() {
+        return questionRows().map(row => ({
+          prompt: row.querySelector(".question-prompt").value.trim(),
+          action_types: Array.from(row.querySelectorAll(".actions-filter.on"))
+            .map(filter => filter.dataset.type),
+        }));
+      }
+
+      function saveQuestions() {
+        try {
+          localStorage.setItem(QUESTION_STORAGE_KEY, JSON.stringify({
+            questions: savedQuestionRows(),
+          }));
+        } catch (_) {}
+      }
+
+      function addQuestion(saved = {}, focus = false) {
+        if (questionRows().length >= questionLimit) return;
+        const row = questionTemplate.content.firstElementChild.cloneNode(true);
+        const promptEl = row.querySelector(".question-prompt");
+        promptEl.value = typeof saved.prompt === "string" ? saved.prompt : "";
+        promptEl.addEventListener("input", () => {
+          row.classList.remove("invalid");
+          saveQuestions();
+        });
+
+        const savedTypes = saved.types && typeof saved.types === "object"
+          ? saved.types
+          : null;
+        row.querySelectorAll(".actions-filter").forEach(filter => {
+          const checkbox = filter.querySelector("input");
+          const on = savedTypes ? savedTypes[filter.dataset.type] !== false : true;
+          filter.classList.toggle("on", on);
+          checkbox.checked = on;
+          filter.addEventListener("click", event => {
+            event.preventDefault();
+            const enabled = !filter.classList.contains("on");
+            filter.classList.toggle("on", enabled);
+            checkbox.checked = enabled;
+            row.classList.remove("invalid");
+            saveQuestions();
+          });
+        });
+
+        row.querySelector(".remove-question").addEventListener("click", () => {
+          if (questionRows().length === 1) return;
+          row.remove();
+          refreshQuestionRows();
+          saveQuestions();
+        });
+        questionList.appendChild(row);
+        refreshQuestionRows();
+        if (focus) promptEl.focus();
+      }
+
+      let restoredQuestions = [];
+      try {
+        const saved = JSON.parse(localStorage.getItem(QUESTION_STORAGE_KEY) || "null");
+        if (saved && Array.isArray(saved.questions)) {
+          restoredQuestions = saved.questions
+            .filter(question => question && typeof question === "object")
+            .slice(0, questionLimit);
+        } else if (saved && typeof saved.question === "string") {
+          restoredQuestions = [{prompt: saved.question, types: saved.types}];
+        }
+      } catch (_) {}
+      (restoredQuestions.length ? restoredQuestions : [{}]).forEach(question => {
+        addQuestion(question);
+      });
+
+      try {
+        const savedInformation = JSON.parse(localStorage.getItem(INFORMATION_STORAGE_KEY) || "null");
+        if (savedInformation) {
+          if (typeof savedInformation.player === "string") playerEl.value = savedInformation.player;
+          if (typeof savedInformation.deck === "string") deckEl.value = savedInformation.deck;
+          if (typeof savedInformation.past_matches === "string") pastMatchesEl.value = savedInformation.past_matches;
+          if (typeof savedInformation.future_lines === "string") futureLinesEl.value = savedInformation.future_lines;
+        }
+      } catch (_) {}
+
+      addQuestionButton.addEventListener("click", () => {
+        addQuestion({}, true);
+        saveQuestions();
+      });
+
+      function saveInformation() {
+        try {
+          localStorage.setItem(INFORMATION_STORAGE_KEY, JSON.stringify({
+            player: playerEl.value,
+            deck: deckEl.value,
+            past_matches: pastMatchesEl.value,
+            future_lines: futureLinesEl.value,
+          }));
+        } catch (_) {}
+      }
+
+      [playerEl, deckEl, pastMatchesEl, futureLinesEl].forEach(el => {
+        el.addEventListener("input", saveInformation);
+      });
+
+      form.addEventListener("submit", async event => {
+        event.preventDefault();
+        const rows = questionRows();
+        const questions = requestQuestions();
+        rows.forEach(row => row.classList.remove("invalid"));
+
+        const invalidIndex = questions.findIndex(question => (
+          !question.prompt || question.action_types.length === 0
+        ));
+        if (invalidIndex >= 0) {
+          rows[invalidIndex].classList.add("invalid");
+          rows[invalidIndex].querySelector(".question-prompt").focus();
+          result.className = "ask-result error";
+          result.textContent = !questions[invalidIndex].prompt
+            ? `Question ${invalidIndex + 1} needs a prompt.`
+            : `Question ${invalidIndex + 1} needs at least one answer type.`;
+          return;
+        }
+
+        saveQuestions();
+        result.textContent = "asking...";
+        result.className = "ask-result pending";
+        askAllButton.disabled = true;
+        askAllButton.textContent = "Asking...";
+        try {
+          const response = await fetch("/api/jev", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+              state_dir: window.STATE_DIR,
+              questions,
+              information: {
+                player: playerEl.value.trim(),
+                deck: deckEl.value.trim(),
+                past_matches: pastMatchesEl.value.trim(),
+                future_lines: futureLinesEl.value.trim(),
+              },
+            }),
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            result.className = "ask-result error";
+            result.textContent = data.error || "error";
+            return;
+          }
+          result.className = "ask-result ok";
+          result.innerHTML = renderResults(data);
+        } catch (error) {
+          result.className = "ask-result error";
+          result.textContent = String(error);
+        } finally {
+          askAllButton.disabled = false;
+          askAllButton.textContent = "Ask all";
+        }
+      });
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c =>
+          ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
+        );
+      }
+
+      function renderResults(data) {
+        const results = Array.isArray(data.results) ? data.results : [];
+        const rows = results.map((entry, index) => {
+          const confidence = typeof entry.confidence === "number"
+            ? entry.confidence.toFixed(2)
+            : "n/a";
+          return `<section class="question-result">` +
+            `<div class="result-prompt">${index + 1}. ${escapeHtml(entry.prompt || "")}</div>` +
+            `<div class="ask-choice"><b>${escapeHtml(entry.chosen_label || "")}</b></div>` +
+            `<div class="ask-engine">${escapeHtml(entry.engine_description || "")}</div>` +
+            `<div class="ask-meta">confidence ${confidence}</div>` +
+            (entry.probabilities ? renderProbs(entry.probabilities) : "") +
+            `</section>`;
+        }).join("");
+        const usage = data.usage || {};
+        const usageText = Number.isFinite(usage.input_tokens) && Number.isFinite(usage.output_tokens)
+          ? `<div class="result-usage">${usage.input_tokens} in / ${usage.output_tokens} out</div>`
+          : "";
+        return rows + usageText;
+      }
+
+      function renderProbs(probs) {
+        const entries = Object.entries(probs).sort((a, b) => b[1] - a[1]).slice(0, 6);
+        const rows = entries.map(([k, v]) =>
+          `<div class="prob-row"><span>${escapeHtml(k)}</span><span>${(v * 100).toFixed(0)}%</span></div>`
+        ).join("");
+        return `<details class="probs"><summary>distribution</summary>${rows}</details>`;
+      }
+    })();
+  </script>
+</body>
+</html>
